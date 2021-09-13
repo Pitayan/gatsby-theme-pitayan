@@ -1,0 +1,24 @@
+
+@layer utilities {
+  @variants dark {
+    .border-t-white {
+      border-top-color: theme('colors.white')
+    }
+
+    .border-t-black {
+      border-top-color: theme('colors.black')
+    }
+
+    .text-inverted {
+      color: theme('colors.gray.200')
+    }
+
+    .bg-inverted {
+      background-color: theme('colors.gray.200')
+    }
+
+    .border-inverted {
+      border-color: theme('colors.gray.200')
+    }
+  }
+}

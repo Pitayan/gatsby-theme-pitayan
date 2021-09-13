@@ -1,7 +1,5 @@
-# Gatsby-theme-dragon-fruits
+# gatsby-theme-pitayan
 Yet another Gatsby theme plugin
 
-## TODO
-- [ ] Setup repo and install minimum required dependencies
-- [ ] Create Style Guide Page
-  - [ ] Postcss setup for global style
+# Note
+Under prototyping. Don't use it yet in production!

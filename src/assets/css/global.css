@@ -1,0 +1,16 @@
+body {
+  @apply text-lg;
+  @apply leading-none;
+
+  /* Dark Mode*/
+  @apply dark:bg-gray-900;
+  @apply transition-colors duration-300 ease-in-out;
+
+  /* fix ios tap flikering */
+  -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+}
+
+* {
+  @apply dark:text-inverted;
+}

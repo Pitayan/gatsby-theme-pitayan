@@ -1,0 +1,138 @@
+.subscription {
+  @apply bg-gray-100;
+
+  /* Dark Mode */
+  @apply dark:bg-gray-800;
+  
+  &-content {
+    @apply p-24;
+  }
+
+  &-action {
+    @apply space-x-8;
+  }
+}
+
+.pagination {
+  @apply text-lg;
+  @apply block;
+  @apply list-none;
+  @apply my-4 mx-0;
+  @apply px-0;
+
+  &-item {
+    @apply inline-block;
+    @apply py-1;
+    @apply rounded;
+
+    a {
+      @apply text-center;
+      @apply relative;
+      @apply px-4 py-1;
+      @apply text-black;
+
+      &:active,
+      &:focus,
+      &:hover {
+        @apply outline-none;
+      }
+    }
+  }
+
+  &-item:first-of-type {
+    @apply font-semibold;
+  }
+
+  &-item:last-of-type {
+    @apply font-semibold;
+  }
+
+  &-item.active {
+    @apply text-2xl;
+    @apply font-semibold;
+
+    a {
+      @apply underline;
+      @apply cursor-pointer;
+      @apply pointer-events-none;
+    }
+  }
+}
+
+.selection-popup {
+  @apply absolute;
+  @apply flex;
+  @apply bg-black;
+  @apply text-white;
+  @apply text-xl;
+  @apply font-bold;
+  @apply rounded;
+  @apply px-4 py-3;
+
+  /* Dark Mode */
+  @apply dark:bg-white;
+  & * {
+    @apply text-white;
+    @apply dark:text-black;
+  }
+
+  &:after {
+    @apply absolute;
+    @apply left-0 right-0;
+    @apply -bottom-2;
+    @apply my-0 mx-auto;
+    @apply w-0 h-0;
+    @apply border-l-8 border-r-8 border-t-8;
+    @apply border-solid;
+    @apply border-t-black;
+
+    content: '';
+    border-left-color: transparent;
+    border-right-color: transparent;
+
+    /* Dark Mode */
+    @apply dark:border-t-white;
+  }
+}
+
+.panel {
+  &-image {
+    @apply relative;
+    @apply overflow-hidden;
+    @apply rounded;
+    @apply h-64 w-full;
+    @apply mb-8;
+  }
+
+  &-content {
+    @apply mx-auto;
+    @apply text-gray-600;
+
+    /* Dark Mode */
+    @apply dark:text-gray-400;
+  }
+
+  &-footer {
+    @apply font-semibold;
+    @apply text-gray-400;
+    @apply text-base;
+
+    /* Dark Mode */
+    @apply dark:text-gray-600;
+  }
+}
+
+/**
+ * FIXME: For .pagination, dark:!text-inverted didn't work out properly since <a> tag is already styled
+ */
+/* Dark Mode*/
+.dark {
+  .pagination {
+    &-item {
+      a {
+        @apply !text-inverted;
+      }
+    }
+  }
+}
+

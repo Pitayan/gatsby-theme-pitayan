@@ -1,0 +1,181 @@
+button {
+  @apply appearance-none;
+  @apply select-none;
+  @apply align-middle;
+  @apply font-semibold;
+  @apply text-center;
+  @apply no-underline;
+  @apply leading-normal;
+  @apply whitespace-nowrap;
+  @apply inline-block;
+  @apply cursor-pointer;
+
+  &:focus {
+    @apply outline-none;
+    @apply ring-2 ring-indigo-200;
+  }
+
+  &[disabled],
+  &:disabled,
+  &.disabled {
+    @apply cursor-default;
+    @apply pointer-events-none;
+    @apply border-gray-400;
+    @apply !text-gray-400;
+    @apply !ring-0;
+    @apply !border-none;
+    @apply !bg-transparent;
+  }
+
+  &.fill, &.ghost {
+    @apply rounded;
+    @apply py-2 px-4;
+  }
+
+  &.fill {
+    @apply bg-indigo-500;
+    @apply text-white;
+    @apply border border-solid border-indigo-500;
+
+    &:hover {
+      @apply bg-indigo-600;
+      @apply border-indigo-600;
+    }
+
+    &:active {
+      @apply bg-indigo-700;
+      @apply border-indigo-700;
+    }
+  }
+
+  &.ghost {
+    @apply text-indigo-500;
+    @apply border-none;
+
+    background-color: inherit;
+
+    &:hover {
+      @apply text-indigo-600;
+    }
+
+    &:active {
+      @apply text-indigo-700;
+    }
+  }
+}
+
+hr {
+  @apply my-16 mx-auto;
+  @apply relative;
+  @apply overflow-visible;
+  @apply w-1 h-1;
+  @apply bg-gray-800;
+  @apply rounded-full;
+  @apply border-none;
+
+  /* Dark Mode*/
+  @apply dark:bg-inverted;
+  &:before, &:after {
+    @apply dark:bg-inverted;
+  }
+
+  &:before {
+    @apply absolute;
+    @apply w-1 h-1;
+    @apply bg-gray-800;
+    @apply -left-6;
+    @apply rounded-full;
+
+    content: '';
+  }
+  
+  &:after {
+    @apply absolute;
+    @apply w-1 h-1;
+    @apply bg-gray-800;
+    @apply -right-6;
+    @apply rounded-full;
+
+    content: '';
+  }
+}
+
+a {
+  @apply text-blue-600;
+
+  /* Dark Mode */
+  @apply dark:text-blue-400;
+
+  &:active,
+  &:focus,
+  &:hover {
+    @apply outline-none;
+    @apply underline;
+  }
+
+  &:focus {
+    @apply ring-2 ring-indigo-300 ring-offset-1;
+  }
+
+  &[disabled],
+  &:disabled,
+  &.disabled {
+    @apply cursor-default;
+    @apply pointer-events-none;
+    @apply text-gray-400;
+  }
+}
+
+input {
+  @apply appearance-none;
+  @apply border-none;
+  @apply leading-normal;
+  @apply shadow-none;
+  @apply max-w-full;
+  @apply w-full;
+  @apply py-1 px-0;
+
+  /* Dark Mode */
+  @apply dark:bg-gray-900;
+
+  min-height: 36px;
+  font-stretch: 100%;
+
+  &:active,
+  &:focus {
+    @apply outline-none;
+  }
+
+  &::placeholder {
+    @apply text-base;
+    @apply text-gray-400;
+  }
+
+  &[disabled],
+  &:disabled,
+  &.disabled {
+    @apply cursor-default;
+    @apply pointer-events-none;
+    @apply text-gray-300;
+
+    &::placeholder {
+      @apply text-gray-300;
+    }
+  }
+
+  &.outline {
+    @apply px-2;
+    @apply border border-solid border-gray-300;
+    @apply rounded;
+    @apply transition duration-150;
+
+    /* Dark Mode*/
+    @apply dark:border-gray-500;
+
+    &:active,
+    &:focus {
+      @apply border-indigo-500;
+      @apply ring-2 ring-indigo-200;
+    }
+  }
+}

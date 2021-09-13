@@ -1,0 +1,171 @@
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+h5 {
+  @apply text-lg;
+}
+
+h6 {
+  @apply text-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply leading-normal;
+  @apply font-semibold;
+  @apply font-serif;
+
+  margin-bottom: 0.5em;
+}
+
+p {
+  @apply mb-4;
+  @apply leading-relaxed;
+}
+
+a,
+ins,
+u {
+  text-decoration-skip: ink edges;
+}
+
+blockquote {
+  @apply ml-0 mb-4;
+  @apply leading-relaxed;
+  @apply font-serif italic; 
+  @apply border-l-4 border-solid border-black;
+  @apply pl-5 py-1;
+
+  /* Dark Mode */
+  @apply dark:border-inverted;
+}
+
+address {
+  @apply mb-4;
+  @apply font-serif italic;
+  @apply leading-relaxed;
+}
+
+abbr {
+  @apply cursor-help;
+  @apply no-underline;
+  @apply border-b border-dotted;
+}
+
+kbd {
+  @apply rounded;
+  @apply text-sm;
+  @apply text-white;
+  @apply leading-none;
+  @apply p-1;
+  @apply bg-gray-800;
+}
+
+mark {
+  @apply bg-yellow-400;
+  @apply border-b-2 border-solid border-yellow-600;
+  @apply rounded;
+  @apply px-1 pt-px;
+
+  /* Dark Mode */
+  @apply dark:text-black;
+}
+
+/* The inline code tag */
+code {
+  @apply font-mono;
+  @apply text-sm;
+  @apply rounded;
+  @apply py-0.5 px-1;
+
+  /* This relates to plugin gatsby-remark-vscode. We filter out these ones controlled by that plugin */
+  &:not([class*="grvsc-"]) {
+    @apply text-gray-800;
+    @apply bg-gray-200;
+
+    /* Dark Mode */
+    @apply dark:bg-gray-800;
+    @apply dark:text-gray-400;
+  }
+
+  /* This relates to plugin gatsby-remark-vscode. The inline code tag will have a class name of "grvsc-inline" */
+  &.grvsc-inline {
+    @apply bg-gray-200;
+
+    /* Dark Mode */
+    @apply dark:bg-gray-800;
+  }
+}
+
+pre {
+  @apply relative;
+  @apply whitespace-pre;
+  @apply rounded !important;
+  @apply mb-4;
+  @apply bg-gray-800 !important;
+
+  code {
+    @apply block;
+    @apply p-2;
+
+    color: inherit;
+    font-size: 80% !important;
+  }
+}
+
+ul, ol {
+  @apply p-0;
+  @apply mr-0 ml-4 my-4;
+
+  ul, ol {
+    @apply mr-0 ml-4 my-4;
+  }
+
+  li {
+    @apply mt-4;
+  }
+}
+
+ul {
+  @apply list-disc list-inside;
+
+  ul {
+    list-style-type: circle;
+  }
+}
+
+ol {
+  @apply list-decimal list-inside;
+
+  ol {
+    list-style-type: lower-alpha;
+
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+dl {
+  @apply mr-0 ml-4 my-4;
+
+  dt {
+    @apply font-bold;
+  }
+
+  dd {
+    @apply mx-0 mt-4 mb-8;
+  }
+}

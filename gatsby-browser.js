@@ -1,5 +1,7 @@
 // global stylesheet
-import "@/assets/styles/global.css"
+import "@/assets/css/style.css"
 
-// Highlighting for code blocks
-import "prismjs/themes/prism.css"
+import { checkIfDarkMode, toggleDark } from '@/utils'
+
+// toggle Dark mode
+toggleDark(checkIfDarkMode())
