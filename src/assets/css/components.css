@@ -1,15 +1,48 @@
+.tag {
+  @apply rounded-sm;
+  @apply bg-gray-200;
+  @apply dark:bg-gray-600;
+  @apply py-px px-1;
+  @apply text-sm;
+}
+
+a.site-link {
+  @apply font-semibold;
+  @apply text-gray-500;
+  @apply hover:text-gray-900;
+  @apply transition-colors; 
+  @apply duration-150;
+  @apply ease-in-out;
+
+  /* Dark Mode */
+  @apply dark:text-gray-400;
+  @apply dark:hover:text-gray-100; 
+}
+
 .subscription {
   @apply bg-gray-100;
+  @apply p-12;
 
   /* Dark Mode */
   @apply dark:bg-gray-800;
+
+  &-title {
+    @apply max-w-2xl;
+    @apply !mt-0 !mb-8;
+    @apply mx-auto;
+  }
   
   &-content {
-    @apply p-24;
+    @apply max-w-2xl;
+    @apply leading-tight;
+    @apply mx-auto mb-8;
   }
 
   &-action {
-    @apply space-x-8;
+    @apply flex flex-wrap;
+    @apply md:space-x-2;
+    @apply max-w-2xl;
+    @apply mx-auto;
   }
 }
 
@@ -29,7 +62,7 @@
       @apply text-center;
       @apply relative;
       @apply px-4 py-1;
-      @apply text-black;
+      @apply !text-black;
 
       &:active,
       &:focus,
@@ -106,19 +139,15 @@
 
   &-content {
     @apply mx-auto;
-    @apply text-gray-600;
+    @apply my-4;
 
     /* Dark Mode */
     @apply dark:text-gray-400;
   }
 
   &-footer {
-    @apply font-semibold;
-    @apply text-gray-400;
+    @apply text-gray-500;
     @apply text-base;
-
-    /* Dark Mode */
-    @apply dark:text-gray-600;
   }
 }
 

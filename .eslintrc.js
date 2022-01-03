@@ -18,4 +18,9 @@ module.exports = {
     // Overwrite rules specified from the extended configs e.g.
     // "@typescript-eslint/explicit-function-return-type": "off",
   },
+  settings: {
+    "import/resolver": {
+      typescript: { project: "./" }
+    }
+  }
 }

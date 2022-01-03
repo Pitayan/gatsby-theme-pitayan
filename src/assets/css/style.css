@@ -5,8 +5,10 @@
 /* Components styles */
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "tailwindcss/variants";
 @import "./utilities.css";
 @import "./typography.css";
 @import "./elements.css";
 @import "./components.css";
+@import "./markdown.css";
 

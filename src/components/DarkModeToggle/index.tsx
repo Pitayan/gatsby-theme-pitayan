@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { RiSunLine, RiMoonLine } from 'react-icons/ri'
+import { RiSunLine, RiMoonFill } from 'react-icons/ri'
 import { checkIfDarkMode, toggleDark } from '@/utils'
 
 const DarkModeToggle: React.FC<{}> = () => {
@@ -12,10 +12,10 @@ const DarkModeToggle: React.FC<{}> = () => {
   }
 
   return (
-    <span onClick={toggle} className="text-3xl ghost cursor-pointer">
+    <span onClick={toggle} className="cursor-pointer text-gray-500">
       {isDark
         ? <RiSunLine className="animate-fade-in-scale" />
-        : <RiMoonLine className="animate-fade-in-scale" />
+        : <RiMoonFill className="animate-fade-in-scale" />
       }
     </span>
   )

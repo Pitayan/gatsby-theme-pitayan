@@ -31,8 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  @apply mb-4;
-  @apply leading-relaxed;
+  @apply leading-normal;
 }
 
 a,
@@ -42,11 +41,13 @@ u {
 }
 
 blockquote {
+  @apply text-xl;
+  @apply font-semibold;
   @apply ml-0 mb-4;
   @apply leading-relaxed;
   @apply font-serif italic; 
   @apply border-l-4 border-solid border-black;
-  @apply pl-5 py-1;
+  @apply pl-8 py-1;
 
   /* Dark Mode */
   @apply dark:border-inverted;
@@ -118,7 +119,8 @@ pre {
 
   code {
     @apply block;
-    @apply p-2;
+    @apply px-0 py-2;
+    @apply w-full;
 
     color: inherit;
     font-size: 80% !important;

@@ -1,14 +1,15 @@
 module.exports = {
-  mode: 'jit',
-  purge: {
-    enabled: process.env === 'production',
-    content: [
-      './src/**/*.{css,tsx}',
-      './content/**/*.{md,mdx}'
-    ]
-  },
   darkMode: 'class',
+  content: [
+    './src/**/*.{css,tsx,svg}',
+    './content/**/*.{md,mdx}'
+  ],
   theme: {
+    fontFamily: {
+      sans: "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
+      serif: "'Merriweather', Georgia, Serif",
+      mono: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
+    },
     extend: {
       keyframes: {
         'fade-in-scale': {

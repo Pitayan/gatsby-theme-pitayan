@@ -1,6 +1,7 @@
 body {
   @apply text-lg;
   @apply leading-none;
+  @apply antialiased;
 
   /* Dark Mode*/
   @apply dark:bg-gray-900;

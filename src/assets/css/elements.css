@@ -27,12 +27,12 @@ button {
     @apply !bg-transparent;
   }
 
-  &.fill, &.ghost {
+  &.fill-button, &.ghost-button {
     @apply rounded;
     @apply py-2 px-4;
   }
 
-  &.fill {
+  &.fill-button {
     @apply bg-indigo-500;
     @apply text-white;
     @apply border border-solid border-indigo-500;
@@ -48,7 +48,7 @@ button {
     }
   }
 
-  &.ghost {
+  &.ghost-button {
     @apply text-indigo-500;
     @apply border-none;
 
@@ -61,68 +61,6 @@ button {
     &:active {
       @apply text-indigo-700;
     }
-  }
-}
-
-hr {
-  @apply my-16 mx-auto;
-  @apply relative;
-  @apply overflow-visible;
-  @apply w-1 h-1;
-  @apply bg-gray-800;
-  @apply rounded-full;
-  @apply border-none;
-
-  /* Dark Mode*/
-  @apply dark:bg-inverted;
-  &:before, &:after {
-    @apply dark:bg-inverted;
-  }
-
-  &:before {
-    @apply absolute;
-    @apply w-1 h-1;
-    @apply bg-gray-800;
-    @apply -left-6;
-    @apply rounded-full;
-
-    content: '';
-  }
-  
-  &:after {
-    @apply absolute;
-    @apply w-1 h-1;
-    @apply bg-gray-800;
-    @apply -right-6;
-    @apply rounded-full;
-
-    content: '';
-  }
-}
-
-a {
-  @apply text-blue-600;
-
-  /* Dark Mode */
-  @apply dark:text-blue-400;
-
-  &:active,
-  &:focus,
-  &:hover {
-    @apply outline-none;
-    @apply underline;
-  }
-
-  &:focus {
-    @apply ring-2 ring-indigo-300 ring-offset-1;
-  }
-
-  &[disabled],
-  &:disabled,
-  &.disabled {
-    @apply cursor-default;
-    @apply pointer-events-none;
-    @apply text-gray-400;
   }
 }
 
@@ -163,7 +101,7 @@ input {
     }
   }
 
-  &.outline {
+  &.outline-input {
     @apply px-2;
     @apply border border-solid border-gray-300;
     @apply rounded;

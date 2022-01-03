@@ -1,7 +1,10 @@
 ---
 title: The Style Guide for Gatsby-theme-pitayan
 date: "2021-07-31"
-description: "The style guide for a Gatsby blog"
+categories: ["styleguide","design"]
+excerpt: "The style guide for a Gatsby blog"
+hero: images/demo_1.jpg
+slug: styleguide
 ---
 
 <div class="text-center text-6xl font-serif font-extrabold mb-48">
@@ -19,7 +22,7 @@ The font famliy follows the Tailwind default settings.
 <br />
 <br />
 
-<div class="my-2 flex flex-wrap item-center justify-between">
+<div class="my-2 flex flex-wrap item-center justify-between mark-w-lg">
   <div class="font-sans grid grid-rows-2 place-item-start py-8"> 
     <div class="row-span-2 col-span-1 text-8xl">Aa</div>
     <b class="col-span-2 self-center">Sans Serif</b>
@@ -125,7 +128,7 @@ The font under `html•<quotes>` is set to <span class="font-serif font-bold">se
 Similar to the blockquote, the `html•<address>` tag is also set to <span class="font-serif font-bold">serif</span> and __*italic*__
 <br />
 
-<address>
+<address class="mark-w-md">
   <strong>Hello World!, Inc.</strong>
   <div>1-2-3 Alpha, Beta, Somewhere</div>
   <div>+00-11-2222-3333 (Main)</div>
@@ -146,7 +149,7 @@ It's clear that semantic elements are more friendly to users and developers, isn
 <br />
 <br />
 
-<div class="flex flex-wrap">
+<div class="mark-w-md flex flex-wrap">
   <div class="w-1/2">
     <div class="my-4">
       <abbr title="Internationalization">i18n</abbr><code class="ml-2">abbr</code>
@@ -227,14 +230,14 @@ Hight lines
 ```
 
 JSX
-```jsx
+```jsx {numberLines}
 const App = () => {
   return <div>Hello World!</div>
 }
 ```
 
 Diff changes
-```ts {diff}
+```ts {diff,numberLines}
 const add = (x: number, y: number) => {
 -   return x + x;
 +   return x + y;
@@ -258,7 +261,7 @@ Inline code highlight
 
 ### Lists
 
-<div class="flex flex-wrap w-full">
+<div class="mark-w-md flex flex-wrap w-full">
   <div class="sm:w-1/3 w-1/2">
     <ul>
       <li>List Item 1</li>
@@ -325,10 +328,12 @@ The theme uses Tailwind indigo as its primary color.
 <br />
 <br />
 
-<div class="text-sm w-20 text-center">
-  <div class="h-32 w-20 rounded bg-indigo-500"></div>
-  <b>bg-primary</b><br />
-  <b>500</b>
+<div class="mark-w-md">
+  <div class="text-sm w-20 text-center">
+    <div class="h-32 w-20 rounded bg-indigo-500"></div>
+    <b>bg-primary</b><br />
+    <b>500</b>
+  </div>
 </div>
 <br />
 <br />
@@ -345,7 +350,7 @@ The default Tailwind colors
 <br />
 
 
-<div class="flex flex-col flex-wrap space-y-3 sm:flex-row text-sm text-center sm:space-y-0 sm:space-x-4">
+<div class="mark-w-md flex flex-col flex-wrap space-y-3 sm:flex-row text-sm text-center sm:space-y-0 sm:space-x-4">
   <div class="w-20"> 
     <div class="h-32 w-20 rounded bg-gray-500"></div>
     <b>bg-gray</b><br />
@@ -366,6 +371,10 @@ The default Tailwind colors
     <b>bg-green</b><br />
     <b>500</b>  
   </div>
+</div>
+<br />
+
+<div class="mark-w-md flex flex-col flex-wrap space-y-3 sm:flex-row text-sm text-center sm:space-y-0 sm:space-x-4">
   <div class="w-20"> 
     <div class="h-32 w-20 rounded bg-blue-500"></div>
     <b>bg-blue</b><br />
@@ -412,27 +421,35 @@ The default Tailwind colors
 <br />
 
 Default `html•<button>` 
-<button>default button</button>
+<div class="mark-w-md">
+  <button>default button</button>
+</div>
 <br />
 <br />
 <br />
 
-"Fill" button `html•<button class="fill">` 
-<button class="fill">fill button</button>
+"Fill" button `html•<button class="fill-button">` 
+<div class="mark-w-md">
+  <button class="fill-button">fill button</button>
+</div>
 <br />
 <br />
 <br />
 
-"Ghost" button `html•<button class="ghost">`
-<button class="ghost">ghost button</button>
+"Ghost" button `html•<button class="ghost-button">`
+<div class="mark-w-md">
+  <button class="ghost-button">ghost button</button>
+</div>
 <br />
 <br />
 <br />
 
-Disabled styles
-<button disabled>normal disabled</button><br />
-<button class="fill" disabled>fill button disabled</button><br />
-<button class="ghost" disabled>ghost button disabled</button><br />
+Disabled styles `html•<button disabled>disabled button</button>`
+<div class="mark-w-md">
+  <button disabled>normal disabled</button><br />
+  <button class="fill-button" disabled>fill button disabled</button><br />
+  <button class="ghost-button" disabled>ghost button disabled</button><br />
+</div>
 
 
 <br />
@@ -493,10 +510,16 @@ The `html•<input>` element has 2 types: `default` and `outline`
 <br />
 <br />
 
-<input placeholder="This is a default input" type="text" />
+<div class="mark-w-md">
+  <input placeholder="This is a default input" type="text" />
+</div>
+
 <br />
 <br />
-<input class="outline" placeholder="This is an outline input" type="text" />
+
+<div class="mark-w-md">
+  <input class="outline-input" placeholder="This is an outline input" type="text" />
+</div>
 
 <br />
 <br />
@@ -584,13 +607,15 @@ Appears at the end of each article
 <br />
 <br />
 
-<div class="subscription">
-  <div class="subscription-content">
-    <h3>Join our email list and get notified about new content</h3>
-    <p>Be the first to receive our latest content with the ability to opt-out at anytime. We promise to not spam your inbox or share your email with any third parties.</p>
+<div class="mark-w-xl">
+  <div class="subscription">
+    <h3 class="subscription-title">Join our email list and get notified about new content</h3>
+    <div class="subscription-content">
+      Be the first to receive our latest content with the ability to opt-out at anytime. We promise to not spam your inbox or share your email with any third parties.
+    </div>
     <form class="subscription-action">
-      <input placeholder="your@email.com" name="email" type="email" class="outline max-w-sm" />
-      <button class="outline">Subscribe</button>
+      <input placeholder="your@email.com" name="email" type="email" class="outline-input md:max-w-md mb-8 md:mb-0" />
+      <button class="fill-button ml-auto">Subscribe</button>
     </form>
   </div>
 </div>
@@ -609,27 +634,29 @@ Appears at the end of each article
 <br />
 <br />
 
-<div class="selection-popup dark:text-black">
-  <span class="px-2">Share: </span>
-  <a class="px-2" href="#">
-    <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
-      <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path>
-    </svg>
-  </a>
-  <a class="px-2" href="#">
-    <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6"><path fill-rule="evenodd" d="M22.0367422,22 L17.8848745,22 L17.8848745,15.5036305 C17.8848745,13.9543347 17.85863,11.9615082 15.7275829,11.9615082 C13.5676669,11.9615082 13.237862,13.6498994 13.237862,15.3925291 L13.237862,22 L9.0903683,22 L9.0903683,8.64071385 L13.0707725,8.64071385 L13.0707725,10.4673257 L13.1276354,10.4673257 C13.6813927,9.41667396 15.0356049,8.3091593 17.0555507,8.3091593 C21.2599073,8.3091593 22.0367422,11.0753215 22.0367422,14.6734319 L22.0367422,22 Z M4.40923804,6.81585163 C3.07514653,6.81585163 2,5.73720584 2,4.40748841 C2,3.07864579 3.07514653,2 4.40923804,2 C5.73720584,2 6.81585163,3.07864579 6.81585163,4.40748841 C6.81585163,5.73720584 5.73720584,6.81585163 4.40923804,6.81585163 L4.40923804,6.81585163 Z M6.48604672,22 L2.32980492,22 L2.32980492,8.64071385 L6.48604672,8.64071385 L6.48604672,22 Z"></path>
-    </svg>
-  </a>
-  <a class="px-2" href="#">
-    <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
-      <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path>
-    </svg>
-  </a>
-  <a class="px-2" href="#">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-    </svg>
-  </a>
+<div class="mark-w-md">
+  <div class="selection-popup dark:text-black">
+    <span class="px-2">Share: </span>
+    <a class="px-2" href="#">
+      <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
+        <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path>
+      </svg>
+    </a>
+    <a class="px-2" href="#">
+      <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6"><path fill-rule="evenodd" d="M22.0367422,22 L17.8848745,22 L17.8848745,15.5036305 C17.8848745,13.9543347 17.85863,11.9615082 15.7275829,11.9615082 C13.5676669,11.9615082 13.237862,13.6498994 13.237862,15.3925291 L13.237862,22 L9.0903683,22 L9.0903683,8.64071385 L13.0707725,8.64071385 L13.0707725,10.4673257 L13.1276354,10.4673257 C13.6813927,9.41667396 15.0356049,8.3091593 17.0555507,8.3091593 C21.2599073,8.3091593 22.0367422,11.0753215 22.0367422,14.6734319 L22.0367422,22 Z M4.40923804,6.81585163 C3.07514653,6.81585163 2,5.73720584 2,4.40748841 C2,3.07864579 3.07514653,2 4.40923804,2 C5.73720584,2 6.81585163,3.07864579 6.81585163,4.40748841 C6.81585163,5.73720584 5.73720584,6.81585163 4.40923804,6.81585163 L4.40923804,6.81585163 Z M6.48604672,22 L2.32980492,22 L2.32980492,8.64071385 L6.48604672,8.64071385 L6.48604672,22 Z"></path>
+      </svg>
+    </a>
+    <a class="px-2" href="#">
+      <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path>
+      </svg>
+    </a>
+    <a class="px-2" href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>
+    </a>
+  </div>
 </div>
 
 <br />
@@ -649,29 +676,30 @@ Article list item `html•<div class="panel">`
 <br />
 <br />
 
-<div class="grid relative grid-cols-1 md:grid-cols-2 gap-8">
-  <div class="panel">
-    <div class="panel-image">
-      <img src="images/demo_1.jpg" />
+<div class="mark-w-lg">
+  <div class="grid relative grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="panel">
+      <div class="panel-image">
+        <img src="images/demo_1.jpg" />
+      </div>
+      <h3>This is a title</h3>
+      <p class="panel-content">
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <span class="panel-footer">Sept 26th, 2021 • 8 min read</span>
     </div>
-    <h3>This is a title</h3>
-    <p class="panel-content">
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <span class="panel-footer">Sept 26th, 2021 • 8 min read</span>
-  </div>
-  <div class="panel">
-    <div class="panel-image">
-      <img src="images/demo_2.png" />
+    <div class="panel">
+      <div class="panel-image">
+        <img src="images/demo_2.png" />
+      </div>
+      <h3>This is a title</h3>
+      <p class="panel-content">
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <span class="panel-footer">Sept 25th, 2021 • 8 min read</span>
     </div>
-    <h3>This is a title</h3>
-    <p class="panel-content">
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    </p>
-    <span class="panel-footer">Sept 25th, 2021 • 8 min read</span>
   </div>
 </div>
-
 <br />
 <br />
 <br />
