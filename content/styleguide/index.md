@@ -1,7 +1,7 @@
 ---
 title: The Style Guide for Gatsby-theme-pitayan
 date: "2021-07-31"
-categories: ["styleguide","design"]
+categories: ["styleguide", "design"]
 excerpt: "The style guide for a Gatsby blog"
 hero: images/demo_1.jpg
 slug: styleguide
@@ -12,12 +12,14 @@ Style Guide
 </div>
 
 ## 01. Typography
+
 <br />
 <br />
 <br />
 <br />
 
-### Fonts 
+### Fonts
+
 The font famliy follows the Tailwind default settings.
 <br />
 <br />
@@ -62,6 +64,7 @@ The font famliy follows the Tailwind default settings.
 <br />
 
 ### Headings
+
 The headings ranges from `html•<h1>` to `html•<h6>`. The headings have a relative margin bottom according to their font size.
 <br />
 <br />
@@ -82,6 +85,7 @@ The headings ranges from `html•<h1>` to `html•<h6>`. The headings have a rel
 <br />
 
 ### Paragraphs
+
 The common `html•<p>` tag. There's a `margin-bottom` (mb-4) for the gap between different paragraphs
 <br />
 <br />
@@ -104,9 +108,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <br />
 <br />
 
-
 ### Quotes
-The font under `html•<quotes>` is set to <span class="font-serif font-bold">serif</span> and __*italic*__ to distinguish with the normal article content.
+
+The font under `html•<quotes>` is set to <span class="font-serif font-bold">serif</span> and **_italic_** to distinguish with the normal article content.
 <br />
 <br />
 
@@ -123,9 +127,9 @@ The font under `html•<quotes>` is set to <span class="font-serif font-bold">se
 <br />
 <br />
 
-
 ### Address
-Similar to the blockquote, the `html•<address>` tag is also set to <span class="font-serif font-bold">serif</span> and __*italic*__
+
+Similar to the blockquote, the `html•<address>` tag is also set to <span class="font-serif font-bold">serif</span> and **_italic_**
 <br />
 
 <address class="mark-w-md">
@@ -143,8 +147,8 @@ Similar to the blockquote, the `html•<address>` tag is also set to <span class
 <br />
 <br />
 
-
 ### Semantic Elements
+
 It's clear that semantic elements are more friendly to users and developers, isn't it?
 <br />
 <br />
@@ -216,13 +220,13 @@ It's clear that semantic elements are more friendly to users and developers, isn
 <br />
 <br />
 
-
-
 ### Code
+
 The code highlight is enabled by the community plugin: `gatsby-remark-vscode`
 <br />
 
 Hight lines
+
 ```html{1,2}
 <div>
   <p>gatsby-theme-pitayan is a theme for building blogs</p>
@@ -230,6 +234,7 @@ Hight lines
 ```
 
 JSX
+
 ```jsx {numberLines}
 const App = () => {
   return <div>Hello World!</div>
@@ -237,6 +242,7 @@ const App = () => {
 ```
 
 Diff changes
+
 ```ts {diff,numberLines}
 const add = (x: number, y: number) => {
 -   return x + x;
@@ -248,7 +254,6 @@ Inline code highlight
 
 `js•Array.prototype.concat.apply([], array)`
 
-
 <br />
 <br />
 <br />
@@ -256,8 +261,6 @@ Inline code highlight
 <br />
 <br />
 <br />
-
-
 
 ### Lists
 
@@ -304,7 +307,6 @@ Inline code highlight
   </div>
 </div>
 
-
 <br />
 <br />
 <br />
@@ -312,14 +314,13 @@ Inline code highlight
 <br />
 <br />
 <br />
-
 
 ## 02. Colors
-<br />
-<br />
-<br />
-<br />
 
+<br />
+<br />
+<br />
+<br />
 
 ### Primary
 
@@ -343,12 +344,11 @@ The theme uses Tailwind indigo as its primary color.
 <br div/>
 <br />
 
-
 ### Palletes
-The default Tailwind colors 
-<br />
-<br />
 
+The default Tailwind colors
+<br />
+<br />
 
 <div class="mark-w-md flex flex-col flex-wrap space-y-3 sm:flex-row text-sm text-center sm:space-y-0 sm:space-x-4">
   <div class="w-20"> 
@@ -407,20 +407,21 @@ The default Tailwind colors
 <br />
 <br />
 
-
 ## 03. Elements
-<br />
-<br />
-<br />
-<br />
 
+<br />
+<br />
+<br />
+<br />
 
 ### Button
+
 3 built-in button types: `Default` `Fill` `Ghost`
 <br />
 <br />
 
-Default `html•<button>` 
+Default `html•<button>`
+
 <div class="mark-w-md">
   <button>default button</button>
 </div>
@@ -428,7 +429,8 @@ Default `html•<button>`
 <br />
 <br />
 
-"Fill" button `html•<button class="fill-button">` 
+"Fill" button `html•<button class="fill-button">`
+
 <div class="mark-w-md">
   <button class="fill-button">fill button</button>
 </div>
@@ -437,6 +439,7 @@ Default `html•<button>`
 <br />
 
 "Ghost" button `html•<button class="ghost-button">`
+
 <div class="mark-w-md">
   <button class="ghost-button">ghost button</button>
 </div>
@@ -445,12 +448,12 @@ Default `html•<button>`
 <br />
 
 Disabled styles `html•<button disabled>disabled button</button>`
+
 <div class="mark-w-md">
   <button disabled>normal disabled</button><br />
   <button class="fill-button" disabled>fill button disabled</button><br />
   <button class="ghost-button" disabled>ghost button disabled</button><br />
 </div>
-
 
 <br />
 <br />
@@ -466,14 +469,12 @@ A horizontal line `html•<hr>` is customized into 3 dots with margins to both e
 <br />
 <br />
 
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 <hr />
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
-
 <br />
 <br />
 <br />
@@ -481,7 +482,6 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 <br />
 <br />
 <br />
-
 
 ### Link
 
@@ -502,7 +502,6 @@ When a <a href="/styleguide" disabled>link</a> is disabled
 <br />
 <br />
 <br />
-
 
 ### Input
 
@@ -529,7 +528,6 @@ The `html•<input>` element has 2 types: `default` and `outline`
 <br />
 <br />
 <br />
-
 
 ## 04. Components
 
@@ -577,7 +575,6 @@ Active item font size `2xl` & font weight `semibold`
   </li>
 </ul>
 
-
 <ul class="pagination">
   <li class="pagination-item active">
     <a href="#">1</a>
@@ -601,8 +598,8 @@ Active item font size `2xl` & font weight `semibold`
 <br />
 <br />
 
-
 ### Subscription
+
 Appears at the end of each article
 <br />
 <br />
@@ -628,8 +625,8 @@ Appears at the end of each article
 <br />
 <br />
 
-
 ### Selection Popup
+
 `html•<div class="selection-popup">` to share the selected text to SNS or copy to clipboard.
 <br />
 <br />
@@ -670,8 +667,8 @@ Appears at the end of each article
 <br />
 <br />
 
-
 ### Panel
+
 Article list item `html•<div class="panel">`
 <br />
 <br />
@@ -703,5 +700,3 @@ Article list item `html•<div class="panel">`
 <br />
 <br />
 <br />
-
-

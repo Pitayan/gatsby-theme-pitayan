@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 // TODO: fix footer contents
-const BottomFooter = () => {
+const BottomFooter: React.FC = () => {
   const year = new Date().getFullYear()
   return (
     <footer className="pt-24 pb-12">
@@ -26,7 +26,7 @@ const BottomFooter = () => {
               write for us
             </Link>
             <Link className="site-link block" to="/editor-pick">
-              editor's pick
+              editor&#39;s pick
             </Link>
             <Link className="site-link block" to="/posts">
               posts
@@ -65,6 +65,7 @@ const BottomFooter = () => {
               href="https://twitter.com"
               className="site-link block"
               target="_blank"
+              rel="noreferrer"
             >
               twitter
             </a>
@@ -72,6 +73,7 @@ const BottomFooter = () => {
               href="https://twitter.com"
               className="site-link block"
               target="_blank"
+              rel="noreferrer"
             >
               github
             </a>

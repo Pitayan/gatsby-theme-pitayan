@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import DarkModeToggle from "@/components/DarkModeToggle"
 import URLCopyIconButton from "@/components/URLCopyIconButton"
 import SiteIcon from "@/assets/img/SiteIcon.svg"
-import { RiSearchLine, RiLinksLine } from "react-icons/ri"
 
 const TopNav: React.FC<Record<string, unknown>> = () => {
   return (

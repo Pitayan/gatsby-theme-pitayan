@@ -1,14 +1,12 @@
-import { graphql } from 'gatsby'
-import React from 'react'
+import { graphql } from "gatsby"
+import React from "react"
 
 type Props = {
   [key: string]: any
 }
 
 const Categories: React.FC<Props> = (props: Props) => {
-  return (
-    <div></div>
-  )
+  return <div></div>
 }
 
 export default Categories
@@ -23,7 +21,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          fields{ 
+          fields {
             slug
           }
           frontmatter {

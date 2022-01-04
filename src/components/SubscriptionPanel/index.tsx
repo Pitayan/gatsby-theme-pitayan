@@ -1,8 +1,6 @@
 import React from "react"
 
-const SubscriptionPanel: React.FC<Record<string, Array<unknown>>> = (
-  props: any
-) => {
+const SubscriptionPanel: React.FC = () => {
   return (
     <div className="subscription mark-w-xl my-24">
       <h3 className="subscription-title">

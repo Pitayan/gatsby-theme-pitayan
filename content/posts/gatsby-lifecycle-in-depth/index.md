@@ -1,7 +1,7 @@
 ---
 title: Understanding the Gatsby lifecycle in depth
 date: "2021-10-21"
-categories: ["gatsby","javascript"]
+categories: ["gatsby", "javascript"]
 excerpt: With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.
 hero: images/demo_2.png
 slug: posts/gatsby-lifecycle-in-depth
@@ -13,12 +13,12 @@ At Narative, we’ve been fans of Gatsby from day one, using it to build perform
 At Narative, we’ve been fans of Gatsby from day one, using it to build performant and flexible products for both clients and ourselves. With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.
 
 ```js
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import styled from "@emotion/styled";
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import styled from "@emotion/styled"
 
-import * as SocialIcons from "../../icons/social";
-import mediaqueries from "@styles/media";
+import * as SocialIcons from "../../icons/social"
+import mediaqueries from "@styles/media"
 
 const icons = {
   dribbble: SocialIcons.DribbbleIcon,
@@ -27,7 +27,7 @@ const icons = {
   facebook: SocialIcons.FacebookIcon,
   instagram: SocialIcons.InstagramIcon,
   github: SocialIcons.GithubIcon,
-};
+}
 
 const socialQuery = graphql`
   {
@@ -44,16 +44,16 @@ const socialQuery = graphql`
       }
     }
   }
-`;
+`
 
 function SocialLinks({ fill = "#73737D" }: { fill: string }) {
-  const result = useStaticQuery(socialQuery);
-  const socialOptions = result.allSite.edges[0].node.siteMetadata.social;
+  const result = useStaticQuery(socialQuery)
+  const socialOptions = result.allSite.edges[0].node.siteMetadata.social
 
   return (
     <>
       {socialOptions.map(option => {
-        const Icon = icons[option.name];
+        const Icon = icons[option.name]
 
         return (
           <SocialIconContainer
@@ -66,10 +66,10 @@ function SocialLinks({ fill = "#73737D" }: { fill: string }) {
           >
             <Icon fill={fill} />
           </SocialIconContainer>
-        );
+        )
       })}
     </>
-  );
+  )
 }
 ```
 
@@ -78,13 +78,13 @@ This is another paragraph after the code block.
 ## This is a secondary heading
 
 ```jsx
-import React from "react";
-import { ThemeProvider } from "theme-ui";
-import theme from "./theme";
+import React from "react"
+import { ThemeProvider } from "theme-ui"
+import theme from "./theme"
 
 export default props => (
   <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
-);
+)
 ```
 
 At Narative, we’ve been fans of Gatsby from day one, using it to build performant and flexible products for both clients and ourselves. With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.

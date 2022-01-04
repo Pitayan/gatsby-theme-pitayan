@@ -6,6 +6,8 @@ export const checkIfDarkMode = (): boolean => {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     )
   }
+
+  return false
 }
 
 export const toggleDark = (isDark: boolean): void => {
@@ -19,7 +21,7 @@ export const toggleDark = (isDark: boolean): void => {
   localStorage.theme = isDark ? "dark" : "light"
 }
 
-export const copyToClipboard = (toCopy: string) => {
+export const copyToClipboard = (toCopy: string): void => {
   const el = document.createElement(`textarea`)
   el.value = toCopy
   el.setAttribute(`readonly`, ``)

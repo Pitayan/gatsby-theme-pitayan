@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require("path")
 
 module.exports = {
   plugins: [
@@ -8,6 +8,22 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-remark-images`,
+    {
+      resolve: "gatsby-plugin-eslint",
+      options: {
+        rulePaths: [
+          // Rule path refers to
+          // https://github.com/gatsbyjs/gatsby/blob/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/gatsby/src/utils/eslint-rules/limited-exports-page-templates.ts
+          path.join(
+            process.cwd(),
+            "node_modules/gatsby/dist/utils/eslint-rules"
+          ),
+        ],
+        stages: ["develop"],
+        extensions: ["js", "jsx", "ts", "tsx"],
+        exclude: ["node_modules", ".cache", "public"],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -19,16 +35,16 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/content/posts`
-      }
+        path: `${__dirname}/content/posts`,
+      },
     },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /src\/assets\/img/
-        }
-      }
+          include: /src\/assets\/img/,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -51,23 +67,27 @@ module.exports = {
               rel: `noreferrer`,
             },
           },
-          // {
-          //   resolve: `gatsby-remark-vscode`,
-          //   options: {
-          //     theme: `GitHub Dark Dimmed`,
-          //     extensions: [path.resolve(`./src/assets/vscode_theme/GitHub.github-vscode-theme-5.0.0.vsix`)],
-          //     inlineCode: {
-          //       marker: `•`,
-          //       theme: {
-          //         default: `Github Light Default`,
-          //         parentSelector: {
-          //           'html[class*="dark"]': `Github Dark Dimmed`,
-          //         }
-          //       },
-          //       className: `grvsc-inline`
-          //     },
-          //   }
-          // },
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: `GitHub Dark Dimmed`,
+              extensions: [
+                path.resolve(
+                  `./src/assets/vscode_theme/GitHub.github-vscode-theme-5.0.0.vsix`
+                ),
+              ],
+              inlineCode: {
+                marker: `•`,
+                theme: {
+                  default: `Github Light Default`,
+                  parentSelector: {
+                    'html[class*="dark"]': `Github Dark Dimmed`,
+                  },
+                },
+                className: `grvsc-inline`,
+              },
+            },
+          },
           { resolve: `gatsby-remark-copy-linked-files` },
         ],
       },

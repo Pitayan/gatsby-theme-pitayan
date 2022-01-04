@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -75,7 +75,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
 // TODO: implement correct related posts query
 export const pageQuery = graphql`
-  query ($slug: String!) {
+  query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       timeToRead

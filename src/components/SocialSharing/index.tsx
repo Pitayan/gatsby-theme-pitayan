@@ -1,12 +1,10 @@
 import React from "react"
 import { FiFacebook, FiLinkedin, FiTwitter, FiPocket } from "react-icons/fi"
 
-type Props = {
-  [key: string]: any
-}
-
-const SocialSharing: React.FC<Props> = (props: Props) => {
-  const onTwitterClick = () => {}
+const SocialSharing: React.FC = () => {
+  const onTwitterClick = () => {
+    return false
+  }
 
   return (
     <span className="flex space-x-8">

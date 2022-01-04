@@ -9,19 +9,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Memo:
   // limit -> as an argument?
   return graphql(`
-      query {
-        allMdx(
-          sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
-          limit: 1000
-        ) {
-          nodes {
-            fields{
-              slug
-            }
+    query {
+      allMdx(
+        sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
+        limit: 1000
+      ) {
+        nodes {
+          fields {
+            slug
           }
         }
       }
-    `).then(result => {
+    }
+  `).then(result => {
     // Handling Errors.
     if (result.errors) {
       return Promise.reject(result.errors)
@@ -30,13 +30,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // Create pages.
     // Memo:
     // path prefix -> as an argument?
-    result.data.allMdx.nodes.forEach((node) => {
+    result.data.allMdx.nodes.forEach(node => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/post/index.tsx`),
         context: {
           // We can use the values in this context in our page layout component.
-          slug: node.fields.slug
+          slug: node.fields.slug,
         },
       })
     })
@@ -47,7 +47,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   const fileNode = getNode(node.parent)
 
-  if (node.internal.type == 'Mdx' && fileNode.internal.type == 'File') {
+  if (node.internal.type == "Mdx" && fileNode.internal.type == "File") {
     const parsedFilePath = path.parse(fileNode.relativePath)
 
     let value
@@ -66,7 +66,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     })
   }
 }

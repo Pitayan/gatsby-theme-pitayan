@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import DefaultLayout from "@/layouts/Default"
 import HomeHero from "@/components/HomeHero"
-import BottomFooter from "@/components/BottomFooter"
 import HomeActions from "@/components/HomeActions"
 import PostPanel from "@/components/PostPanel"
 
@@ -17,7 +16,7 @@ type PostsProps = {
 const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   return (
     <div className="grid relative grid-cols-1 md:grid-cols-2 gap-8">
-      {posts.map(({ node }) => {
+      {posts.map(({ node }: any) => {
         return <PostPanel post={node} key={node.id} />
       })}
     </div>
