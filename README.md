@@ -1,7 +1,7 @@
 # gatsby-theme-pitayan
 Yet another Gatsby theme plugin
 
-# Note
+## Note
 Under prototyping. Don't use it yet in production!
 
 ## TODO
@@ -48,6 +48,11 @@ Under prototyping. Don't use it yet in production!
 
 ### Google Adsense
 - [ ] auto click?
+
+### Gatsby V4
+I'll finally upgrade this whole stack to Gatsby V4.x. But for now, it seems the eco-system of V4.x is yet to be completed.
+After some attempts over the version bumping, here are some issues that need to be fixed.
+- [ ] Error thrown by `gatsby-remark-vscode`: Error: Type with name "GRVSCStylesheet" does not exists. [Related issue](https://github.com/andrewbranch/gatsby-remark-vscode/issues/174)
 
 ### Others
 - [ ] Comment system with utteranc.es or disquz
