@@ -1,7 +1,14 @@
 .markdown {
-
-  h1, h2, h3, h4, h5, h6,
-  blockquote, p, ul, ol {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  blockquote,
+  p,
+  ul,
+  ol {
     @apply mark-w-sm;
     @apply lg:mark-w-md;
   }
@@ -15,7 +22,12 @@
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply mt-12;
     @apply mb-6;
   }
@@ -65,7 +77,8 @@
     /* Dark Mode*/
     @apply dark:!bg-inverted;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       @apply dark:!bg-inverted;
     }
 
@@ -76,9 +89,9 @@
       @apply -left-6;
       @apply rounded-full;
 
-      content: '';
+      content: "";
     }
-    
+
     &:after {
       @apply absolute;
       @apply w-1 h-1;
@@ -86,12 +99,12 @@
       @apply -right-6;
       @apply rounded-full;
 
-      content: '';
+      content: "";
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     @apply mb-12;
   }
 }
-

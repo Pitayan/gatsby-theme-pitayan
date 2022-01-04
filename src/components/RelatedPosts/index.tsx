@@ -1,5 +1,5 @@
-import React from 'react'
-import PostPanel from '@/components/PostPanel'
+import React from "react"
+import PostPanel from "@/components/PostPanel"
 
 type PostsProps = {
   posts: any
@@ -9,9 +9,7 @@ const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   return (
     <div className="grid relative grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       {posts.map(({ node }) => {
-        return (
-          <PostPanel post={node} key={node.id} />
-        )
+        return <PostPanel post={node} key={node.id} />
       })}
     </div>
   )

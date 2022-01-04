@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { RiLinksLine } from 'react-icons/ri'
-import { copyToClipboard } from '@/utils'
+import React, { useState } from "react"
+import { RiLinksLine } from "react-icons/ri"
+import { copyToClipboard } from "@/utils"
 
 const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
   const [hasCopied, setHasCopied] = useState<boolean>(false)
@@ -21,12 +21,12 @@ const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
   return (
     <span className="cursor-pointer text-gray-500">
       <RiLinksLine
-        className={isAnimated ? '' : 'animate-fade-in-scale'}
+        className={isAnimated ? "" : "animate-fade-in-scale"}
         onAnimationEnd={() => setIsAnimated(true)}
-        onClick={copyOnClick} />
+        onClick={copyOnClick}
+      />
     </span>
   )
 }
 
 export default URLCopyIconButton
-

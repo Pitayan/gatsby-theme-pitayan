@@ -22,7 +22,12 @@ h6 {
   @apply text-base;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply leading-normal;
   @apply font-semibold;
   @apply font-serif;
@@ -45,7 +50,7 @@ blockquote {
   @apply font-semibold;
   @apply ml-0 mb-4;
   @apply leading-relaxed;
-  @apply font-serif italic; 
+  @apply font-serif italic;
   @apply border-l-4 border-solid border-black;
   @apply pl-8 py-1;
 
@@ -127,11 +132,13 @@ pre {
   }
 }
 
-ul, ol {
+ul,
+ol {
   @apply p-0;
   @apply mr-0 ml-4 my-4;
 
-  ul, ol {
+  ul,
+  ol {
     @apply mr-0 ml-4 my-4;
   }
 

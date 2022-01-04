@@ -1,12 +1,11 @@
-import React from 'react'
-import { FiFacebook, FiLinkedin, FiTwitter, FiPocket } from 'react-icons/fi'
+import React from "react"
+import { FiFacebook, FiLinkedin, FiTwitter, FiPocket } from "react-icons/fi"
 
 type Props = {
   [key: string]: any
 }
 
 const SocialSharing: React.FC<Props> = (props: Props) => {
-
   const onTwitterClick = () => {}
 
   return (
@@ -20,4 +19,3 @@ const SocialSharing: React.FC<Props> = (props: Props) => {
 }
 
 export default SocialSharing
-

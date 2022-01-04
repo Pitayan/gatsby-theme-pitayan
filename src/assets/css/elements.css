@@ -27,7 +27,8 @@ button {
     @apply !bg-transparent;
   }
 
-  &.fill-button, &.ghost-button {
+  &.fill-button,
+  &.ghost-button {
     @apply rounded;
     @apply py-2 px-4;
   }

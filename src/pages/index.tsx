@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react"
 import { graphql } from "gatsby"
 import DefaultLayout from "@/layouts/Default"
-import HomeHero from '@/components/HomeHero'
-import BottomFooter from '@/components/BottomFooter'
-import HomeActions from '@/components/HomeActions'
-import PostPanel from '@/components/PostPanel'
+import HomeHero from "@/components/HomeHero"
+import BottomFooter from "@/components/BottomFooter"
+import HomeActions from "@/components/HomeActions"
+import PostPanel from "@/components/PostPanel"
 
 type HomePageProps = {
   data: any
@@ -18,9 +18,7 @@ const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   return (
     <div className="grid relative grid-cols-1 md:grid-cols-2 gap-8">
       {posts.map(({ node }) => {
-        return (
-          <PostPanel post={node} key={node.id} />
-        )
+        return <PostPanel post={node} key={node.id} />
       })}
     </div>
   )

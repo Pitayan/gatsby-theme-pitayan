@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 type Props = {
   [key: string]: any
@@ -11,7 +11,9 @@ const CategoryTags: React.FC<Props> = ({ categories }: Props) => {
     <div className="flex flex-wrap space-x-4">
       {categories.map((category: string, key: number) => {
         return (
-          <span className="tag" key={key}>{category}</span>
+          <span className="tag" key={key}>
+            {category}
+          </span>
         )
       })}
     </div>
@@ -19,4 +21,3 @@ const CategoryTags: React.FC<Props> = ({ categories }: Props) => {
 }
 
 export default CategoryTags
-

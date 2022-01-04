@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const PostMeta: React.FC<Record<string, Array<unknown>>> = (props: any) => {
   const { timeToRead, date } = props

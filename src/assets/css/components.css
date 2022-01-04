@@ -10,13 +10,13 @@ a.site-link {
   @apply font-semibold;
   @apply text-gray-500;
   @apply hover:text-gray-900;
-  @apply transition-colors; 
+  @apply transition-colors;
   @apply duration-150;
   @apply ease-in-out;
 
   /* Dark Mode */
   @apply dark:text-gray-400;
-  @apply dark:hover:text-gray-100; 
+  @apply dark:hover:text-gray-100;
 }
 
 .subscription {
@@ -31,7 +31,7 @@ a.site-link {
     @apply !mt-0 !mb-8;
     @apply mx-auto;
   }
-  
+
   &-content {
     @apply max-w-2xl;
     @apply leading-tight;
@@ -119,7 +119,7 @@ a.site-link {
     @apply border-solid;
     @apply border-t-black;
 
-    content: '';
+    content: "";
     border-left-color: transparent;
     border-right-color: transparent;
 
@@ -164,4 +164,3 @@ a.site-link {
     }
   }
 }
-
