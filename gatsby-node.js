@@ -32,7 +32,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // path prefix -> as an argument?
     result.data.allMdx.nodes.forEach((node) => {
       createPage({
-        basePath: 'post',
         path: node.fields.slug,
         component: path.resolve(`./src/templates/post/index.tsx`),
         context: {

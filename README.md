@@ -13,6 +13,7 @@ Under prototyping. Don't use it yet in production!
 ### Components / Functions
 - [ ] Image magnifier
 - [ ] Popup / Modal (Cookie Prompt)
+- [ ] Pagination
 - [ ] tooltip
 - [ ] Author Avatar (Choice dropdown)
 - [ ] Back to top

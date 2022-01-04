@@ -49,7 +49,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
       <SubscriptionPanel />
 
-      <hr className="border-gray-300 my-8" />
+      <hr className="border-gray-300 my-20" />
 
       <h3 className="text-base font-black font-serif mb-8 text-gray-500">
         Social Sharing
@@ -73,6 +73,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
   )
 }
 
+// TODO: implement correct related posts query
 export const pageQuery = graphql`
   query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {

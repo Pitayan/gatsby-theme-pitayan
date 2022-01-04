@@ -4,7 +4,7 @@ date: "2021-10-21"
 categories: ["gatsby","javascript"]
 excerpt: With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.
 hero: images/demo_2.png
-slug: gatsby-lifecycle-in-depth
+slug: posts/gatsby-lifecycle-in-depth
 ---
 
 Hello, world! This is a demo post for `gatsby-theme-novela`. Novela is built by the team at [Narative](https://narative.co), and built for everyone that loves the web.

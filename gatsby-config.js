@@ -51,23 +51,23 @@ module.exports = {
               rel: `noreferrer`,
             },
           },
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              theme: `GitHub Dark Dimmed`,
-              extensions: [path.resolve(`./src/assets/vscode_theme/GitHub.github-vscode-theme-5.0.0.vsix`)],
-              inlineCode: {
-                marker: `•`,
-                theme: {
-                  default: `Github Light Default`,
-                  parentSelector: {
-                    'html[class*="dark"]': `Github Dark Dimmed`,
-                  }
-                },
-                className: `grvsc-inline`
-              },
-            }
-          },
+          // {
+          //   resolve: `gatsby-remark-vscode`,
+          //   options: {
+          //     theme: `GitHub Dark Dimmed`,
+          //     extensions: [path.resolve(`./src/assets/vscode_theme/GitHub.github-vscode-theme-5.0.0.vsix`)],
+          //     inlineCode: {
+          //       marker: `•`,
+          //       theme: {
+          //         default: `Github Light Default`,
+          //         parentSelector: {
+          //           'html[class*="dark"]': `Github Dark Dimmed`,
+          //         }
+          //       },
+          //       className: `grvsc-inline`
+          //     },
+          //   }
+          // },
           { resolve: `gatsby-remark-copy-linked-files` },
         ],
       },

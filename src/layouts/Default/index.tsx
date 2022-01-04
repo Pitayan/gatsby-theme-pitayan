@@ -11,6 +11,7 @@ const DefaultLayout: React.FC<Props> = ({ children }: Props) => {
     <div className="my-16 mx-auto px-6 max-w-screen-xl">
       <TopNav />
       <div className="py-20">{children}</div>
+      <hr className="border-gray-300" />
       <BottomFooter />
     </div>
   )
