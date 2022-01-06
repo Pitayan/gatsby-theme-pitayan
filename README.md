@@ -21,9 +21,10 @@ Under prototyping. Don't use it yet in production!
 - [x] Pagination (needs adjustment for the pages)
 - [ ] tooltip
 - [ ] Author Avatar (Choice dropdown)
-- [ ] Back to top
+- [x] Back to top
 - [ ] markdown post heading anchor
 - [ ] Related posts with gatsby-remark-related-posts
+- [ ] Change font
 
 ### Pages
 

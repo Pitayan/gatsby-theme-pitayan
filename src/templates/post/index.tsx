@@ -10,6 +10,7 @@ import SubscriptionPanel from "@/components/SubscriptionPanel"
 import RelatedPosts from "@/components/RelatedPosts"
 import SocialSharing from "@/components/SocialSharing"
 import CategoryTags from "@/components/CategoryTags"
+import BackToTop from "@/components/BackToTop"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? <GatsbyImage image={image} alt="" /> : null
@@ -28,6 +29,8 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
   return (
     <DefaultLayout>
+      <BackToTop />
+
       <div className="max-w-2xl mx-auto mb-24">
         <h1>{title}</h1>
         <PostMeta date={date} timeToRead={timeToRead} />
