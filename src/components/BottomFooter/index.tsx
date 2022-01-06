@@ -5,9 +5,9 @@ import { Link } from "gatsby"
 const BottomFooter: React.FC = () => {
   const year = new Date().getFullYear()
   return (
-    <footer className="pt-24 pb-12">
-      <div className="flex flex-wrap">
-        <div className="flex flex-col justify-between pr-36">
+    <footer>
+      <div className="flex flex-wrap justify-between">
+        <div className="flex flex-col justify-between w-96">
           <h1 className="font-black">
             Pitayan
             <br />
@@ -80,7 +80,7 @@ const BottomFooter: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="text-sm text-gray-500 font-bold dark:text-gray-400 my-8">
+      <div className="text-sm text-gray-500 font-bold dark:text-gray-400 mt-8">
         &copy; {year} Pitayan. All rights reserved.
       </div>
     </footer>

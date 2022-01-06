@@ -9,10 +9,14 @@ type Props = {
 const DefaultLayout: React.FC<Props> = ({ children }: Props) => {
   return (
     <div className="my-16 mx-auto px-6 max-w-screen-xl">
-      <TopNav />
-      <div className="py-20">{children}</div>
-      <hr className="border-gray-300" />
-      <BottomFooter />
+      <div className="pb-20">
+        <TopNav />
+      </div>
+      <div>{children}</div>
+      <hr className="border-gray-300 mt-12" />
+      <div className="pt-12">
+        <BottomFooter />
+      </div>
     </div>
   )
 }

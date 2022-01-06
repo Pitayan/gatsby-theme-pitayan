@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 type Props = {
   [key: string]: any
@@ -11,9 +12,9 @@ const CategoryTags: React.FC<Props> = ({ categories }: Props) => {
     <div className="flex flex-wrap space-x-4">
       {categories.map((category: string, key: number) => {
         return (
-          <span className="tag" key={key}>
+          <Link className="tag" key={key} to={`/categories/${category}`}>
             {category}
-          </span>
+          </Link>
         )
       })}
     </div>

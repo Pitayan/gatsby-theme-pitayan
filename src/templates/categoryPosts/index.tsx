@@ -1,20 +1,18 @@
+import { graphql } from "gatsby"
 import React from "react"
-import { graphql, Link } from "gatsby"
 
 import DefaultLayout from "@/layouts/Default"
-import HomeHero from "@/components/HomeHero"
-import HomeActions from "@/components/HomeActions"
 import PostPanel from "@/components/PostPanel"
+import Pagination from "@/components/Pagination"
 
-type HomePageProps = {
-  data: any
+type CategoryPostsProps = {
+  [key: string]: any
 }
 
 type PostsProps = {
   posts: any
 }
 
-// TODO: move this component to another dir
 const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   return (
     <div className="grid relative grid-cols-1 md:grid-cols-2 gap-8">
@@ -25,27 +23,43 @@ const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   )
 }
 
-const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
-  const posts = data.allMdx.edges
-
+const CategoryPosts: React.FC<CategoryPostsProps> = ({
+  data: {
+    allMdx: { edges: posts, totalCount, pageInfo },
+  },
+  pageContext: { category },
+}: CategoryPostsProps) => {
   return (
     <DefaultLayout>
-      <HomeHero />
-      <HomeActions />
-      <hr className="mt-4 mb-12 border-gray-300" />
+      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
+        Category: {category} ({totalCount})
+      </h1>
+      <hr className="my-8 border-gray-300" />
       <Posts posts={posts} />
-      <div className="text-center my-24">
-        <Link className="font-bold text-xl" to="posts">
-          Load More -&gt;
-        </Link>
+      <div className="my-24">
+        <Pagination pageInfo={pageInfo} path={`categories/${category}`} />
       </div>
     </DefaultLayout>
   )
 }
 
+export default CategoryPosts
+
 export const pageQuery = graphql`
-  query HomePageQuery {
-    allMdx(limit: 12) {
+  query($limit: Int!, $skip: Int!, $category: String!) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { categories: { in: [$category] } } }
+      limit: $limit
+      skip: $skip
+    ) {
+      totalCount
+      pageInfo {
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        pageCount
+      }
       edges {
         node {
           id
@@ -73,5 +87,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default HomePage

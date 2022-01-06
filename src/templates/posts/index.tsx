@@ -1,20 +1,18 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import DefaultLayout from "@/layouts/Default"
-import HomeHero from "@/components/HomeHero"
-import HomeActions from "@/components/HomeActions"
 import PostPanel from "@/components/PostPanel"
+import Pagination from "@/components/Pagination"
 
-type HomePageProps = {
-  data: any
+type PostsPageProps = {
+  [key: string]: any
 }
 
 type PostsProps = {
   posts: any
 }
 
-// TODO: move this component to another dir
 const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   return (
     <div className="grid relative grid-cols-1 md:grid-cols-2 gap-8">
@@ -25,27 +23,42 @@ const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   )
 }
 
-const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
-  const posts = data.allMdx.edges
-
+const PostsPage: React.FC<PostsPageProps> = ({
+  data: {
+    allMdx: { edges: posts, totalCount, pageInfo },
+  },
+}: PostsPageProps) => {
+  console.log(pageInfo)
   return (
     <DefaultLayout>
-      <HomeHero />
-      <HomeActions />
-      <hr className="mt-4 mb-12 border-gray-300" />
+      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
+        All Posts ({totalCount})
+      </h1>
+      <hr className="my-8 border-gray-300" />
       <Posts posts={posts} />
-      <div className="text-center my-24">
-        <Link className="font-bold text-xl" to="posts">
-          Load More -&gt;
-        </Link>
+      <div className="my-24">
+        <Pagination pageInfo={pageInfo} path="posts" />
       </div>
     </DefaultLayout>
   )
 }
 
-export const pageQuery = graphql`
-  query HomePageQuery {
-    allMdx(limit: 12) {
+export default PostsPage
+
+export const PageQuery = graphql`
+  query PostsPageQuery($skip: Int!, $limit: Int!) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      totalCount
+      pageInfo {
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        pageCount
+      }
       edges {
         node {
           id
@@ -55,8 +68,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            categories
             date(formatString: "MMMM Do, YYYY")
+            categories
             hero {
               normal: childImageSharp {
                 gatsbyImageData(
@@ -73,5 +86,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default HomePage

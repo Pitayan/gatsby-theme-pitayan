@@ -18,7 +18,7 @@ Under prototyping. Don't use it yet in production!
 
 - [ ] Image magnifier
 - [ ] Popup / Modal (Cookie Prompt)
-- [ ] Pagination
+- [x] Pagination (needs adjustment for the pages)
 - [ ] tooltip
 - [ ] Author Avatar (Choice dropdown)
 - [ ] Back to top
@@ -27,9 +27,12 @@ Under prototyping. Don't use it yet in production!
 
 ### Pages
 
+- [x] home
+- [x] post page
 - [ ] authors
-- [ ] categories
-- [ ] posts
+- [x] posts list
+- [x] categories list
+- [x] posts
 - [ ] write for us
 - [ ] editor's pick
 - [ ] about

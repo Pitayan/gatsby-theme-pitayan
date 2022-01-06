@@ -96,7 +96,7 @@ export const pageQuery = graphql`
       }
     }
 
-    allMdx {
+    allMdx(limit: 3) {
       edges {
         node {
           id
@@ -106,7 +106,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            date
+            date(formatString: "MMMM Do, YYYY")
             categories
             hero {
               normal: childImageSharp {

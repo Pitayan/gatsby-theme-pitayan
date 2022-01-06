@@ -1,5 +1,4 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // TODO: implement hooks
 
@@ -10,14 +9,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // limit -> as an argument?
   return graphql(`
     query {
-      allMdx(
+      posts: allMdx(
         sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
-        limit: 1000
+        limit: 2000
       ) {
         nodes {
           fields {
             slug
           }
+        }
+      }
+      categories: allMdx(limit: 2000) {
+        group(field: frontmatter___categories) {
+          fieldValue
+          totalCount
         }
       }
     }
@@ -27,10 +32,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       return Promise.reject(result.errors)
     }
 
-    // Create pages.
+    // Create post page
     // Memo:
     // path prefix -> as an argument?
-    result.data.allMdx.nodes.forEach(node => {
+    result.data.posts.nodes.forEach(node => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/post/index.tsx`),
@@ -38,6 +43,52 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           // We can use the values in this context in our page layout component.
           slug: node.fields.slug,
         },
+      })
+    })
+
+    // TODO: turn into config argument
+    const postsPerPage = 6
+
+    // Create paginated post list page
+    const totalPostPages = (result.data.posts.nodes.length / postsPerPage + 1) >> 0
+    Array.from({ length: totalPostPages }).forEach((_, i) => {
+      const ctx = {
+        path: `/posts/${i + 1}`,
+        component: path.resolve("./src/templates/posts/index.tsx"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          currentPage: i + 1
+        }
+      }
+      createPage(ctx)
+
+      // To have the post list page without the pagination number. This means --> /posts === /posts/1
+      if (i == 0) {
+        ctx.path = '/posts'
+        createPage(ctx)
+      }
+    })
+
+    // Create paginated category post list page
+    result.data.categories.group.forEach(category => {
+      Array.from({ length: category.totalCount }).forEach((_, i) => {
+        const ctx = {
+          path: `/categories/${category.fieldValue}/${i + 1}`,
+          component: path.resolve(`./src/templates/categoryPosts/index.tsx`),
+          context: {
+            category: category.fieldValue,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            currentPage: i + 1
+          }
+        }
+        createPage(ctx)
+
+        if (i == 0) {
+          ctx.path = `/categories/${category.fieldValue}`
+          createPage(ctx)
+        }
       })
     })
   })

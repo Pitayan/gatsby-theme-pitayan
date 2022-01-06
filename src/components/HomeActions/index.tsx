@@ -5,7 +5,7 @@ import { RiTwitterFill } from "react-icons/ri"
 const HomeActions: React.FC<Record<string, unknown>> = () => {
   return (
     <div className="flex flex-wrap text-gray-500">
-      <span className="flex items-center space-x-6 pb-2 pr-6">
+      <span className="flex items-center space-x-6 pt-2 pr-6">
         <Link className="site-link" to="editors-pick">
           editor&#39;s pick
         </Link>
@@ -17,7 +17,7 @@ const HomeActions: React.FC<Record<string, unknown>> = () => {
         </Link>
         <span className="h-4 border-l border-solid border-gray-300"></span>
       </span>
-      <span className="flex items-center pb-2">
+      <span className="flex items-center pt-2">
         <Link className="site-link pr-6" to="subscribe">
           subscribe
         </Link>
