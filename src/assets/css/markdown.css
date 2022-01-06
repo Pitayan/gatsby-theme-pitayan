@@ -99,8 +99,19 @@
     }
   }
 
+
   ul,
   ol {
     @apply mb-12;
   }
 }
+
+/* FIXME: dark mode style overriding not work */
+.dark {
+  .markdown {
+    hr {
+      @apply !bg-inverted;
+    }
+  }
+}
+

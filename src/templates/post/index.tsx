@@ -45,7 +45,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
       </div>
 
       <article className="markdown">
-        <MDXProvider>
+        <MDXProvider components={{}}>
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </article>
