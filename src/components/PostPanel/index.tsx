@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import CategoryTags from "@/components/CategoryTags"
+import PostMeta from "../PostMeta"
 
 type Props = {
   post: any
@@ -30,7 +31,7 @@ const PostPanel: React.FC<Props> = ({ post }: Props) => {
       <CategoryTags categories={categories} />
       <br />
       <span className="panel-footer">
-        {date} • {timeToRead} min read
+        <PostMeta timeToRead={timeToRead} date={date} />
       </span>
     </div>
   )

@@ -2,11 +2,10 @@ const path = require(`path`)
 
 // TODO: implement hooks
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  // Memo:
-  // limit -> as an argument?
+  // FIXME: limit -> as an argument?
   return graphql(`
     query {
       posts: allMdx(
@@ -14,6 +13,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         limit: 2000
       ) {
         nodes {
+          frontmatter {
+            author
+          }
           fields {
             slug
           }
@@ -25,6 +27,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           totalCount
         }
       }
+      authors: allYaml(limit: 2000) {
+        nodes {
+          id
+          name
+        }
+      }
     }
   `).then(result => {
     // Handling Errors.
@@ -33,8 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
 
     // Create post page
-    // Memo:
-    // path prefix -> as an argument?
+    // FIXME: path prefix -> as an argument?
     result.data.posts.nodes.forEach(node => {
       createPage({
         path: node.fields.slug,
@@ -87,6 +94,44 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
         if (i == 0) {
           ctx.path = `/categories/${category.fieldValue}`
+          createPage(ctx)
+        }
+      })
+    })
+
+    // Create paginated author post list page
+    result.data.authors.nodes.forEach(author => {
+      const { id, name } = author
+      let pageNum = 0
+      let curPagePostsCount = 0
+      result.data.posts.nodes.forEach(post => {
+        const coAuthors = post.frontmatter.author.split(',').map(a => a.trim())
+        if (!coAuthors.includes(name)) return
+
+        curPagePostsCount++
+
+        // Flip to next page
+        if (curPagePostsCount == postsPerPage) {
+          pageNum += 1
+          curPagePostsCount = 0
+        }
+
+        const ctx = {
+          path: `/authors/${name.replaceAll(" ", "-")}/${pageNum + 1}`,
+          component: path.resolve(`./src/templates/authorPosts/index.tsx`),
+          context: {
+            author: name,
+            limit: postsPerPage,
+            skip: pageNum * postsPerPage,
+            currentPage: pageNum + 1,
+          },
+        }
+
+        createPage(ctx)
+
+        if (pageNum == 0) {
+          ctx.path = `/authors/${name.replaceAll(" ", "-")}`
+
           createPage(ctx)
         }
       })

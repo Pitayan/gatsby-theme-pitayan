@@ -11,6 +11,7 @@ import RelatedPosts from "@/components/RelatedPosts"
 import SocialSharing from "@/components/SocialSharing"
 import CategoryTags from "@/components/CategoryTags"
 import BackToTop from "@/components/BackToTop"
+import PostAuthors from "@/components/PostAuthors"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? <GatsbyImage image={image} alt="" /> : null
@@ -20,12 +21,22 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
   const {
     mdx: {
       body,
-      frontmatter: { title, date, categories, hero },
+      frontmatter: { author, title, date, categories, hero },
       timeToRead,
     },
-    allMdx: { edges: relatedPosts },
+    allYaml: { edges: authors },
+    allMdx: { edges: posts },
   } = data
-  const image = getImage(hero?.medium)
+  const postImage = getImage(hero?.medium)
+
+  const relatedAuthors: any = []
+  author.split(", ").forEach((a: string) => {
+    const relatedAuthor = authors.find(({ node }: any) => node.name == a)
+
+    if (relatedAuthor) {
+      relatedAuthors.push(relatedAuthor)
+    }
+  })
 
   return (
     <DefaultLayout>
@@ -33,7 +44,11 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
       <div className="max-w-2xl mx-auto mb-24">
         <h1>{title}</h1>
-        <PostMeta date={date} timeToRead={timeToRead} />
+
+        <div className="flex items-center space-x-4 text-gray-500">
+          <PostAuthors data={relatedAuthors} />
+          <PostMeta date={date} timeToRead={timeToRead} />
+        </div>
 
         <div className="text-2xl mt-8">
           <SocialSharing />
@@ -41,7 +56,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
       </div>
 
       <div className="text-center mb-24">
-        <PostImage image={image} />
+        <PostImage image={postImage} />
       </div>
 
       <article className="markdown">
@@ -52,7 +67,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
       <SubscriptionPanel />
 
-      <hr className="border-gray-300 my-20" />
+      <hr className="border-gray-300 my-12" />
 
       <h3 className="text-base font-black font-serif mb-8 text-gray-500">
         Social Sharing
@@ -71,7 +86,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
       <h3 className="text-base font-black font-serif mb-8 text-gray-500">
         Related Posts
       </h3>
-      <RelatedPosts posts={relatedPosts} />
+      <RelatedPosts posts={posts} />
     </DefaultLayout>
   )
 }
@@ -83,6 +98,7 @@ export const pageQuery = graphql`
       body
       timeToRead
       frontmatter {
+        author
         title
         date(formatString: "MMMM Do, YYYY")
         categories
@@ -99,6 +115,32 @@ export const pageQuery = graphql`
       }
     }
 
+    allYaml {
+      edges {
+        node {
+          id
+          bio
+          name
+          initial
+          joined
+          avatar {
+            normal: childImageSharp {
+              gatsbyImageData(
+                width: 32
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+          sns {
+            facebook
+            twitter
+            github
+          }
+        }
+      }
+    }
+
     allMdx(limit: 3) {
       edges {
         node {
@@ -109,6 +151,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            author
             date(formatString: "MMMM Do, YYYY")
             categories
             hero {

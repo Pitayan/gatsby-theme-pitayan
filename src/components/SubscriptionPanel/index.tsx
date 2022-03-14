@@ -2,7 +2,7 @@ import React from "react"
 
 const SubscriptionPanel: React.FC = () => {
   return (
-    <div className="subscription mark-w-xl my-24">
+    <div className="subscription mark-w-xl">
       <h3 className="subscription-title">
         Join our email list and get notified about new content
       </h3>

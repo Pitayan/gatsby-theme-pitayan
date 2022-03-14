@@ -17,10 +17,11 @@ Under prototyping. Don't use it yet in production!
 ### Components / Functions
 
 - [ ] Image magnifier
+- [ ] In-article-image
 - [ ] Popup / Modal (Cookie Prompt)
 - [x] Pagination (needs adjustment for the pages)
 - [ ] tooltip
-- [ ] Author Avatar (Choice dropdown)
+- [x] Author Avatar (Choice dropdown)
 - [x] Back to top
 - [ ] markdown post heading anchor
 - [ ] Related posts with gatsby-remark-related-posts
@@ -30,7 +31,7 @@ Under prototyping. Don't use it yet in production!
 
 - [x] home
 - [x] post page
-- [ ] authors
+- [x] authors
 - [x] posts list
 - [x] categories list
 - [x] posts

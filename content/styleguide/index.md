@@ -1,6 +1,7 @@
 ---
 title: The Style Guide for Gatsby-theme-pitayan
 date: "2021-07-31"
+author: Yanze Dai, Tide Dai
 categories: ["styleguide", "design"]
 excerpt: "The style guide for a Gatsby blog"
 hero: images/demo_1.jpg
@@ -25,7 +26,7 @@ The font famliy follows the Tailwind default settings.
 <br />
 
 <div class="my-2 flex flex-wrap item-center justify-between mark-w-lg">
-  <div class="font-sans grid grid-rows-2 place-item-start py-8"> 
+  <div class="font-sans grid grid-rows-2 place-item-start py-8">
     <div class="row-span-2 col-span-1 text-8xl">Aa</div>
     <b class="col-span-2 self-center">Sans Serif</b>
     <div class="col-span-3 tracking-widest">
@@ -94,7 +95,7 @@ The common `html•<p>` tag. There's a `margin-bottom` (mb-4) for the gap betwee
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 </p>
 <p>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
 <p>
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -351,49 +352,49 @@ The default Tailwind colors
 <br />
 
 <div class="mark-w-md flex flex-col flex-wrap space-y-3 sm:flex-row text-sm text-center sm:space-y-0 sm:space-x-4">
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-gray-500"></div>
     <b>bg-gray</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-red-500"></div>
     <b>bg-red</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-yellow-500"></div>
     <b>bg-yellow</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-green-500"></div>
     <b>bg-green</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
 </div>
 <br />
 
 <div class="mark-w-md flex flex-col flex-wrap space-y-3 sm:flex-row text-sm text-center sm:space-y-0 sm:space-x-4">
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-blue-500"></div>
     <b>bg-blue</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-indigo-500"></div>
     <b>bg-indigo</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-purple-500"></div>
     <b>bg-purple</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
-  <div class="w-20"> 
+  <div class="w-20">
     <div class="h-32 w-20 rounded bg-pink-500"></div>
     <b>bg-pink</b><br />
-    <b>500</b>  
+    <b>500</b>
   </div>
 </div>
 

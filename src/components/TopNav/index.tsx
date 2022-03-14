@@ -8,8 +8,8 @@ const TopNav: React.FC<Record<string, unknown>> = () => {
   return (
     <nav className="block flex justify-between content-center">
       <Link to="/" className="flex space-x-4 items-center">
-        <SiteIcon width="48" height="48" />
-        <b className="font-serif font-extrabold tracking-wide text-4xl hidden md:block">
+        <SiteIcon width="40" height="40" />
+        <b className="font-serif font-extrabold tracking-wide text-3xl hidden md:block">
           Pitayan
         </b>
       </Link>

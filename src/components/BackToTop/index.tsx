@@ -27,6 +27,10 @@ const BackToTop: React.FC<Props> = (props: Props) => {
 
   useLayoutEffect(() => {
     window.addEventListener("scroll", handleVisibility)
+
+    return () => {
+      window.removeEventListener("scroll", handleVisibility)
+    }
   }, [])
 
   return (

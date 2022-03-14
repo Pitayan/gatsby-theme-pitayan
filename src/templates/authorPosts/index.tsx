@@ -1,11 +1,12 @@
-import { graphql } from "gatsby"
 import React from "react"
+import { graphql } from "gatsby"
 
 import DefaultLayout from "@/layouts/Default"
 import PostPanel from "@/components/PostPanel"
 import Pagination from "@/components/Pagination"
+import AuthorCard from "@/components/AuthorCard"
 
-type CategoryPostsProps = {
+type AuthorPostsProps = {
   [key: string]: any
 }
 
@@ -23,33 +24,34 @@ const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   )
 }
 
-const CategoryPosts: React.FC<CategoryPostsProps> = ({
+const AuthorPosts: React.FC<AuthorPostsProps> = ({
   data: {
-    allMdx: { edges: posts, totalCount, pageInfo },
+    allMdx: { edges: posts, pageInfo },
   },
-  pageContext: { category },
-}: CategoryPostsProps) => {
+  pageContext: { author },
+}) => {
   return (
     <DefaultLayout>
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
-        Category: {category} ({totalCount})
-      </h1>
+      <AuthorCard data={author} />
       <hr className="my-8 border-gray-300" />
       <Posts posts={posts} />
       <div className="my-24">
-        <Pagination pageInfo={pageInfo} path={`/categories/${category}`} />
+        <Pagination
+          pageInfo={pageInfo}
+          path={`/authors/${author.replaceAll(" ", "-")}`}
+        />
       </div>
     </DefaultLayout>
   )
 }
 
-export default CategoryPosts
+export default AuthorPosts
 
 export const pageQuery = graphql`
-  query($limit: Int!, $skip: Int!, $category: String!) {
+  query($limit: Int!, $skip: Int!, $author: String!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { in: [$category] } } }
+      filter: { frontmatter: { author: { in: [$author] } } }
       limit: $limit
       skip: $skip
     ) {
@@ -69,6 +71,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            author
             categories
             date(formatString: "MMMM Do, YYYY")
             hero {

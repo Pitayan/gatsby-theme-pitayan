@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, navigate } from "gatsby"
 
 import DefaultLayout from "@/layouts/Default"
 import HomeHero from "@/components/HomeHero"
@@ -35,9 +35,12 @@ const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
       <hr className="mt-4 mb-12 border-gray-300" />
       <Posts posts={posts} />
       <div className="text-center my-24">
-        <Link className="font-bold text-xl" to="posts">
-          Load More -&gt;
-        </Link>
+        <button
+          className="font-bold text-xl rounded-sm px-4 py-2 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-75"
+          onClick={() => navigate("/posts")}
+        >
+          <span className="">See More ...</span>
+        </button>
       </div>
     </DefaultLayout>
   )
