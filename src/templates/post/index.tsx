@@ -21,22 +21,19 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
   const {
     mdx: {
       body,
-      frontmatter: { author, title, date, categories, hero },
+      frontmatter: {
+        author: coAuthors,
+        title,
+        date,
+        categories,
+        hero,
+        excerpt,
+      },
       timeToRead,
     },
-    allYaml: { edges: authors },
     allMdx: { edges: posts },
   } = data
   const postImage = getImage(hero?.medium)
-
-  const relatedAuthors: any = []
-  author.split(", ").forEach((a: string) => {
-    const relatedAuthor = authors.find(({ node }: any) => node.name == a)
-
-    if (relatedAuthor) {
-      relatedAuthors.push(relatedAuthor)
-    }
-  })
 
   return (
     <DefaultLayout>
@@ -46,12 +43,17 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         <h1>{title}</h1>
 
         <div className="flex items-center space-x-4 text-gray-500">
-          <PostAuthors data={relatedAuthors} />
+          <PostAuthors data={coAuthors} />
           <PostMeta date={date} timeToRead={timeToRead} />
         </div>
 
         <div className="text-2xl mt-8">
-          <SocialSharing />
+          <SocialSharing
+            url={window.location.href}
+            title={title}
+            hashtags={categories}
+            excerpt={excerpt}
+          />
         </div>
       </div>
 
@@ -98,7 +100,20 @@ export const pageQuery = graphql`
       body
       timeToRead
       frontmatter {
-        author
+        author {
+          id
+          name
+          initial
+          avatar {
+            normal: childImageSharp {
+              gatsbyImageData(
+                width: 32
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
         title
         date(formatString: "MMMM Do, YYYY")
         categories
@@ -115,32 +130,6 @@ export const pageQuery = graphql`
       }
     }
 
-    allYaml {
-      edges {
-        node {
-          id
-          bio
-          name
-          initial
-          joined
-          avatar {
-            normal: childImageSharp {
-              gatsbyImageData(
-                width: 32
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-          sns {
-            facebook
-            twitter
-            github
-          }
-        }
-      }
-    }
-
     allMdx(limit: 3) {
       edges {
         node {
@@ -151,7 +140,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            author
             date(formatString: "MMMM Do, YYYY")
             categories
             hero {

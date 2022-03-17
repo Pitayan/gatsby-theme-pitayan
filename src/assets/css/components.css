@@ -20,19 +20,19 @@
 }
 
 .avatar {
-  @apply rounded-sm;
+  @apply rounded;
   @apply inline-block;
   @apply font-normal;
   @apply leading-normal;
   @apply relative;
   @apply align-middle;
-  @apply h-8;
-  @apply w-8;
+  /* @apply h-8; */
+  /* @apply w-8; */
 
   img {
     @apply h-full;
     @apply w-full;
-    @apply rounded-sm;
+    @apply rounded;
     @apply z-10;
   }
 
@@ -185,7 +185,7 @@
   }
 
   &-footer {
-    @apply text-gray-500;
+    @apply text-gray-400;
     @apply text-base;
   }
 }

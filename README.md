@@ -42,6 +42,8 @@ Under prototyping. Don't use it yet in production!
 - [ ] privacy
 - [ ] terms
 - [ ] 404
+- [ ] rss
+- [ ] sitemap
 
 ### SEO
 

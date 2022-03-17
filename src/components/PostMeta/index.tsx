@@ -4,7 +4,7 @@ const PostMeta: React.FC<Record<string, Array<unknown>>> = (props: any) => {
   const { timeToRead, date } = props
 
   return (
-    <span>
+    <span className="text-gray-500">
       {date} • {timeToRead} min read
     </span>
   )

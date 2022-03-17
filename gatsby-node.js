@@ -1,6 +1,6 @@
 const path = require(`path`)
 
-// TODO: implement hooks
+// TODO: Put these hooks definitions to "src/gastby/" folder
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -13,24 +13,21 @@ exports.createPages = async ({ graphql, actions }) => {
         limit: 2000
       ) {
         nodes {
-          frontmatter {
-            author
-          }
           fields {
             slug
           }
+        }
+      }
+      authors: allMdx(limit: 2000) {
+        group(field: frontmatter___author___id) {
+          fieldValue
+          totalCount
         }
       }
       categories: allMdx(limit: 2000) {
         group(field: frontmatter___categories) {
           fieldValue
           totalCount
-        }
-      }
-      authors: allYaml(limit: 2000) {
-        nodes {
-          id
-          name
         }
       }
     }
@@ -100,38 +97,22 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // Create paginated author post list page
-    result.data.authors.nodes.forEach(author => {
-      const { id, name } = author
-      let pageNum = 0
-      let curPagePostsCount = 0
-      result.data.posts.nodes.forEach(post => {
-        const coAuthors = post.frontmatter.author.split(',').map(a => a.trim())
-        if (!coAuthors.includes(name)) return
-
-        curPagePostsCount++
-
-        // Flip to next page
-        if (curPagePostsCount == postsPerPage) {
-          pageNum += 1
-          curPagePostsCount = 0
-        }
-
+    result.data.authors.group.forEach(author => {
+      Array.from({ length: author.totalCount }).forEach((_, i) => {
         const ctx = {
-          path: `/authors/${name.replaceAll(" ", "-")}/${pageNum + 1}`,
+          path: `/authors/@${author.fieldValue}/${i + 1}`,
           component: path.resolve(`./src/templates/authorPosts/index.tsx`),
           context: {
-            author: name,
+            authorId: author.fieldValue,
             limit: postsPerPage,
-            skip: pageNum * postsPerPage,
-            currentPage: pageNum + 1,
-          },
+            skip: i * postsPerPage,
+            currentPage: i + 1
+          }
         }
-
         createPage(ctx)
 
-        if (pageNum == 0) {
-          ctx.path = `/authors/${name.replaceAll(" ", "-")}`
-
+        if (i == 0) {
+          ctx.path = `/authors/@${author.fieldValue}`
           createPage(ctx)
         }
       })
@@ -165,6 +146,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MdxFrontmatter {
+      author: [AuthorsYaml] @link(by: "name")
+    }
+  `
+  createTypes(typeDefs)
 }
 
 exports.onCreateWebpackConfig = args => {

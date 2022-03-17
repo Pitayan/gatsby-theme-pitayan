@@ -1,8 +1,8 @@
-- id: daiyanze
-  name: Yanze Dai
-  initial: YD
+- id: sebastian
+  name: Sebastian Dale
+  initial: SD
   bio: Push at least one thing to its perfection even the entirety is yet incomplete
-  joined: June 2020
+  joined: Oct 2021
   avatar: ./avatars/daiyanze.jpeg
   sns:
     - [stackoverflow, 7831025/daiyanze]
@@ -10,5 +10,5 @@
     - [twitter, daiyanze]
     - [github, daiyanze]
     - [medium, "@daiyanze"]
-    - [mailto, mailto:ginoalex8964@yahoo.com]
+    - [mailto, ginoalex8964@yahoo.com]
     - [url, https://daiyanze.com]

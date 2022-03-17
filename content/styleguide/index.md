@@ -1,8 +1,12 @@
 ---
 title: The Style Guide for Gatsby-theme-pitayan
 date: "2021-07-31"
-author: Yanze Dai, Tide Dai
-categories: ["styleguide", "design"]
+author:
+  - Yanze Dai
+  - Tide Dai
+categories:
+  - styleguide
+  - design
 excerpt: "The style guide for a Gatsby blog"
 hero: images/demo_1.jpg
 slug: styleguide

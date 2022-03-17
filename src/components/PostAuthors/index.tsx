@@ -5,17 +5,20 @@ import OutsideClickHandler from "react-outside-click-handler"
 
 import Avatar from "@/components/Avatar"
 
-const AuthorAvatars: React.FC<{ data: { image: any; initial: string }[] }> = ({
-  data,
-}: any) => {
+const AuthorAvatars: React.FC<any> = ({ data }: any) => {
+  const _data = Array.from(data)
+  if (_data.length > 3) {
+    _data.length = 3
+  }
+
   return (
     <div className="flex overflow-hidden -space-x-3 p-1">
-      {data.map(({ node }: any) => {
+      {_data.map((author: any) => {
         const {
           id,
           initial,
           avatar: { normal: image },
-        } = node
+        } = author
 
         return <Avatar key={id} initial={initial} image={image} />
       })}
@@ -23,29 +26,31 @@ const AuthorAvatars: React.FC<{ data: { image: any; initial: string }[] }> = ({
   )
 }
 
-const AuthorNames: React.FC<{ data: { name: string }[] }> = ({ data }: any) => {
-  const str = data.map((edge: any) => edge.node.name).join(", ")
+const AuthorNames: React.FC<any> = ({ data }: any) => {
+  const str = data.map(({ name }: any) => name.substr(0, name.indexOf(" ")))
 
-  return <span className="self-center site-link">{str}</span>
+  if (data.length > 3) {
+    str.length = 3
+    str.push(`+${data.length - 3}`)
+  }
+
+  return <span className="self-center site-link">{str.join(", ")}</span>
 }
 
-const CoAuthorsList: React.FC<{ data: any }> = ({ data }: any) => {
+const CoAuthorsList: React.FC<any> = ({ data }: any) => {
   return (
-    <ul className="list-none m-0 -m-2 rounded-sm">
-      {data.map(({ node }: any) => {
+    <ul className="list-none m-0 -m-2 rounded">
+      {data.map((author: any) => {
         const {
           id,
           initial,
           avatar: { normal: image },
           name,
-        } = node
+        } = author
 
         return (
           <li key={id} className="m-0 p-3">
-            <Link
-              className="flex site-link space-x-4"
-              to={`/authors/${name.replaceAll(" ", "-")}`}
-            >
+            <Link className="flex site-link space-x-4" to={`/authors/@${id}`}>
               <Avatar initial={initial} image={image} />
               <span className="self-center">{name}</span>
             </Link>
@@ -67,7 +72,7 @@ const PostAuthors: React.FC<any> = ({ data }: any) => {
   }
 
   return (
-    <div className="relative rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 -mx-3">
+    <div className="relative rounded hover:bg-gray-200 dark:hover:bg-gray-800 -mx-3">
       <div
         aria-hidden
         className="flex space-x-2 justify-center p-3 cursor-pointer"
@@ -82,13 +87,13 @@ const PostAuthors: React.FC<any> = ({ data }: any) => {
         <OutsideClickHandler onOutsideClick={handleClick}>
           <div
             aria-hidden
-            className={`absolute top-0 left-0 w-full h-full
+            className={`absolute top-0 left-0 w-full h-full z-50
             ${shouldDisplayPanel ? "block" : "hidden"}
             `}
             onClick={handleClick}
             onKeyDown={handleClick}
           >
-            <div className="flex bg-gray-200 dark:bg-gray-800 p-3 rounded-sm justify-between">
+            <div className="flex bg-gray-200 dark:bg-gray-800 p-3 rounded justify-between">
               <CoAuthorsList data={data} />
               <HiOutlineChevronUp size={20} className="self-start mt-3" />
             </div>

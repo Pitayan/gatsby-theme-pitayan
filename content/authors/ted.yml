@@ -5,6 +5,10 @@
   joined: June 2020
   avatar: ./avatars/ted.jpg
   sns:
-    facebook: yanze.dai
-    twitter: daiyanze
-    github: daiyanze
+    - [stackoverflow, 7831025/daiyanze]
+    - [facebook, yanze.dai]
+    - [twitter, daiyanze]
+    - [github, daiyanze]
+    - [medium, "@daiyanze"]
+    - [mailto, ginoalex8964@yahoo.com]
+    - [url, https://daiyanze.com]

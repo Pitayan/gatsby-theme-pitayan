@@ -11,19 +11,13 @@ const DarkModeToggle: React.FC = () => {
   }
 
   return (
-    <span
-      role="button"
-      tabIndex={0}
-      onClick={toggle}
-      onKeyDown={toggle}
-      className="cursor-pointer text-gray-500"
-    >
+    <button onClick={toggle} className="text-gray-500">
       {isDark ? (
         <RiSunLine className="animate-fade-in-scale" />
       ) : (
         <RiMoonFill className="animate-fade-in-scale" />
       )}
-    </span>
+    </button>
   )
 }
 

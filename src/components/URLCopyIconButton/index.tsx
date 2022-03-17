@@ -19,13 +19,12 @@ const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
   }
 
   return (
-    <span className="cursor-pointer text-gray-500">
+    <button className="text-gray-500" onClick={copyOnClick}>
       <RiLinksLine
         className={isAnimated ? "" : "animate-fade-in-scale"}
         onAnimationEnd={() => setIsAnimated(true)}
-        onClick={copyOnClick}
       />
-    </span>
+    </button>
   )
 }
 

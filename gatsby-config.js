@@ -1,6 +1,9 @@
 const path = require("path")
 
 module.exports = {
+  mapping: {
+    'Mdx.frontmatter.author': `AuthorsYaml`,
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -11,7 +14,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-yaml`,
       options: {
-        typeName: `Yaml`,
+        typeName: `AuthorsYaml`,
       }
     },
     {

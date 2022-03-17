@@ -36,7 +36,7 @@ const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
       <Posts posts={posts} />
       <div className="text-center my-24">
         <button
-          className="font-bold text-xl rounded-sm px-4 py-2 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-75"
+          className="font-bold text-xl rounded px-4 py-2 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-75"
           onClick={() => navigate("/posts")}
         >
           <span className="">See More ...</span>

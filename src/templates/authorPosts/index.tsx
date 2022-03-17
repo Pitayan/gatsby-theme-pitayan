@@ -27,8 +27,9 @@ const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
 const AuthorPosts: React.FC<AuthorPostsProps> = ({
   data: {
     allMdx: { edges: posts, pageInfo },
+    authorsYaml: author,
   },
-  pageContext: { author },
+  pageContext: { authorId },
 }) => {
   return (
     <DefaultLayout>
@@ -36,10 +37,7 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
       <hr className="my-8 border-gray-300" />
       <Posts posts={posts} />
       <div className="my-24">
-        <Pagination
-          pageInfo={pageInfo}
-          path={`/authors/${author.replaceAll(" ", "-")}`}
-        />
+        <Pagination pageInfo={pageInfo} path={`authors/@${authorId}`} />
       </div>
     </DefaultLayout>
   )
@@ -48,14 +46,15 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
 export default AuthorPosts
 
 export const pageQuery = graphql`
-  query($limit: Int!, $skip: Int!, $author: String!) {
+  query($limit: Int!, $skip: Int!, $authorId: String!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { author: { in: [$author] } } }
+      filter: {
+        frontmatter: { author: { elemMatch: { id: { in: [$authorId] } } } }
+      }
       limit: $limit
       skip: $skip
     ) {
-      totalCount
       pageInfo {
         currentPage
         hasNextPage
@@ -71,7 +70,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            author
             categories
             date(formatString: "MMMM Do, YYYY")
             hero {
@@ -87,6 +85,23 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    authorsYaml(id: { eq: $authorId }) {
+      id
+      name
+      initial
+      bio
+      joined
+      avatar {
+        normal: childImageSharp {
+          gatsbyImageData(
+            width: 480
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
+      sns
     }
   }
 `
