@@ -50,9 +50,9 @@ const CoAuthorsList: React.FC<any> = ({ data }: any) => {
 
         return (
           <li key={id} className="m-0 p-3">
-            <Link className="flex site-link space-x-4" to={`/authors/@${id}`}>
+            <Link className="flex space-x-4" to={`/authors/@${id}`}>
               <Avatar initial={initial} image={image} />
-              <span className="self-center">{name}</span>
+              <span className="self-center site-link">{name}</span>
             </Link>
           </li>
         )

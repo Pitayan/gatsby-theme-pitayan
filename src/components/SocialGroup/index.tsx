@@ -20,7 +20,7 @@ import {
   SiDigitalocean,
   SiTripadvisor,
 } from "react-icons/si"
-import { HiLink } from "react-icons/hi"
+import { FiExternalLink } from "react-icons/fi"
 
 type SocialGroupProps = {
   [key: string]: any
@@ -108,7 +108,7 @@ const icons: any = {
     url: "",
   },
   url: {
-    icon: HiLink,
+    icon: FiExternalLink,
     url: "",
   },
 }
