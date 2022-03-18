@@ -23,9 +23,11 @@ Under prototyping. Don't use it yet in production!
 - [ ] tooltip
 - [x] Author Avatar (Choice dropdown)
 - [x] Back to top
-- [ ] markdown post heading anchor
+- [x] markdown post heading anchor
+- [x] Page accessible progress with gatsby-plugin-nprogress
 - [ ] Related posts with gatsby-remark-related-posts
 - [ ] Change font
+- [ ] Provide theming solution via Tailwind configs
 
 ### Pages
 
@@ -36,7 +38,6 @@ Under prototyping. Don't use it yet in production!
 - [x] categories list
 - [x] posts
 - [ ] write for us
-- [ ] editor's pick
 - [ ] about
 - [ ] subscribe
 - [ ] privacy
