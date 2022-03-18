@@ -1,4 +1,5 @@
 const path = require("path")
+const colors = require("tailwindcss/colors")
 
 module.exports = {
   mapping: {
@@ -59,6 +60,13 @@ module.exports = {
         rule: {
           include: /src\/assets\/img/,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: colors.gray['500'], // optional
+        showSpinner: false,
       },
     },
     {
