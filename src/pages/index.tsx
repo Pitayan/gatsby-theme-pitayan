@@ -31,6 +31,8 @@ const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
   return (
     <DefaultLayout>
       <HomeHero />
+      <br />
+      <br />
       <HomeActions />
       <hr className="mt-4 mb-12 border-gray-300" />
       <Posts posts={posts} />

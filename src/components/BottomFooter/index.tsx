@@ -25,9 +25,6 @@ const BottomFooter: React.FC = () => {
             <Link className="site-link block" to="/write-for-us">
               write for us
             </Link>
-            <Link className="site-link block" to="/editor-pick">
-              editor&#39;s pick
-            </Link>
             <Link className="site-link block" to="/posts">
               posts
             </Link>

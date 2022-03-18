@@ -7,7 +7,7 @@ type SocialSharingProps = {
 
 export function objectToGetParams(object: {
   [key: string]: string | number | undefined | null
-}) {
+}): string {
   const params = Object.entries(object)
     .filter(([, value]) => value !== undefined && value !== null)
     .map(
