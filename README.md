@@ -18,9 +18,10 @@ Under prototyping. Don't use it yet in production!
 
 - [ ] Image magnifier
 - [ ] In-article-image
-- [ ] Popup / Modal (Cookie Prompt)
+- [ ] Selection popup sharing
+- [x] Cookie Prompt
 - [x] Pagination (needs adjustment for the pages)
-- [ ] tooltip
+- [x] tooltip
 - [x] Author Avatar (Choice dropdown)
 - [x] Back to top
 - [x] markdown post heading anchor
