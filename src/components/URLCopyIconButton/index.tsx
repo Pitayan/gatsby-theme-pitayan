@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { RiLinksLine } from "react-icons/ri"
 import { copyToClipboard } from "@/utils"
+import Tooltip from "../Tooltip"
 
 const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
   const [hasCopied, setHasCopied] = useState<boolean>(false)
@@ -19,12 +20,17 @@ const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
   }
 
   return (
-    <button className="text-gray-500" onClick={copyOnClick}>
-      <RiLinksLine
-        className={isAnimated ? "" : "animate-fade-in-scale"}
-        onAnimationEnd={() => setIsAnimated(true)}
-      />
-    </button>
+    <Tooltip text="url copied" active={hasCopied}>
+      <button className="text-gray-500" onClick={copyOnClick}>
+        <RiLinksLine
+          className={isAnimated ? "" : "animate-fade-in-scale"}
+          onAnimationEnd={() => {
+            setIsAnimated(true)
+            setHasCopied(false)
+          }}
+        />
+      </button>
+    </Tooltip>
   )
 }
 
