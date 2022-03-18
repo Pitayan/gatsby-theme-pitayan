@@ -24,11 +24,25 @@
   h4,
   h5,
   h6 {
-    @apply mt-12;
+    @apply pt-6;
+    @apply mt-6;
     @apply mb-6;
+
+    /* Display heading anchor */
+    &:hover {
+      a.heading-anchor {
+        @apply opacity-100;
+      }
+    }
   }
 
   a {
+    &.heading-anchor {
+      @apply -ml-6 pr-1;
+      @apply opacity-0;
+      @apply transition duration-75;
+    }
+
     @apply text-blue-600;
 
     /* Dark Mode */

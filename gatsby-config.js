@@ -76,6 +76,14 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: `0`,
+              icon: `<span>#</span>`,
+              className: `heading-anchor`,
+            }
+          },
+          {
             resolve: `gatsby-remark-external-links`,
             options: {
               target: `_blank`,

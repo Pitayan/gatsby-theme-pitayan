@@ -1,6 +1,9 @@
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{css,tsx,svg}", "./content/**/*.{md,mdx}"],
+  content: [
+    "./src/**/*.{css,tsx,svg}",
+    "./content/**/*.{md,mdx}",
+  ],
   theme: {
     fontFamily: {
       sans:

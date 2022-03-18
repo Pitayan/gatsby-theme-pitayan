@@ -12,6 +12,7 @@ import SocialSharing from "@/components/SocialSharing"
 import CategoryTags from "@/components/CategoryTags"
 import BackToTop from "@/components/BackToTop"
 import PostAuthors from "@/components/PostAuthors"
+import { useScrollToFragment } from "@/hooks/useScrollToFragment"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? <GatsbyImage image={image} alt="" /> : null
@@ -34,6 +35,8 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
     allMdx: { edges: posts },
   } = data
   const postImage = getImage(hero?.medium)
+
+  useScrollToFragment()
 
   return (
     <DefaultLayout>
