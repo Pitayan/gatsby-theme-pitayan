@@ -7,15 +7,10 @@ type Props = {
 }
 
 const BackToTop: React.FC<Props> = () => {
-  const [className, setClassName] = useState(
-    "fixed right-[6%] bottom-[6%] opacity-20 hover:opacity-80 transition-opacity duration-150 ease-in-out z-50 hidden"
-  )
+  const [isHidden, setIsHidden] = useState(true)
 
   const handleVisibility = throttle(() => {
-    const position = window.pageYOffset
-    setClassName(
-      position > 500 ? className.replace(" hidden", "") : className + " hidden"
-    )
+    setIsHidden(window.pageYOffset <= 500)
   }, 150)
 
   const scrollTop = () => {
@@ -34,7 +29,11 @@ const BackToTop: React.FC<Props> = () => {
   }, [])
 
   return (
-    <div className={className}>
+    <div
+      className={`fixed right-[6%] bottom-[6%] opacity-20 hover:opacity-80 transition-opacity duration-150 ease-in-out z-50 ${
+        isHidden ? "hidden" : ""
+      }`}
+    >
       <button className="ghost text-4xl" onClick={scrollTop}>
         <RiArrowUpSLine />
       </button>

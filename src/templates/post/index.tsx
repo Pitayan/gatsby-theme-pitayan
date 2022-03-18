@@ -40,7 +40,9 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
   return (
     <DefaultLayout>
-      <BackToTop />
+      <span className="md:block hidden">
+        <BackToTop />
+      </span>
 
       <div className="max-w-2xl mx-auto mb-24">
         <h1>{title}</h1>
