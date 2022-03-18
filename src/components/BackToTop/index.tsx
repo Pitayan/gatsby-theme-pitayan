@@ -6,7 +6,7 @@ type Props = {
   [key: string]: any
 }
 
-const BackToTop: React.FC<Props> = (props: Props) => {
+const BackToTop: React.FC<Props> = () => {
   const [className, setClassName] = useState(
     "fixed right-[6%] bottom-[6%] opacity-20 hover:opacity-80 transition-opacity duration-150 ease-in-out z-50 hidden"
   )
