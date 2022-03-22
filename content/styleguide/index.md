@@ -702,6 +702,3 @@ Article list item `html•<div class="panel">`
     </div>
   </div>
 </div>
-<br />
-<br />
-<br />

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -13,6 +13,7 @@ import CategoryTags from "@/components/CategoryTags"
 import BackToTop from "@/components/BackToTop"
 import PostAuthors from "@/components/PostAuthors"
 import { useScrollToFragment } from "@/hooks/useScrollToFragment"
+import SelectionPopup from "@/components/SelectionPopup"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? <GatsbyImage image={image} alt="" /> : null
@@ -34,12 +35,19 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
     },
     allMdx: { edges: posts },
   } = data
+  const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
 
   useScrollToFragment()
 
   return (
     <DefaultLayout>
+      <SelectionPopup
+        title={title}
+        categories={categories}
+        target={postTarget}
+      />
+
       <span className="md:block hidden">
         <BackToTop />
       </span>
@@ -58,6 +66,11 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
             title={title}
             hashtags={categories}
             excerpt={excerpt}
+            className="space-x-8"
+            twitter
+            facebook
+            linkedin
+            pocket
           />
         </div>
       </div>
@@ -66,7 +79,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         <PostImage image={postImage} />
       </div>
 
-      <article className="markdown">
+      <article className="markdown" ref={ref => setPostTarget(ref)}>
         <MDXProvider components={{}}>
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
@@ -80,7 +93,17 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         Social Sharing
       </h3>
       <div className="text-2xl my-8">
-        <SocialSharing />
+        <SocialSharing
+          url={window.location.href}
+          title={title}
+          hashtags={categories}
+          excerpt={excerpt}
+          className="space-x-8"
+          twitter
+          facebook
+          linkedin
+          pocket
+        />
       </div>
 
       <h3 className="text-base font-black font-serif mb-8 text-gray-500">

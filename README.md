@@ -16,9 +16,6 @@ Under prototyping. Don't use it yet in production!
 
 ### Components / Functions
 
-- [ ] Image magnifier
-- [ ] In-article-image
-- [ ] Selection popup sharing
 - [x] Cookie Prompt
 - [x] Pagination (needs adjustment for the pages)
 - [x] tooltip
@@ -26,9 +23,11 @@ Under prototyping. Don't use it yet in production!
 - [x] Back to top
 - [x] markdown post heading anchor
 - [x] Page accessible progress with gatsby-plugin-nprogress
+- [x] Selection popup sharing
+- [ ] Image magnifier
+- [ ] In-article-image
 - [ ] Related posts with gatsby-remark-related-posts
 - [ ] Change font
-- [ ] Provide theming solution via Tailwind configs
 
 ### Pages
 

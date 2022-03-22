@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useEffect, useState } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import ReactDom from "react-dom"
 
 const COOKIE_PROMPT_CONTAINER_ID = "cookie-prompt-container"
@@ -25,7 +25,7 @@ export const Notification: React.FC<NotificationProps> = () => {
     }, 0)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!window.localStorage.getItem(AGREE_COOKIE)) {
       setIsOpen(true)
     }
@@ -60,7 +60,7 @@ export const Notification: React.FC<NotificationProps> = () => {
 }
 
 export const useCookiePrompt = (): void => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     let containerElm = document.getElementById(COOKIE_PROMPT_CONTAINER_ID)
 
     if (!containerElm) {

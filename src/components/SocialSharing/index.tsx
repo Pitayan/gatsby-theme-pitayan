@@ -22,55 +22,66 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
   url,
   hashtags,
   excerpt,
+  className,
+  twitter,
+  facebook,
+  linkedin,
+  pocket,
 }) => {
   return (
-    <span className="flex space-x-8 text-gray-500">
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href={`https://twitter.com/share${objectToGetParams({
-          title,
-          url,
-          hashtags,
-        })}`}
-      >
-        <SiTwitter />
-      </a>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
-          title,
-          u: url,
-          description: excerpt,
-          hashtag: hashtags,
-        })}`}
-      >
-        <SiFacebook />
-      </a>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href={`https://linkedin.com/shareArticle${objectToGetParams({
-          title,
-          url,
-          mini: "true",
-          summary: excerpt,
-          source: "pitayan.com",
-        })}`}
-      >
-        <SiLinkedin />
-      </a>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href={`https://getpocket.com/save${objectToGetParams({
-          title,
-          url,
-        })}`}
-      >
-        <SiPocket />
-      </a>
+    <span className={`flex text-gray-500 ${className}`}>
+      {twitter && (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://twitter.com/share${objectToGetParams({
+            title,
+            url,
+            hashtags,
+          })}`}
+        >
+          <SiTwitter />
+        </a>
+      )}
+      {facebook && (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
+            title,
+            u: url,
+            description: excerpt,
+            hashtag: hashtags,
+          })}`}
+        >
+          <SiFacebook />
+        </a>
+      )}
+      {linkedin && (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://linkedin.com/shareArticle${objectToGetParams({
+            title,
+            url,
+            summary: excerpt,
+          })}`}
+        >
+          <SiLinkedin />
+        </a>
+      )}
+      {pocket && (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://getpocket.com/save${objectToGetParams({
+            title,
+            url,
+          })}`}
+        >
+          <SiPocket />
+        </a>
+      )}
     </span>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useLayoutEffect, useRef } from "react"
 
 export const useScrollToFragment = (): void => {
   const scrolledRef = useRef(false)
@@ -24,7 +24,7 @@ export const useScrollToFragment = (): void => {
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     scrollTo()
 
     window.addEventListener("hashchange", scrollTo)
