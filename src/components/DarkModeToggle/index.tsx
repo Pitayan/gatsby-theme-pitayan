@@ -5,13 +5,13 @@ import { checkIfDarkMode, toggleDark } from "@/utils"
 const DarkModeToggle: React.FC = () => {
   const [isDark, setDark] = useState(checkIfDarkMode())
 
-  const toggle = () => {
+  const onClickToggle = () => {
     toggleDark(!isDark)
     setDark(!isDark)
   }
 
   return (
-    <button onClick={toggle} className="text-gray-500">
+    <button onClick={onClickToggle} className="text-gray-500">
       {isDark ? (
         <RiSunLine className="animate-fade-in-scale" />
       ) : (

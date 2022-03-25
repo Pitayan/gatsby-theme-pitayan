@@ -20,7 +20,7 @@ const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
   }
 
   return (
-    <Tooltip text="url copied" active={hasCopied}>
+    <Tooltip text="url copied" active={hasCopied} className="grid">
       <button className="text-gray-500" onClick={copyOnClick}>
         <RiLinksLine
           className={isAnimated ? "" : "animate-fade-in-scale"}
