@@ -81,6 +81,8 @@ module.exports = {
               linkImagesToOriginal: false,
               quality: 80,
               withWebp: true,
+              showCaptions: true,
+              markdownCaptions: false,
             },
           },
           {

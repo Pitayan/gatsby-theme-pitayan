@@ -16,7 +16,9 @@ import { useScrollToFragment } from "@/hooks/useScrollToFragment"
 import SelectionPopup from "@/components/SelectionPopup"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
-  return image ? <GatsbyImage image={image} alt="" /> : null
+  return image ? (
+    <GatsbyImage className="gatsby-resp-image-image" image={image} alt="" />
+  ) : null
 }
 
 const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {

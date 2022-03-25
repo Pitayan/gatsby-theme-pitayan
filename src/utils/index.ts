@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react"
 import { createPortal } from "react-dom"
+import mediumZoom from "medium-zoom"
 
 export const checkIfDarkMode = (): boolean => {
   if (typeof window !== "undefined") {
@@ -101,4 +102,15 @@ export const getSelectedTextPosition = (): {
   const { width, height } = getSelectionBoundlingClientWidthHeight(selection)
 
   return { x, y, width, height, textContent }
+}
+
+export const setZoomableImages = () => {
+  setTimeout(() => {
+    mediumZoom(
+      "img.gatsby-resp-image-image, .gatsby-resp-image-image picture img",
+      {
+        margin: 20,
+      }
+    )
+  }, 500)
 }

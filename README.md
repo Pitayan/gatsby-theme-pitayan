@@ -24,10 +24,11 @@ Under prototyping. Don't use it yet in production!
 - [x] markdown post heading anchor
 - [x] Page accessible progress with gatsby-plugin-nprogress
 - [x] Selection popup sharing
-- [ ] Image magnifier
-- [ ] In-article-image
+- [x] Image magnifier
+- [x] In-article-image
 - [ ] Related posts with gatsby-remark-related-posts
 - [ ] Change font
+- [ ] Content text highlight (for local)
 
 ### Pages
 

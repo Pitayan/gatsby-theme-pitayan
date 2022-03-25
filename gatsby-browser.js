@@ -3,7 +3,7 @@ import "@/assets/css/style.css"
 
 // Polyfill smooth scroll
 import smoothscroll from "smoothscroll-polyfill"
-import { checkIfDarkMode, toggleDark } from "@/utils"
+import { checkIfDarkMode, toggleDark, setZoomableImages } from "@/utils"
 
 import "typeface-merriweather"
 
@@ -12,3 +12,8 @@ toggleDark(checkIfDarkMode())
 
 // kick off polyfill
 smoothscroll.polyfill()
+
+export const onRouteUpdate = () => {
+  // Set gatsby responsive images to zoomable images
+  setZoomableImages()
+}

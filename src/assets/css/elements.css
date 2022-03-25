@@ -118,3 +118,16 @@ input {
     }
   }
 }
+
+figure {
+  img {
+    @apply mx-auto;
+  }
+
+  figcaption {
+    @apply text-center;
+    @apply text-sm;
+    @apply !text-gray-500;
+    @apply pt-2;
+  }
+}
