@@ -148,14 +148,55 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
-  const typeDefs = `
+
+  // Create author link
+  const AuthorTypeDefs = `
     type MdxFrontmatter {
       author: [AuthorsYaml] @link(by: "name")
     }
   `
-  createTypes(typeDefs)
+
+  createTypes([AuthorTypeDefs])
+}
+
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    Mdx: {
+      // Create related posts
+      relatedPosts: {
+        type: ['Mdx'],
+        resolve: async (source, _, context, __) => {
+          const posts = await context.nodeModel.runQuery({
+            type: 'Mdx',
+            query: {
+              // FIXME: runQuery ignores `limit` field in Gatsby V3. Uncommenting this will help resolve the FIXME below in V4
+              // limit: 3,
+              filter: {
+                id: {
+                  ne: source.id,
+                },
+                frontmatter: {
+                  categories: {
+                    in: source.frontmatter.categories,
+                  },
+                },
+              },
+            },
+          })
+
+          if (!posts || !posts.length) return []
+          // FIXME: temporarily force posts length to 3
+          posts.length > 3 && (posts.length = 3)
+
+          return posts
+        },
+      },
+    },
+  }
+
+  createResolvers(resolvers)
 }
 
 exports.onCreateWebpackConfig = args => {

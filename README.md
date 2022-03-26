@@ -26,7 +26,7 @@ Under prototyping. Don't use it yet in production!
 - [x] Selection popup sharing
 - [x] Image magnifier
 - [x] In-article-image
-- [ ] Related posts with gatsby-remark-related-posts
+- [x] Related posts
 - [ ] Change font
 - [ ] Content text highlight (for local)
 
@@ -38,14 +38,12 @@ Under prototyping. Don't use it yet in production!
 - [x] posts list
 - [x] categories list
 - [x] posts
+- [ ] 404
 - [ ] write for us
 - [ ] about
 - [ ] subscribe
 - [ ] privacy
 - [ ] terms
-- [ ] 404
-- [ ] rss
-- [ ] sitemap
 
 ### SEO
 

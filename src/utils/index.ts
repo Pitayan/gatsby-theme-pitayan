@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react"
 import { createPortal } from "react-dom"
-import mediumZoom from "medium-zoom"
+import mediumZoom, { Zoom } from "medium-zoom"
 
 export const checkIfDarkMode = (): boolean => {
   if (typeof window !== "undefined") {
@@ -23,6 +23,31 @@ export const toggleDark = (isDark: boolean): void => {
 
   // Whenever the user explicitly chooses light mode
   localStorage.theme = isDark ? "dark" : "light"
+
+  // FIXME: update medium-zoom background
+  setZoomableImages()
+}
+
+let zoom: Zoom
+export const setZoomableImages = (): void => {
+  const query =
+    "img.gatsby-resp-image-image, .gatsby-resp-image-image picture img"
+
+  const timer = setTimeout(() => {
+    if (zoom) {
+      zoom.detach()
+    }
+
+    zoom = mediumZoom(query, {
+      margin: 20,
+      get background() {
+        // FIXME: for now it's set to static values, should make this reactive to configs
+        return checkIfDarkMode() ? "#0f172a" : "#fff"
+      },
+    })
+
+    clearTimeout(timer)
+  }, 500)
 }
 
 export const copyToClipboard = (toCopy: string): void => {
@@ -102,15 +127,4 @@ export const getSelectedTextPosition = (): {
   const { width, height } = getSelectionBoundlingClientWidthHeight(selection)
 
   return { x, y, width, height, textContent }
-}
-
-export const setZoomableImages = () => {
-  setTimeout(() => {
-    mediumZoom(
-      "img.gatsby-resp-image-image, .gatsby-resp-image-image picture img",
-      {
-        margin: 20,
-      }
-    )
-  }, 500)
 }

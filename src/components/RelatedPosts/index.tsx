@@ -8,8 +8,8 @@ type PostsProps = {
 const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
   return (
     <div className="grid relative grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {posts.map(({ node }: any) => {
-        return <PostPanel post={node} key={node.id} />
+      {posts.map((post: any) => {
+        return <PostPanel post={post} key={post.id} />
       })}
     </div>
   )

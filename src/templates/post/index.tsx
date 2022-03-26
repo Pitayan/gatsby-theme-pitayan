@@ -34,8 +34,8 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         excerpt,
       },
       timeToRead,
+      relatedPosts,
     },
-    allMdx: { edges: posts },
   } = data
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
@@ -118,7 +118,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
       <h3 className="text-base font-black font-serif mb-8 text-gray-500">
         Related Posts
       </h3>
-      <RelatedPosts posts={posts} />
+      <RelatedPosts posts={relatedPosts} />
     </DefaultLayout>
   )
 }
@@ -158,31 +158,26 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
-
-    allMdx(limit: 3) {
-      edges {
-        node {
-          id
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "MMMM Do, YYYY")
-            categories
-            hero {
-              normal: childImageSharp {
-                gatsbyImageData(
-                  width: 768
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
+      relatedPosts {
+        id
+        timeToRead
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date(formatString: "MMMM Do, YYYY")
+          categories
+          hero {
+            normal: childImageSharp {
+              gatsbyImageData(
+                width: 768
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
-            excerpt
           }
+          excerpt
         }
       }
     }
