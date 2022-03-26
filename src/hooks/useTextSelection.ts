@@ -1,10 +1,10 @@
 import { getSelectedTextPosition } from "@/utils"
 import { useCallback, useLayoutEffect, useState } from "react"
 
-const events = ["keydown", "keyup", "mouseup", "resize"]
+const events = ["keydown", "keyup", "mouseup"]
 
 export const useTextSelection = (
-  container: HTMLElement,
+  container: HTMLElement = document.body,
   offsetWidth = 0,
   offsetHeight = 0,
   lineHeightDelta = 32
@@ -17,52 +17,55 @@ export const useTextSelection = (
   const [top, setTop] = useState<number>(0)
   const [textContent, setTextContent] = useState<string>("")
 
-  const checkTextSelection = useCallback(
-    (e: Event) => {
-      setTimeout(() => {
-        const {
-          x,
-          y,
-          width,
-          height,
-          textContent: _textContent,
-        } = getSelectedTextPosition()
+  const checkTextSelection = (e: Event) => {
+    setTimeout(() => {
+      const {
+        x,
+        y,
+        width,
+        height,
+        textContent: _textContent,
+      } = getSelectedTextPosition()
 
-        let docOffsetTop = 0
-        if (container) {
-          docOffsetTop =
-            container.getBoundingClientRect().y -
-            container.offsetTop +
-            offsetHeight
-        }
-        let left =
-          height > lineHeightDelta
-            ? (e.target as HTMLElement).offsetLeft +
-              (e.target as HTMLElement).clientWidth / 2 -
-              offsetWidth
-            : x + width / 2 - offsetWidth
-        let top = y - docOffsetTop
+      let docOffsetTop = 0
+      if (container) {
+        docOffsetTop =
+          container.getBoundingClientRect().y -
+          container.offsetTop +
+          offsetHeight
+      }
+      let left =
+        height > lineHeightDelta
+          ? (e.target as HTMLElement).offsetLeft +
+            (e.target as HTMLElement).clientWidth / 2 -
+            offsetWidth
+          : x + width / 2 - offsetWidth
+      let top = y - docOffsetTop
 
-        if (!_textContent) {
-          left = top = -9999
-        }
+      if (!_textContent) {
+        left = top = -9999
+      }
 
-        setLeft(left)
-        setTop(top)
-        setTextContent(_textContent)
-      }, 0)
-    },
-    [container]
-  )
+      setLeft(left || -9999)
+      setTop(top || -9999)
+      setTextContent(_textContent)
+    }, 0)
+  }
+
+  const handler = useCallback(checkTextSelection, [container])
 
   useLayoutEffect(() => {
+    window.addEventListener("resize", checkTextSelection)
+
     events.forEach((event: string) => {
-      window.addEventListener(event, checkTextSelection)
+      container.addEventListener(event, handler)
     })
 
     return () => {
+      window.removeEventListener("resize", handler)
+
       events.forEach((event: string) => {
-        window.removeEventListener(event, checkTextSelection)
+        container.removeEventListener(event, handler)
       })
     }
   }, [container])
