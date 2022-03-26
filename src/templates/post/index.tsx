@@ -87,7 +87,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         </MDXProvider>
       </article>
 
-      <SubscriptionPanel />
+      <SubscriptionPanel className="my-12" />
 
       <hr className="border-gray-300 my-12" />
 

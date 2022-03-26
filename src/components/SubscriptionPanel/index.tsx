@@ -1,8 +1,12 @@
 import React from "react"
 
-const SubscriptionPanel: React.FC = () => {
+type SubscriptionPanelProps = {
+  [key: string]: any
+}
+
+const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className }) => {
   return (
-    <div className="subscription mark-w-xl">
+    <div className={`subscription mark-w-xl ${className}`}>
       <h3 className="subscription-title">
         Join our email list and get notified about new content
       </h3>
