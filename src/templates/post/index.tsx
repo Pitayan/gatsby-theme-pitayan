@@ -12,7 +12,7 @@ import SocialSharing from "@/components/SocialSharing"
 import CategoryTags from "@/components/CategoryTags"
 import BackToTop from "@/components/BackToTop"
 import PostAuthors from "@/components/PostAuthors"
-import { useScrollToFragment } from "@/hooks/useScrollToFragment"
+import { useScrollToFragment } from "@/hooks"
 import SelectionPopup from "@/components/SelectionPopup"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {

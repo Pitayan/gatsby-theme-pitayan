@@ -1,7 +1,7 @@
 import React from "react"
 import TopNav from "@/components/TopNav"
 import BottomFooter from "@/components/BottomFooter"
-import { useCookiePrompt } from "@/hooks/useCookiePrompt"
+import { useCookiePrompt } from "@/hooks"
 
 type Props = {
   children?: React.ReactNode

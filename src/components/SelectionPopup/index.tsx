@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react"
-import { useTextSelection } from "@/hooks/useTextSelection"
+import { useTextSelection } from "@/hooks"
 import { copyToClipboard, Portal } from "@/utils"
 import { FiCopy } from "react-icons/fi"
 import { SiTwitter } from "react-icons/si"
