@@ -11,7 +11,7 @@ Under prototyping. Don't use it yet in production!
 ### Repo
 
 - [ ] Make the theme into Tailwindcss Preset
-- [ ] Turn it into gatsby plugin (list out all possbile configs/APIs)
+- [x] Turn it into gatsby plugin (list out all possbile configs/APIs)
 - [ ] dot env
 
 ### Components / Functions
@@ -27,7 +27,8 @@ Under prototyping. Don't use it yet in production!
 - [x] Image magnifier
 - [x] In-article-image
 - [x] Related posts
-- [ ] Change font
+- [x] Change font
+- [ ] Correct types
 - [ ] Content text highlight (for local)
 
 ### Pages
@@ -38,7 +39,7 @@ Under prototyping. Don't use it yet in production!
 - [x] posts list
 - [x] categories list
 - [x] posts
-- [ ] 404
+- [x] 404
 - [ ] write for us
 - [ ] about
 - [ ] subscribe
