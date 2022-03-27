@@ -104,25 +104,40 @@
     @apply rounded;
 
     a {
+      @apply opacity-60;
+      @apply hover:opacity-100;
+      @apply transition-all;
+      @apply duration-150;
+      @apply ease-in-out;
+
       @apply text-center;
       @apply relative;
       @apply px-4 py-1;
-      @apply !text-black;
 
-      &:active,
-      &:focus,
+      /* Dark Mode */
+      @apply dark:hover:opacity-100;
+      @apply dark:hover:text-white;
+
       &:hover {
-        @apply outline-none;
+        @apply underline;
       }
     }
   }
 
   &-item:first-of-type {
     @apply font-semibold;
+
+    a {
+      @apply opacity-100;
+    }
   }
 
   &-item:last-of-type {
     @apply font-semibold;
+
+    a {
+      @apply opacity-100;
+    }
   }
 
   &-item.active {
@@ -133,6 +148,7 @@
       @apply underline;
       @apply cursor-pointer;
       @apply pointer-events-none;
+      @apply opacity-100;
     }
   }
 }
