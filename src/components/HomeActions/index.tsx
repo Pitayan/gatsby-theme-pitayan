@@ -4,7 +4,7 @@ import { RiTwitterFill } from "react-icons/ri"
 
 const HomeActions: React.FC<Record<string, unknown>> = () => {
   return (
-    <div className="flex flex-wrap text-gray-500">
+    <div className="flex flex-wrap">
       <span className="flex items-center space-x-6 pt-2 pr-6">
         <Link className="site-link" to="write-for-us">
           write for us
@@ -20,7 +20,7 @@ const HomeActions: React.FC<Record<string, unknown>> = () => {
         </Link>
         <a
           href="https://twitter.com"
-          className="text-2xl"
+          className="text-2xl site-link"
           target="_blank"
           rel="noreferrer"
         >

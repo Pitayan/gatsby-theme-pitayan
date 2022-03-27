@@ -29,9 +29,10 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
   pocket,
 }) => {
   return (
-    <span className={`flex text-gray-500 ${className}`}>
+    <span className={`flex ${className}`}>
       {twitter && (
         <a
+          className="site-link"
           target="_blank"
           rel="noreferrer"
           href={`https://twitter.com/share${objectToGetParams({
@@ -45,6 +46,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
       )}
       {facebook && (
         <a
+          className="site-link"
           target="_blank"
           rel="noreferrer"
           href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
@@ -59,6 +61,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
       )}
       {linkedin && (
         <a
+          className="site-link"
           target="_blank"
           rel="noreferrer"
           href={`https://linkedin.com/shareArticle${objectToGetParams({
@@ -72,6 +75,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
       )}
       {pocket && (
         <a
+          className="site-link"
           target="_blank"
           rel="noreferrer"
           href={`https://getpocket.com/save${objectToGetParams({

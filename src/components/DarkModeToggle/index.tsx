@@ -11,7 +11,7 @@ const DarkModeToggle: React.FC = () => {
   }
 
   return (
-    <button onClick={onClickToggle} className="text-gray-500">
+    <button onClick={onClickToggle} className="site-link">
       {isDark ? (
         <RiSunLine className="animate-fade-in-scale" />
       ) : (

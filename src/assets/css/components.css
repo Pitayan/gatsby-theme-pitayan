@@ -8,15 +8,15 @@
 
 .site-link {
   @apply font-semibold;
-  @apply text-gray-500;
-  @apply hover:text-gray-900;
-  @apply transition-colors;
+  @apply opacity-60;
+  @apply hover:opacity-100;
+  @apply transition-all;
   @apply duration-150;
   @apply ease-in-out;
 
   /* Dark Mode */
-  @apply dark:text-gray-400;
-  @apply dark:hover:text-gray-100;
+  @apply dark:hover:opacity-100;
+  @apply dark:hover:text-white;
 }
 
 .avatar {

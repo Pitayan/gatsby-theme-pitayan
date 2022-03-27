@@ -14,6 +14,7 @@ import BackToTop from "@/components/BackToTop"
 import PostAuthors from "@/components/PostAuthors"
 import { useScrollToFragment } from "@/hooks"
 import SelectionPopup from "@/components/SelectionPopup"
+import ScrollVisibility from "@/components/ScrollVisibility"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? (
@@ -50,14 +51,16 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         target={postTarget}
       />
 
-      <span className="md:block hidden">
-        <BackToTop />
-      </span>
+      <div className="hidden md:block">
+        <ScrollVisibility className="fixed right-[6%] bottom-[6%] flex flex-col justify-center z-50">
+          <BackToTop />
+        </ScrollVisibility>
+      </div>
 
       <div className="max-w-2xl mx-auto mb-24">
         <h1>{title}</h1>
 
-        <div className="flex items-center space-x-4 text-gray-500">
+        <div className="flex items-center space-x-4">
           <PostAuthors data={coAuthors} />
           <PostMeta date={date} timeToRead={timeToRead} />
         </div>

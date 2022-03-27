@@ -1,18 +1,11 @@
-import React, { useState, useLayoutEffect } from "react"
+import React from "react"
 import { RiArrowUpSLine } from "react-icons/ri"
-import throttle from "lodash/throttle"
 
-type Props = {
+type BackToTopProps = {
   [key: string]: any
 }
 
-const BackToTop: React.FC<Props> = () => {
-  const [isHidden, setIsHidden] = useState(true)
-
-  const handleVisibility = throttle(() => {
-    setIsHidden(window.pageYOffset <= 500)
-  }, 150)
-
+const BackToTop: React.FC<BackToTopProps> = ({ className }) => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -20,21 +13,11 @@ const BackToTop: React.FC<Props> = () => {
     })
   }
 
-  useLayoutEffect(() => {
-    window.addEventListener("scroll", handleVisibility)
-
-    return () => {
-      window.removeEventListener("scroll", handleVisibility)
-    }
-  }, [])
-
   return (
     <div
-      className={`fixed right-[6%] bottom-[6%] opacity-20 hover:opacity-80 transition-opacity duration-150 ease-in-out z-50 ${
-        isHidden ? "hidden" : ""
-      }`}
+      className={`opacity-20 hover:opacity-80 transition-opacity duration-150 ease-in-out z-50 ${className}`}
     >
-      <button className="ghost text-4xl" onClick={scrollTop}>
+      <button className="ghost text-3xl" onClick={scrollTop}>
         <RiArrowUpSLine />
       </button>
     </div>
