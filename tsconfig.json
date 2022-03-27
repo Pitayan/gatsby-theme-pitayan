@@ -3,6 +3,7 @@
     "target": "esnext",
     "lib": ["dom", "esnext"],
     "allowJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -12,10 +13,12 @@
     "noUnusedLocals": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": "./src",
+    "jsx": "react",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@pitayan/*": [
+        "packages/*"
+      ]
     },
     "typeRoots": ["types", "node_modules/@types"]
   },

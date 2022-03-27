@@ -1,0 +1,5 @@
+module.exports.createPages = require("@pitayan/gatsby-theme-pitayan/src/gatsby/node/create-pages")
+module.exports.createResolvers = require("@pitayan/gatsby-theme-pitayan/src/gatsby/node/create-resolvers")
+module.exports.onCreateNode = require("@pitayan/gatsby-theme-pitayan/src/gatsby/node/on-create-node")
+module.exports.onCreateWebpackConfig = require("@pitayan/gatsby-theme-pitayan/src/gatsby/node/on-create-webpack-config")
+module.exports.createSchemaCustomization = require("@pitayan/gatsby-theme-pitayan/src/gatsby/node/create-schema-customization")
