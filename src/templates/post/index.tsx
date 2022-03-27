@@ -94,9 +94,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
       <hr className="border-gray-300 my-12" />
 
-      <h3 className="text-base font-black font-serif mb-8 text-gray-500">
-        Social Sharing
-      </h3>
+      <h3 className="text-base font-black font-serif mb-8">Social Sharing</h3>
       <div className="text-2xl my-8">
         <SocialSharing
           url={window.location.href}
@@ -111,16 +109,12 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         />
       </div>
 
-      <h3 className="text-base font-black font-serif mb-8 text-gray-500">
-        Categories
-      </h3>
+      <h3 className="text-base font-black font-serif mb-8">Categories</h3>
       <div className="my-8">
         <CategoryTags categories={categories} />
       </div>
 
-      <h3 className="text-base font-black font-serif mb-8 text-gray-500">
-        Related Posts
-      </h3>
+      <h3 className="text-base font-black font-serif mb-8">Related Posts</h3>
       <RelatedPosts posts={relatedPosts} />
     </DefaultLayout>
   )

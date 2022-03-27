@@ -1,9 +1,16 @@
 .tag {
   @apply rounded-sm;
   @apply bg-gray-200;
-  @apply dark:bg-gray-600;
+  @apply hover:bg-gray-300;
   @apply py-px px-1;
   @apply text-sm;
+  @apply transition-colors;
+  @apply duration-150;
+  @apply ease-in-out;
+
+  /* Dark Mode */
+  @apply dark:hover:bg-gray-500;
+  @apply dark:bg-gray-600;
 }
 
 .site-link {

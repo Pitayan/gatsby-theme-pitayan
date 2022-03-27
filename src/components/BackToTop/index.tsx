@@ -17,7 +17,7 @@ const BackToTop: React.FC<BackToTopProps> = ({ className }) => {
     <div
       className={`opacity-20 hover:opacity-80 transition-opacity duration-150 ease-in-out z-50 ${className}`}
     >
-      <button className="ghost text-3xl" onClick={scrollTop}>
+      <button className="ghost text-4xl" onClick={scrollTop}>
         <RiArrowUpSLine />
       </button>
     </div>
