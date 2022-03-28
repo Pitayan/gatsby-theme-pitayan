@@ -123,7 +123,6 @@ const SocialGroup: React.FC<SocialGroupProps> = ({ data }) => {
   return (
     <ul className="list-none flex flex-wrap space-x-8">
       {data.map(([sns, profile]: any) => {
-        console.log(sns, profile)
         let href = `${icons[sns]?.url}/${profile}`
 
         // Use the given url If the given platform id is an HTTP url.

@@ -4,29 +4,14 @@ import { graphql, navigate } from "gatsby"
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import HomeHero from "@pitayan/gatsby-theme-pitayan/src/components/HomeHero"
 import HomeActions from "@pitayan/gatsby-theme-pitayan/src/components/HomeActions"
-import PostPanel from "@pitayan/gatsby-theme-pitayan/src/components/PostPanel"
+import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type HomePageProps = {
   data: any
 }
 
-type PostsProps = {
-  posts: any
-}
-
-// TODO: move this component to another dir
-const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
-  return (
-    <div className="grid relative grid-cols-1 md:grid-cols-2 gap-8">
-      {posts.map(({ node }: any) => {
-        return <PostPanel post={node} key={node.id} />
-      })}
-    </div>
-  )
-}
-
 const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
-  const posts = data.allMdx.edges
+  const posts = data.allMdx.nodes
 
   return (
     <DefaultLayout>
@@ -35,7 +20,10 @@ const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
       <br />
       <HomeActions />
       <hr className="mt-4 mb-12 border-gray-300" />
-      <Posts posts={posts} />
+      <PostsGroup
+        posts={posts}
+        className="grid relative grid-cols-1 md:grid-cols-2 gap-8"
+      />
       <div className="text-center my-24">
         <button
           className="font-bold text-xl rounded px-4 py-2 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-75"
@@ -51,28 +39,26 @@ const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
 export const pageQuery = graphql`
   query HomePageQuery {
     allMdx(limit: 12) {
-      edges {
-        node {
-          id
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            categories
-            date(formatString: "MMMM Do, YYYY")
-            hero {
-              normal: childImageSharp {
-                gatsbyImageData(
-                  width: 768
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
+      nodes {
+        id
+        timeToRead
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          categories
+          date(formatString: "MMMM Do, YYYY")
+          hero {
+            normal: childImageSharp {
+              gatsbyImageData(
+                width: 768
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
-            excerpt
           }
+          excerpt
         }
       }
     }

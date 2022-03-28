@@ -1,14 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
 
-type Props = {
-  [key: string]: any
+type PaginationProps = {
+  pageInfo: {
+    currentPage: number
+    hasNextPage: boolean
+    hasPreviousPage: boolean
+    pageCount: number
+  }
+  path: string
 }
 
-const Pagination: React.FC<Props> = ({
+const Pagination: React.FC<PaginationProps> = ({
   pageInfo: { currentPage, hasNextPage, hasPreviousPage, pageCount },
   path,
-}: Props) => {
+}) => {
   const itemClass = (i: number) =>
     currentPage == i + 1 ? "pagination-item active" : "pagination-item"
   return (

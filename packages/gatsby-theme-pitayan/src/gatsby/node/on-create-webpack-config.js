@@ -7,8 +7,8 @@ module.exports = function onCreateWebpackConfig({ actions }) {
     resolve: {
       modules: [path.resolve(projectRoot, "src"), "node_modules"],
       alias: {
-        "@pitayan/gatsby-theme-pitayan": path.resolve(projectRoot)
-      }
+        "@pitayan/gatsby-theme-pitayan": path.resolve(projectRoot),
+      },
     },
   })
 }

@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 
 const NotFound: React.FC<any> = () => {
-
   return (
     <DefaultLayout>
       <div className="mx-auto w-full text-center h-72">
@@ -15,7 +14,9 @@ const NotFound: React.FC<any> = () => {
         <br />
         <br />
         <br />
-        <Link className="site-link" to="/">home</Link>
+        <Link className="site-link" to="/">
+          home
+        </Link>
       </div>
     </DefaultLayout>
   )

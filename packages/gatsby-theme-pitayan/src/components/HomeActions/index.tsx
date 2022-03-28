@@ -2,7 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import { RiTwitterFill } from "react-icons/ri"
 
-const HomeActions: React.FC<Record<string, unknown>> = () => {
+type HomeActionsProps = {
+  [key: string]: any
+}
+
+// TODO: Fix Home Actions links content (dynamic)
+const HomeActions: React.FC<HomeActionsProps> = () => {
   return (
     <div className="flex flex-wrap">
       <span className="flex items-center space-x-6 pt-2 pr-6">

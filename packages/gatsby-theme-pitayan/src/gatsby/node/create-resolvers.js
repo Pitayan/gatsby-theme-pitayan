@@ -3,10 +3,10 @@ module.exports = function createResolvers({ createResolvers }) {
     Mdx: {
       // Create related posts
       relatedPosts: {
-        type: ['Mdx'],
+        type: ["Mdx"],
         resolve: async (source, _, context, __) => {
           let posts = await context.nodeModel.runQuery({
-            type: 'Mdx',
+            type: "Mdx",
             query: {
               // FIXME: runQuery ignores `limit` field in Gatsby V3. Uncommenting this will help resolve the FIXME below in V4
               // limit: 3,
@@ -26,7 +26,7 @@ module.exports = function createResolvers({ createResolvers }) {
           if (!posts || !posts.length) {
             // Get all articles if there's no related posts
             posts = await context.nodeModel.runQuery({
-              type: 'Mdx',
+              type: "Mdx",
               query: {
                 filter: {
                   id: {

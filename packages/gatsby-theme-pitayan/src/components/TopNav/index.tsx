@@ -4,7 +4,8 @@ import DarkModeToggle from "@pitayan/gatsby-theme-pitayan/src/components/DarkMod
 import URLCopyIconButton from "@pitayan/gatsby-theme-pitayan/src/components/URLCopyIconButton"
 import SiteIcon from "@pitayan/gatsby-theme-pitayan/src/assets/img/SiteIcon.svg"
 
-const TopNav: React.FC<Record<string, unknown>> = () => {
+// TODO: update content to make top nav dynamic to configurations
+const TopNav: React.FC = () => {
   return (
     <nav className="block flex justify-between content-center">
       <Link to="/" className="flex space-x-4 items-center">

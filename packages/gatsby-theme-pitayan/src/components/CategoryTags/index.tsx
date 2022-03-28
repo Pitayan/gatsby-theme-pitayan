@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 
-type Props = {
-  [key: string]: any
+type CategoryTagsProps = {
+  categories: string[]
 }
 
-const CategoryTags: React.FC<Props> = ({ categories }: Props) => {
+const CategoryTags: React.FC<CategoryTagsProps> = ({ categories }) => {
   if (!categories || !categories.length) return <></>
 
   return (

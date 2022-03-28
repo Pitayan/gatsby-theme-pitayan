@@ -1,6 +1,6 @@
 const path = require("path")
 
-module.exports = function onCreateNode ({ node, actions, getNode }) {
+module.exports = function onCreateNode({ node, actions, getNode }) {
   const { createNodeField } = actions
   const fileNode = getNode(node.parent)
 

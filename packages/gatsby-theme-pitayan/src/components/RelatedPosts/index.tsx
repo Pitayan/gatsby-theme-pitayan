@@ -1,22 +1,19 @@
 import React from "react"
-import PostPanel from "@pitayan/gatsby-theme-pitayan/src/components/PostPanel"
+import PostsGroup, {
+  PostNode,
+} from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
-type PostsProps = {
-  posts: any
+type RelatedPostsProps = {
+  posts: PostNode[]
 }
 
-const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
+const RelatedPosts: React.FC<RelatedPostsProps> = ({ posts }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {posts.map((post: any) => {
-        return <PostPanel post={post} key={post.id} />
-      })}
-    </div>
+    <PostsGroup
+      posts={posts}
+      className="grid relative grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+    />
   )
-}
-
-const RelatedPosts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
-  return <Posts posts={posts} />
 }
 
 export default RelatedPosts

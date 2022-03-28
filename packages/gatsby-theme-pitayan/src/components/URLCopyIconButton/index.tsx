@@ -3,7 +3,7 @@ import { RiLinksLine } from "react-icons/ri"
 import { copyToClipboard } from "@pitayan/gatsby-theme-pitayan/src/utils"
 import Tooltip from "../Tooltip"
 
-const URLCopyIconButton: React.FC<Record<string, unknown>> = () => {
+const URLCopyIconButton: React.FC = () => {
   const [hasCopied, setHasCopied] = useState<boolean>(false)
   const [isAnimated, setIsAnimated] = useState<boolean>(false)
 

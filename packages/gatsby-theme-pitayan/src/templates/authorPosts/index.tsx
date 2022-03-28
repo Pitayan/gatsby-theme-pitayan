@@ -2,40 +2,35 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
-import PostPanel from "@pitayan/gatsby-theme-pitayan/src/components/PostPanel"
 import Pagination from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
 import AuthorCard from "@pitayan/gatsby-theme-pitayan/src/components/AuthorCard"
+import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type AuthorPostsProps = {
   [key: string]: any
 }
 
-type PostsProps = {
-  posts: any
-}
-
-const Posts: React.FC<PostsProps> = ({ posts }: PostsProps) => {
-  return (
-    <div className="grid relative grid-cols-1 md:grid-cols-2 gap-8">
-      {posts.map(({ node }: any) => {
-        return <PostPanel post={node} key={node.id} />
-      })}
-    </div>
-  )
-}
-
 const AuthorPosts: React.FC<AuthorPostsProps> = ({
   data: {
-    allMdx: { edges: posts, pageInfo },
-    authorsYaml: author,
+    allMdx: { nodes: posts, pageInfo },
+    authorsYaml: { bio, name, initial, avatar, sns },
   },
   pageContext: { authorId },
 }) => {
   return (
     <DefaultLayout>
-      <AuthorCard data={author} />
+      <AuthorCard
+        bio={bio}
+        name={name}
+        initial={initial}
+        avatar={avatar}
+        sns={sns}
+      />
       <hr className="my-8 border-gray-300" />
-      <Posts posts={posts} />
+      <PostsGroup
+        posts={posts}
+        className="grid relative grid-cols-1 md:grid-cols-2 gap-8"
+      />
       <div className="my-24">
         <Pagination pageInfo={pageInfo} path={`authors/@${authorId}`} />
       </div>
@@ -61,28 +56,26 @@ export const pageQuery = graphql`
         hasPreviousPage
         pageCount
       }
-      edges {
-        node {
-          id
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            categories
-            date(formatString: "MMMM Do, YYYY")
-            hero {
-              normal: childImageSharp {
-                gatsbyImageData(
-                  width: 768
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
+      nodes {
+        id
+        timeToRead
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          categories
+          date(formatString: "MMMM Do, YYYY")
+          hero {
+            normal: childImageSharp {
+              gatsbyImageData(
+                width: 768
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
-            excerpt
           }
+          excerpt
         }
       }
     }

@@ -20,7 +20,7 @@ module.exports = ({
       resolve: `gatsby-transformer-yaml`,
       options: {
         typeName: `AuthorsYaml`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -66,7 +66,7 @@ module.exports = ({
               offsetY: `0`,
               icon: `<span>#</span>`,
               className: `heading-anchor`,
-            }
+            },
           },
           {
             resolve: `gatsby-remark-external-links`,
@@ -80,7 +80,10 @@ module.exports = ({
             options: {
               theme: `GitHub Dark Dimmed`,
               extensions: [
-                path.resolve(__dirname, `src/assets/vscode_theme/github-vscode-theme-6.0.0_vsixhub.com.vsix`),
+                path.resolve(
+                  __dirname,
+                  `src/assets/vscode_theme/github-vscode-theme-6.0.0_vsixhub.com.vsix`
+                ),
               ],
               inlineCode: {
                 marker: `•`,

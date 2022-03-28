@@ -1,7 +1,7 @@
 import React from "react"
 
 type SubscriptionPanelProps = {
-  [key: string]: any
+  className: string
 }
 
 const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className }) => {

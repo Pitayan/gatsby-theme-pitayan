@@ -2,12 +2,20 @@ import React from "react"
 import { SiFacebook, SiLinkedin, SiTwitter, SiPocket } from "react-icons/si"
 
 type SocialSharingProps = {
-  [key: string]: any
+  title: string
+  url: string
+  hashtags: string
+  excerpt: string
+  className: string
+  twitter: string
+  facebook: string
+  linkedin: string
+  pocket: string
 }
 
-export function objectToGetParams(object: {
-  [key: string]: string | number | undefined | null
-}): string {
+export function objectToGetParams(
+  object: Record<string, string | number | undefined | null>
+): string {
   const params = Object.entries(object)
     .filter(([, value]) => value !== undefined && value !== null)
     .map(

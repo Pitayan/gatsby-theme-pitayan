@@ -1,12 +1,13 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
-type Props = {
-  [key: string]: any
+type AvatarProps = {
+  image: ImageDataLike
+  initial: string
+  className?: string
 }
 
-const Avatar: React.FC<Props> = (props: Props) => {
-  const { image, initial, className } = props
+const Avatar: React.FC<AvatarProps> = ({ image, initial, className }) => {
   const avatarImage = getImage(image)
 
   return avatarImage ? (

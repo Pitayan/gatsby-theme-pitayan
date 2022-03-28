@@ -1,21 +1,32 @@
 import React from "react"
 import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 import CategoryTags from "@pitayan/gatsby-theme-pitayan/src/components/CategoryTags"
 import PostMeta from "@pitayan/gatsby-theme-pitayan/src/components/PostMeta"
 
-type Props = {
-  post: any
+export type PostPanelProps = {
+  title: string
+  excerpt: string
+  date: string
+  categories: string[]
+  hero?: {
+    normal: ImageDataLike
+  }
+  slug: string
+  timeToRead: number
 }
 
-const PostPanel: React.FC<Props> = ({ post }: Props) => {
-  const image = getImage(post.frontmatter.hero?.normal)
-  const {
-    frontmatter: { title, excerpt, date, categories },
-    timeToRead,
-    fields: { slug },
-  } = post
+const PostPanel: React.FC<PostPanelProps> = ({
+  title,
+  excerpt,
+  date,
+  categories,
+  hero,
+  timeToRead,
+  slug,
+}) => {
+  const image = getImage(hero?.normal)
 
   return (
     <div className="panel">

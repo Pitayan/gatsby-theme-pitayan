@@ -2,7 +2,7 @@ import React from "react"
 import { RiArrowUpSLine } from "react-icons/ri"
 
 type BackToTopProps = {
-  [key: string]: any
+  className?: string
 }
 
 const BackToTop: React.FC<BackToTopProps> = ({ className }) => {

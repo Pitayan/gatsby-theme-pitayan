@@ -2,7 +2,9 @@ import React, { useState, useLayoutEffect } from "react"
 import throttle from "lodash/throttle"
 
 type ScrollVisibilityProps = {
-  [key: string]: any
+  className: string
+  hidden?: boolean
+  visiblePageYOffset?: number
 }
 
 const ScrollVisibility: React.FC<ScrollVisibilityProps> = ({

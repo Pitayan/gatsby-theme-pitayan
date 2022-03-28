@@ -45,11 +45,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
   return (
     <DefaultLayout>
-      <SelectionPopup
-        title={title}
-        categories={categories}
-        target={postTarget}
-      />
+      <SelectionPopup target={postTarget} />
 
       <div className="hidden md:block">
         <ScrollVisibility className="fixed right-[6%] bottom-[6%] flex flex-col justify-center z-50">

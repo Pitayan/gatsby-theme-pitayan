@@ -1,20 +1,25 @@
+import { ImageDataLike } from "gatsby-plugin-image"
 import React from "react"
 import Avatar from "../Avatar"
 import SocialGroup from "../SocialGroup"
 
 type AuthorCardProps = {
-  [key: string]: any
+  bio: string
+  name: string
+  initial: string
+  avatar: {
+    normal: ImageDataLike
+  }
+  sns: any
 }
 
-const AuthorCard: React.FC<AuthorCardProps> = ({ data }) => {
-  const {
-    bio,
-    name,
-    initial,
-    avatar: { normal: image },
-    sns,
-  } = data
-
+const AuthorCard: React.FC<AuthorCardProps> = ({
+  bio,
+  name,
+  initial,
+  avatar: { normal: image },
+  sns,
+}) => {
   return (
     <div className="flex flex-col items-center">
       <Avatar className="h-52 w-52" initial={initial} image={image} />

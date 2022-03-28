@@ -4,8 +4,22 @@ import { Link } from "gatsby"
 import OutsideClickHandler from "react-outside-click-handler"
 
 import Avatar from "@pitayan/gatsby-theme-pitayan/src/components/Avatar"
+import { ImageDataLike } from "gatsby-plugin-image"
 
-const AuthorAvatars: React.FC<any> = ({ data }: any) => {
+type Author = {
+  id: string
+  name: string
+  initial: string
+  avatar: {
+    normal: ImageDataLike
+  }
+}
+
+type AuthorProps = {
+  data: Author[]
+}
+
+const AuthorAvatars: React.FC<AuthorProps> = ({ data }) => {
   const _data = Array.from(data)
   if (_data.length > 3) {
     _data.length = 3
@@ -13,21 +27,15 @@ const AuthorAvatars: React.FC<any> = ({ data }: any) => {
 
   return (
     <div className="flex overflow-hidden -space-x-3 p-1">
-      {_data.map((author: any) => {
-        const {
-          id,
-          initial,
-          avatar: { normal: image },
-        } = author
-
+      {_data.map(({ id, initial, avatar: { normal: image } }) => {
         return <Avatar key={id} initial={initial} image={image} />
       })}
     </div>
   )
 }
 
-const AuthorNames: React.FC<any> = ({ data }: any) => {
-  const str = data.map(({ name }: any) => name.substr(0, name.indexOf(" ")))
+const AuthorNames: React.FC<AuthorProps> = ({ data }) => {
+  const str = data.map(({ name }: Author) => name.substr(0, name.indexOf(" ")))
 
   if (data.length > 3) {
     str.length = 3
@@ -37,17 +45,10 @@ const AuthorNames: React.FC<any> = ({ data }: any) => {
   return <span className="self-center site-link">{str.join(", ")}</span>
 }
 
-const CoAuthorsList: React.FC<any> = ({ data }: any) => {
+const CoAuthorsList: React.FC<AuthorProps> = ({ data }) => {
   return (
     <ul className="list-none m-0 -m-2 rounded">
-      {data.map((author: any) => {
-        const {
-          id,
-          initial,
-          avatar: { normal: image },
-          name,
-        } = author
-
+      {data.map(({ id, initial, avatar: { normal: image }, name }) => {
         return (
           <li key={id} className="m-0 p-3">
             <Link className="flex space-x-4" to={`/authors/@${id}`}>
@@ -61,7 +62,7 @@ const CoAuthorsList: React.FC<any> = ({ data }: any) => {
   )
 }
 
-const PostAuthors: React.FC<any> = ({ data }: any) => {
+const PostAuthors: React.FC<AuthorProps> = ({ data }) => {
   if (data.length == 1) {
     return <CoAuthorsList data={data} />
   }

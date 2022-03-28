@@ -1,14 +1,21 @@
 import React, { useLayoutEffect, useRef, useState } from "react"
 import { useTextSelection } from "@pitayan/gatsby-theme-pitayan/src/hooks"
-import { copyToClipboard, Portal } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import {
+  copyToClipboard,
+  Portal,
+} from "@pitayan/gatsby-theme-pitayan/src/utils"
 import { FiCopy } from "react-icons/fi"
 import { SiTwitter } from "react-icons/si"
 
-type SelectionPopupProps = {
-  [key: string]: any
+type PopupContentProps = {
+  target: HTMLElement
 }
 
-const PopupContent: React.FC<any> = ({ target }) => {
+type SelectionPopupProps = {
+  target: HTMLElement
+}
+
+const PopupContent: React.FC<PopupContentProps> = ({ target }) => {
   const ref = useRef(null)
   const [offsetWidth, setOffsetWidth] = useState<number>(0)
   const [offsetHeight, setOffsetHeight] = useState<number>(0)

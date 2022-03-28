@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { RiSunLine, RiMoonFill } from "react-icons/ri"
-import { checkIfDarkMode, toggleDark } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import {
+  checkIfDarkMode,
+  toggleDark,
+} from "@pitayan/gatsby-theme-pitayan/src/utils"
 
 const DarkModeToggle: React.FC = () => {
   const [isDark, setDark] = useState(checkIfDarkMode())

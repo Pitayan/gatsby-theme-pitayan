@@ -1,12 +1,17 @@
 import React from "react"
 
 type TooltipProps = {
-  [key: string]: any
+  active: boolean
+  text: string
+  className: string
 }
 
-const Tooltip: React.FC<TooltipProps> = props => {
-  const { children, text, active, className } = props
-
+const Tooltip: React.FC<TooltipProps> = ({
+  children,
+  text,
+  active,
+  className,
+}) => {
   return (
     <span
       className={`tooltip tooltip-top-center ${

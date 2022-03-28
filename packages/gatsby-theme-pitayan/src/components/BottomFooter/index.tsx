@@ -1,8 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 
+type BottomFooterProps = {
+  [key: string]: any
+}
+
 // TODO: fix footer contents
-const BottomFooter: React.FC = () => {
+const BottomFooter: React.FC<BottomFooterProps> = () => {
   const year = new Date().getFullYear()
   return (
     <footer>
