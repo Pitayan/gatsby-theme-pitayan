@@ -50,8 +50,7 @@ module.exports = async function createPages({ graphql, actions }) {
       })
     })
 
-    // TODO: turn into config argument
-    const postsPerPage = 6
+    const postsPerPage = 10
 
     // Create paginated post list page
     const totalPostPages =
