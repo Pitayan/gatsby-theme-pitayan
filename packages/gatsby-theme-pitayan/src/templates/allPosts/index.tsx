@@ -16,7 +16,7 @@ const PostsPage: React.FC<PostsPageProps> = ({
 }: PostsPageProps) => {
   return (
     <DefaultLayout>
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
+      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
         All Posts ({totalCount})
       </h1>
       <hr className="my-8 border-gray-300" />
