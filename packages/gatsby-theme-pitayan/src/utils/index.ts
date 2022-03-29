@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react"
 import { createPortal } from "react-dom"
 import mediumZoom, { Zoom } from "medium-zoom"
-import { useStaticQuery, graphql } from "gatsby"
 
 export const checkIfDarkMode = (): boolean => {
   if (typeof window !== "undefined") {
@@ -139,29 +138,4 @@ export const objectToGetParams = (
         `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`
     )
   return params.length > 0 ? `?${params.join("&")}` : ""
-}
-
-export const useSiteMetadata = () => {
-  const { site } = useStaticQuery(
-    graphql`
-      query SiteMetaData {
-        site {
-          siteMetadata {
-            title
-            name
-            siteUrl
-            description
-            links {
-              name
-              url
-              group
-              internal
-            }
-          }
-        }
-      }
-    `
-  )
-
-  return site.siteMetadata
 }

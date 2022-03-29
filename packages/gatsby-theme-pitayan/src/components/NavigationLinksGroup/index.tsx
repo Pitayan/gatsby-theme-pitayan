@@ -1,14 +1,14 @@
 import React from "react"
 import Navigationlink from "@pitayan/gatsby-theme-pitayan/src/components/NavigationLink"
 
-type NavigationLinksData = {
+export type NavigationLinksData = {
   internal: boolean
   name: string
   url: string
   group: string
 }
 
-type NavigationLinksGroupProps = {
+export type NavigationLinksGroupProps = {
   group: string
   data: NavigationLinksData[]
   className?: string

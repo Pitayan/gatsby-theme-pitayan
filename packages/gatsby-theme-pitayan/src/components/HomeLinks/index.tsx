@@ -1,5 +1,5 @@
 import React, { memo } from "react"
-import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src//utils"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/NavigationLinksGroup"
 
 const HomeLinks: React.FC = () => {

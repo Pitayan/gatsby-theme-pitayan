@@ -4,6 +4,7 @@ const colors = require("tailwindcss/colors")
 module.exports = ({
   contentAuthors = "content/authors",
   contentPosts = "content/posts",
+  siteAssets = "src/assets",
   gatsbyRemarkPlugins = [],
 }) => ({
   mapping: {
@@ -37,11 +38,10 @@ module.exports = ({
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        rule: {
-          include: /src\/assets\/img/,
-        },
+        name: `siteAssets`,
+        path: siteAssets,
       },
     },
     {

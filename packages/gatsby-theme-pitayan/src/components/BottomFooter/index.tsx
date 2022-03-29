@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import { Link } from "gatsby"
-import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src//utils"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/NavigationLinksGroup"
 
 const BottomFooter: React.FC = () => {

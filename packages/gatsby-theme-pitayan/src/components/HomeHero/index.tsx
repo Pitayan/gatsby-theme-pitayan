@@ -1,5 +1,5 @@
 import React, { memo } from "react"
-import { useSiteMetadata } from "../../utils"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 const HomeHero: React.FC = () => {
   const { description } = useSiteMetadata()
