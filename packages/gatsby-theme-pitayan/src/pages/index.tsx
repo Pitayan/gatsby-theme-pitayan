@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import HomeHero from "@pitayan/gatsby-theme-pitayan/src/components/HomeHero"
-import HomeActions from "@pitayan/gatsby-theme-pitayan/src/components/HomeActions"
+import HomeLinks from "@pitayan/gatsby-theme-pitayan/src/components/HomeLinks"
 import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type HomePageProps = {
@@ -24,7 +24,7 @@ const HomePage: React.FC<HomePageProps> = ({
       <HomeHero />
       <br />
       <br />
-      <HomeActions />
+      <HomeLinks />
       <hr className="mt-4 mb-12 border-gray-300" />
       <PostsGroup
         posts={posts}

@@ -1,13 +1,12 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src//utils"
+import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/NavigationLinksGroup"
 
-type BottomFooterProps = {
-  [key: string]: any
-}
-
-// TODO: fix footer contents
-const BottomFooter: React.FC<BottomFooterProps> = () => {
+const BottomFooter: React.FC = () => {
   const year = new Date().getFullYear()
+  const  { links } = useSiteMetadata()
+
   return (
     <footer>
       <div className="flex flex-wrap justify-between">
@@ -26,9 +25,6 @@ const BottomFooter: React.FC<BottomFooterProps> = () => {
             <Link className="site-link block" to="/">
               home
             </Link>
-            <Link className="site-link block" to="/write-for-us">
-              write for us
-            </Link>
             <Link className="site-link block" to="/posts">
               posts
             </Link>
@@ -38,46 +34,15 @@ const BottomFooter: React.FC<BottomFooterProps> = () => {
             <Link className="site-link block" to="/authors">
               authors
             </Link>
-            <Link className="site-link block" to="/about">
-              about
-            </Link>
+            <NavigationLinksGroup group="explore" data={links} />
           </div>
           <div className="space-y-2 text-base">
             <h5 className="font-bold mb-3">Site</h5>
-            <Link className="site-link block" to="/sitemap.xml">
-              sitemap
-            </Link>
-            <Link className="site-link block" to="/rss.xml">
-              rss
-            </Link>
-            <Link className="site-link block" to="/privacy-policy">
-              privacy
-            </Link>
-            <Link className="site-link block" to="/terms-and-conditions">
-              terms
-            </Link>
+            <NavigationLinksGroup group="site" data={links} />
           </div>
           <div className="space-y-2 text-base">
             <h5 className="font-bold mb-3">Follow</h5>
-            <Link className="site-link block" to="/subscribe">
-              subscribe
-            </Link>
-            <a
-              href="https://twitter.com"
-              className="site-link block"
-              target="_blank"
-              rel="noreferrer"
-            >
-              twitter
-            </a>
-            <a
-              href="https://twitter.com"
-              className="site-link block"
-              target="_blank"
-              rel="noreferrer"
-            >
-              github
-            </a>
+            <NavigationLinksGroup group="follow" data={links} />
           </div>
         </div>
       </div>
@@ -88,4 +53,4 @@ const BottomFooter: React.FC<BottomFooterProps> = () => {
   )
 }
 
-export default BottomFooter
+export default memo(BottomFooter)
