@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
+import React, { memo, useLayoutEffect, useRef, useState } from "react"
 import { useTextSelection } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import {
   copyToClipboard,
@@ -77,4 +77,4 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ target }) => {
   )
 }
 
-export default SelectionPopup
+export default memo(SelectionPopup)

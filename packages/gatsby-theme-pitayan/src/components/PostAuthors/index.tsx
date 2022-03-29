@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { memo, useState } from "react"
 import { HiOutlineChevronUp, HiOutlineChevronDown } from "react-icons/hi"
 import { Link } from "gatsby"
 import OutsideClickHandler from "react-outside-click-handler"
@@ -105,4 +105,4 @@ const PostAuthors: React.FC<AuthorProps> = ({ data }) => {
   )
 }
 
-export default PostAuthors
+export default memo(PostAuthors)

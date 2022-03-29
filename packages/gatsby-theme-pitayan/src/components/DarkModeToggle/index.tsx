@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { memo, useState } from "react"
 import { RiSunLine, RiMoonFill } from "react-icons/ri"
 import {
   checkIfDarkMode,
@@ -24,4 +24,4 @@ const DarkModeToggle: React.FC = () => {
   )
 }
 
-export default DarkModeToggle
+export default memo(DarkModeToggle)

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import PostPanel from "@pitayan/gatsby-theme-pitayan/src/components/PostPanel"
 import { ImageDataLike } from "gatsby-plugin-image"
 
@@ -50,4 +50,4 @@ const PostsGroup: React.FC<PostsGridProps> = ({ posts, className }) => {
   )
 }
 
-export default PostsGroup
+export default memo(PostsGroup)

@@ -1,22 +1,23 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
 
 type NavigationLinkProps = {
   className?: string
   internal: boolean
+  name: string
   to: string
 }
 
 const NavigationLink: React.FC<NavigationLinkProps> = ({
   className,
   internal = true,
+  name,
   to,
-  children
 }) => {
 
   return internal
-    ? <Link to={to} className={className}>{children}</Link>
-    : <a href={to} className={className} target="_blank" rel="noreferrer">{children}</a>
+    ? <Link to={to} className={className}>{name}</Link>
+    : <a href={to} className={className} target="_blank" rel="noreferrer">{name}</a>
 }
 
-export default NavigationLink
+export default memo(NavigationLink)

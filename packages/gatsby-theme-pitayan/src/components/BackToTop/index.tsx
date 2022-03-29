@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { RiArrowUpSLine } from "react-icons/ri"
 
 type BackToTopProps = {
@@ -24,4 +24,4 @@ const BackToTop: React.FC<BackToTopProps> = ({ className }) => {
   )
 }
 
-export default BackToTop
+export default memo(BackToTop)

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 type AvatarProps = {
@@ -24,4 +24,4 @@ const Avatar: React.FC<AvatarProps> = ({ image, initial, className }) => {
   )
 }
 
-export default Avatar
+export default memo(Avatar)

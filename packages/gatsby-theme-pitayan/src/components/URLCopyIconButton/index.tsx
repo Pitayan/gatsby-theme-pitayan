@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { memo, useState } from "react"
 import { RiLinksLine } from "react-icons/ri"
 import { copyToClipboard } from "@pitayan/gatsby-theme-pitayan/src/utils"
 import Tooltip from "../Tooltip"
@@ -34,4 +34,4 @@ const URLCopyIconButton: React.FC = () => {
   )
 }
 
-export default URLCopyIconButton
+export default memo(URLCopyIconButton)

@@ -1,18 +1,16 @@
-import React from "react"
+import React, { memo } from "react"
+import { useSiteMetadata } from "../../utils"
 
-type HomeHeroProps = {
-  [key: string]: any
-}
+const HomeHero: React.FC = () => {
+  const { description } = useSiteMetadata()
 
-// TODO: Make component dynamic
-const HomeHero: React.FC<HomeHeroProps> = () => {
   return (
     <div className="max-w-2xl">
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
-        Welcome to Pitayan, come find inspiring software development stories.
+        {description}
       </h1>
     </div>
   )
 }
 
-export default HomeHero
+export default memo(HomeHero)

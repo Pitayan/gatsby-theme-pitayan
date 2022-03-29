@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 
 type PostMetaProps = {
   timeToRead: number
@@ -13,4 +13,4 @@ const PostMeta: React.FC<PostMetaProps> = ({ timeToRead, date }) => {
   )
 }
 
-export default PostMeta
+export default memo(PostMeta)

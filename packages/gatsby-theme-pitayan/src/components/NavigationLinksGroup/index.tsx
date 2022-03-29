@@ -29,9 +29,7 @@ const NavigationLinksGroup: React.FC<NavigationLinksGroupProps> = ({
       group: _group,
     }) =>
       _group.includes(group)
-        ? <Navigationlink key={url} to={url} internal={internal} className={`site-link block ${className}`}>
-            {name}
-          </Navigationlink>
+        ? <Navigationlink key={url} name={name} to={url} internal={internal} className={`site-link block ${className}`} />
         : null
     )}
   </>

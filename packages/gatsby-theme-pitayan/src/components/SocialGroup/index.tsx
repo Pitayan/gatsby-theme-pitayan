@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import {
   SiNotion,
   SiUnsplash,
@@ -149,4 +149,4 @@ const SocialGroup: React.FC<SocialGroupProps> = ({ data, className }) => {
   )
 }
 
-export default SocialGroup
+export default memo(SocialGroup)

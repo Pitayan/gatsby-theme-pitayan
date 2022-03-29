@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
 
 type PaginationProps = {
@@ -40,4 +40,4 @@ const Pagination: React.FC<PaginationProps> = ({
   )
 }
 
-export default Pagination
+export default memo(Pagination)

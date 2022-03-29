@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
@@ -48,4 +48,4 @@ const PostPanel: React.FC<PostPanelProps> = ({
   )
 }
 
-export default PostPanel
+export default memo(PostPanel)

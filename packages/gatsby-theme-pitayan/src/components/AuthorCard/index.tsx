@@ -1,5 +1,5 @@
 import { ImageDataLike } from "gatsby-plugin-image"
-import React from "react"
+import React, { memo } from "react"
 import Avatar from "../Avatar"
 import SocialGroup from "../SocialGroup"
 
@@ -42,4 +42,4 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
   )
 }
 
-export default AuthorCard
+export default memo(AuthorCard)

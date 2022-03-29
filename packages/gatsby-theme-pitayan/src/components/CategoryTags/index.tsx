@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
 
 type CategoryTagsProps = {
@@ -21,4 +21,4 @@ const CategoryTags: React.FC<CategoryTagsProps> = ({ categories }) => {
   )
 }
 
-export default CategoryTags
+export default memo(CategoryTags)

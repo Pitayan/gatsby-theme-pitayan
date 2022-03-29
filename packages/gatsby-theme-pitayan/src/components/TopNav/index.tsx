@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
 import DarkModeToggle from "@pitayan/gatsby-theme-pitayan/src/components/DarkModeToggle"
 import URLCopyIconButton from "@pitayan/gatsby-theme-pitayan/src/components/URLCopyIconButton"
@@ -22,4 +22,4 @@ const TopNav: React.FC = () => {
   )
 }
 
-export default TopNav
+export default memo(TopNav)

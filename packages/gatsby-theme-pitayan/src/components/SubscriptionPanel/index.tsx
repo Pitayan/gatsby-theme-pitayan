@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 
 type SubscriptionPanelProps = {
   className: string
@@ -28,4 +28,4 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className }) => {
   )
 }
 
-export default SubscriptionPanel
+export default memo(SubscriptionPanel)

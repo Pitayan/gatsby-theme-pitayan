@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import PostsGroup, {
   PostNode,
 } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
@@ -16,4 +16,4 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ posts }) => {
   )
 }
 
-export default RelatedPosts
+export default memo(RelatedPosts)

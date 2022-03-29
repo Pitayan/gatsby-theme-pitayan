@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect, memo } from "react"
 import throttle from "lodash/throttle"
 
 type ScrollVisibilityProps = {
@@ -32,4 +32,4 @@ const ScrollVisibility: React.FC<ScrollVisibilityProps> = ({
   )
 }
 
-export default ScrollVisibility
+export default memo(ScrollVisibility)

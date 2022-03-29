@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { SiFacebook, SiLinkedin, SiTwitter, SiPocket } from "react-icons/si"
 import { objectToGetParams } from "@pitayan/gatsby-theme-pitayan/src/utils"
 
@@ -87,4 +87,4 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
   )
 }
 
-export default SocialSharing
+export default memo(SocialSharing)
