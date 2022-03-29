@@ -3,11 +3,9 @@ import TopNav from "@pitayan/gatsby-theme-pitayan/src/components/TopNav"
 import BottomFooter from "@pitayan/gatsby-theme-pitayan/src/components/BottomFooter"
 import { useCookiePrompt } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
-type Props = {
-  children?: React.ReactNode
-}
-
-const DefaultLayout: React.FC<Props> = ({ children }: Props) => {
+const DefaultLayout: React.FC = ({
+  children
+}) => {
   useCookiePrompt()
 
   return (
