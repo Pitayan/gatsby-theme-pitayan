@@ -16,9 +16,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@pitayan/*": [
-        "packages/*"
-      ]
+      "@pitayan/*": ["packages/*"]
     },
     "typeRoots": ["types", "node_modules/@types"]
   },

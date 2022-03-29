@@ -58,7 +58,10 @@ module.exports = async function createPages({ graphql, actions }) {
     Array.from({ length: totalPostPages }).forEach((_, i) => {
       const ctx = {
         path: `/posts/${i + 1}`,
-        component: path.resolve(projectRoot, `./src/templates/allPosts/index.tsx`),
+        component: path.resolve(
+          projectRoot,
+          `./src/templates/allPosts/index.tsx`
+        ),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,

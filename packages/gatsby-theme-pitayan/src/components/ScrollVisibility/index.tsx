@@ -32,4 +32,4 @@ const ScrollVisibility: React.FC<ScrollVisibilityProps> = ({
   )
 }
 
-export default memo(ScrollVisibility)
+export default ScrollVisibility

@@ -21,18 +21,21 @@ const NavigationLinksGroup: React.FC<NavigationLinksGroupProps> = ({
 }) => {
   if (!data.length) return null
 
-  return <>
-    {data.map(({
-      internal,
-      url,
-      name,
-      group: _group,
-    }) =>
-      _group.includes(group)
-        ? <Navigationlink key={url} name={name} to={url} internal={internal} className={`site-link block ${className}`} />
-        : null
-    )}
-  </>
+  return (
+    <>
+      {data.map(({ internal, url, name, group: _group }) =>
+        _group.includes(group) ? (
+          <Navigationlink
+            key={url}
+            name={name}
+            to={url}
+            internal={internal}
+            className={`site-link block ${className}`}
+          />
+        ) : null
+      )}
+    </>
+  )
 }
 
 export default NavigationLinksGroup

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link, graphql } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
@@ -41,7 +41,7 @@ const CategoriesPage: React.FC<CategoriesProps> = ({
   </DefaultLayout>
 )
 
-export default CategoriesPage
+export default memo(CategoriesPage)
 
 export const pageQuery = graphql`
   query {

@@ -5,7 +5,7 @@ import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/N
 
 const BottomFooter: React.FC = () => {
   const year = new Date().getFullYear()
-  const  { links } = useSiteMetadata()
+  const { links } = useSiteMetadata()
 
   return (
     <footer>

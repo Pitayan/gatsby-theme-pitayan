@@ -12,12 +12,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "prettier",
-    "jsx-a11y"
-  ],
+  "plugins": ["@typescript-eslint", "react", "prettier", "jsx-a11y"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",

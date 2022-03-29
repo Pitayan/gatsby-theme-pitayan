@@ -1,10 +1,12 @@
-import React from "react"
+import React, { memo } from "react"
 import { graphql, navigate } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import HomeHero from "@pitayan/gatsby-theme-pitayan/src/components/HomeHero"
 import HomeLinks from "@pitayan/gatsby-theme-pitayan/src/components/HomeLinks"
-import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import PostsGroup, {
+  PostNode,
+} from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type HomePageProps = {
   data: {
@@ -16,8 +18,8 @@ type HomePageProps = {
 
 const HomePage: React.FC<HomePageProps> = ({
   data: {
-    allMdx: { nodes: posts }
-  }
+    allMdx: { nodes: posts },
+  },
 }) => {
   return (
     <DefaultLayout>
@@ -41,6 +43,8 @@ const HomePage: React.FC<HomePageProps> = ({
     </DefaultLayout>
   )
 }
+
+export default memo(HomePage)
 
 export const pageQuery = graphql`
   query HomePageQuery {
@@ -70,5 +74,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default HomePage

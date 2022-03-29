@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme")
 const tailwindConfigs = require("@pitayan/gatsby-theme-pitayan/tailwind.config")
 
 tailwindConfigs.theme.fontFamily = {

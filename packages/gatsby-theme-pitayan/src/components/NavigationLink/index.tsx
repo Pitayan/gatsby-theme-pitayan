@@ -14,10 +14,15 @@ const NavigationLink: React.FC<NavigationLinkProps> = ({
   name,
   to,
 }) => {
-
-  return internal
-    ? <Link to={to} className={className}>{name}</Link>
-    : <a href={to} className={className} target="_blank" rel="noreferrer">{name}</a>
+  return internal ? (
+    <Link to={to} className={className}>
+      {name}
+    </Link>
+  ) : (
+    <a href={to} className={className} target="_blank" rel="noreferrer">
+      {name}
+    </a>
+  )
 }
 
 export default memo(NavigationLink)

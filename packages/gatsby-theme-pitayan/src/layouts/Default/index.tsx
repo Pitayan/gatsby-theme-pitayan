@@ -3,9 +3,7 @@ import TopNav from "@pitayan/gatsby-theme-pitayan/src/components/TopNav"
 import BottomFooter from "@pitayan/gatsby-theme-pitayan/src/components/BottomFooter"
 import { useCookiePrompt } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
-const DefaultLayout: React.FC = ({
-  children
-}) => {
+const DefaultLayout: React.FC = ({ children }) => {
   useCookiePrompt()
 
   return (

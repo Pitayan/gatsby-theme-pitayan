@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Link } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
@@ -22,4 +22,4 @@ const NotFound: React.FC<any> = () => {
   )
 }
 
-export default NotFound
+export default memo(NotFound)

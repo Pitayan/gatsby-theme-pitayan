@@ -31,7 +31,8 @@
     "url": "git+https://github.com/Pitayan/gatsby-theme-pitayan"
   },
   "scripts": {
-    "build": "npm -w packages/gatsby-theme-pitayan gatsby build"
+    "build": "npm -w packages/gatsby-theme-pitayan gatsby build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "version": "0.1.0",
   "workspaces": [

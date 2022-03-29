@@ -28,7 +28,7 @@ Under prototyping. Don't use it yet in production!
 - [x] In-article-image
 - [x] Related posts
 - [x] Change font
-- [ ] Correct types
+- [x] Correct types
 - [ ] Content text highlight (for local)
 
 ### Pages
