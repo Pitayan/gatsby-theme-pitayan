@@ -24,7 +24,6 @@ export const toggleDark = (isDark: boolean): void => {
   // Whenever the user explicitly chooses light mode
   localStorage.theme = isDark ? "dark" : "light"
 
-  // FIXME: update medium-zoom background
   setZoomableImages()
 }
 
@@ -128,3 +127,16 @@ export const getSelectedTextPosition = (): {
 
   return { x, y, width, height, textContent }
 }
+
+export const objectToGetParams = (
+  object: Record<string, string | number | undefined | null>
+): string => {
+  const params = Object.entries(object)
+    .filter(([, value]) => value !== undefined && value !== null)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`
+    )
+  return params.length > 0 ? `?${params.join("&")}` : ""
+}
+

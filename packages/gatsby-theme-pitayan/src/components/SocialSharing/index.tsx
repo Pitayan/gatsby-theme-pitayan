@@ -1,28 +1,17 @@
 import React from "react"
 import { SiFacebook, SiLinkedin, SiTwitter, SiPocket } from "react-icons/si"
+import { objectToGetParams } from "@pitayan/gatsby-theme-pitayan/src/utils"
 
 type SocialSharingProps = {
   title: string
   url: string
   hashtags: string
   excerpt: string
-  className: string
-  twitter: string
-  facebook: string
-  linkedin: string
-  pocket: string
-}
-
-export function objectToGetParams(
-  object: Record<string, string | number | undefined | null>
-): string {
-  const params = Object.entries(object)
-    .filter(([, value]) => value !== undefined && value !== null)
-    .map(
-      ([key, value]) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`
-    )
-  return params.length > 0 ? `?${params.join("&")}` : ""
+  className?: string
+  twitter: boolean
+  facebook: boolean
+  linkedin: boolean
+  pocket: boolean
 }
 
 const SocialSharing: React.FC<SocialSharingProps> = ({

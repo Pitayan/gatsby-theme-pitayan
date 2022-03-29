@@ -22,15 +22,17 @@ import {
 } from "react-icons/si"
 import { FiExternalLink } from "react-icons/fi"
 
-type SocialGroupProps = {
-  [key: string]: any
-}
-
 type SocialIconsProps = {
-  [key: string]: any
+  icon: string
+  className?: string
 }
 
-const icons: any = {
+type SocialGroupProps = {
+  data: [string, string][]
+  className?: string
+}
+
+const icons = {
   behance: {
     icon: SiBehance,
     url: "https://www.behance.net",
@@ -119,10 +121,10 @@ const SocialIcon: React.FC<SocialIconsProps> = ({ icon, className }) => {
   return <Icon className={className} />
 }
 
-const SocialGroup: React.FC<SocialGroupProps> = ({ data }) => {
+const SocialGroup: React.FC<SocialGroupProps> = ({ data, className }) => {
   return (
-    <ul className="list-none flex flex-wrap space-x-8">
-      {data.map(([sns, profile]: any) => {
+    <ul className={`list-none flex flex-wrap space-x-8 ${className}`}>
+      {data.map(([sns, profile]) => {
         let href = `${icons[sns]?.url}/${profile}`
 
         // Use the given url If the given platform id is an HTTP url.

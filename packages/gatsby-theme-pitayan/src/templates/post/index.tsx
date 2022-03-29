@@ -116,7 +116,6 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
   )
 }
 
-// TODO: implement correct related posts query
 export const pageQuery = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
