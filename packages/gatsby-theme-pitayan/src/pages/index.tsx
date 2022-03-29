@@ -4,15 +4,21 @@ import { graphql, navigate } from "gatsby"
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import HomeHero from "@pitayan/gatsby-theme-pitayan/src/components/HomeHero"
 import HomeActions from "@pitayan/gatsby-theme-pitayan/src/components/HomeActions"
-import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type HomePageProps = {
-  data: any
+  data: {
+    allMdx: {
+      nodes: PostNode[]
+    }
+  }
 }
 
-const HomePage: React.FC<HomePageProps> = ({ data }: HomePageProps) => {
-  const posts = data.allMdx.nodes
-
+const HomePage: React.FC<HomePageProps> = ({
+  data: {
+    allMdx: { nodes: posts }
+  }
+}) => {
   return (
     <DefaultLayout>
       <HomeHero />
