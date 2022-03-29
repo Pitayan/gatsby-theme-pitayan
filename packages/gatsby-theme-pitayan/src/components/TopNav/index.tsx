@@ -10,8 +10,8 @@ const TopNav: React.FC = () => {
 
   return (
     <nav className="block flex justify-between content-center">
-      <Link to="/" className="flex space-x-4 items-center">
-        <SiteLogo className="h-10 w-10" alt={title} icon={icon} />
+      <Link to="/" className="flex space-x-3 items-center">
+        <SiteLogo className="h-8 w-8" alt={title} icon={icon} />
         <b className="font-serif font-extrabold tracking-wide text-2xl hidden md:block">
           {name}
         </b>

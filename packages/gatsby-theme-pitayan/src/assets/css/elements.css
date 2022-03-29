@@ -119,6 +119,10 @@ input {
   }
 }
 
+img {
+  @apply rounded;
+}
+
 figure {
   img {
     @apply mx-auto;

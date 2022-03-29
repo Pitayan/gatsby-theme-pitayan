@@ -135,12 +135,11 @@ const SocialGroup: React.FC<SocialGroupProps> = ({ data, className }) => {
         return (
           <li key={sns}>
             <a
-              className="text-gray-500"
               href={href}
               target="_blank"
               rel="noreferrer"
             >
-              <SocialIcon className="h-6 w-6" icon={sns} />
+              <SocialIcon className="h-6 w-6 site-link" icon={sns} />
             </a>
           </li>
         )
