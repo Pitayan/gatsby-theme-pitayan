@@ -70,6 +70,7 @@ module.exports = {
       options: {
         contentPosts: "content/posts",
         contentAuthors: "content/authors",
+        siteAssets: "src/assets",
       },
     },
   ],
