@@ -1,12 +1,1 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,500,600,700,800,900&display=swap');
-
-/* Invert site logo in dark mode */
-.dark {
-  .site-logo {
-    picture {
-      img {
-        @apply invert;
-      }
-    }
-  }
-}

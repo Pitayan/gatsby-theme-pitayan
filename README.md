@@ -29,6 +29,7 @@ Under prototyping. Don't use it yet in production!
 - [x] Related posts
 - [x] Change font
 - [x] Correct types
+- [x] Site Logo
 - [ ] Content text highlight (for local)
 
 ### Pages
