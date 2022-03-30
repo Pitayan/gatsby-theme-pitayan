@@ -33,7 +33,7 @@ export const useSiteMetadata = (): SiteMetaData => {
             title
           }
         }
-        icon: file(relativePath: {regex: "/^siteicon\\./i"}) {
+        icon: file(relativePath: {regex: "/^sitelogo\\./i"}) {
           normal: childImageSharp {
             gatsbyImageData(
               width: 36

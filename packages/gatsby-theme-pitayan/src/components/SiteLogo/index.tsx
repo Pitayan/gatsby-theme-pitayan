@@ -1,5 +1,6 @@
 import { getImage, ImageDataLike, GatsbyImage } from "gatsby-plugin-image"
 import React, { memo } from "react"
+import SVG from 'react-inlinesvg'
 
 type SiteLogoProps = {
   alt?: string
@@ -21,12 +22,7 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
   }
 }) => {
   if (!normal || extension == 'svg') {
-    // FIXME: Inline SVG files
-    // Here are some good references:
-    // https://codesandbox.io/s/react-dynamic-svg-import-jtqo0?fontsize=14&hidenavigation=1&theme=dark&file=/src/App.js
-    // https://www.npmjs.com/package/react-inlinesvg
-    // https://www.gatsbyjs.com/plugins/gatsby-transformer-inline-svg/
-    return <img className={className} src={publicURL} alt={alt} />
+    return <SVG src={publicURL} className={className} title="alt" />
   }
 
   const image = getImage(normal)
