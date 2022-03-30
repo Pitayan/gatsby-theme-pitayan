@@ -73,7 +73,6 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
             pocket
           />
         </div>
-
       </div>
 
       <div className="text-center mb-24">

@@ -32,9 +32,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
         <h2 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl text-center">
           {name}
         </h2>
-        <p className="mx-auto w-64 text-center text-xl opacity-60">
-          {bio}
-        </p>
+        <p className="mx-auto w-64 text-center text-xl opacity-60">{bio}</p>
         <SocialGroup className="mx-auto" data={sns} />
       </div>
     </div>
