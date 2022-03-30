@@ -26,7 +26,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
   pocket,
 }) => {
   return (
-    <span className={`flex ${className}`}>
+    <span className={`flex items-center ${className}`}>
       {twitter && (
         <a
           className="site-link"

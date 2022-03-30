@@ -55,25 +55,25 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
       <div className="max-w-2xl mx-auto mb-24">
         <h1>{title}</h1>
+        <PostMeta date={date} timeToRead={timeToRead} />
+        <br />
+        <br />
 
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-wrap items-center justify-between">
           <PostAuthors data={coAuthors} />
-          <PostMeta date={date} timeToRead={timeToRead} />
-        </div>
-
-        <div className="text-2xl mt-8">
           <SocialSharing
             url={window.location.href}
             title={title}
             hashtags={categories}
             excerpt={excerpt}
-            className="space-x-8"
+            className="space-x-10 text-2xl"
             twitter
             facebook
             linkedin
             pocket
           />
         </div>
+
       </div>
 
       <div className="text-center mb-24">
@@ -97,7 +97,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
           title={title}
           hashtags={categories}
           excerpt={excerpt}
-          className="space-x-8"
+          className="space-x-10"
           twitter
           facebook
           linkedin
