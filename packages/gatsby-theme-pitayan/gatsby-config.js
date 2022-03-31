@@ -78,7 +78,12 @@ module.exports = ({
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              theme: `GitHub Dark Dimmed`,
+              theme: {
+                default: `Github Light Default`,
+                parentSelector: {
+                  'html[class*="dark"]': `Github Dark Dimmed`,
+                },
+              },
               extensions: [
                 path.resolve(
                   __dirname,

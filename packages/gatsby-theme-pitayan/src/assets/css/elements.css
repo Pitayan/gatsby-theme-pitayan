@@ -124,6 +124,8 @@ img {
 }
 
 figure {
+  @apply my-8;
+
   img {
     @apply mx-auto;
   }

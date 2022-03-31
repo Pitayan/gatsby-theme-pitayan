@@ -86,7 +86,7 @@ mark {
   @apply px-1 pt-px;
 
   /* Dark Mode */
-  @apply dark:text-black;
+  @apply dark:text-gray-900;
 }
 
 /* The inline code tag */
@@ -95,24 +95,6 @@ code {
   @apply text-sm;
   @apply rounded;
   @apply py-0.5 px-1;
-
-  /* This relates to plugin gatsby-remark-vscode. We filter out these ones controlled by that plugin */
-  &:not([class*="grvsc-"]) {
-    @apply text-gray-800;
-    @apply bg-gray-200;
-
-    /* Dark Mode */
-    @apply dark:bg-gray-800;
-    @apply dark:text-gray-400;
-  }
-
-  /* This relates to plugin gatsby-remark-vscode. The inline code tag will have a class name of "grvsc-inline" */
-  &.grvsc-inline {
-    @apply bg-gray-200;
-
-    /* Dark Mode */
-    @apply dark:bg-gray-800;
-  }
 }
 
 pre {
@@ -120,7 +102,6 @@ pre {
   @apply whitespace-pre;
   @apply rounded !important;
   @apply mb-4;
-  @apply bg-gray-800 !important;
 
   code {
     @apply block;

@@ -1,16 +1,18 @@
 .tag {
   @apply rounded-sm;
+  @apply py-0.5 px-1;
+  @apply text-sm;
+  @apply text-gray-800;
   @apply bg-gray-200;
   @apply hover:bg-gray-300;
-  @apply py-px px-1;
-  @apply text-sm;
   @apply transition-colors;
   @apply duration-150;
   @apply ease-in-out;
 
   /* Dark Mode */
-  @apply dark:hover:bg-gray-500;
-  @apply dark:bg-gray-600;
+  @apply dark:hover:bg-gray-700;
+  @apply dark:bg-gray-800;
+  @apply dark:text-gray-400;
 }
 
 .site-link {
@@ -65,11 +67,13 @@
 }
 
 .subscription {
-  @apply bg-gray-100;
+  @apply bg-gray-50;
+  @apply border border-solid border-gray-100;
   @apply p-12;
 
   /* Dark Mode */
   @apply dark:bg-gray-800;
+  @apply dark:border-none;
 
   &-title {
     @apply max-w-2xl;
