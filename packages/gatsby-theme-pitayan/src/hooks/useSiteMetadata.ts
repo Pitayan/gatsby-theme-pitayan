@@ -15,7 +15,10 @@ type SiteMetaData = {
   }
 }
 
+let _siteMetadata = null
 export const useSiteMetadata = (): SiteMetaData => {
+  if (_siteMetadata) return _siteMetadata
+
   const { site, icon } = useStaticQuery(
     graphql`
       query SiteMetaData {
@@ -48,5 +51,6 @@ export const useSiteMetadata = (): SiteMetaData => {
     `
   )
 
-  return { ...site.siteMetadata, icon }
+  _siteMetadata = { ...site.siteMetadata, icon }
+  return _siteMetadata
 }
