@@ -31,6 +31,9 @@ Under prototyping. Don't use it yet in production!
 - [x] Correct types
 - [x] Site Logo
 - [ ] Content text highlight (for local)
+- [ ] Change "links" to "siteLinks"
+- [ ] Change "excerpt" to "description"
+- [ ] Types tuning for pages
 
 ### Pages
 
@@ -49,7 +52,7 @@ Under prototyping. Don't use it yet in production!
 
 ### SEO
 
-- [ ] meta tags with react-helmet
+- [x] meta tags with react-helmet
 
 ### Email Subscription
 
