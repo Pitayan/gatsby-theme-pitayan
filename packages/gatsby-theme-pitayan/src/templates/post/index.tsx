@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -12,9 +12,14 @@ import SocialSharing from "@pitayan/gatsby-theme-pitayan/src/components/SocialSh
 import CategoryTags from "@pitayan/gatsby-theme-pitayan/src/components/CategoryTags"
 import BackToTop from "@pitayan/gatsby-theme-pitayan/src/components/BackToTop"
 import PostAuthors from "@pitayan/gatsby-theme-pitayan/src/components/PostAuthors"
-import { useScrollToFragment } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import SelectionPopup from "@pitayan/gatsby-theme-pitayan/src/components/SelectionPopup"
 import ScrollVisibility from "@pitayan/gatsby-theme-pitayan/src/components/ScrollVisibility"
+
+import {
+  useScrollToFragment,
+  useSiteMetadata,
+} from "@pitayan/gatsby-theme-pitayan/src/hooks"
+import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? (
@@ -33,18 +38,49 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         categories,
         hero,
         excerpt,
+        keywords,
       },
+      fields: { slug },
       timeToRead,
       relatedPosts,
     },
   } = data
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
+  const { siteUrl } = useSiteMetadata()
 
   useScrollToFragment()
 
+  const authors = useMemo(() => {
+    return coAuthors.map(({ id, name, bio, sns }) => {
+      const socialUrls = sns
+        .filter((s: string[]) => s[0] != "mailto" && s[0] != "url")
+        .map((s: string[]) => {
+          const network = SOCIAL_RESOURCES[s[0]].url
+          const profile = s[1]
+          return `${network}/${profile}`
+        })
+
+      return {
+        id,
+        name,
+        bio,
+        socialUrls,
+      }
+    })
+  }, [coAuthors])
+
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      postDescription={excerpt}
+      pageImage={postImage.images.fallback.src}
+      pageUrl={`${siteUrl}${slug}`}
+      postTitle={title}
+      keywords={keywords}
+      date={date}
+      timeToRead={timeToRead}
+      authors={authors}
+    >
       <SelectionPopup target={postTarget} />
 
       <div className="hidden md:block">
@@ -53,7 +89,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         </ScrollVisibility>
       </div>
 
-      <div className="max-w-2xl mx-auto mb-24">
+      <div className="max-w-2xl mx-auto mb-20">
         <h1>{title}</h1>
         <PostMeta date={date} timeToRead={timeToRead} />
         <br />
@@ -66,7 +102,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
             title={title}
             hashtags={categories}
             excerpt={excerpt}
-            className="space-x-10 text-2xl"
+            className="space-x-10 text-2xl py-4"
             twitter
             facebook
             linkedin
@@ -125,6 +161,8 @@ export const pageQuery = graphql`
           id
           name
           initial
+          bio
+          sns
           avatar {
             normal: childImageSharp {
               gatsbyImageData(
@@ -136,6 +174,7 @@ export const pageQuery = graphql`
           }
         }
         title
+        excerpt
         date(formatString: "MMMM Do, YYYY")
         categories
         hero {
@@ -148,6 +187,9 @@ export const pageQuery = graphql`
             )
           }
         }
+      }
+      fields {
+        slug
       }
       relatedPosts {
         id

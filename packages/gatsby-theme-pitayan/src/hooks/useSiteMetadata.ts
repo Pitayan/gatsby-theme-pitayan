@@ -8,6 +8,9 @@ type SiteMetaData = {
   name: string
   siteUrl: string
   title: string
+  cover: {
+    publicURL: string
+  }
   icon: {
     normal: ImageDataLike | null
     extension: string
@@ -19,7 +22,7 @@ let _siteMetadata = null
 export const useSiteMetadata = (): SiteMetaData => {
   if (_siteMetadata) return _siteMetadata
 
-  const { site, icon } = useStaticQuery(
+  const { site, icon, cover } = useStaticQuery(
     graphql`
       query SiteMetaData {
         site {
@@ -36,6 +39,9 @@ export const useSiteMetadata = (): SiteMetaData => {
             title
           }
         }
+        cover: file(relativePath: {regex: "/^sitecover\\./i"}) {
+          publicURL
+        }
         icon: file(relativePath: {regex: "/^sitelogo\\./i"}) {
           normal: childImageSharp {
             gatsbyImageData(
@@ -51,6 +57,6 @@ export const useSiteMetadata = (): SiteMetaData => {
     `
   )
 
-  _siteMetadata = { ...site.siteMetadata, icon }
+  _siteMetadata = { ...site.siteMetadata, icon, cover }
   return _siteMetadata
 }

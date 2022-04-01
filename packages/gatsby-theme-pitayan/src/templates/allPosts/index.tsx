@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import Pagination from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
 import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 type PostsPageProps = {
   [key: string]: any
@@ -14,8 +15,10 @@ const PostsPage: React.FC<PostsPageProps> = ({
     allMdx: { nodes: posts, totalCount, pageInfo },
   },
 }: PostsPageProps) => {
+  const { siteUrl } = useSiteMetadata()
+
   return (
-    <DefaultLayout>
+    <DefaultLayout pageUrl={`${siteUrl}/posts/${pageInfo.currentPage}`}>
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
         All Posts ({totalCount})
       </h1>

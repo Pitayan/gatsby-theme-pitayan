@@ -5,6 +5,8 @@ import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import Pagination from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
 import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
+
 type CategoryPostsProps = {
   [key: string]: any
 }
@@ -15,8 +17,10 @@ const CategoryPosts: React.FC<CategoryPostsProps> = ({
   },
   pageContext: { category },
 }: CategoryPostsProps) => {
+  const { siteUrl } = useSiteMetadata()
+
   return (
-    <DefaultLayout>
+    <DefaultLayout pageUrl={`${siteUrl}/categories/${category}`}>
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
         Category: {category} ({totalCount})
       </h1>

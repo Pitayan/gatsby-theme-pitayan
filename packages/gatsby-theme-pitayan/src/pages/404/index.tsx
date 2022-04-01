@@ -2,10 +2,13 @@ import React, { memo } from "react"
 import { Link } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 const NotFound: React.FC<any> = () => {
+  const { siteUrl } = useSiteMetadata()
+
   return (
-    <DefaultLayout>
+    <DefaultLayout pageUrl={`${siteUrl}/404`} noIndex>
       <div className="mx-auto w-full text-center h-72">
         <p>Not Found</p>
         <br />

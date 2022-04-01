@@ -6,6 +6,8 @@ import Pagination from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
 import AuthorCard from "@pitayan/gatsby-theme-pitayan/src/components/AuthorCard"
 import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
+
 type AuthorPostsProps = {
   [key: string]: any
 }
@@ -17,8 +19,10 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
   },
   pageContext: { authorId },
 }) => {
+  const { siteUrl } = useSiteMetadata()
+
   return (
-    <DefaultLayout>
+    <DefaultLayout pageUrl={`${siteUrl}/authors/@${authorId}`}>
       <AuthorCard
         bio={bio}
         name={name}
