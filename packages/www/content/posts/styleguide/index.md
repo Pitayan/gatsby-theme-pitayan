@@ -10,6 +10,7 @@ categories:
 excerpt: "The style guide for a Gatsby blog"
 hero: images/demo_1.jpg
 slug: posts/styleguide
+keywords: a, b, c
 ---
 
 <div class="text-center text-6xl font-serif font-extrabold mb-48">
@@ -119,10 +120,9 @@ The font under `html•<quotes>` is set to <span class="font-serif font-bold">se
 <br />
 <br />
 
-<blockquote>
-  <p>Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.</p>
-  <cite>- Steve Jobs</cite>
-</blockquote>
+> Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.
+> <br />
+> -&nbsp;Hello
 
 <br />
 <br />
