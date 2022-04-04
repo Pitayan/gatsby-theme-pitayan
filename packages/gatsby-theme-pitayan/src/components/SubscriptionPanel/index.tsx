@@ -63,7 +63,7 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className }) => {
               formNoValidate
             />
             <button
-              className="fill-button ml-auto absolute top-[11%] right-1"
+              className="ghost-button ml-auto absolute top-[2%] right-0"
               type="submit"
               disabled={subscribed}
             >
