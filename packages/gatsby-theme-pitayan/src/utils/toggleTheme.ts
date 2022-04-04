@@ -24,4 +24,3 @@ export const toggleDark = (isDark: boolean): void => {
 
   setZoomableImages()
 }
-

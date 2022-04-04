@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react"
-import { subscribeMailChimp }  from "@pitayan/gatsby-theme-pitayan/src/utils"
+import { subscribeMailChimp } from "@pitayan/gatsby-theme-pitayan/src/utils"
 
 type SubscriptionPanelProps = {
   className: string
@@ -46,8 +46,9 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className }) => {
           Subscribe to our email newsletters
         </h3>
         <div className="subscription-content">
-          Stay tuned to our latest content with the ability to opt-out at anytime.
-          We will not spam your inbox or share your email with any third parties.
+          Stay tuned to our latest content with the ability to opt-out at
+          anytime. We will not spam your inbox or share your email with any
+          third parties.
         </div>
         <form className="subscription-action" onSubmit={handleOnSubmit}>
           <div className="w-full relative">
@@ -70,7 +71,9 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className }) => {
             </button>
           </div>
           <small
-            className={`block mt-2 ${subscribed ? "text-green-500" : "text-red-500"}`}
+            className={`block mt-2 ${
+              subscribed ? "text-green-500" : "text-red-500"
+            }`}
           >
             {message}
           </small>

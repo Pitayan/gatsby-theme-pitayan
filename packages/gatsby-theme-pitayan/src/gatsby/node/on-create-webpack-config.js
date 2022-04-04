@@ -2,7 +2,10 @@ const path = require("path")
 
 const projectRoot = path.resolve(__dirname, "../../../")
 
-module.exports = function onCreateWebpackConfig({ actions, plugins }, { mailChimpEndpoint = null, mailChimpTimeout = 3500 }) {
+module.exports = function onCreateWebpackConfig(
+  { actions, plugins },
+  { mailChimpEndpoint = null, mailChimpTimeout = 3500 }
+) {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(projectRoot, "src"), "node_modules"],
@@ -15,7 +18,7 @@ module.exports = function onCreateWebpackConfig({ actions, plugins }, { mailChim
       plugins.define({
         __MAILCHIMP_ENDPOINT__: JSON.stringify(mailChimpEndpoint),
         __MAILCHIMP_TIMEOUT__: Number(mailChimpTimeout),
-      })
-    ]
+      }),
+    ],
   })
 }

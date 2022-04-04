@@ -58,4 +58,3 @@ export const getSelectedTextPosition = (): {
 
   return { x, y, width, height, textContent }
 }
-
