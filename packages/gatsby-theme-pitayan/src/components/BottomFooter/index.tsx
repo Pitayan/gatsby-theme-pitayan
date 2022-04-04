@@ -5,7 +5,7 @@ import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/N
 
 const BottomFooter: React.FC = () => {
   const year = new Date().getFullYear()
-  const { links } = useSiteMetadata()
+  const { siteLinks } = useSiteMetadata()
 
   return (
     <footer>
@@ -34,15 +34,15 @@ const BottomFooter: React.FC = () => {
             <Link className="site-link block" to="/authors">
               authors
             </Link>
-            <NavigationLinksGroup group="explore" data={links} />
+            <NavigationLinksGroup group="explore" data={siteLinks} />
           </div>
           <div className="space-y-2 text-base">
             <h5 className="font-bold mb-3">Site</h5>
-            <NavigationLinksGroup group="site" data={links} />
+            <NavigationLinksGroup group="site" data={siteLinks} />
           </div>
           <div className="space-y-2 text-base">
-            <h5 className="font-bold mb-3">Follow</h5>
-            <NavigationLinksGroup group="follow" data={links} />
+            <h5 className="font-bold mb-3">Connect</h5>
+            <NavigationLinksGroup group="connect" data={siteLinks} />
           </div>
         </div>
       </div>

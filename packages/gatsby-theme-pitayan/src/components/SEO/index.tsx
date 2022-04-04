@@ -37,13 +37,13 @@ const SEO: React.FC<SEOProps> = ({
     title: siteTitle,
     name,
     siteUrl,
-    links,
+    siteLinks,
     cover: { publicURL: siteCoverPath },
     icon: { publicURL: siteLogoPath },
   } = useSiteMetadata()
 
-  const twitter = links.find(l => l.name == "twitter")
-  const socialUrls = links.filter(l => !l.internal).map(l => l.url)
+  const twitter = siteLinks.find(l => l.name == "twitter")
+  const socialUrls = siteLinks.filter(l => !l.internal).map(l => l.url)
   const coverImageUrl = `${siteUrl}${pageImage || siteCoverPath}`
   const description = (postDescription || siteDescription || "").replace(
     /"/g,

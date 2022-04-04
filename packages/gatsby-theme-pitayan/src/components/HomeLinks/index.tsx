@@ -3,11 +3,11 @@ import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/NavigationLinksGroup"
 
 const HomeLinks: React.FC = () => {
-  const { links } = useSiteMetadata()
+  const { siteLinks } = useSiteMetadata()
 
   return (
     <div className="flex flex-wrap">
-      <NavigationLinksGroup group="home" data={links} className="mr-6 py-2" />
+      <NavigationLinksGroup group="home" data={siteLinks} className="mr-6 py-2" />
     </div>
   )
 }

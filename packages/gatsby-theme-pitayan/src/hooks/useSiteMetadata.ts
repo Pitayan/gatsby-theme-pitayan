@@ -4,7 +4,7 @@ import { ImageDataLike } from "gatsby-plugin-image"
 
 type SiteMetaData = {
   description: string
-  links: NavigationLinksData[]
+  siteLinks: NavigationLinksData[]
   name: string
   siteUrl: string
   title: string
@@ -28,7 +28,7 @@ export const useSiteMetadata = (): SiteMetaData => {
         site {
           siteMetadata {
             description
-            links {
+            siteLinks {
               name
               url
               group
