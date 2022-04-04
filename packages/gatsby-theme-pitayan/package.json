@@ -20,6 +20,7 @@
     "gatsby-source-filesystem": "^3.8.0",
     "gatsby-transformer-sharp": "^3.8.0",
     "gatsby-transformer-yaml": "^3.14.0",
+    "jsonp": "^0.2.1",
     "medium-zoom": "^1.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -33,6 +34,7 @@
   },
   "description": "A blog theme for Gatsby",
   "devDependencies": {
+    "@types/jsonp": "^0.2.1",
     "@types/mdx-js__react": "^1.5.5",
     "@types/react-dom": "^17.0.13",
     "@types/react-helmet": "^6.1.1",

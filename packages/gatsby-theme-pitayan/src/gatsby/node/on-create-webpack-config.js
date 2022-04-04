@@ -2,7 +2,7 @@ const path = require("path")
 
 const projectRoot = path.resolve(__dirname, "../../../")
 
-module.exports = function onCreateWebpackConfig({ actions }) {
+module.exports = function onCreateWebpackConfig({ actions, plugins }, { mailChimpEndpoint = null, mailChimpTimeout = 3500 }) {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(projectRoot, "src"), "node_modules"],
@@ -10,5 +10,12 @@ module.exports = function onCreateWebpackConfig({ actions }) {
         "@pitayan/gatsby-theme-pitayan": path.resolve(projectRoot),
       },
     },
+    plugins: [
+      // Define global variables
+      plugins.define({
+        __MAILCHIMP_ENDPOINT__: JSON.stringify(mailChimpEndpoint),
+        __MAILCHIMP_TIMEOUT__: Number(mailChimpTimeout),
+      })
+    ]
   })
 }

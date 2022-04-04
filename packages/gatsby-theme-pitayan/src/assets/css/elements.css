@@ -30,7 +30,7 @@ button {
   &.fill-button,
   &.ghost-button {
     @apply rounded;
-    @apply py-2 px-4;
+    @apply px-4;
   }
 
   &.fill-button {

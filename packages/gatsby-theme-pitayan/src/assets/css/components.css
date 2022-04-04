@@ -75,23 +75,24 @@
   @apply dark:bg-gray-800;
   @apply dark:border-none;
 
-  &-title {
+  &-container {
     @apply max-w-2xl;
-    @apply !mt-0 !mb-8;
     @apply mx-auto;
   }
 
+  &-title {
+    @apply !mt-0 !mb-8;
+  }
+
   &-content {
-    @apply max-w-2xl;
     @apply leading-tight;
-    @apply mx-auto mb-8;
+    @apply mb-8;
   }
 
   &-action {
     @apply flex flex-wrap;
+    @apply w-full;
     @apply md:space-x-2;
-    @apply max-w-2xl;
-    @apply mx-auto;
   }
 }
 
