@@ -30,10 +30,10 @@ Under prototyping. Don't use it yet in production!
 - [x] Change font
 - [x] Correct types
 - [x] Site Logo
-- [ ] Content text highlight (for local)
-- [ ] Change "links" to "siteLinks"
+- [x] Change "links" to "siteLinks"
 - [ ] Change "excerpt" to "description"
 - [ ] Types tuning for pages
+- [ ] Content text highlight (for local)
 
 ### Pages
 
@@ -44,9 +44,9 @@ Under prototyping. Don't use it yet in production!
 - [x] categories list
 - [x] posts
 - [x] 404
+- [ ] subscribe
 - [ ] write for us
 - [ ] about
-- [ ] subscribe
 - [ ] privacy
 - [ ] terms
 
