@@ -1,13 +1,12 @@
 const path = require("path")
-const colors = require("tailwindcss/colors")
 
 module.exports = {
   siteMetadata: {
     title: `Pitayan Blog`,
     name: `Pitayan`,
-    siteUrl: `https://pitayan.com`,
     description: `Welcome to Pitayan, come find inspiring software development stories.`,
-    links: [
+    siteUrl: `https://pitayan.com`,
+    siteLinks: [
       {
         name: "sitemap",
         url: "/sitemap",
@@ -47,19 +46,19 @@ module.exports = {
       {
         name: "subscribe",
         url: "/subscribe",
-        group: "follow,home",
+        group: "connect,home",
         internal: true,
       },
       {
         name: "github",
         url: "https://github.com/Pitayan",
-        group: "follow",
+        group: "connect",
         internal: false,
       },
       {
         name: "twitter",
         url: "https://twitter.com/pitayanblog",
-        group: "follow,home",
+        group: "connect,home",
         internal: false,
       },
     ],
@@ -71,6 +70,9 @@ module.exports = {
         contentPosts: "content/posts",
         contentAuthors: "content/authors",
         siteAssets: "src/assets",
+        mailChimpEndpoint:
+          "https://pitayanblog.us14.list-manage.com/subscribe/post?u=234bf6777b76872feb7d92a68&amp;id=27fad95f3b",
+        mailChimpTimeout: 3500,
       },
     },
   ],
