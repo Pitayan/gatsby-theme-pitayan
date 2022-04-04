@@ -7,7 +7,11 @@ const HomeLinks: React.FC = () => {
 
   return (
     <div className="flex flex-wrap">
-      <NavigationLinksGroup group="home" data={siteLinks} className="mr-6 py-2" />
+      <NavigationLinksGroup
+        group="home"
+        data={siteLinks}
+        className="mr-6 py-2"
+      />
     </div>
   )
 }
