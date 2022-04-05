@@ -48,7 +48,10 @@ export default memo(HomePage)
 
 export const pageQuery = graphql`
   query HomePageQuery {
-    allMdx(limit: 12) {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      limit: 12
+    ) {
       nodes {
         id
         timeToRead
