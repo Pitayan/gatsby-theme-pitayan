@@ -14,6 +14,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   timeToRead,
   date,
   authors,
+  noIndex,
   children,
 }) => {
   useCookiePrompt()
@@ -28,6 +29,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         timeToRead={timeToRead}
         date={date}
         authors={authors}
+        noIndex={noIndex}
       />
       <div className="pb-20">
         <TopNav />

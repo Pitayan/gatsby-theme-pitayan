@@ -1,8 +1,6 @@
 const path = require("path")
 
 module.exports = ({
-  contentAuthors = "content/authors",
-  contentPosts = "content/posts",
   siteAssets = "src/assets",
   gatsbyRemarkPlugins = [],
 }) => ({
@@ -26,14 +24,21 @@ module.exports = ({
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: contentPosts,
+        path: `content/posts`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `authors`,
-        path: contentAuthors,
+        path: `content/authors`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `site`,
+        path: `content/site`,
       },
     },
     {

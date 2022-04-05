@@ -50,6 +50,7 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         frontmatter: { author: { elemMatch: { id: { in: [$authorId] } } } }
+        fileAbsolutePath: { regex: "/content/posts/" }
       }
       limit: $limit
       skip: $skip

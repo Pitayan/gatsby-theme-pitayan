@@ -42,7 +42,10 @@ export const pageQuery = graphql`
   query($limit: Int!, $skip: Int!, $category: String!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { in: [$category] } } }
+      filter: {
+        frontmatter: { categories: { in: [$category] } }
+        fileAbsolutePath: { regex: "/content/posts/" }
+      }
       limit: $limit
       skip: $skip
     ) {

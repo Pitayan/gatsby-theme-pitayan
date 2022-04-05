@@ -2,13 +2,29 @@ const path = require("path")
 
 const projectRoot = path.resolve(__dirname, "../../../")
 
-module.exports = async function createPages({ graphql, actions }) {
+module.exports = async function createPages({
+  graphql,
+  actions
+}, {
+  postsPerPage = 10,
+}) {
   const { createPage } = actions
 
   // FIXME: limit -> as an argument?
   return graphql(`
     query {
+      site: allMdx(
+        filter: { fileAbsolutePath: { regex: "/content/site/" } }
+        limit: 2000
+      ) {
+        nodes {
+          fields {
+            slug
+          }
+        }
+      }
       posts: allMdx(
+        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
         sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
         limit: 2000
       ) {
@@ -37,12 +53,11 @@ module.exports = async function createPages({ graphql, actions }) {
       return Promise.reject(result.errors)
     }
 
-    // Create post page
-    // FIXME: path prefix -> as an argument?
-    result.data.posts.nodes.forEach(node => {
+    // Create site page
+    result.data.site.nodes.forEach(node => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(projectRoot, `./src/templates/post/index.tsx`),
+        component: path.resolve(projectRoot, `./src/templates/site/index.tsx`),
         context: {
           // We can use the values in this context in our page layout component.
           slug: node.fields.slug,
@@ -50,7 +65,17 @@ module.exports = async function createPages({ graphql, actions }) {
       })
     })
 
-    const postsPerPage = 10
+    // Create post page
+    // FIXME: path prefix -> as an argument?
+    result.data.posts.nodes.forEach(node => {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(projectRoot, `./src/templates/post/index.tsx`),
+        context: {
+          slug: node.fields.slug,
+        },
+      })
+    })
 
     // Create paginated post list page
     const totalPostPages =
