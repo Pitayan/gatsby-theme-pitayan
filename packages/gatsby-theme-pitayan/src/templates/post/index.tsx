@@ -70,7 +70,7 @@ const Post: React.FC<PostProps> = ({
       timeToRead,
       relatedPosts,
     },
-  }
+  },
 }) => {
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)

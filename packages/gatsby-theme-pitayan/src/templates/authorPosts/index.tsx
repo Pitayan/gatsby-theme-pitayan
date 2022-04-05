@@ -2,9 +2,13 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
-import Pagination, { PageInfo } from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
+import Pagination, {
+  PageInfo,
+} from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
 import AuthorCard from "@pitayan/gatsby-theme-pitayan/src/components/AuthorCard"
-import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import PostsGroup, {
+  PostNode,
+} from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 import { Author } from "@pitayan/gatsby-theme-pitayan/src/pages/authors"
 
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
