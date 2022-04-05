@@ -5,7 +5,9 @@ type SubscriptionPanelProps = {
   className: string
 }
 
-const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({ className= "" }) => {
+const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
+  className = "",
+}) => {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [subscribed, setSubscribed] = useState(false)

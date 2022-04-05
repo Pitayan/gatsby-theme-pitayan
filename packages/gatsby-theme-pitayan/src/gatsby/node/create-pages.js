@@ -2,12 +2,10 @@ const path = require("path")
 
 const projectRoot = path.resolve(__dirname, "../../../")
 
-module.exports = async function createPages({
-  graphql,
-  actions
-}, {
-  postsPerPage = 10,
-}) {
+module.exports = async function createPages(
+  { graphql, actions },
+  { postsPerPage = 10 }
+) {
   const { createPage } = actions
 
   // FIXME: limit -> as an argument?

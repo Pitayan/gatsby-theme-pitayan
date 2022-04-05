@@ -12,7 +12,6 @@ import {
   useSiteMetadata,
 } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
-
 const Site: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
   const {
     mdx: {
@@ -46,11 +45,11 @@ const Site: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         </ScrollVisibility>
       </div>
 
-      {displayTitle &&
+      {displayTitle && (
         <div className="max-w-2xl mx-auto mb-10">
           <h1>{title}</h1>
         </div>
-      }
+      )}
 
       <article className="markdown">
         <MDXProvider components={{}}>
