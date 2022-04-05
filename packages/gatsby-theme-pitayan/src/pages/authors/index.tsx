@@ -5,9 +5,26 @@ import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import Avatar from "@pitayan/gatsby-theme-pitayan/src/components/Avatar"
 
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
+import { ImageDataLike } from "gatsby-plugin-image"
+
+export type Author = {
+  id: string
+  name: string
+  bio: string
+  initial: string
+  avatar: {
+    normal: ImageDataLike
+  }
+  sns: [string, string][]
+}
 
 type AuthorsProps = {
   [key: string]: any
+  data: {
+    allAuthorsYaml: {
+      nodes: Exclude<Author, "sns">[]
+    }
+  }
 }
 
 const Authors: React.FC<AuthorsProps> = ({

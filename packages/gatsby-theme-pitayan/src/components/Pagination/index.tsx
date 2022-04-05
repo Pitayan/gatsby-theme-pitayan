@@ -1,13 +1,15 @@
 import React, { memo } from "react"
 import { Link } from "gatsby"
 
+export type PageInfo = {
+  currentPage: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+  pageCount: number
+}
+
 type PaginationProps = {
-  pageInfo: {
-    currentPage: number
-    hasNextPage: boolean
-    hasPreviousPage: boolean
-    pageCount: number
-  }
+  pageInfo: PageInfo
   path: string
 }
 

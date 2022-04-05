@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import PostMeta from "@pitayan/gatsby-theme-pitayan/src/components/PostMeta"
@@ -20,6 +20,32 @@ import {
   useSiteMetadata,
 } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
+import { Author } from "@pitayan/gatsby-theme-pitayan/src/pages/authors"
+import { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+
+type PostProps = {
+  data: {
+    mdx: {
+      body: string
+      frontmatter: {
+        author: Author[]
+        title: string
+        date: string
+        categories: string[]
+        hero: {
+          medium: ImageDataLike
+        }
+        description: string
+        keywords: string
+      }
+      fields: {
+        slug: string
+      }
+      timeToRead: number
+      relatedPosts: PostNode[]
+    }
+  }
+}
 
 const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   return image ? (
@@ -27,8 +53,8 @@ const PostImage: React.FC<{ image: any }> = ({ image }: any) => {
   ) : null
 }
 
-const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
-  const {
+const Post: React.FC<PostProps> = ({
+  data: {
     mdx: {
       body,
       frontmatter: {
@@ -44,7 +70,8 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
       timeToRead,
       relatedPosts,
     },
-  } = data
+  }
+}) => {
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
   const { siteUrl } = useSiteMetadata()
@@ -100,7 +127,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
           <SocialSharing
             url={window.location.href}
             title={title}
-            hashtags={categories}
+            hashtags={categories.join(",")}
             description={description}
             className="space-x-10 text-2xl py-4"
             twitter
@@ -130,7 +157,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         <SocialSharing
           url={window.location.href}
           title={title}
-          hashtags={categories}
+          hashtags={categories.join(",")}
           description={description}
           className="space-x-10"
           twitter

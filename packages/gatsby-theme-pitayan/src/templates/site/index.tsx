@@ -12,7 +12,26 @@ import {
   useSiteMetadata,
 } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
-const Site: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
+type SiteProps = {
+  data: {
+    mdx: {
+      body: string
+      frontmatter: {
+        title: string
+        date: string
+        description: string
+        keywords: string
+        displayTitle: boolean
+        noIndex: boolean
+      }
+      fields: {
+        slug: string
+      }
+    }
+  }
+}
+
+const Site: React.FC<SiteProps> = ({ data }: any) => {
   const {
     mdx: {
       body,

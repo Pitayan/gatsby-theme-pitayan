@@ -2,13 +2,22 @@ import { graphql } from "gatsby"
 import React from "react"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
-import Pagination from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
-import PostsGroup from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import Pagination, { PageInfo } from "@pitayan/gatsby-theme-pitayan/src/components/Pagination"
+import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 type CategoryPostsProps = {
-  [key: string]: any
+  data: {
+    allMdx: {
+      nodes: PostNode[]
+      totalCount: number
+      pageInfo: PageInfo
+    }
+  }
+  pageContext: {
+    category: string
+  }
 }
 
 const CategoryPosts: React.FC<CategoryPostsProps> = ({

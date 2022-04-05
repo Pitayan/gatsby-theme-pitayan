@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
-const NotFound: React.FC<any> = () => {
+const NotFound: React.FC = () => {
   const { siteUrl } = useSiteMetadata()
 
   return (
