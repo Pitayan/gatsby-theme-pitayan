@@ -23,8 +23,11 @@ const SocialGroup: React.FC<SocialGroupProps> = ({ data, className = "" }) => {
       {data.map(([sns, profile]) => {
         let href = `${SOCIAL_RESOURCES[sns]?.url}/${profile}`
 
-        // Use the given url If the given platform id is an HTTP url.
-        if (/^(?:https?:\/\/)/.test(profile)) {
+        // Use the given url If the given platform id is an HTTP url or "mailto"
+        if (
+          /^(?:https?:\/\/)/.test(profile) ||
+          /^mailto:/.test(profile)
+        ) {
           href = profile
         }
 
