@@ -1,4 +1,4 @@
-import { PropsWithChildren, useLayoutEffect, useState } from "react"
+import { PropsWithChildren } from "react"
 import { createPortal } from "react-dom"
 
 export { getSelectedTextPosition } from "./textSelection"
