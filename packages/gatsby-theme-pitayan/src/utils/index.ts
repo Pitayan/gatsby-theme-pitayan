@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, useLayoutEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
 export { getSelectedTextPosition } from "./textSelection"
@@ -21,6 +21,10 @@ export const copyToClipboard = (toCopy: string): void => {
 export const Portal = (
   props: PropsWithChildren<{ mount?: HTMLElement }>
 ): React.ReactPortal => {
+  if (typeof document == "undefined") {
+    return null
+  }
+
   return createPortal(props.children, props.mount || document.body)
 }
 

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react"
+import React, { useLayoutEffect, useMemo, useState } from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -72,6 +72,7 @@ const Post: React.FC<PostProps> = ({
     },
   },
 }) => {
+  const [url, setUrl] = useState<string>()
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
   const { siteUrl } = useSiteMetadata()
@@ -96,6 +97,10 @@ const Post: React.FC<PostProps> = ({
       }
     })
   }, [coAuthors])
+
+  useLayoutEffect(() => {
+    setUrl(window.location.href)
+  })
 
   return (
     <DefaultLayout
@@ -125,7 +130,7 @@ const Post: React.FC<PostProps> = ({
         <div className="flex flex-wrap items-center justify-between">
           <PostAuthors data={coAuthors} />
           <SocialSharing
-            url={window.location.href}
+            url={url}
             title={title}
             hashtags={categories.join(",")}
             description={description}
@@ -155,7 +160,7 @@ const Post: React.FC<PostProps> = ({
       <h3 className="text-base font-black font-serif mb-8">Social Sharing</h3>
       <div className="text-2xl my-8">
         <SocialSharing
-          url={window.location.href}
+          url={url}
           title={title}
           hashtags={categories.join(",")}
           description={description}

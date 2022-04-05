@@ -1,8 +1,8 @@
-import { useLayoutEffect, useRef } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 
 export const useScrollToFragment = (): void => {
   const scrolledRef = useRef(false)
-  const { hash } = window.location
+  const [hash, setHash] = useState("")
   const hashRef = useRef(hash)
 
   const scrollTo = () => {
@@ -25,6 +25,8 @@ export const useScrollToFragment = (): void => {
   }
 
   useLayoutEffect(() => {
+    setHash(window.location.href)
+
     scrollTo()
 
     window.addEventListener("hashchange", scrollTo)
