@@ -11,13 +11,13 @@ type SocialGroupProps = {
   className?: string
 }
 
-const SocialIcon: React.FC<SocialIconsProps> = ({ icon, className }) => {
+const SocialIcon: React.FC<SocialIconsProps> = ({ icon, className = "" }) => {
   const Icon = SOCIAL_RESOURCES[icon].icon
 
   return <Icon className={className} />
 }
 
-const SocialGroup: React.FC<SocialGroupProps> = ({ data, className }) => {
+const SocialGroup: React.FC<SocialGroupProps> = ({ data, className = "" }) => {
   return (
     <ul className={`list-none flex flex-wrap space-x-8 ${className}`}>
       {data.map(([sns, profile]) => {

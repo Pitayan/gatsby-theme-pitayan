@@ -6,7 +6,7 @@ type PostMetaProps = {
   className?: string
 }
 
-const PostMeta: React.FC<PostMetaProps> = ({ timeToRead, date, className }) => {
+const PostMeta: React.FC<PostMetaProps> = ({ timeToRead, date, className = "" }) => {
   return (
     <span className={`text-gray-500 ${className}`}>
       {date} • {timeToRead} min read

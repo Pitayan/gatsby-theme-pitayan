@@ -24,7 +24,7 @@ type PostsGridProps = {
   className?: string
 }
 
-const PostsGroup: React.FC<PostsGridProps> = ({ posts, className }) => {
+const PostsGroup: React.FC<PostsGridProps> = ({ posts, className = "" }) => {
   return (
     <div className={className}>
       {posts.map(

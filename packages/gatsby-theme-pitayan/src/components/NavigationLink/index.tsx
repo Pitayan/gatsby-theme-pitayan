@@ -3,13 +3,13 @@ import { Link } from "gatsby"
 
 type NavigationLinkProps = {
   className?: string
-  internal: boolean
+  internal?: boolean
   name: string
   to: string
 }
 
 const NavigationLink: React.FC<NavigationLinkProps> = ({
-  className,
+  className = "",
   internal = true,
   name,
   to,

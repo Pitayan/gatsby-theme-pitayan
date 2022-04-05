@@ -7,7 +7,7 @@ type AvatarProps = {
   className?: string
 }
 
-const Avatar: React.FC<AvatarProps> = ({ image, initial, className }) => {
+const Avatar: React.FC<AvatarProps> = ({ image, initial, className = "" }) => {
   const avatarImage = getImage(image)
 
   return avatarImage ? (

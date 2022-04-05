@@ -8,7 +8,7 @@ type ScrollVisibilityProps = {
 }
 
 const ScrollVisibility: React.FC<ScrollVisibilityProps> = ({
-  className,
+  className = "",
   children,
   hidden = true,
   visiblePageYOffset = 500,

@@ -21,7 +21,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
   initial,
   avatar: { normal: image, className: avatarClassName = "h-40 w-40" },
   sns,
-  className,
+  className = "",
 }) => {
   return (
     <div className={`text-center ${className}`}>

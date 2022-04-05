@@ -10,7 +10,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   children,
   text,
   active,
-  className,
+  className = "",
 }) => {
   return (
     <span

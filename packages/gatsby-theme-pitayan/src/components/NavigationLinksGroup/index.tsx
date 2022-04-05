@@ -17,7 +17,7 @@ export type NavigationLinksGroupProps = {
 const NavigationLinksGroup: React.FC<NavigationLinksGroupProps> = ({
   group,
   data,
-  className,
+  className = "",
 }) => {
   if (!data.length) return null
 

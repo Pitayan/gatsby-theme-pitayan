@@ -14,7 +14,7 @@ type SiteLogoProps = {
 
 const SiteLogo: React.FC<SiteLogoProps> = ({
   alt = "",
-  className,
+  className = "",
   icon: { normal, extension, publicURL },
 }) => {
   if (!normal || extension == "svg") {

@@ -19,7 +19,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
   url,
   hashtags,
   description,
-  className,
+  className = "",
   twitter,
   facebook,
   linkedin,
