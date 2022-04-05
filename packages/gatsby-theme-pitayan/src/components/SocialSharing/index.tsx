@@ -6,7 +6,7 @@ type SocialSharingProps = {
   title: string
   url: string
   hashtags: string
-  excerpt: string
+  description: string
   className?: string
   twitter: boolean
   facebook: boolean
@@ -18,7 +18,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
   title,
   url,
   hashtags,
-  excerpt,
+  description,
   className,
   twitter,
   facebook,
@@ -49,7 +49,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
           href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
             title,
             u: url,
-            description: excerpt,
+            description: description,
             hashtag: hashtags,
           })}`}
         >
@@ -64,7 +64,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
           href={`https://linkedin.com/shareArticle${objectToGetParams({
             title,
             url,
-            summary: excerpt,
+            summary: description,
           })}`}
         >
           <SiLinkedin />

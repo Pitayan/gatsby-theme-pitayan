@@ -37,7 +37,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
         date,
         categories,
         hero,
-        excerpt,
+        description,
         keywords,
       },
       fields: { slug },
@@ -72,7 +72,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
 
   return (
     <DefaultLayout
-      postDescription={excerpt}
+      postDescription={description}
       pageImage={postImage.images.fallback.src}
       pageUrl={`${siteUrl}${slug}`}
       postTitle={title}
@@ -101,7 +101,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
             url={window.location.href}
             title={title}
             hashtags={categories}
-            excerpt={excerpt}
+            description={description}
             className="space-x-10 text-2xl py-4"
             twitter
             facebook
@@ -131,7 +131,7 @@ const Post: React.FC<Record<string, Array<unknown>>> = ({ data }: any) => {
           url={window.location.href}
           title={title}
           hashtags={categories}
-          excerpt={excerpt}
+          description={description}
           className="space-x-10"
           twitter
           facebook
@@ -174,7 +174,7 @@ export const pageQuery = graphql`
           }
         }
         title
-        excerpt
+        description
         date(formatString: "MMMM Do, YYYY")
         categories
         hero {
@@ -210,7 +210,7 @@ export const pageQuery = graphql`
               )
             }
           }
-          excerpt
+          description
         }
       }
     }

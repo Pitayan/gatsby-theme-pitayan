@@ -72,7 +72,7 @@ export const pageQuery = graphql`
               )
             }
           }
-          excerpt
+          description
         }
       }
     }

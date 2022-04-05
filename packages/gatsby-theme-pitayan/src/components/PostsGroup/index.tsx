@@ -8,7 +8,7 @@ export type PostNode = {
   frontmatter: {
     categories: string[]
     date: string
-    excerpt: string
+    description: string
     hero: {
       normal: ImageDataLike
     }
@@ -31,13 +31,13 @@ const PostsGroup: React.FC<PostsGridProps> = ({ posts, className }) => {
         ({
           id,
           timeToRead,
-          frontmatter: { categories, date, excerpt, hero, title },
+          frontmatter: { categories, date, description, hero, title },
           fields: { slug },
         }) => (
           <PostPanel
             key={id}
             title={title}
-            excerpt={excerpt}
+            description={description}
             date={date}
             categories={categories}
             hero={hero}

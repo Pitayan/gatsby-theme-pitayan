@@ -7,7 +7,7 @@ import PostMeta from "@pitayan/gatsby-theme-pitayan/src/components/PostMeta"
 
 export type PostPanelProps = {
   title: string
-  excerpt: string
+  description: string
   date: string
   categories: string[]
   hero?: {
@@ -19,7 +19,7 @@ export type PostPanelProps = {
 
 const PostPanel: React.FC<PostPanelProps> = ({
   title,
-  excerpt,
+  description,
   date,
   categories,
   hero,
@@ -38,7 +38,7 @@ const PostPanel: React.FC<PostPanelProps> = ({
         ) : null}
         <h3>{title}</h3>
       </Link>
-      <p className="panel-content">{excerpt}</p>
+      <p className="panel-content">{description}</p>
       <CategoryTags categories={categories} />
       <br />
       <span className="panel-footer">
