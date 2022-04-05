@@ -11,6 +11,7 @@ module.exports = ({ siteAssets = "src/assets", gatsbyRemarkPlugins = [] }) => ({
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-remark-images`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-transformer-yaml`,
       options: {
