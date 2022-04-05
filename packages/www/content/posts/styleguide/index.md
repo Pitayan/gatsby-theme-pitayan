@@ -7,7 +7,7 @@ author:
 categories:
   - styleguide
   - design
-excerpt: "The style guide for a Gatsby blog"
+description: "The style guide for a Gatsby blog"
 hero: images/demo_1.jpg
 slug: posts/styleguide
 keywords: a, b, c
