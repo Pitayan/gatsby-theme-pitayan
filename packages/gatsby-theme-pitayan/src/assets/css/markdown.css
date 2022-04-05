@@ -32,6 +32,8 @@
   }
 
   a {
+    @apply text-blue-600;
+
     &.heading-anchor {
       @apply -ml-6 pr-1;
       @apply opacity-0;
@@ -42,6 +44,9 @@
       }
     }
 
+    &:hover {
+      @apply underline;
+    }
 
     &:active,
     &:focus,
@@ -160,8 +165,12 @@
       @apply !bg-inverted;
     }
 
-    a.heading-anchor span {
-      @apply !text-blue-400;
+    a {
+      @apply text-blue-400;
+
+      &.heading-anchor span {
+        @apply !text-blue-400;
+      }
     }
 
     pre {
