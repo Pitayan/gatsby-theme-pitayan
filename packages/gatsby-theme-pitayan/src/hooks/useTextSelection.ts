@@ -1,5 +1,5 @@
 import { getSelectedTextPosition } from "@pitayan/gatsby-theme-pitayan/src/utils"
-import { useCallback, useLayoutEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const events = ["keydown", "keyup", "mouseup"]
 
@@ -52,9 +52,9 @@ export const useTextSelection = (
     }, 0)
   }
 
-  const handler = useCallback(checkTextSelection, [container])
+  const handler = useCallback(checkTextSelection, [container, offsetWidth, offsetHeight])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener("resize", checkTextSelection)
 
     events.forEach((event: string) => {
@@ -68,7 +68,7 @@ export const useTextSelection = (
         container.removeEventListener(event, handler)
       })
     }
-  }, [container])
+  }, [container, offsetWidth, offsetHeight])
 
   return { left, top, textContent }
 }
