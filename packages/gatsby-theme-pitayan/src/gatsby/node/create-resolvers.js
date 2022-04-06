@@ -11,6 +11,9 @@ module.exports = function createResolvers({ createResolvers }) {
               // FIXME: runQuery ignores `limit` field in Gatsby V3. Uncommenting this will help resolve the FIXME below in V4
               // limit: 3,
               filter: {
+                fileAbsolutePath: {
+                  regex: "/content/posts/"
+                },
                 id: {
                   ne: source.id,
                 },
@@ -29,6 +32,9 @@ module.exports = function createResolvers({ createResolvers }) {
               type: "Mdx",
               query: {
                 filter: {
+                  fileAbsolutePath: {
+                    regex: "/content/posts/"
+                  },
                   id: {
                     ne: source.id,
                   },
