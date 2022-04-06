@@ -49,8 +49,7 @@
     }
 
     &:active,
-    &:focus,
-    &:hover {
+    &:focus {
       @apply outline-none;
     }
 
