@@ -54,7 +54,7 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
         </div>
         <form className="subscription-action" onSubmit={handleOnSubmit}>
           <div className="w-full relative">
-            <span className="absolute top-[23%] left-3 text-gray-500">@</span>
+            <span className="absolute top-[23%] left-3 text-gray-400 dark:text-gray-500">@</span>
             <input
               placeholder="your email address"
               name="email"
