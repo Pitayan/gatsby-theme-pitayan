@@ -9,7 +9,7 @@ module.exports = {
     siteLinks: [
       {
         name: "sitemap",
-        url: "/sitemap",
+        url: "/sitemap.xml",
         group: "site",
         internal: true,
       },
@@ -70,6 +70,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `@pitayan/gatsby-theme-pitayan`,
       options: {
