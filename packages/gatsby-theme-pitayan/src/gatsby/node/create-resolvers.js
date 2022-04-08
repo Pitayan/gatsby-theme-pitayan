@@ -12,7 +12,7 @@ module.exports = function createResolvers({ createResolvers }) {
               // limit: 3,
               filter: {
                 fileAbsolutePath: {
-                  regex: "/content/posts/"
+                  regex: "/content/posts/",
                 },
                 id: {
                   ne: source.id,
@@ -33,7 +33,7 @@ module.exports = function createResolvers({ createResolvers }) {
               query: {
                 filter: {
                   fileAbsolutePath: {
-                    regex: "/content/posts/"
+                    regex: "/content/posts/",
                   },
                   id: {
                     ne: source.id,

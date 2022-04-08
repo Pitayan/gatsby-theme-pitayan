@@ -1,6 +1,10 @@
 const path = require("path")
 
-module.exports = ({ siteAssets = "src/assets", gatsbyRemarkPluginsHead = [] , gatsbyRemarkPluginsTail = [] }) => ({
+module.exports = ({
+  siteAssets = "src/assets",
+  gatsbyRemarkPluginsHead = [],
+  gatsbyRemarkPluginsTail = [],
+}) => ({
   mapping: {
     "Mdx.frontmatter.author": `AuthorsYaml`,
   },

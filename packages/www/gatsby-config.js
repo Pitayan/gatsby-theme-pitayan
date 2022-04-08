@@ -88,7 +88,14 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site: { siteMetadata: { siteUrl } }, allMdx } }) => {
+            serialize: ({
+              query: {
+                site: {
+                  siteMetadata: { siteUrl },
+                },
+                allMdx,
+              },
+            }) => {
               return allMdx.nodes.map(node => {
                 // Get the first paragraph as content
                 const p = node.mdxAST.children.find(c => c.type == "paragraph")
@@ -104,10 +111,11 @@ module.exports = {
                   url: siteUrl + node.fields.slug,
                   guid: siteUrl + node.fields.slug,
                   custom_elements: [
-                    { "content:encoded": `
+                    {
+                      "content:encoded": `
                       <![CDATA[ <p>${partial || node.description}</p> ]]>
-                      `
-                    }
+                      `,
+                    },
                   ],
                 })
               })
@@ -134,10 +142,10 @@ module.exports = {
             `,
             output: "/rss.xml",
             match: "^/posts/",
-            title: "Pitayan's RSS Feed"
+            title: "Pitayan's RSS Feed",
           },
-        ]
-      }
+        ],
+      },
     },
     {
       resolve: require.resolve(`./plugins/patched-@raae-gatsby-remark-oembed`),
@@ -152,16 +160,18 @@ module.exports = {
         mailChimpTimeout: 3500,
         gatsbyRemarkPluginsHead: [
           {
-            resolve: require.resolve(`./plugins/patched-@raae-gatsby-remark-oembed`),
+            resolve: require.resolve(
+              `./plugins/patched-@raae-gatsby-remark-oembed`
+            ),
             options: {
               usePrefix: ["oembed"],
               providers: {
-                exclude: ["Redit"]
-              }
-            }
+                exclude: ["Redit"],
+              },
+            },
           },
           `gatsby-remark-responsive-iframe`,
-        ]
+        ],
       },
     },
   ],

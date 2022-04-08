@@ -1,5 +1,5 @@
 const gatsbyRemarkOembed = require("@raae/gatsby-remark-oembed")
-const { onPreBootstrap } = require('@raae/gatsby-remark-oembed/gatsby-node')
+const { onPreBootstrap } = require("@raae/gatsby-remark-oembed/gatsby-node")
 
 exports.default = async (...args) => {
   const { cache, reporter } = args[0]

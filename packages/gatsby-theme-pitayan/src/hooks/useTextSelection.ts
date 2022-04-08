@@ -52,7 +52,11 @@ export const useTextSelection = (
     }, 0)
   }
 
-  const handler = useCallback(checkTextSelection, [container, offsetWidth, offsetHeight])
+  const handler = useCallback(checkTextSelection, [
+    container,
+    offsetWidth,
+    offsetHeight,
+  ])
 
   useEffect(() => {
     window.addEventListener("resize", checkTextSelection)

@@ -18,12 +18,10 @@ export const copyToClipboard = (toCopy: string): void => {
   document.body.removeChild(el)
 }
 
-export const Portal = (
-  {
-    mount,
-    children
-  }: PropsWithChildren<{ mount?: HTMLElement }>
-): React.ReactPortal => {
+export const Portal = ({
+  mount,
+  children,
+}: PropsWithChildren<{ mount?: HTMLElement }>): React.ReactPortal => {
   const ref = useRef<HTMLElement>()
   const [mounted, setMounted] = useState(false)
 
