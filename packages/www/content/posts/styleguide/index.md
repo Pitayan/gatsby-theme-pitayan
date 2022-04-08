@@ -1,13 +1,13 @@
 ---
 title: The Style Guide for Gatsby-theme-pitayan
-date: "2021-07-31"
+date: 2022-04-06
 author:
   - Yanze Dai
   - Tide Dai
 categories:
   - styleguide
   - design
-description: "The style guide for a Gatsby blog"
+description: This article will introduce the design style of the Gatsby blog
 hero: images/demo_1.jpg
 slug: posts/styleguide
 keywords: a, b, c
@@ -16,6 +16,8 @@ keywords: a, b, c
 <div class="text-center text-6xl font-serif font-extrabold mb-48">
 Style Guide
 </div>
+
+This is the style guide to let you get familiar with our theme design.
 
 ## 01. Typography
 
