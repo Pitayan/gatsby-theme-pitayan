@@ -31,9 +31,10 @@ Under prototyping. Don't use it yet in production!
 - [x] Correct types
 - [x] Site Logo
 - [x] Change "links" to "siteLinks"
-- [ ] Change "excerpt" to "description"
-- [ ] Types tuning for pages
-- [ ] Content text highlight (for local)
+- [x] Change "excerpt" to "description"
+- [x] Types tuning for pages
+- [x] Plugin Options Schema
+- [x] Social embeds
 
 ### Pages
 
@@ -44,11 +45,14 @@ Under prototyping. Don't use it yet in production!
 - [x] categories list
 - [x] posts
 - [x] 404
-- [ ] subscribe
-- [ ] write for us
-- [ ] about
-- [ ] privacy
-- [ ] terms
+- [x] subscribe
+- [x] write for us
+- [x] about
+- [x] privacy
+- [x] terms
+- [x] sitemap
+- [x] rss
+- [x] dummy articles
 
 ### SEO
 
@@ -56,7 +60,7 @@ Under prototyping. Don't use it yet in production!
 
 ### Email Subscription
 
-- [ ] MailChimp or other service
+- [x] MailChimp or other service
 
 ### Google Tag Manager (Analytics)
 
@@ -83,3 +87,4 @@ After some attempts over the version bumping, here are some issues that need to 
 - [ ] Comment system with utteranc.es or disquz
 - [ ] SNS posting after build (maybe with github actions)
 - [ ] setup netlify automation
+- [ ] Content text highlight (local notes)
