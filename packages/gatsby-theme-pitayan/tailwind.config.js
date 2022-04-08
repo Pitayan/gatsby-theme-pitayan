@@ -4,7 +4,7 @@ module.exports = {
   darkMode: "class",
   content: [
     path.resolve(__dirname, "./src/**/*.{tsx,css,svg}"),
-    "./content/**/*.{md,mdx}",
+    "./content/**/*.{md,mdx,tsx}",
   ],
   theme: {
     extend: {
