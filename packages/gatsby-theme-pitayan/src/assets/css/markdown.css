@@ -31,6 +31,11 @@
     }
   }
 
+  table {
+    @apply mark-w-md;
+    @apply lg:mark-w-lg;
+  }
+
   a {
     @apply text-blue-600;
 
@@ -64,6 +69,10 @@
       @apply pointer-events-none;
       @apply text-gray-400;
     }
+  }
+
+  table {
+    @apply mb-8;
   }
 
   pre {

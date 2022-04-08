@@ -137,3 +137,47 @@ figure {
     @apply pt-2;
   }
 }
+
+table {
+  @apply w-full;
+  @apply max-w-full;
+  @apply border-collapse;
+  @apply text-left;
+  @apply table-auto;
+
+  border-spacing: 0;
+
+  th,
+  td {
+    @apply p-4;
+    @apply border-none;
+    @apply border-b border-solid border-gray-300;
+  }
+
+  thead th {
+    @apply border-t-0;
+    @apply border-b-2 border-solid border-gray-300;
+  }
+
+  tbody {
+    tr {
+      @apply transition;
+      @apply duration-150;
+      @apply ease-in-out;
+      @apply leading-6;
+
+      &:nth-of-type(even) {
+        @apply hover:bg-gray-200;
+        @apply dark:hover:bg-gray-700;
+      }
+
+      &:nth-of-type(odd) {
+        @apply bg-gray-100;
+        @apply hover:bg-gray-200;
+
+        @apply dark:bg-gray-800;
+        @apply dark:hover:bg-gray-700;
+      }
+    }
+  }
+}
