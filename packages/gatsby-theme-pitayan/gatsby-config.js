@@ -1,6 +1,6 @@
 const path = require("path")
 
-module.exports = ({ siteAssets = "src/assets", gatsbyRemarkPlugins = [] }) => ({
+module.exports = ({ siteAssets = "src/assets", gatsbyRemarkPluginsHead = [] , gatsbyRemarkPluginsTail = [] }) => ({
   mapping: {
     "Mdx.frontmatter.author": `AuthorsYaml`,
   },
@@ -51,6 +51,7 @@ module.exports = ({ siteAssets = "src/assets", gatsbyRemarkPlugins = [] }) => ({
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
+          ...gatsbyRemarkPluginsHead,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -104,7 +105,7 @@ module.exports = ({ siteAssets = "src/assets", gatsbyRemarkPlugins = [] }) => ({
               },
             },
           },
-          ...gatsbyRemarkPlugins,
+          ...gatsbyRemarkPluginsTail,
         ],
       },
     },
