@@ -9,7 +9,7 @@ module.exports = {
     siteLinks: [
       {
         name: "sitemap",
-        url: "/sitemap.xml",
+        url: "/sitemap/sitemap-index.xml",
         group: "site",
         internal: true,
       },
