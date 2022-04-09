@@ -1,10 +1,10 @@
 import React, { memo } from "react"
 
-type TooltipProps = {
+type TooltipProps = React.PropsWithChildren<{
   active: boolean
   text: string
   className: string
-}
+}>
 
 const Tooltip: React.FC<TooltipProps> = ({
   children,

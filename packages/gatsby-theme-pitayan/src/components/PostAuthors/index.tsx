@@ -28,7 +28,7 @@ const AuthorAvatars: React.FC<AuthorProps> = ({ data }) => {
 
   return (
     <div className="flex overflow-hidden -space-x-3 p-1">
-      {_data.map(({ id, yamlId, initial, avatar: { normal: image } }) => {
+      {_data.map(({ id, initial, avatar: { normal: image } }) => {
         return <Avatar key={id} initial={initial} image={image} />
       })}
     </div>
@@ -36,7 +36,7 @@ const AuthorAvatars: React.FC<AuthorProps> = ({ data }) => {
 }
 
 const AuthorNames: React.FC<AuthorProps> = ({ data }) => {
-  const str = data.map(({ name }: Author) => name.substr(0, name.indexOf(" ")))
+  const str = data.map(({ name }: Author) => name.substring(0, name.indexOf(" ")))
 
   if (data.length > 3) {
     str.length = 3

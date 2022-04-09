@@ -122,7 +122,7 @@ const Post: React.FC<PostProps> = ({
         </ScrollVisibility>
       </div>
 
-      <div className="max-w-2xl mx-auto mb-20">
+      <div className="max-w-lg md:max-w-2xl mx-auto mb-20">
         <h1>{title}</h1>
         <PostMeta date={date} timeToRead={timeToRead} />
         <br />
