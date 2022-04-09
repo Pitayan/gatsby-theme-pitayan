@@ -5,11 +5,10 @@ module.exports = function createResolvers({ createResolvers }) {
       relatedPosts: {
         type: ["Mdx"],
         resolve: async (source, _, context, __) => {
-          let posts = await context.nodeModel.runQuery({
+          let posts = await context.nodeModel.findAll({
             type: "Mdx",
             query: {
-              // FIXME: runQuery ignores `limit` field in Gatsby V3. Uncommenting this will help resolve the FIXME below in V4
-              // limit: 3,
+              limit: 3,
               filter: {
                 fileAbsolutePath: {
                   regex: "/content/posts/",
@@ -42,9 +41,6 @@ module.exports = function createResolvers({ createResolvers }) {
               },
             })
           }
-
-          // FIXME: temporarily force posts length to 3
-          posts.length > 3 && (posts.length = 3)
 
           return posts
         },
