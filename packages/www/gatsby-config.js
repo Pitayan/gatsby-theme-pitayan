@@ -148,9 +148,6 @@ module.exports = {
       },
     },
     {
-      resolve: require.resolve(`./plugins/patched-@raae-gatsby-remark-oembed`),
-    },
-    {
       resolve: `@pitayan/gatsby-theme-pitayan`,
       options: {
         siteAssets: "src/assets",
@@ -158,20 +155,22 @@ module.exports = {
         mailChimpEndpoint:
           "https://pitayanblog.us14.list-manage.com/subscribe/post?u=234bf6777b76872feb7d92a68&amp;id=27fad95f3b",
         mailChimpTimeout: 3500,
-        gatsbyRemarkPluginsHead: [
-          {
-            resolve: require.resolve(
-              `./plugins/patched-@raae-gatsby-remark-oembed`
-            ),
-            options: {
-              usePrefix: ["oembed"],
-              providers: {
-                exclude: ["Redit"],
+        applyGatsbyRemarkPlugins: (defaultPlugins) =>
+          [
+            {
+              resolve: require.resolve(
+                `./plugins/patched-@raae-gatsby-remark-oembed`
+              ),
+              options: {
+                usePrefix: ["oembed"],
+                providers: {
+                  exclude: ["Redit"],
+                },
               },
             },
-          },
-          `gatsby-remark-responsive-iframe`,
-        ],
+            `gatsby-remark-responsive-iframe`,
+            ...defaultPlugins
+          ],
       },
     },
   ],

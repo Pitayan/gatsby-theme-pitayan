@@ -30,12 +30,11 @@ slug: posts/gatsby-plugin-options
 
 # The plugin options
 
-| option                  | description                                                                                     | default             |
-|-------------------------|-------------------------------------------------------------------------------------------------|---------------------|
-| siteAssets              | The path of the static assets                                                                   | `js•"./src/assets"` |
-| postsPerPage            | How many posts to be displayed in each list page                                                | `js•10`             |
-| mailChimpEndpoint       | The embeded form endpoint for your MailChimp account                                            | `js•undefined`      |
-| mailChimpTimeout        | The timeout (ms) for the MailChimp subscription API request                                     | `js•3500`           |
-| gatsbyRemarkPluginsHead | The plugins for gatsby-remark-plugins that will be applied before @pitayan/gatsby-theme-pitayan | `js•[]`             |
-| gatsbyRemarkPluginsTail | The plugins for gatsby-remark-plugins that will be applied after @pitayan/gatsby-theme-pitayan  | `js•[]`             |
+| option                   | description                                                                                     | default                               |
+|--------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------|
+| siteAssets               | The path of the static assets                                                                   | `js•"./src/assets"`                   |
+| postsPerPage             | How many posts to be displayed in each list page                                                | `js•10`                               |
+| mailChimpEndpoint        | The embeded form endpoint for your MailChimp account                                            | `js•undefined`                        |
+| mailChimpTimeout         | The timeout (ms) for the MailChimp subscription API request                                     | `js•3500`                             |
+| applyGatsbyRemarkPlugins | The plugins for gatsby-remark-plugins that will be applied before @pitayan/gatsby-theme-pitayan | `js•() => defaultGatsbyRemarkPlugins` |
 

@@ -1,0 +1,314 @@
+/* Light mode */
+.markdown {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  @media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+      text-shadow: none;
+    }
+  }
+
+  /* Code blocks */
+  pre[class*="language-"] {
+    overflow: auto;
+    @apply bg-gray-50;
+    @apply border border-solid border-gray-100;
+  }
+
+  /* Inline code Highlight */
+  :not(pre) > code[class*="language-"] {
+    @apply text-gray-800;
+    @apply bg-gray-100;
+    @apply border border-solid border-gray-100;
+
+    white-space: normal;
+  }
+
+  /* Line Highlight */
+  pre[class*="language-"] {
+    .gatsby-highlight-code-line {
+      @apply block;
+      @apply w-full;
+      @apply bg-gray-200;
+    }
+  }
+
+  /* Line Diff */
+  pre[class*="language-"] {
+    .deleted-sign.deleted {
+      @apply block;
+      @apply w-full;
+
+      background: #ffebe9;
+    }
+
+    .inserted-sign.inserted {
+      @apply block;
+      @apply w-full;
+
+      background: #dafbe1;
+    }
+  }
+
+  /* Line numbers */
+  pre[class*="language-"] {
+    &.line-numbers {
+      @apply relative;
+      @apply pl-[2.4em];
+
+      counter-reset: linenumber;
+
+      & > code {
+        @apply relative;
+
+        white-space: inherit;
+      }
+
+      .line-numbers-rows {
+        @apply block;
+        @apply absolute;
+        @apply py-6;
+        @apply top-0;
+        @apply !left-5;
+        @apply pointer-events-none;
+        @apply select-none;
+        @apply text-[80%];
+
+        & > span {
+          @apply text-gray-400;
+
+          /* Dark mode */
+          @apply dark:text-gray-500;
+
+          counter-increment: linenumber;
+
+          &:before {
+            content: counter(linenumber);
+            display: block;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .namespace {
+    opacity: .7;
+  }
+
+  .token.prolog,
+  .token.doctype,
+  .token.cdata,
+  .token.comment {
+    color: #6e7781;
+  }
+
+  .token.punctuation {
+    color: #6e7781;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol {
+    color: #0550ae;
+  }
+
+  .token.hexcode {
+    color: #0550ae;
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin {
+    color: #0550ae;
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    color: #0550ae;
+  }
+
+  .token.function {
+    color: #8250df;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    color: #cf222e;
+  }
+
+  .token.tag {
+    color: #116329;
+  }
+
+  .token.regex {
+    color: #0a3069;
+  }
+
+  .token.deleted {
+    color: #82071e;
+  }
+
+  .token.inserted {
+    color: #116329;
+  }
+
+  .token.changed {
+    color: #953800;
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic {
+    font-style: italic;
+  }
+
+  .token.entity {
+    @apply cursor-help;
+  }
+}
+
+/* Dark Mode */
+.dark {
+  .markdown {
+    pre {
+      @apply border-none;
+      @apply bg-gray-800;
+    }
+
+    :not(pre) > code[class*="language-"] {
+      @apply bg-gray-800;
+      @apply text-gray-400;
+      @apply border-none;
+    }
+
+    /* Line Highlight */
+    pre[class*="language-"] {
+      .gatsby-highlight-code-line {
+        @apply bg-gray-700;
+      }
+    }
+
+    /* Line Diff */
+    pre[class*="language-"] {
+      .deleted-sign.deleted {
+        @apply block;
+        @apply w-full;
+
+        background: #5d0f12;
+      }
+
+      .inserted-sign.inserted {
+        @apply block;
+        @apply w-full;
+
+        background: #113417;
+      }
+    }
+
+    .token.prolog,
+    .token.doctype,
+    .token.cdata,
+    .token.comment {
+      color: #768390;
+    }
+
+    .token.punctuation {
+      color: #768390;
+    }
+
+    .token.property,
+    .token.tag,
+    .token.boolean,
+    .token.number,
+    .token.constant,
+    .token.symbol {
+      color: #6CB6FF;
+    }
+
+    .token.hexcode {
+      color: #6CB6FF;
+    }
+
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin {
+      color: #6CB6FF;
+    }
+
+    .token.regex,
+    .token.important,
+    .token.variable {
+      color: #6CB6FF;
+    }
+
+    .token.function {
+      color: #DCBDFB;
+    }
+
+    .token.atrule,
+    .token.attr-value,
+    .token.keyword {
+      color: #f47067;
+    }
+
+    .token.tag {
+      color: #8DDB8C;
+    }
+
+    .token.regex {
+      color: #96D0FF;
+    }
+
+    .token.deleted {
+      color: #FF938A;
+    }
+
+    .token.inserted {
+      color: #8DDB8C;
+    }
+
+    .token.changed {
+      color: #F69D50;
+    }
+
+    .token.important,
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.italic {
+      font-style: italic;
+    }
+  }
+}

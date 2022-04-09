@@ -22,6 +22,7 @@
     @apply pt-6;
     @apply mt-6;
     @apply mb-6;
+    @apply relative;
 
     /* Display heading anchor */
     &:hover {
@@ -40,9 +41,10 @@
     @apply text-blue-600;
 
     &.heading-anchor {
-      @apply -ml-6 pr-1;
+      @apply pr-1;
       @apply opacity-0;
       @apply transition duration-75;
+      @apply top-auto;
 
       span {
         @apply text-blue-600;
@@ -77,33 +79,9 @@
 
   pre {
     @apply mb-8;
+    @apply py-4 px-6;
     @apply mark-w-md;
     @apply lg:mark-w-lg;
-
-    @apply bg-gray-50;
-    @apply border border-solid border-gray-100;
-  }
-
-  code {
-    /* This relates to plugin gatsby-remark-vscode. We filter out these ones controlled by that plugin */
-    &:not([class*="grvsc-"]) {
-      @apply text-gray-800;
-      @apply bg-gray-100;
-      @apply border border-solid border-gray-100;
-
-      /* Dark Mode */
-      @apply dark:bg-gray-800;
-      @apply dark:text-gray-400;
-      @apply dark:border-none;
-    }
-
-    /* This relates to plugin gatsby-remark-vscode. The inline code tag will have a class name of "grvsc-inline" */
-    &.grvsc-inline {
-      @apply bg-gray-100;
-
-      /* Dark Mode */
-      @apply dark:bg-gray-800;
-    }
   }
 
   blockquote {
@@ -179,11 +157,6 @@
       &.heading-anchor span {
         @apply !text-blue-400;
       }
-    }
-
-    pre {
-      @apply !border-none;
-      @apply !bg-gray-800;
     }
   }
 }

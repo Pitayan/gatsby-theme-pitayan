@@ -1,9 +1,54 @@
 const path = require("path")
 
+const defaultGatsbyRemarkPlugins = [
+  {
+    resolve: `gatsby-remark-prismjs`,
+    options: {
+      classPrefix: "language-",
+      inlineCodeMarker: "•",
+      aliases: {},
+      showLineNumbers: false,
+      noInlineHighlight: false,
+      languageExtensions: [],
+      prompt: {
+        user: "root",
+        host: "localhost",
+        global: false,
+      },
+      escapeEntities: {},
+    }
+  },
+  {
+    resolve: `gatsby-remark-images`,
+    options: {
+      maxWidth: 10000,
+      linkImagesToOriginal: false,
+      quality: 80,
+      withWebp: true,
+      showCaptions: true,
+      markdownCaptions: false,
+    },
+  },
+  {
+    resolve: `gatsby-remark-autolink-headers`,
+    options: {
+      offsetY: `0`,
+      icon: `<span>#</span>`,
+      className: `heading-anchor`,
+    },
+  },
+  {
+    resolve: `gatsby-remark-external-links`,
+    options: {
+      target: `_blank`,
+      rel: `noreferrer`,
+    },
+  },
+]
+
 module.exports = ({
   siteAssets = "src/assets",
-  gatsbyRemarkPluginsHead = [],
-  gatsbyRemarkPluginsTail = [],
+  applyGatsbyRemarkPlugins = () => defaultGatsbyRemarkPlugins,
 }) => ({
   mapping: {
     "Mdx.frontmatter.author": `AuthorsYaml`,
@@ -54,63 +99,7 @@ module.exports = ({
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [
-          ...gatsbyRemarkPluginsHead,
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 10000,
-              linkImagesToOriginal: false,
-              quality: 80,
-              withWebp: true,
-              showCaptions: true,
-              markdownCaptions: false,
-            },
-          },
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              offsetY: `0`,
-              icon: `<span>#</span>`,
-              className: `heading-anchor`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-external-links`,
-            options: {
-              target: `_blank`,
-              rel: `noreferrer`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              theme: {
-                default: `Github Light Default`,
-                parentSelector: {
-                  'html[class*="dark"]': `Github Dark Dimmed`,
-                },
-              },
-              extensions: [
-                path.resolve(
-                  __dirname,
-                  `src/assets/vscode_theme/github-vscode-theme-6.0.0_vsixhub.com.vsix`
-                ),
-              ],
-              inlineCode: {
-                marker: `•`,
-                theme: {
-                  default: `Github Light Default`,
-                  parentSelector: {
-                    'html[class*="dark"]': `Github Dark Dimmed`,
-                  },
-                },
-                className: `grvsc-inline`,
-              },
-            },
-          },
-          ...gatsbyRemarkPluginsTail,
-        ],
+        gatsbyRemarkPlugins: applyGatsbyRemarkPlugins(defaultGatsbyRemarkPlugins),
       },
     },
   ],

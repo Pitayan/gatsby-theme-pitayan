@@ -234,15 +234,17 @@ The code highlight is enabled by the community plugin: `gatsby-remark-vscode`
 
 Hight lines
 
-```html{1,2}
+```html{1-3}
 <div>
-  <p>gatsby-theme-pitayan is a theme for building blogs</p>
+  <div>
+    <p>gatsby-theme-pitayan is a theme for building blogs</p>
+  </div>
 </div>
 ```
 
 JSX
 
-```jsx {numberLines}
+```jsx {numberLines: true}
 const App = () => {
   return <div>Hello World!</div>
 }
@@ -250,7 +252,7 @@ const App = () => {
 
 Diff changes
 
-```ts {diff,numberLines}
+```diff-ts {numberLines: true}
 const add = (x: number, y: number) => {
 -   return x + x;
 +   return x + y;
@@ -259,7 +261,7 @@ const add = (x: number, y: number) => {
 
 Inline code highlight
 
-`js•Array.prototype.concat.apply([], array)`
+This is an inline code `js•Array.prototype.concat.apply([], array)`
 
 <br />
 <br />

@@ -4,7 +4,7 @@ import BottomFooter from "@pitayan/gatsby-theme-pitayan/src/components/BottomFoo
 import SEO, { SEOProps } from "@pitayan/gatsby-theme-pitayan/src/components/SEO"
 import { useCookiePrompt } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
-type DefaultLayoutProps = SEOProps
+type DefaultLayoutProps = React.PropsWithChildren<SEOProps>
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   postDescription,

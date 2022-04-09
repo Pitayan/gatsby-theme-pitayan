@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "patched-@raae-gatsby-remark-oembed",
   "main": "index.js",
   "version": "0.0.1"
