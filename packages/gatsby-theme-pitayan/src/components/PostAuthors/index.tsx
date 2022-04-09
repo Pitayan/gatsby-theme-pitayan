@@ -8,6 +8,7 @@ import { ImageDataLike } from "gatsby-plugin-image"
 
 type Author = {
   id: string
+  yamlId: string
   name: string
   initial: string
   avatar: {
@@ -27,7 +28,7 @@ const AuthorAvatars: React.FC<AuthorProps> = ({ data }) => {
 
   return (
     <div className="flex overflow-hidden -space-x-3 p-1">
-      {_data.map(({ id, initial, avatar: { normal: image } }) => {
+      {_data.map(({ id, yamlId, initial, avatar: { normal: image } }) => {
         return <Avatar key={id} initial={initial} image={image} />
       })}
     </div>
@@ -48,10 +49,10 @@ const AuthorNames: React.FC<AuthorProps> = ({ data }) => {
 const CoAuthorsList: React.FC<AuthorProps> = ({ data }) => {
   return (
     <ul className="list-none m-0 -m-2 rounded">
-      {data.map(({ id, initial, avatar: { normal: image }, name }) => {
+      {data.map(({ id, yamlId, initial, avatar: { normal: image }, name }) => {
         return (
           <li key={id} className="m-0 p-3">
-            <Link className="flex space-x-4" to={`/authors/@${id}`}>
+            <Link className="flex space-x-4" to={`/authors/@${yamlId}`}>
               <Avatar initial={initial} image={image} />
               <span className="self-center site-link">{name}</span>
             </Link>

@@ -80,7 +80,7 @@ const Post: React.FC<PostProps> = ({
   useScrollToFragment()
 
   const authors = useMemo(() => {
-    return coAuthors.map(({ id, name, bio, sns }) => {
+    return coAuthors.map(({ id, yamlId, name, bio, sns }) => {
       const socialUrls = sns
         .filter((s: string[]) => s[0] != "mailto" && s[0] != "url")
         .map((s: string[]) => {
@@ -91,6 +91,7 @@ const Post: React.FC<PostProps> = ({
 
       return {
         id,
+        yamlId,
         name,
         bio,
         socialUrls,
@@ -191,6 +192,7 @@ export const pageQuery = graphql`
       frontmatter {
         author {
           id
+          yamlId
           name
           initial
           bio

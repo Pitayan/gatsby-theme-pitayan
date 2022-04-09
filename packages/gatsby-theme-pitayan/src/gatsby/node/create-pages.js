@@ -33,7 +33,7 @@ module.exports = async function createPages(
         }
       }
       authors: allMdx(limit: 2000) {
-        group(field: frontmatter___author___id) {
+        group(field: frontmatter___author___yamlId) {
           fieldValue
           totalCount
         }

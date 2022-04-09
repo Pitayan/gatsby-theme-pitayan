@@ -9,6 +9,7 @@ import { ImageDataLike } from "gatsby-plugin-image"
 
 export type Author = {
   id: string
+  yamlId: string
   name: string
   bio: string
   initial: string
@@ -41,12 +42,12 @@ const Authors: React.FC<AuthorsProps> = ({
       </h1>
       <hr className="my-8 border-gray-300" />
       <ul className="list-none">
-        {authors.map(({ id, name, initial, avatar: { normal: image } }) => (
+        {authors.map(({ id, name, initial, yamlId, avatar: { normal: image } }) => (
           <li key={id} className="my-8 flex items-center space-x-3">
             <Avatar className="h-12 w-12" initial={initial} image={image} />
-            <Link className="site-link" to={`/authors/@${id}/`}>
+            <Link className="site-link" to={`/authors/@${yamlId}/`}>
               <b>{name}</b>&nbsp;&nbsp;
-              <span>@{id}</span>
+              <span>@{yamlId}</span>
             </Link>
           </li>
         ))}
@@ -62,6 +63,7 @@ export const pageQuery = graphql`
     allAuthorsYaml(limit: 2000) {
       nodes {
         id
+        yamlId
         name
         bio
         initial

@@ -63,7 +63,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        frontmatter: { author: { elemMatch: { id: { in: [$authorId] } } } }
+        frontmatter: { author: { elemMatch: { yamlId: { in: [$authorId] } } } }
         fileAbsolutePath: { regex: "/content/posts/" }
       }
       limit: $limit
@@ -98,8 +98,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    authorsYaml(id: { eq: $authorId }) {
+    authorsYaml(yamlId: { eq: $authorId }) {
       id
+      yamlId
       name
       initial
       bio
