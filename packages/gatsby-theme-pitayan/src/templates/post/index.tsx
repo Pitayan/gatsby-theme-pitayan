@@ -1,8 +1,9 @@
-import React, { useLayoutEffect, useMemo, useState } from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+import { useLocation } from "@reach/router"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import PostMeta from "@pitayan/gatsby-theme-pitayan/src/components/PostMeta"
@@ -15,10 +16,7 @@ import PostAuthors from "@pitayan/gatsby-theme-pitayan/src/components/PostAuthor
 import SelectionPopup from "@pitayan/gatsby-theme-pitayan/src/components/SelectionPopup"
 import ScrollVisibility from "@pitayan/gatsby-theme-pitayan/src/components/ScrollVisibility"
 
-import {
-  useScrollToFragment,
-  useSiteMetadata,
-} from "@pitayan/gatsby-theme-pitayan/src/hooks"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import { Author } from "@pitayan/gatsby-theme-pitayan/src/pages/authors"
 import { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
@@ -72,15 +70,12 @@ const Post: React.FC<PostProps> = ({
     },
   },
 }) => {
-  const [url, setUrl] = useState<string>()
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
   const { siteUrl } = useSiteMetadata()
+  const { href: url } = useLocation()
 
-  useScrollToFragment()
-
-  const authors = useMemo(() => {
-    return coAuthors.map(({ id, yamlId, name, bio, sns }) => {
+  const authors = coAuthors.map(({ id, yamlId, name, bio, sns }) => {
       const socialUrls = sns
         .filter((s: string[]) => s[0] != "mailto" && s[0] != "url")
         .map((s: string[]) => {
@@ -97,11 +92,6 @@ const Post: React.FC<PostProps> = ({
         socialUrls,
       }
     })
-  }, [coAuthors])
-
-  useLayoutEffect(() => {
-    setUrl(window.location.href)
-  })
 
   return (
     <DefaultLayout

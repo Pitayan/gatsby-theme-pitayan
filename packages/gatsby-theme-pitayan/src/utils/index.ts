@@ -5,6 +5,7 @@ export { getSelectedTextPosition } from "./textSelection"
 export { checkIfDarkMode, toggleDark } from "./toggleTheme"
 export { setZoomableImages } from "./zoom"
 export { subscribeMailChimp } from "./subscribe"
+export { scrollToFragment, smoothAnchorScroll } from "./scroll"
 
 export const copyToClipboard = (toCopy: string): void => {
   const el = document.createElement(`textarea`)
@@ -14,14 +15,14 @@ export const copyToClipboard = (toCopy: string): void => {
   el.style.left = `-9999px`
   document.body.appendChild(el)
   el.select()
-  document.execCommand(`copy`)
+  navigator.clipboard.writeText(toCopy)
   document.body.removeChild(el)
 }
 
 export const Portal = ({
   mount,
   children,
-}: PropsWithChildren<{ mount?: HTMLElement }>): React.ReactPortal => {
+}: PropsWithChildren<{ mount?: HTMLElement }>) => {
   const ref = useRef<HTMLElement>()
   const [mounted, setMounted] = useState(false)
 
