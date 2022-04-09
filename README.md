@@ -80,7 +80,7 @@ Under prototyping. Don't use it yet in production!
 I'll finally upgrade this whole stack to Gatsby V4.x. But for now, it seems the eco-system of V4.x is yet to be completed.
 After some attempts over the version bumping, here are some issues that need to be fixed.
 
-- [ ] Error thrown by `gatsby-remark-vscode`: Error: Type with name "GRVSCStylesheet" does not exists. [Related issue](https://github.com/andrewbranch/gatsby-remark-vscode/issues/174)
+- [x] Error thrown by `gatsby-remark-vscode`: Error: Type with name "GRVSCStylesheet" does not exists. [Related issue](https://github.com/andrewbranch/gatsby-remark-vscode/issues/174)
 
 ### Others
 
