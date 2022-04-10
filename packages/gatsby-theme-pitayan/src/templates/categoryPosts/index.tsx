@@ -43,7 +43,7 @@ const CategoryPosts: React.FC<CategoryPostsProps> = ({
         className="grid relative grid-cols-1 md:grid-cols-2 gap-8"
       />
       <div className="my-24">
-        <Pagination pageInfo={pageInfo} path={`/categories/${category}`} />
+        <Pagination pageInfo={pageInfo} path={`categories/${category}`} />
       </div>
     </DefaultLayout>
   )
