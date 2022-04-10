@@ -5,10 +5,14 @@ module.exports = function createResolvers({ createResolvers }) {
       relatedPosts: {
         type: ["Mdx"],
         resolve: async (source, _, context, __) => {
-          let posts = await context.nodeModel.findAll({
+          const { entries } = await context.nodeModel.findAll({
             type: "Mdx",
             query: {
               limit: 3,
+              sort: {
+                fields: ["frontmatter.date"],
+                order: ["DESC"]
+              },
               filter: {
                 fileAbsolutePath: {
                   regex: "/content/posts/",
@@ -25,24 +29,30 @@ module.exports = function createResolvers({ createResolvers }) {
             },
           })
 
-          if (!posts || !posts.length) {
-            // Get all articles if there's no related posts
-            posts = await context.nodeModel.runQuery({
-              type: "Mdx",
-              query: {
-                filter: {
-                  fileAbsolutePath: {
-                    regex: "/content/posts/",
-                  },
-                  id: {
-                    ne: source.id,
-                  },
-                },
-              },
-            })
+          if (entries.length) {
+            return entries
           }
 
-          return posts
+          const allPosts = await context.nodeModel.findAll({
+            type: "Mdx",
+            query: {
+              limit: 3,
+              sort: {
+                fields: ["frontmatter.date"],
+                order: ["DESC"]
+              },
+              filter: {
+                fileAbsolutePath: {
+                  regex: "/content/posts/",
+                },
+                id: {
+                  ne: source.id,
+                },
+              },
+            },
+          })
+
+          return allPosts.entries
         },
       },
     },
