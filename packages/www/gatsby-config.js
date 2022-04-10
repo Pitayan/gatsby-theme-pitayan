@@ -4,8 +4,9 @@ module.exports = {
   siteMetadata: {
     title: `Pitayan Blog`,
     name: `Pitayan`,
-    description: `Welcome to Pitayan, come find inspiring software development stories.`,
+    description: "Pitayan blog is a place publishing contents about web development! All articles are free to read and share.",
     siteUrl: `https://pitayan.com`,
+    siteSlogan: `Welcome to Pitayan, come find inspiring software development stories.`,
     siteLinks: [
       {
         name: "sitemap",

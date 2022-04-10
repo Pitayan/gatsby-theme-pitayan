@@ -2,7 +2,7 @@ import React, { memo } from "react"
 import { graphql, navigate } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
-import HomeHero from "@pitayan/gatsby-theme-pitayan/src/components/HomeHero"
+import HomeSlogan from "@pitayan/gatsby-theme-pitayan/src/components/HomeSlogan"
 import HomeLinks from "@pitayan/gatsby-theme-pitayan/src/components/HomeLinks"
 import PostsGroup, {
   PostNode,
@@ -23,7 +23,7 @@ const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <DefaultLayout>
-      <HomeHero />
+      <HomeSlogan />
       <br />
       <br />
       <HomeLinks />

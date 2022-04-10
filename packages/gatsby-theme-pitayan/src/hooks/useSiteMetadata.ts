@@ -7,6 +7,7 @@ type SiteMetaData = {
   siteLinks: NavigationLinksData[]
   name: string
   siteUrl: string
+  siteSlogan: string
   title: string
   cover: {
     publicURL: string
@@ -36,6 +37,7 @@ export const useSiteMetadata = (): SiteMetaData => {
             }
             name
             siteUrl
+            siteSlogan
             title
           }
         }
