@@ -8,6 +8,10 @@ type RelatedPostsProps = {
 }
 
 const RelatedPosts: React.FC<RelatedPostsProps> = ({ posts }) => {
+  if (!posts || !posts.length) {
+    return null
+  }
+
   return (
     <PostsGroup
       posts={posts}
