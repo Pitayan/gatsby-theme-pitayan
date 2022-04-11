@@ -9,11 +9,11 @@ module.exports = function pluginOptionsSchema({ Joi }) {
       .description("How many posts to be displayed in each list page"),
     mailChimpEndpoint: Joi.string()
       .uri()
-      .description("The embeded form endpoint for your MailChimp account"),
+      .description("The embeded form endpoint of your MailChimp account"),
     mailChimpTimeout: Joi.number()
       .integer()
       .min(500)
-      .description("The timeout for the MailChimp subscription API request"),
+      .description("The API request timeout of the MailChimp subscription"),
     applyGatsbyRemarkPlugins: Joi.function().arity(1).description(
       `Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings.`
     ),
