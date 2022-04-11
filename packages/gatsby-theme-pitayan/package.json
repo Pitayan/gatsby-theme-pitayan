@@ -57,6 +57,9 @@
   "license": "0BSD",
   "main": "index.js",
   "name": "@pitayan/gatsby-theme-pitayan",
+  "peerDependencies": {
+    "gatsby": "^4.0.0-next"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pitayan/gatsby-theme-pitayan"
