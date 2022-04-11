@@ -5,6 +5,10 @@ import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/N
 const HomeLinks: React.FC = () => {
   const { siteLinks } = useSiteMetadata()
 
+  if (!siteLinks.some(s => s.group == "home")) {
+    return null
+  }
+
   return (
     <div className="flex flex-wrap">
       <NavigationLinksGroup
