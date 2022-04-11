@@ -15,30 +15,14 @@ export const smoothAnchorScroll = () => {
     headingAnchors[i].addEventListener('click', function(e: Event) {
       e.preventDefault()
 
+      const href = this.getAttribute("href")
+
+      if (history.pushState && href) {
+        history.pushState({}, '', href)
+        window.dispatchEvent(new Event('hashchange'))
+      }
+
       scrollToTargetAdjusted(this)
     })
   }
-}
-
-export const scrollToFragment = () => {
-
-  const scrollTo = () => {
-    const { hash } = window.location
-    if (hash) {
-      const target = document.getElementById(hash.replace("#", ""))
-
-      const timer = setTimeout(() => {
-
-        if (target) {
-          scrollToTargetAdjusted(target)
-        }
-
-        clearTimeout(timer)
-      }, 500)
-    }
-  }
-
-  scrollTo()
-
-  window.addEventListener("hashchange", scrollTo)
 }

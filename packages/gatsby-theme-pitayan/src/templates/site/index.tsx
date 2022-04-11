@@ -7,10 +7,7 @@ import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import BackToTop from "@pitayan/gatsby-theme-pitayan/src/components/BackToTop"
 import ScrollVisibility from "@pitayan/gatsby-theme-pitayan/src/components/ScrollVisibility"
 
-import {
-  useScrollToFragment,
-  useSiteMetadata,
-} from "@pitayan/gatsby-theme-pitayan/src/hooks"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 type SiteProps = {
   data: {
@@ -47,8 +44,6 @@ const Site: React.FC<SiteProps> = ({ data }: any) => {
     },
   } = data
   const { siteUrl } = useSiteMetadata()
-
-  useScrollToFragment()
 
   return (
     <DefaultLayout
