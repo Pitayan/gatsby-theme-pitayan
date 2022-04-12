@@ -85,7 +85,6 @@ Inside each of the config files, just export the theme's defaults if you don't n
 // tailwind.config.js
 module.exports = require("@pitayan/gatsby-theme-pitayan/tailwind.config")
 
-
 // postcss.config.js
 module.exports = require("@pitayan/gatsby-theme-pitayan/postcss.config")
 ```
@@ -113,13 +112,13 @@ Add the theme to the `plugins`.
 
 Use the plugin options to tune up your blog.
 
-| Item                      | Default                           | Description                                                                 |
-| ------------------------- | :-------------------------------- | :-------------------------------------------------------------------------- |
-| siteAssets                | src/assets                        | The static assets for the site. e.g. Logo / Cover image                     |
-| postsPerPage              | 10                                | How many posts to be displayed in each list page                            |
-| mailChimpEndpoint         | "null"                            | The embeded form endpoint for your MailChimp account                        |
-| mailChimpTimeout          | 3500                              | The AP request timeout for the MailChimp subscription                       |
-| applyGatsbyRemarkPlugins  | () => defaultGatsbyRemarkPlugins  | Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings. |
+| Item                     | Default                          | Description                                                                                                                 |
+| ------------------------ | :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| siteAssets               | src/assets                       | The static assets for the site. e.g. Logo / Cover image                                                                     |
+| postsPerPage             | 10                               | How many posts to be displayed in each list page                                                                            |
+| mailChimpEndpoint        | "null"                           | The embeded form endpoint for your MailChimp account                                                                        |
+| mailChimpTimeout         | 3500                             | The AP request timeout for the MailChimp subscription                                                                       |
+| applyGatsbyRemarkPlugins | () => defaultGatsbyRemarkPlugins | Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings. |
 
 Example
 
@@ -174,16 +173,16 @@ of `siteAssets`. See details here [Plugin Options](#plugin-options).
 
 ## Adding Site Metadata
 
-This step is very essential before you get started with official blogging. All of the items in the table below are *required*.
+This step is very essential before you get started with official blogging. All of the items in the table below are _required_.
 
-| Item                      | Description                                                                       |
-| ------------------------- | :-------------------------------------------------------------------------------- |
-| title                     | Your site title. This will be used as image alt                                   |
-| name                      | Your site name. This will be displayed in the top navigation bar beside the logo  |
-| description               | Your site's description for SEO purposes                                          |
-| siteUrl                   | Your site's official URL                                                          |
-| siteSlogan                | The slogan to be displayed on the home page                                       |
-| siteLinks                 | A list of links to be displayed on the home links section or bottom footer        |
+| Item        | Description                                                                      |
+| ----------- | :------------------------------------------------------------------------------- |
+| title       | Your site title. This will be used as image alt                                  |
+| name        | Your site name. This will be displayed in the top navigation bar beside the logo |
+| description | Your site's description for SEO purposes                                         |
+| siteUrl     | Your site's official URL                                                         |
+| siteSlogan  | The slogan to be displayed on the home page                                      |
+| siteLinks   | A list of links to be displayed on the home links section or bottom footer       |
 
 Example
 
@@ -266,15 +265,15 @@ Example
 
 Every single post must provide a valid [front matter](https://jekyllrb.com/docs/front-matter/) which contains the following items
 
-| Item        | Type                      | Required  | Description                                                           |
-| ----------- | :------------------------ | :-------- | :-------------------------------------------------------------------- |
-| title       | String                    | true      | The post title                                                        |
-| author      | Array of String / string  | true      | The author name or the co-authors' names                              |
-| date        | String                    | true      | The date of the post                                                  |
-| categories  | Array of String           | true      | The categories to the post                                            |
-| description | String                    | true      | A simple description of the post                                      |
-| hero        | String                    | true      | The post's cover image. Better with a high resolution image           |
-| slug        | Array of Tuples           | false     | The custom url of the post. It's useful when you need a different url |
+| Item        | Type                     | Required | Description                                                           |
+| ----------- | :----------------------- | :------- | :-------------------------------------------------------------------- |
+| title       | String                   | true     | The post title                                                        |
+| author      | Array of String / string | true     | The author name or the co-authors' names                              |
+| date        | String                   | true     | The date of the post                                                  |
+| categories  | Array of String          | true     | The categories to the post                                            |
+| description | String                   | true     | A simple description of the post                                      |
+| hero        | String                   | true     | The post's cover image. Better with a high resolution image           |
+| slug        | Array of Tuples          | false    | The custom url of the post. It's useful when you need a different url |
 
 Example
 
@@ -292,6 +291,7 @@ description: Just a post page that displays demo components
 hero: images/demo_1.jpg
 slug: posts/gatsby-plugin-options
 ---
+
 ```
 
 ## Adding Site Logo & Cover Image
@@ -310,7 +310,6 @@ It is recommended to put your custom style sheets here as well.
 │     └── style.css
 ```
 
-
 # Full Fledged Example
 
 There's an example site with all of the features under `packages/www`. This theme only provides very essential features of the blog itself, you'll have to extend its functionalities yourself with other plugins. Thus, the example site would be a good learning material about integrating other useful Gatsby plugins.
@@ -327,7 +326,6 @@ This example site has integrated the following plugins:
 ## Browser Support
 
 Making sure all functions across different browsers is a hard-work. For now, it only supports the latest version of the major browsers. Do consider open an issue or provide a PR relating to browser compatibility.
-
 
 # Contribute
 
@@ -349,6 +347,13 @@ $ npm -w packages/www run build
 $ npm -w packages/www run serve
 ```
 
+## Release Routines
+
+Change branch to master and tag the commit.
+
+- Run `npm -w packages/gatsby-theme-pitayan version patch|minor|major`
+- Run `npm -w packages/gatsby-theme-pitayan publish --access public`
+- Create a [Github release](https://github.com/Pitayan/gatsby-theme-pitayan/releases/new)
 
 # Q&A
 
@@ -370,7 +375,6 @@ By then, you'll be able to customize the theme by yourself. See [Road Map](#road
 4. How about importing data from [Contentful](https://www.contentful.com)?
 
 Sorry, it's not available yet but it's on the [Road Map](#road-map).
-
 
 # Road Map
 
