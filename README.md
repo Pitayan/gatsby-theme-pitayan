@@ -22,20 +22,22 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 
 - [Get Started](#get-started)
   - [Install Dependencies](#install-dependencies)
-  - [Setup Folder](#setup-folder)
+  - [Setup Project Folder](#setup-project-folder)
   - [Required Config files](#required-config-files)
-  - [Plugin Options](#plugin-options)
+  - [Configurations](#configurations)
+    - [Gatsby Configs](#gatsby-configs)
+    - [Plugin Options](#plugin-options)
   - [Site Resources](#site-resources)
 - [Adding Contents](#adding-contents)
   - [Adding Site Metadata](#adding-site-metadata)
   - [Adding Authors](#adding-authors)
   - [Adding Posts](#adding-posts)
-  - [Adding Site Logo & Cover Image](#site-logo-and-cover-image)
+  - [Adding Site Logo & Cover Image](#adding-site-logo--cover-image)
 - [Full Fledged Example](#full-fledged-example)
 - [Others](#others)
   - [Browser Support](#browser-support)
 - [Contribute](#contribute)
-- [Q&A](#q-a)
+- [Q&A](#qa)
 - [Road Map](#road-map)
 
 Follow the guide to get familiar with setting up your Gatsby blog with this theme.
@@ -54,7 +56,7 @@ $ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan
 $ yarn add gatsby @pitayan/gatsby-theme-pitayan
 ```
 
-## Setup folder
+## Setup Project Folder
 
 The recommended project folder structure looks like this.
 
@@ -62,31 +64,10 @@ The recommended project folder structure looks like this.
 your-site
   ├── content/
   │ ├── authors/
-  │ │   ├── avatars/
-  │ │   │    ├── johndoe.jpg
-  │ │   │    └── ...
-  │ │   ├── johndoe.yml
-  │ │   └── ...
   │ ├── posts/
-  │ │   └── it-is-my-new-post/
-  │ │       ├── images/
-  │ │       │   └── post-cover.jpg
-  │ │       └── index.mdx
   │ └── site/
-  │     └── about-us/
-  │         ├── images/
-  │         │   └── my-site-cover.jpg
-  │         └── index.md
-  ├── node_modules/
   ├── src/
   │ └── assets/
-  │     ├── SiteCover.png
-  │     ├── SiteLogo.png
-  │     └── my-custom-style.css
-  ├── gatsby-config.js
-  ├── postcss.config.js
-  ├── tailwind.config.js
-  └── package.json
 ```
 
 ## Required Config Files
@@ -100,7 +81,7 @@ By default, the theme provides configs for [Tailwindcss](https://tailwindcss.com
 
 Inside each of the config files, just export the theme's defaults if you don't need customization.
 
-```
+```js
 // tailwind.config.js
 module.exports = require("@pitayan/gatsby-theme-pitayan/tailwind.config")
 
@@ -109,7 +90,26 @@ module.exports = require("@pitayan/gatsby-theme-pitayan/tailwind.config")
 module.exports = require("@pitayan/gatsby-theme-pitayan/postcss.config")
 ```
 
-## Plugin Options
+## Configurations
+
+Make sure to create a file `gatsby-config.js` under the project folder. All settings related to this theme can be configured under this file.
+
+### Gatsby Configs
+
+Add the theme to the `plugins`.
+
+```js
+{
+  ...,
+  plugins: [
+    {
+      resolve: `@pitayan/gatsby-theme-pitayan`
+    }
+  ]
+}
+```
+
+### Plugin Options
 
 Use the plugin options to tune up your blog.
 
@@ -121,9 +121,36 @@ Use the plugin options to tune up your blog.
 | mailChimpTimeout          | 3500                              | The AP request timeout for the MailChimp subscription                       |
 | applyGatsbyRemarkPlugins  | () => defaultGatsbyRemarkPlugins  | Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings. |
 
+Example
+
+```js
+{
+  ...,
+  plugins: [
+    {
+      resolve: `@pitayan/gatsby-theme-pitayan`,
+      options: {
+        siteAssets: "src/assets",
+        postsPerPage: 10,
+        mailChimpEndpoint: "***",
+        mailChimpTimeout: 3500,
+        applyGatsbyRemarkPlugins(defaultGatsbyRemarkPlugins) => {
+          // Don't forget to return the default gatsby-remark-plugins unless you hope to tune up all of the plugins by yourself
+          return [
+
+            ...defaultGatsbyRemarkPlugins,
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Site Resources
 
 ### Contents
+
 The site content folders are where to keep your content like posts and authors and custom site pages. And what's more, the folder paths are not customizable.
 
 ```
@@ -134,6 +161,7 @@ The site content folders are where to keep your content like posts and authors a
 ```
 
 ### Static assets
+
 As for the assets like site pictures / logos / style sheets, they can be kept under `src/assets` folder. You could change the folder path by adding a plugin option
 of `siteAssets`. See details here [Plugin Options](#plugin-options).
 
@@ -146,9 +174,18 @@ of `siteAssets`. See details here [Plugin Options](#plugin-options).
 
 ## Adding Site Metadata
 
-This step is very essential before you get started with official blogging. Yet, adding site metadata is a case of cake, just follow the example below.
+This step is very essential before you get started with official blogging. All of the items in the table below are *required*.
 
-For details, see [Configurations](#configurations).
+| Item                      | Description                                                                       |
+| ------------------------- | :-------------------------------------------------------------------------------- |
+| title                     | Your site title. This will be used as image alt                                   |
+| name                      | Your site name. This will be displayed in the top navigation bar beside the logo  |
+| description               | Your site's description for SEO purposes                                          |
+| siteUrl                   | Your site's official URL                                                          |
+| siteSlogan                | The slogan to be displayed on the home page                                       |
+| siteLinks                 | A list of links to be displayed on the home links section or bottom footer        |
+
+Example
 
 ```js
 // gatsby-config.js
@@ -239,6 +276,7 @@ Every single post must provide a valid [front matter](https://jekyllrb.com/docs/
 | hero        | String                    | true      | The post's cover image. Better with a high resolution image           |
 | slug        | Array of Tuples           | false     | The custom url of the post. It's useful when you need a different url |
 
+Example
 
 ```yml
 ---
