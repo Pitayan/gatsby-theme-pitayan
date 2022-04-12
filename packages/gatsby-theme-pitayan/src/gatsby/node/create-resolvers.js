@@ -11,7 +11,7 @@ module.exports = function createResolvers({ createResolvers }) {
               limit: 3,
               sort: {
                 fields: ["frontmatter.date"],
-                order: ["DESC"]
+                order: ["DESC"],
               },
               filter: {
                 fileAbsolutePath: {
@@ -39,7 +39,7 @@ module.exports = function createResolvers({ createResolvers }) {
               limit: 3,
               sort: {
                 fields: ["frontmatter.date"],
-                order: ["DESC"]
+                order: ["DESC"],
               },
               filter: {
                 fileAbsolutePath: {

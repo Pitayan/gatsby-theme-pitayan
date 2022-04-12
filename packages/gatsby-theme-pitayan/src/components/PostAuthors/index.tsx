@@ -36,7 +36,9 @@ const AuthorAvatars: React.FC<AuthorProps> = ({ data }) => {
 }
 
 const AuthorNames: React.FC<AuthorProps> = ({ data }) => {
-  const str = data.map(({ name }: Author) => name.substring(0, name.indexOf(" ")))
+  const str = data.map(({ name }: Author) =>
+    name.substring(0, name.indexOf(" "))
+  )
 
   if (data.length > 3) {
     str.length = 3

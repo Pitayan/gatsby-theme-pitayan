@@ -42,15 +42,17 @@ const Authors: React.FC<AuthorsProps> = ({
       </h1>
       <hr className="my-8 border-gray-300" />
       <ul className="list-none">
-        {authors.map(({ id, name, initial, yamlId, avatar: { normal: image } }) => (
-          <li key={id} className="my-8 flex items-center space-x-3">
-            <Avatar className="h-12 w-12" initial={initial} image={image} />
-            <Link className="site-link" to={`/authors/@${yamlId}/`}>
-              <b>{name}</b>&nbsp;&nbsp;
-              <span>@{yamlId}</span>
-            </Link>
-          </li>
-        ))}
+        {authors.map(
+          ({ id, name, initial, yamlId, avatar: { normal: image } }) => (
+            <li key={id} className="my-8 flex items-center space-x-3">
+              <Avatar className="h-12 w-12" initial={initial} image={image} />
+              <Link className="site-link" to={`/authors/@${yamlId}/`}>
+                <b>{name}</b>&nbsp;&nbsp;
+                <span>@{yamlId}</span>
+              </Link>
+            </li>
+          )
+        )}
       </ul>
     </DefaultLayout>
   )

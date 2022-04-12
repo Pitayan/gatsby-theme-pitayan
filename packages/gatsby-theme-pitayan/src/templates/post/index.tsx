@@ -76,22 +76,22 @@ const Post: React.FC<PostProps> = ({
   const { href: url } = useLocation()
 
   const authors = coAuthors.map(({ id, yamlId, name, bio, sns }) => {
-      const socialUrls = sns
-        .filter((s: string[]) => s[0] != "mailto" && s[0] != "url")
-        .map((s: string[]) => {
-          const network = SOCIAL_RESOURCES[s[0]].url
-          const profile = s[1]
-          return `${network}/${profile}`
-        })
+    const socialUrls = sns
+      .filter((s: string[]) => s[0] != "mailto" && s[0] != "url")
+      .map((s: string[]) => {
+        const network = SOCIAL_RESOURCES[s[0]].url
+        const profile = s[1]
+        return `${network}/${profile}`
+      })
 
-      return {
-        id,
-        yamlId,
-        name,
-        bio,
-        socialUrls,
-      }
-    })
+    return {
+      id,
+      yamlId,
+      name,
+      bio,
+      socialUrls,
+    }
+  })
 
   return (
     <DefaultLayout

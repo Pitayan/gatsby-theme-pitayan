@@ -16,7 +16,7 @@ const defaultGatsbyRemarkPlugins = [
         global: false,
       },
       escapeEntities: {},
-    }
+    },
   },
   {
     resolve: `gatsby-remark-images`,
@@ -99,7 +99,9 @@ module.exports = ({
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: applyGatsbyRemarkPlugins(defaultGatsbyRemarkPlugins),
+        gatsbyRemarkPlugins: applyGatsbyRemarkPlugins(
+          defaultGatsbyRemarkPlugins
+        ),
       },
     },
   ],

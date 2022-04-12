@@ -1,16 +1,12 @@
 import React from "react"
-import Highlight, { defaultProps, Language } from 'prism-react-renderer'
+import Highlight, { defaultProps, Language } from "prism-react-renderer"
 
 type HighlightCodeProps = {
   code: string
   language: Language
 }
 
-const HighLightCode: React.FC<HighlightCodeProps> = ({
-  code,
-  language,
-}) => {
-
+const HighLightCode: React.FC<HighlightCodeProps> = ({ code, language }) => {
   return (
     <Highlight {...defaultProps} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (

@@ -14,8 +14,10 @@ module.exports = function pluginOptionsSchema({ Joi }) {
       .integer()
       .min(500)
       .description("The API request timeout of the MailChimp subscription"),
-    applyGatsbyRemarkPlugins: Joi.function().arity(1).description(
-      `Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings.`
-    ),
+    applyGatsbyRemarkPlugins: Joi.function()
+      .arity(1)
+      .description(
+        `Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings.`
+      ),
   })
 }
