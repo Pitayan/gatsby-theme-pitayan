@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: `Pitayan Blog`,
     name: `Pitayan`,
-    description: "Pitayan blog is a place publishing contents about web development! All articles are free to read and share.",
+    description:
+      "Pitayan blog is a place publishing contents about web development! All articles are free to read and share.",
     siteUrl: `https://pitayan.com`,
     siteSlogan: `Welcome to Pitayan, come find inspiring software development stories.`,
     siteLinks: [
@@ -156,20 +157,19 @@ module.exports = {
         mailChimpEndpoint:
           "https://pitayanblog.us14.list-manage.com/subscribe/post?u=234bf6777b76872feb7d92a68&amp;id=27fad95f3b",
         mailChimpTimeout: 3500,
-        applyGatsbyRemarkPlugins: (defaultPlugins) =>
-          [
-            {
-              resolve: `@raae/gatsby-remark-oembed`,
-              options: {
-                usePrefix: ["oembed"],
-                providers: {
-                  exclude: ["Redit"],
-                },
+        applyGatsbyRemarkPlugins: defaultPlugins => [
+          {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              usePrefix: ["oembed"],
+              providers: {
+                exclude: ["Redit"],
               },
             },
-            `gatsby-remark-responsive-iframe`,
-            ...defaultPlugins
-          ],
+          },
+          `gatsby-remark-responsive-iframe`,
+          ...defaultPlugins,
+        ],
       },
     },
   ],
