@@ -18,7 +18,7 @@ const SiteLogo: React.FC<SiteLogoProps> = ({
   icon: { normal, extension, publicURL },
 }) => {
   if (!normal || extension == "svg") {
-    return <SVG src={publicURL} className={className} title="alt" />
+    return <SVG src={publicURL} className={className} title={alt} />
   }
 
   const image = getImage(normal)
