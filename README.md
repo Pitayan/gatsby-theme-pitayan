@@ -313,14 +313,14 @@ It is recommended to put your custom style sheets here as well.
 
 # Full Fledged Example
 
-There's an example site with all of the features under `packages/www`. This theme only provides very essential features of the blog itself, you might need to extend its functionalities for a greater purpose. Thus, the example site would be a good learning material about integrating other useful Gatsby plugins.
+There's an example site with all of the features under `packages/www`. This theme only provides very essential features of the blog itself, you'll have to extend its functionalities yourself with other plugins. Thus, the example site would be a good learning material about integrating other useful Gatsby plugins.
+
+This example site has integrated the following plugins:
 
 - [gatsby-plugin-feed](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-feed): Generates rss feed
 - [gatsby-plugin-sitemap](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sitemap): Generates the very necessary site map
 - [@raae/gatsby-remark-oembed](https://github.com/queen-raae/gatsby-remark-oembed): Allows you to embed social media contents in an ["oEmbed"](https://oembed.com) way
 - [gatsby-remark-responsive-iframe](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-responsive-iframe): Makes iframe elements in the markdown content responsive, helpful when embedding social media contents
-
-If you met a tricky part during implementation, do consider to look for answers from the example repo.
 
 # Others
 
