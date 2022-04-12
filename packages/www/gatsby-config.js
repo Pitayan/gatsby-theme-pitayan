@@ -159,9 +159,7 @@ module.exports = {
         applyGatsbyRemarkPlugins: (defaultPlugins) =>
           [
             {
-              resolve: require.resolve(
-                `./plugins/patched-@raae-gatsby-remark-oembed`
-              ),
+              resolve: `@raae/gatsby-remark-oembed`,
               options: {
                 usePrefix: ["oembed"],
                 providers: {
