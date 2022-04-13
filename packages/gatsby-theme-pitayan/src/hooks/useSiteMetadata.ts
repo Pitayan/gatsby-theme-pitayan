@@ -59,6 +59,11 @@ export const useSiteMetadata = (): SiteMetaData => {
     `
   )
 
-  _siteMetadata = { ...site.siteMetadata, icon, cover }
+  _siteMetadata = {
+    ...site.siteMetadata,
+    icon: icon ?? {},
+    cover: cover ?? {},
+  }
+
   return _siteMetadata
 }

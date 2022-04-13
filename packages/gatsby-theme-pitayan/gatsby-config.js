@@ -1,4 +1,5 @@
 const path = require("path")
+const fs = require("fs")
 
 const defaultGatsbyRemarkPlugins = [
   {
@@ -53,49 +54,55 @@ module.exports = ({
   mapping: {
     "Mdx.frontmatter.author": `AuthorsYaml`,
   },
-  plugins: [
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-remark-images`,
-    `gatsby-plugin-catch-links`,
-    {
-      resolve: `gatsby-transformer-yaml`,
-      options: {
-        typeName: `AuthorsYaml`,
+  get plugins() {
+    const defaultPlugins =  [
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
+      `gatsby-plugin-postcss`,
+      `gatsby-plugin-react-helmet`,
+      `gatsby-remark-images`,
+      `gatsby-plugin-catch-links`,
+      {
+        resolve: `gatsby-transformer-yaml`,
+        options: {
+          typeName: `AuthorsYaml`,
+        },
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `content/posts`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `posts`,
+          path: `content/posts`,
+        },
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `authors`,
-        path: `content/authors`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `authors`,
+          path: `content/authors`,
+        },
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `site`,
-        path: `content/site`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `site`,
+          path: `content/site`,
+        },
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `siteAssets`,
-        path: siteAssets,
-      },
-    },
-    {
+    ]
+
+    if (fs.existsSync(siteAssets)) {
+      defaultPlugins.push({
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `siteAssets`,
+          path: siteAssets,
+        },
+      })
+    }
+
+    return defaultPlugins.concat({
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
@@ -103,6 +110,6 @@ module.exports = ({
           defaultGatsbyRemarkPlugins
         ),
       },
-    },
-  ],
+    })
+  },
 })
