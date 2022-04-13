@@ -49,11 +49,11 @@ Follow the guide to get familiar with setting up your Gatsby blog with this them
 Install the dependencies via Yarn or NPM.
 
 ```sh
-$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan
+$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
 
 # or
 
-$ yarn add gatsby @pitayan/gatsby-theme-pitayan
+$ yarn add gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
 ```
 
 ## Setup Project Folder
