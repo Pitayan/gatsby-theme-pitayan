@@ -115,16 +115,21 @@ pre {
 
 ul,
 ol {
-  @apply p-0;
-  @apply mr-0 ml-4 my-4;
+  @apply py-0;
+  @apply my-4 mx-0;
 
   ul,
   ol {
-    @apply mr-0 ml-4 my-4;
+    @apply pr-0 pl-6 !my-4;
   }
 
   li {
     @apply mt-4;
+    @apply leading-normal;
+
+    p {
+      display: initial;
+    }
   }
 }
 
