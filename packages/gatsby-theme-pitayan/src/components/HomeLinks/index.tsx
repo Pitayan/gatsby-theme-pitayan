@@ -5,7 +5,7 @@ import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/N
 const HomeLinks: React.FC = () => {
   const { siteLinks } = useSiteMetadata()
 
-  if (!siteLinks.some(s => s.group == "home")) {
+  if (!siteLinks.some(s => s.group.includes("home"))) {
     return null
   }
 
