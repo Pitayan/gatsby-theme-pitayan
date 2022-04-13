@@ -44,18 +44,6 @@ Follow the guide to get familiar with setting up your Gatsby blog with this them
 
 # Get Started
 
-## Install Dependencies
-
-Install the dependencies via Yarn or NPM.
-
-```sh
-$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
-
-# or
-
-$ yarn add gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
-```
-
 ## Setup Project Folder
 
 The recommended project folder structure looks like this.
@@ -68,6 +56,18 @@ your-site
   │ └── site/
   ├── src/
   │ └── assets/
+```
+
+## Install Dependencies
+
+Install the dependencies via Yarn or NPM.
+
+```sh
+$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
+
+# or
+
+$ yarn add gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
 ```
 
 ## Required Config Files
