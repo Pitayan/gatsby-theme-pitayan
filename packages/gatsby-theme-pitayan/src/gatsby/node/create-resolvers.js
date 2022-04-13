@@ -5,7 +5,7 @@ module.exports = function createResolvers({ createResolvers }) {
       relatedPosts: {
         type: ["Mdx"],
         resolve: async (source, _, context, __) => {
-          const { entries } = await context.nodeModel.findAll({
+          const { entries, totalCount } = await context.nodeModel.findAll({
             type: "Mdx",
             query: {
               limit: 3,
@@ -29,7 +29,7 @@ module.exports = function createResolvers({ createResolvers }) {
             },
           })
 
-          if (entries.length) {
+          if (await totalCount() > 0) {
             return entries
           }
 
