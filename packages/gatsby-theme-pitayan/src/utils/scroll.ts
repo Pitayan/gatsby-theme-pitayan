@@ -10,19 +10,25 @@ export const scrollToTargetAdjusted = (element: HTMLElement) => {
 }
 
 export const smoothAnchorScroll = () => {
-  const headingAnchors = document.getElementsByClassName("heading-anchor")
+  const headingAnchors = document.querySelectorAll('a[href^="#"]')
   for (let i = 0; i < headingAnchors.length; i++) {
     headingAnchors[i].addEventListener("click", function (e: Event) {
       e.preventDefault()
 
       const href = this.getAttribute("href")
 
+      let targetElm = this
+      if (!this.classList.contains("heading-anchor")) {
+        // Select the a link tag with class name of "heading-anchor". Fallback to current link
+        targetElm = document.querySelector(`[id="${href.substring(1)}"] a.heading-anchor`) || this
+      }
+
       if (history.pushState && href) {
         history.pushState({}, "", href)
         window.dispatchEvent(new Event("hashchange"))
       }
 
-      scrollToTargetAdjusted(this)
+      scrollToTargetAdjusted(targetElm)
     })
   }
 }
