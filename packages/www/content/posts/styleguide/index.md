@@ -1,9 +1,7 @@
 ---
 title: The Style Guide for Gatsby-theme-pitayan
 date: 2022-04-06
-author:
-  - Yanze Dai
-  - Tide Dai
+author: Yanze Dai
 categories:
   - styleguide
   - design
