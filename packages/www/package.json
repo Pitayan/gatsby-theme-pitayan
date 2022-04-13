@@ -13,7 +13,7 @@
     "@pitayan/gatsby-theme-pitayan": "^0.1.0",
     "@raae/gatsby-remark-oembed": "^0.2.0-0",
     "dotenv": "^16.0.0",
-    "gatsby": "^4.11.2",
+    "gatsby": "^4.12.1",
     "gatsby-plugin-feed": "^4.11.1",
     "gatsby-plugin-sitemap": "^5.11.1",
     "gatsby-remark-responsive-iframe": "^5.11.0",
