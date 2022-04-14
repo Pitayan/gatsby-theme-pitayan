@@ -51,6 +51,7 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
   - [Adding Site Metadata](#adding-site-metadata)
   - [Adding Authors](#adding-authors)
   - [Adding Posts](#adding-posts)
+  - [Adding Site Pages](#adding-site-pages)
   - [Adding Styles](#adding-styles)
   - [Adding Site Logo & Cover Image](#adding-site-logo--cover-image)
 - [Full Fledged Example](#full-fledged-example)
@@ -283,6 +284,16 @@ Example
 
 ## Adding Posts
 
+Create a new post in the `content/posts` folder. (Note: the file name can be anything you want)
+
+```
+├── content/
+│ └── posts/
+│     ├── my-new-post/
+│     │   └── index.md
+│     └── ...
+```
+
 Every single post must provide a valid [front matter](https://jekyllrb.com/docs/front-matter/) which contains the following items
 
 | Item        | Type                     | Required | Description                                                           |
@@ -292,8 +303,10 @@ Every single post must provide a valid [front matter](https://jekyllrb.com/docs/
 | date        | String                   | true     | The date of the post                                                  |
 | categories  | Array of String          | true     | The categories to the post                                            |
 | description | String                   | true     | A simple description of the post                                      |
+| keywords    | String                   | true     | The keywords for the current page. Uses for SEO purposes              |
 | hero        | String                   | true     | The post's cover image. Better with a high resolution image           |
-| slug        | Array of Tuples          | false    | The custom url of the post. It's useful when you need a different url |
+| slug        | String                   | false    | The custom url of the post. It's useful when you need a different url |
+| noIndex     | Boolean                  | false    | Tells searching engines stop crawling                                 |
 
 Example
 
@@ -313,6 +326,48 @@ slug: posts/gatsby-plugin-options
 ---
 
 ```
+
+## Adding Site Pages
+
+[Gatsbyjs](https://gatsbyjs.com) provides the feature of creating pages with custom React components. It offers the most flexibility of creating a page.
+If you need to create a page with some complexities, this approach would be a good fit.
+
+For some other common scenarios, the "site pages" can be created with Markdown files. Create such site pages in `content/site` folder
+
+```
+├── content/
+│ └── site/
+│     ├── terms-and-conditions/
+│     │   └── index.md
+│     └── ...
+```
+
+
+Similar to [Adding Posts](#adding-posts), "site pages" should have proper [front matter](https://jekyllrb.com/docs/front-matter/) like below.
+
+| Item         | Type                     | Required | Description                                                           |
+| ------------ | :----------------------- | :------- | :-------------------------------------------------------------------- |
+| title        | String                   | true     | The post title                                                        |
+| date         | String                   | true     | The date of the post                                                  |
+| description  | String                   | true     | A simple description of the post                                      |
+| keywords     | String                   | true     | The keywords for the current page. Uses for SEO purposes              |
+| slug         | String                   | false    | The custom url of the post. It's useful when you need a different url |
+| noIndex      | Boolean                  | false    | Tells searching engines stop crawling                                 |
+| displayTitle | Boolean                  | false    | Should this post display the heading title                            |
+
+Example
+
+```markdown
+---
+title: About
+date: "2021-07-31"
+description: "About our site"
+keywords: about us
+noIndex: true
+displayTitle: true
+---
+```
+
 
 ## Adding Styles
 
@@ -419,6 +474,7 @@ Sorry, it's not available yet but it's on the [Road Map](#road-map).
 
 - [ ] Make the theme into Tailwindcss Preset (Themable)
 - [ ] Search function (perhaps with Algolia?)
+- [ ] Test cases (unit test & integration test)
 - [ ] Keyboard accessibility (back & forward etc)
 - [ ] Source from [Contentful](https://www.contentful.com)
 - [ ] Comment system with utteranc.es or disquz
