@@ -52,7 +52,10 @@
   },
   "homepage": "https://github.com/Pitayan/gatsby-theme-pitayan",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "pitayan"
   ],
   "license": "0BSD",
   "main": "index.js",
