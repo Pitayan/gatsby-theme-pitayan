@@ -1,6 +1,25 @@
 # gatsby-theme-pitayan
 
+<p align="left">
+  <a href="https://github.com/Pitayan/gatsby-theme-pitayan/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@pitayan/gatsby-theme-pitayan is released under the MIT license." />
+  </a>
+  <a href="https://www.npmjs.com/package/@pitayan/gatsby-theme-pitayan">
+    <img src="https://img.shields.io/npm/v/@pitayan/gatsby-theme-pitayan.svg" alt="Current npm package version." />
+  </a>
+  <a href="https://npmcharts.com/compare/@pitayan/gatsby-theme-pitayan?minimal=true">
+    <img src="https://img.shields.io/npm/dm/@pitayan/gatsby-theme-pitayan.svg" alt="Downloads per month on npm." />
+  </a>
+  <a href="https://npmcharts.com/compare/@pitayan/gatsby-theme-pitayan?minimal=true">
+    <img src="https://img.shields.io/npm/dt/@pitayan/gatsby-theme-pitayan.svg" alt="Total downloads on npm." />
+  </a>
+  <a href="https://twitter.com/intent/follow?screen_name=gatsbyjs">
+    <img src="https://img.shields.io/twitter/follow/pitayanblog.svg?label=Follow%20@pitayanblog" alt="Follow @PitayanBlog" />
+  </a>
+</p>
+
 A theme plugin of Gatsby for those who enjoys building their blog site with minimalist design.
+
 
 ![preview_1](./previews/preview_1.png)
 
