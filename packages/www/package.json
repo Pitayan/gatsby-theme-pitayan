@@ -10,7 +10,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@pitayan/gatsby-theme-pitayan": "^0.2.0",
+    "@pitayan/gatsby-theme-pitayan": "^0.2.1",
     "@raae/gatsby-remark-oembed": "^0.2.0-0",
     "dotenv": "^16.0.0",
     "gatsby": "^4.12.1",

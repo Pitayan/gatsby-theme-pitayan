@@ -1,5 +1,5 @@
 {
-  "author": "Yanze Dai <ginoalex8964@yahoo.com>",
+  "author": "Yanze Dai <ginoalex8964@yahoo.com> (https://daiyanze.com)",
   "bugs": {
     "url": "https://github.com/Pitayan/gatsby-theme-pitayan/issues"
   },
@@ -23,7 +23,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "main": "index.js",
   "name": "gatsby-theme-pitayan",
   "repository": {

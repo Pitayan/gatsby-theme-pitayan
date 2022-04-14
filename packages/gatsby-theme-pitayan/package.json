@@ -57,7 +57,7 @@
     "gatsby-plugin",
     "pitayan"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "main": "index.js",
   "name": "@pitayan/gatsby-theme-pitayan",
   "peerDependencies": {
@@ -78,5 +78,5 @@
     "serve": "gatsby serve",
     "start": "npm run develop"
   },
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
