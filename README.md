@@ -32,6 +32,7 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
   - [Adding Site Metadata](#adding-site-metadata)
   - [Adding Authors](#adding-authors)
   - [Adding Posts](#adding-posts)
+  - [Adding Styles](#adding-styles)
   - [Adding Site Logo & Cover Image](#adding-site-logo--cover-image)
 - [Full Fledged Example](#full-fledged-example)
 - [Others](#others)
@@ -293,6 +294,25 @@ slug: posts/gatsby-plugin-options
 ---
 
 ```
+
+## Adding Styles
+
+Sometime you may need to write HTML directly in the post page. Since not all of the HTML tags (e.g. `<div>`) are styled by this theme, there might be some unexpected layout arrangements.
+This theme provides some CSS utilities to let you directly adjust those raw HTML tags. It's also viable to approach this via [Tailwindcss](https://tailwindcss.com) style.
+
+Here are the CSS utilities class names. See their definitions in this file: [./packages/gatsby-theme-pitayan/src/assets/css/utilities.css](./packages/gatsby-theme-pitayan/src/assets/css/utilities.css)
+
+- Post Width
+  - .mark-w-sm
+  - .mark-w-md
+  - .mark-w-lg
+  - .mark-w-2l
+- Border
+  - .border-t-white
+  - .border-t-black
+  - .text-inverted
+  - .bg-inverted
+  - .border-inverted
 
 ## Adding Site Logo & Cover Image
 
