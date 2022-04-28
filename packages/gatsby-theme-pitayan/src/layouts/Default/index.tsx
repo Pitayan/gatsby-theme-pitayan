@@ -20,7 +20,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   useCookiePrompt()
 
   return (
-    <div className="mt-24 md:my-16 mx-auto px-12 md:px-6 max-w-screen-xl">
+    <div className="mt-16 mx-auto px-8 md:px-6 max-w-screen-xl">
       <SEO
         postDescription={postDescription}
         pageImage={pageImage}
