@@ -72,7 +72,7 @@
   pre[class*="language-"] {
     &.line-numbers {
       @apply relative;
-      @apply pl-[2.4em];
+      @apply pl-[2.6em];
 
       counter-reset: linenumber;
 
@@ -85,12 +85,13 @@
       .line-numbers-rows {
         @apply block;
         @apply absolute;
-        @apply py-6;
+        @apply my-6;
         @apply top-0;
         @apply !left-5;
         @apply pointer-events-none;
         @apply select-none;
         @apply text-[80%];
+        /* @apply text-sm; */
 
         & > span {
           @apply text-gray-400;
