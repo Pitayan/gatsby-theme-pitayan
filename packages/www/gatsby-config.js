@@ -99,25 +99,19 @@ module.exports = {
               },
             }) => {
               return allMdx.nodes.map(node => {
-                // Get the first paragraph as content
-                const p = node.mdxAST.children.find(c => c.type == "paragraph")
-                let partial = ""
-                if (p && p.children) {
-                  const text = p.children.find(c => c.type == "text" && c.value)
-                  if (text) {
-                    partial = text.value
-                  }
-                }
-
                 return Object.assign({}, node.frontmatter, {
                   url: siteUrl + node.fields.slug,
                   guid: siteUrl + node.fields.slug,
                   custom_elements: [
                     {
-                      "content:encoded": `
-                      <![CDATA[ <p>${partial || node.description}</p> ]]>
-                      `,
+                      "content:encoded": node.html,
                     },
+                    {
+                      "tags": node.frontmatter.categories.join(','),
+                    },
+                    {
+                      "featuredImage": siteUrl + node.frontmatter.hero.publicURL,
+                    }
                   ],
                 })
               })
@@ -129,11 +123,16 @@ module.exports = {
                   sort: { order: DESC, fields: [frontmatter___date] }
                 ) {
                   nodes {
+                    html
                     mdxAST
                     fields {
                       slug
                     }
                     frontmatter {
+                      hero {
+                        publicURL
+                      }
+                      categories
                       date
                       title
                       description
