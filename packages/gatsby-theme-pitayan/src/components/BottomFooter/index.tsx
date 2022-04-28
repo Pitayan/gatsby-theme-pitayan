@@ -46,7 +46,7 @@ const BottomFooter: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="text-sm text-gray-500 font-bold dark:text-gray-400 mt-8">
+      <div className="text-sm text-gray-500 font-bold dark:text-gray-400 mt-8 mb-16">
         &copy; {year} Pitayan. All rights reserved.
       </div>
     </footer>
