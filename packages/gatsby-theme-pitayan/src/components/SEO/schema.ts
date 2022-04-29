@@ -94,6 +94,7 @@ export const breadcrumbsListSchema = ({
           position: "1",
           item: {
             "@type": "WebPage",
+            "@id": `${pageUrl}/#webpage`,
             url: siteUrl,
             name: "Homepage",
           },
@@ -106,6 +107,7 @@ export const breadcrumbsListSchema = ({
           position: "2",
           item: {
             "@type": "WebPage",
+            "@id": `${siteUrl}/#webpage`,
             url: pageUrl,
             name: postTitle,
           },
@@ -206,8 +208,6 @@ export const imageSchema = ({
     "@id": `${pageUrl}/#primaryimage`,
     description: "Cover Image",
     url: coverImageUrl,
-    width: 1200,
-    height: 628,
     inLanguage: "en-US",
   }
 
