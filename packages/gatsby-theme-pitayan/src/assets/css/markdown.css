@@ -27,7 +27,7 @@
     /* Display heading anchor */
     &:hover {
       a.heading-anchor {
-        @apply opacity-100;
+        @apply md:opacity-100;
       }
     }
   }
