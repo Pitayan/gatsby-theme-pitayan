@@ -1,25 +1,31 @@
 h1 {
-  @apply text-4xl;
-}
-
-h2 {
+  @apply md:text-4xl;
   @apply text-3xl;
 }
 
-h3 {
+h2 {
+  @apply md:text-3xl;
   @apply text-2xl;
 }
 
-h4 {
+h3 {
+  @apply md:text-2xl;
   @apply text-xl;
 }
 
-h5 {
+h4 {
+  @apply md:text-xl;
   @apply text-lg;
 }
 
-h6 {
+h5 {
+  @apply md:text-lg;
   @apply text-base;
+}
+
+h6 {
+  @apply md:text-base;
+  @apply text-sm;
 }
 
 h1,
@@ -95,6 +101,7 @@ code {
   @apply text-sm;
   @apply rounded;
   @apply py-0.5 px-1;
+  @apply break-words;
 }
 
 pre {
