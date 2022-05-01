@@ -45,6 +45,10 @@ p {
   @apply leading-normal;
 }
 
+a {
+  @apply break-words;
+}
+
 a,
 ins,
 u {
@@ -52,7 +56,8 @@ u {
 }
 
 blockquote {
-  @apply text-xl;
+  @apply md:text-xl;
+  @apply text-lg;
   @apply font-semibold;
   @apply ml-0 mb-4;
   @apply leading-relaxed;
