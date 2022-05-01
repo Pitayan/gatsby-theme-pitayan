@@ -76,7 +76,7 @@ const Site: React.FC<SiteProps> = ({ data }: any) => {
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       frontmatter {

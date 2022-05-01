@@ -62,7 +62,7 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
 export default AuthorPosts
 
 export const pageQuery = graphql`
-  query($limit: Int!, $skip: Int!, $authorId: String!) {
+  query ($limit: Int!, $skip: Int!, $authorId: String!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {

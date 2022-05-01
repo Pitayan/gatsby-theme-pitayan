@@ -323,7 +323,6 @@ description: Just a post page that displays demo components
 hero: images/demo_1.jpg
 slug: posts/gatsby-plugin-options
 ---
-
 ```
 
 ## Adding Site Pages

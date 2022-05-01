@@ -55,7 +55,7 @@ const CategoryPosts: React.FC<CategoryPostsProps> = ({
 export default CategoryPosts
 
 export const pageQuery = graphql`
-  query($limit: Int!, $skip: Int!, $category: String!) {
+  query ($limit: Int!, $skip: Int!, $category: String!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {

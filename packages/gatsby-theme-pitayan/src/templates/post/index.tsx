@@ -176,7 +176,7 @@ const Post: React.FC<PostProps> = ({
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       timeToRead
