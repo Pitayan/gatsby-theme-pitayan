@@ -34,7 +34,7 @@ The font famliy follows the Tailwind default settings.
   <div class="font-sans grid grid-rows-2 place-item-start py-8">
     <div class="row-span-2 col-span-1 text-8xl">Aa</div>
     <b class="col-span-2 self-center">Sans Serif</b>
-    <div class="col-span-3 tracking-widest">
+    <div class="col-span-3 tracking-widest break-all">
       <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br />
       <span>abcdefghijklmnopqrstuvwxyz</span><br />
       <span>0123456789</span>
@@ -44,7 +44,7 @@ The font famliy follows the Tailwind default settings.
   <div class="font-serif grid grid-rows-2 place-item-start py-8">
     <div class="row-span-2 col-span-1 text-8xl">Aa</div>
     <b class="col-span-2 self-center">Serif</b>
-    <div class="col-span-3 tracking-widest">
+    <div class="col-span-3 tracking-widest break-all">
       <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br />
       <span>abcdefghijklmnopqrstuvwxyz</span><br />
       <span>0123456789</span>
@@ -54,7 +54,7 @@ The font famliy follows the Tailwind default settings.
   <div class="font-mono grid grid-rows-2 place-item-start py-8">
     <div class="row-span-2 col-span-1 text-8xl">Aa</div>
     <b class="col-span-2 self-center">Monospace</b>
-    <div class="col-span-3 tracking-widest">
+    <div class="col-span-3 tracking-widest break-all">
       <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br />
       <span>abcdefghijklmnopqrstuvwxyz</span><br />
       <span>0123456789</span>
