@@ -19,6 +19,10 @@
     hyphens: none;
   }
 
+  .gatsby-highlight {
+    @apply -mx-6;
+  }
+
   @media print {
     code[class*="language-"],
     pre[class*="language-"] {
@@ -31,6 +35,9 @@
     overflow: auto;
     @apply bg-gray-50;
     @apply border border-solid border-gray-100;
+
+    @apply sm:!rounded;
+    @apply rounded-none;
   }
 
   /* Inline code Highlight */

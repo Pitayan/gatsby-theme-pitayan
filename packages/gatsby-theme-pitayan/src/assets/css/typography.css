@@ -63,7 +63,8 @@ blockquote {
   @apply leading-relaxed;
   @apply font-serif italic;
   @apply border-l-4 border-solid border-black;
-  @apply pl-8 py-1;
+  @apply pl-4 py-1;
+  @apply md:pl-6;
 
   /* Dark Mode */
   @apply dark:border-inverted;
@@ -112,7 +113,7 @@ code {
 pre {
   @apply relative;
   @apply whitespace-pre;
-  @apply rounded !important;
+  @apply rounded;
   @apply mb-4;
 
   code {
