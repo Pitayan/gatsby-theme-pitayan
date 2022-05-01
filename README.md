@@ -28,7 +28,6 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 - SEO ready (site structured data & meta tags)
 - Dark / light mode switch enabled via [Tailwindcss](https://tailwindcss.com)
 - Source code highlight
-- Embeddable Social media contents via [Oembed](https://oembed.com)
 - Customizable in page site links
 - Medium-like selection-popover for social sharing or copy
 - Medium-like image popover magnifier
