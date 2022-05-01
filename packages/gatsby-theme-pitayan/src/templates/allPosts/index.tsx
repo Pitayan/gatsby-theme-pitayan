@@ -28,7 +28,10 @@ const PostsPage: React.FC<PostsPageProps> = ({
   const { siteUrl } = useSiteMetadata()
 
   return (
-    <DefaultLayout pageUrl={`${siteUrl}/posts/${pageInfo.currentPage}`}>
+    <DefaultLayout
+      pageUrl={`${siteUrl}/posts/${pageInfo.currentPage}`}
+      pageTitle="All Posts"
+    >
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
         All Posts ({totalCount})
       </h1>

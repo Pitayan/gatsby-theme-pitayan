@@ -49,6 +49,7 @@ const Site: React.FC<SiteProps> = ({ data }: any) => {
     <DefaultLayout
       postDescription={description}
       pageUrl={`${siteUrl}${slug}`}
+      pageTitle={title}
       keywords={keywords}
       date={date}
       noIndex={noIndex}

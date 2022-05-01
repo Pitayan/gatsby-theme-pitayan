@@ -22,7 +22,7 @@ const HomePage: React.FC<HomePageProps> = ({
   },
 }) => {
   return (
-    <DefaultLayout>
+    <DefaultLayout pageTitle="Home">
       <HomeSlogan />
       <br />
       <br />

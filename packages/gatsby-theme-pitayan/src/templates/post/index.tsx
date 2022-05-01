@@ -99,6 +99,7 @@ const Post: React.FC<PostProps> = ({
       pageImage={postImage.images.fallback.src}
       pageUrl={`${siteUrl}${slug}`}
       postTitle={title}
+      pageTitle={title}
       keywords={keywords}
       date={date}
       timeToRead={timeToRead}

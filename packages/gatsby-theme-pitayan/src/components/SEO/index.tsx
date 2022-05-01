@@ -10,6 +10,7 @@ export type SEOProps = {
   timeToRead?: number
   postTitle?: string
   pageUrl?: string
+  pageTitle?: string
   keywords?: string
   authors?: {
     id: string
@@ -27,6 +28,7 @@ const SEO: React.FC<SEOProps> = ({
   postDescription,
   postTitle,
   pageUrl,
+  pageTitle,
   keywords,
   date,
   authors,
@@ -49,11 +51,12 @@ const SEO: React.FC<SEOProps> = ({
     /"/g,
     '\\"'
   )
-  const title = postTitle || siteTitle || ""
+  const title = postTitle || pageTitle || siteTitle || ""
   const url = pageUrl || siteUrl
 
   return (
     <Helmet
+      title={`${name}${title ? ' | ' + title : ""}`}
       htmlAttributes={{ lang: "en" }}
       script={[
         helmetJsonLdProp(
@@ -80,8 +83,6 @@ const SEO: React.FC<SEOProps> = ({
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
       <meta itemProp="image" content={coverImageUrl} />
-      <meta itemProp="name" content={title} />
-      <meta itemProp="name" content={title} />
       <meta name="description" content={description} />
 
       <meta name="twitter:card" content="summary_large_image" />

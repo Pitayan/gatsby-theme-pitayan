@@ -36,7 +36,10 @@ const Authors: React.FC<AuthorsProps> = ({
   const { siteUrl } = useSiteMetadata()
 
   return (
-    <DefaultLayout pageUrl={`${siteUrl}/authors`}>
+    <DefaultLayout
+      pageUrl={`${siteUrl}/authors`}
+      pageTitle="Authors"
+    >
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
         Authors ({authors.length})
       </h1>

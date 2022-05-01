@@ -36,7 +36,10 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
   const { siteUrl } = useSiteMetadata()
 
   return (
-    <DefaultLayout pageUrl={`${siteUrl}/authors/@${authorId}`}>
+    <DefaultLayout
+      pageUrl={`${siteUrl}/authors/@${authorId}`}
+      pageTitle={`Posts of ${name}`}
+    >
       <AuthorCard
         bio={bio}
         name={name}

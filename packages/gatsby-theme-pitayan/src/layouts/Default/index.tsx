@@ -11,6 +11,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   pageImage,
   postTitle,
   pageUrl,
+  pageTitle,
   timeToRead,
   date,
   authors,
@@ -26,6 +27,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         pageImage={pageImage}
         postTitle={postTitle}
         pageUrl={pageUrl}
+        pageTitle={pageTitle}
         timeToRead={timeToRead}
         date={date}
         authors={authors}

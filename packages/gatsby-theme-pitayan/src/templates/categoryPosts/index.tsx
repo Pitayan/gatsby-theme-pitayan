@@ -33,7 +33,10 @@ const CategoryPosts: React.FC<CategoryPostsProps> = ({
   const { siteUrl } = useSiteMetadata()
 
   return (
-    <DefaultLayout pageUrl={`${siteUrl}/categories/${category}`}>
+    <DefaultLayout
+      pageUrl={`${siteUrl}/categories/${category}`}
+      pageTitle={`Category: ${category}`}
+    >
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
         Category: {category} ({totalCount})
       </h1>
