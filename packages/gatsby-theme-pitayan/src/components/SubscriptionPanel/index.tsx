@@ -58,16 +58,16 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
               @
             </span>
             <input
-              placeholder="your email address"
+              placeholder="your email"
               name="email"
               type="email"
-              className="outline-input !pr-32 !pl-8"
+              className="outline-input md:!pr-32 !pl-8"
               value={email}
               onChange={handleOnChange}
               formNoValidate
             />
             <button
-              className="ghost-button ml-auto absolute top-[2%] right-0"
+              className="ghost-button ml-auto absolute top-[2%] right-0 hidden md:block"
               type="submit"
               disabled={subscribed}
             >
@@ -81,6 +81,16 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
           >
             {message}
           </small>
+          <br />
+          <div className="w-full text-center -mb-2">
+            <button
+              className="ghost-button md:hidden block mx-auto"
+              type="submit"
+              disabled={subscribed}
+            >
+              Subscribe
+            </button>
+          </div>
         </form>
       </div>
     </div>
