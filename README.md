@@ -20,7 +20,6 @@
 
 A theme plugin of Gatsby for those who enjoys building their blog site with minimalist design.
 
-
 ![preview_1](./previews/preview_1.png)
 
 ## Builtin Features
@@ -342,18 +341,17 @@ For some other common scenarios, the "site pages" can be created with Markdown f
 │     └── ...
 ```
 
-
 Similar to [Adding Posts](#adding-posts), "site pages" should have proper [front matter](https://jekyllrb.com/docs/front-matter/) like below.
 
-| Item         | Type                     | Required | Description                                                           |
-| ------------ | :----------------------- | :------- | :-------------------------------------------------------------------- |
-| title        | String                   | true     | The post title                                                        |
-| date         | String                   | true     | The date of the post                                                  |
-| description  | String                   | true     | A simple description of the post                                      |
-| keywords     | String                   | true     | The keywords for the current page. Uses for SEO purposes              |
-| slug         | String                   | false    | The custom url of the post. It's useful when you need a different url |
-| noIndex      | Boolean                  | false    | Tells searching engines stop crawling                                 |
-| displayTitle | Boolean                  | false    | Should this post display the heading title                            |
+| Item         | Type    | Required | Description                                                           |
+| ------------ | :------ | :------- | :-------------------------------------------------------------------- |
+| title        | String  | true     | The post title                                                        |
+| date         | String  | true     | The date of the post                                                  |
+| description  | String  | true     | A simple description of the post                                      |
+| keywords     | String  | true     | The keywords for the current page. Uses for SEO purposes              |
+| slug         | String  | false    | The custom url of the post. It's useful when you need a different url |
+| noIndex      | Boolean | false    | Tells searching engines stop crawling                                 |
+| displayTitle | Boolean | false    | Should this post display the heading title                            |
 
 Example
 
@@ -367,7 +365,6 @@ noIndex: true
 displayTitle: true
 ---
 ```
-
 
 ## Adding Styles
 

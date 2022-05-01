@@ -107,11 +107,11 @@ module.exports = {
                       "content:encoded": node.html,
                     },
                     {
-                      "tags": node.frontmatter.categories.join(','),
+                      tags: node.frontmatter.categories.join(","),
                     },
                     {
-                      "featuredImage": siteUrl + node.frontmatter.hero.publicURL,
-                    }
+                      featuredImage: siteUrl + node.frontmatter.hero.publicURL,
+                    },
                   ],
                 })
               })

@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Is there something unexpected? Tell us about it
-title: ''
-labels: ''
-assignees: ''
-
+title: ""
+labels: ""
+assignees: ""
 ---
 
 **Hi there!**

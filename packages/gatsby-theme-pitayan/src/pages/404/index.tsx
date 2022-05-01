@@ -8,11 +8,7 @@ const NotFound: React.FC = () => {
   const { siteUrl } = useSiteMetadata()
 
   return (
-    <DefaultLayout
-      pageUrl={`${siteUrl}/404`}
-      pageTitle="404"
-      noIndex
-    >
+    <DefaultLayout pageUrl={`${siteUrl}/404`} pageTitle="404" noIndex>
       <div className="mx-auto w-full text-center h-72">
         <p>Not Found</p>
         <br />

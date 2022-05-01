@@ -29,7 +29,7 @@ module.exports = function createResolvers({ createResolvers }) {
             },
           })
 
-          if (await totalCount() > 0) {
+          if ((await totalCount()) > 0) {
             return entries
           }
 

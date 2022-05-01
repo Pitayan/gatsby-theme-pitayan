@@ -26,10 +26,7 @@ const CategoriesPage: React.FC<CategoriesProps> = ({
   const { siteUrl } = useSiteMetadata()
 
   return (
-    <DefaultLayout
-      pageUrl={`${siteUrl}/categories`}
-      pageTitle="Categories"
-    >
+    <DefaultLayout pageUrl={`${siteUrl}/categories`} pageTitle="Categories">
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
         Categories ({group.length})
       </h1>

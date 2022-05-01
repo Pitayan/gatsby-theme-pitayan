@@ -20,7 +20,10 @@ export const smoothAnchorScroll = () => {
       let targetElm = this
       if (!this.classList.contains("heading-anchor")) {
         // Select the a link tag with class name of "heading-anchor". Fallback to current link
-        targetElm = document.querySelector(`[id="${href.substring(1)}"] a.heading-anchor`) || this
+        targetElm =
+          document.querySelector(
+            `[id="${href.substring(1)}"] a.heading-anchor`
+          ) || this
       }
 
       if (history.pushState && href) {

@@ -55,7 +55,7 @@ module.exports = ({
     "Mdx.frontmatter.author": `AuthorsYaml`,
   },
   get plugins() {
-    const defaultPlugins =  [
+    const defaultPlugins = [
       `gatsby-plugin-image`,
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,

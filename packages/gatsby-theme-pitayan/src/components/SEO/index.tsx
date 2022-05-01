@@ -56,7 +56,7 @@ const SEO: React.FC<SEOProps> = ({
 
   return (
     <Helmet
-      title={`${name}${title ? ' | ' + title : ""}`}
+      title={`${name}${title ? " | " + title : ""}`}
       htmlAttributes={{ lang: "en" }}
       script={[
         helmetJsonLdProp(
