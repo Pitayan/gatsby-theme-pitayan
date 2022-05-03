@@ -70,6 +70,11 @@
   @apply bg-gray-50;
   @apply border border-solid border-gray-100;
   @apply px-6 py-8;
+  @apply -mx-6;
+  @apply md:mx-auto;
+
+  @apply sm:!rounded;
+  @apply rounded-none;
 
   /* Dark Mode */
   @apply dark:bg-gray-800;
