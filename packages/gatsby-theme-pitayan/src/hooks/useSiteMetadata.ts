@@ -8,6 +8,11 @@ type SiteMetaData = {
   name: string
   siteUrl: string
   siteSlogan: string
+  siteCookieConsent: {
+    title: string
+    description: string
+    readMore: string
+  }
   title: string
   cover: {
     publicURL: string
@@ -38,6 +43,11 @@ export const useSiteMetadata = (): SiteMetaData => {
             name
             siteUrl
             siteSlogan
+            siteCookieConsent {
+              title
+              description
+              readMore
+            }
             title
           }
         }

@@ -267,8 +267,6 @@
     }
 
     .notification-title {
-      @apply font-normal;
-      @apply text-lg;
       @apply inline-block;
       @apply w-full;
     }
