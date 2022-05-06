@@ -3,6 +3,9 @@ const fs = require("fs")
 
 const defaultGatsbyRemarkPlugins = [
   {
+    resolve: `gatsby-remark-copy-linked-files`,
+  },
+  {
     resolve: `gatsby-remark-prismjs`,
     options: {
       classPrefix: "language-",
