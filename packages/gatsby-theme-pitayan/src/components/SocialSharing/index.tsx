@@ -1,6 +1,6 @@
 import React, { memo } from "react"
-import { objectToGetParams, copyToClipboard } from "@pitayan/gatsby-theme-pitayan/src/utils"
-import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
+import { objectToGetParams, copyToClipboard, dispatchCustomEvent } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import { CUSTOM_EVENT_SOCIAL_SHARING, SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import Tooltip from "@pitayan/gatsby-theme-pitayan/src/components/Tooltip"
 import { RiLinkM } from "react-icons/ri"
 
@@ -42,6 +42,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
             <a
               target="_blank"
               rel="noreferrer"
+              onClick={() => dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: 'Twitter' })}
               href={`https://twitter.com/share${objectToGetParams({
                 title,
                 url,
@@ -59,6 +60,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
             <a
               target="_blank"
               rel="noreferrer"
+              onClick={() => dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: 'Facebook' })}
               href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
                 title,
                 u: url,
@@ -77,6 +79,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
             <a
               target="_blank"
               rel="noreferrer"
+              onClick={() => dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: 'Linkedin' })}
               href={`https://linkedin.com/shareArticle${objectToGetParams({
                 title,
                 url,
@@ -94,6 +97,7 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
             <a
               target="_blank"
               rel="noreferrer"
+              onClick={() => dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: 'Pocket' })}
               href={`https://getpocket.com/save${objectToGetParams({
                 title,
                 url,
@@ -107,7 +111,10 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
       {copy && (
         <Tooltip text="Copy URL address">
           <div className="site-link">
-            <a onClick={() => copyToClipboard(window.location.href)}>
+            <a onClick={() => {
+              copyToClipboard(window.location.href)
+              dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: 'copy' })
+            }}>
               <RiLinkM className="text-[110%]" />
             </a>
           </div>

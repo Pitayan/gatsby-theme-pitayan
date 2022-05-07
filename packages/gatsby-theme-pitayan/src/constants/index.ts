@@ -114,4 +114,23 @@ export const SOCIAL_RESOURCES: Record<string, { icon: IconType, url: string }> =
   },
 }
 
-export const CUSTOM_EVENT_TOGGLE_THEME = 'CUSTOM_EVENT_TOGGLE_THEME'
+
+export const COOKIE_PROMPT_CONTAINER_ID = "cookie-prompt-container"
+export const COOKIE_PROMPT_AGREEMENT = "site-cookie-consent-agreement"
+export const COOKIE_PROMPT_DEFAULT_TITLE = "This site uses cookies"
+export const COOKIE_PROMPT_DEFAULT_DESCRIPTION = `
+We use 3rd party tools to understand visitors and create a
+personalized experience. By clicking "Agree" button below,
+you agree to allowing us to storage cookies on your browser.
+`
+export const COOKIE_PROMPT_DEFAULT_READMORE = "Read more on"
+export const SUBSCRIPTION_DEFAULT_TITLE = "Subscribe to our email newsletters"
+export const SUBSCRIPTION_DEFAULT_DESCRIPTION = `
+Stay tuned to our latest content with the ability to opt-out at
+anytime. We will not spam your inbox or share your email with any
+third parties.
+`
+
+export const CUSTOM_EVENT_SUBSCRIPTION = "CUSTOM_EVENT_SUBSCRIPTION"
+export const CUSTOM_EVENT_SOCIAL_SHARING = "CUSTOM_EVENT_SOCIAL_SHARING"
+export const CUSTOM_EVENT_TOGGLE_THEME = "CUSTOM_EVENT_TOGGLE_THEME"

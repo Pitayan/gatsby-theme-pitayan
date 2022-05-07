@@ -3,21 +3,17 @@ import React, { useLayoutEffect, useState } from "react"
 import ReactDom from "react-dom"
 
 import { useSiteMetadata } from "./useSiteMetadata"
-
-const COOKIE_PROMPT_CONTAINER_ID = "cookie-prompt-container"
+import {
+  COOKIE_PROMPT_AGREEMENT,
+  COOKIE_PROMPT_CONTAINER_ID,
+  COOKIE_PROMPT_DEFAULT_DESCRIPTION,
+  COOKIE_PROMPT_DEFAULT_READMORE,
+  COOKIE_PROMPT_DEFAULT_TITLE,
+} from "@pitayan/gatsby-theme-pitayan/src/constants"
 
 type NotificationProps = {
   [key: string]: any
 }
-
-const DEFAULT_TITLE = "This site uses cookies"
-const DEFAULT_DESCRIPTION = `
-We use 3rd party tools to understand visitors and create a
-personalized experience. By clicking "Agree" button below,
-you agree to allowing us to storage cookies on your browser.
-`
-const DEFAULT_READMORE = `Read more on`
-const AGREE_COOKIE = "site-cookie-consent-agreement"
 
 export const Notification: React.FC<NotificationProps> = () => {
   const { siteCookieConsent: { title, description, readMore }, siteLinks } = useSiteMetadata()
@@ -27,11 +23,11 @@ export const Notification: React.FC<NotificationProps> = () => {
   const termsLink = siteLinks.find((s) => s.name.match(/term(s?)/))
 
   const handleAgree = () => {
-    if (window.localStorage.getItem(AGREE_COOKIE)) {
+    if (window.localStorage.getItem(COOKIE_PROMPT_AGREEMENT)) {
       return
     }
 
-    window.localStorage.setItem(AGREE_COOKIE, "true")
+    window.localStorage.setItem(COOKIE_PROMPT_AGREEMENT, "true")
 
     setTimeout(() => {
       setIsOpen(false)
@@ -39,7 +35,7 @@ export const Notification: React.FC<NotificationProps> = () => {
   }
 
   useLayoutEffect(() => {
-    if (!window.localStorage.getItem(AGREE_COOKIE)) {
+    if (!window.localStorage.getItem(COOKIE_PROMPT_AGREEMENT)) {
       setIsOpen(true)
     }
   })
@@ -47,13 +43,13 @@ export const Notification: React.FC<NotificationProps> = () => {
   return (
     <div className="notification notification-bottom-left rounded">
       <div className={`notification-container ${isOpen ? "open" : ""}`}>
-        <h4 className="notification-title">{ title || DEFAULT_TITLE }</h4>
+        <h4 className="notification-title">{ title || COOKIE_PROMPT_DEFAULT_TITLE }</h4>
         <p className="mb-2 text-sm">
-          { description || DEFAULT_DESCRIPTION }
+          { description || COOKIE_PROMPT_DEFAULT_DESCRIPTION }
         </p>
         {(privacyLink || termsLink) &&
           <p className="mb-2 text-sm flex space-x-2">
-            <span>{ readMore || DEFAULT_READMORE }</span>
+            <span>{ readMore || COOKIE_PROMPT_DEFAULT_READMORE }</span>
             {privacyLink && <Link className="site-link underline" to={privacyLink.url}>{privacyLink.name}</Link>}
             {termsLink && <Link className="site-link underline" to={termsLink.url}>{termsLink.name}</Link>}
           </p>

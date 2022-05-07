@@ -13,6 +13,10 @@ type SiteMetaData = {
     description: string
     readMore: string
   }
+  siteSubscription: {
+    title: string
+    description: string
+  }
   title: string
   cover: {
     publicURL: string
@@ -47,6 +51,10 @@ export const useSiteMetadata = (): SiteMetaData => {
               title
               description
               readMore
+            }
+            siteSubscription {
+              title
+              description
             }
             title
           }

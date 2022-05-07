@@ -1,5 +1,12 @@
 import React, { memo, useState } from "react"
-import { subscribeMailChimp } from "@pitayan/gatsby-theme-pitayan/src/utils"
+
+import {
+  CUSTOM_EVENT_SUBSCRIPTION,
+  SUBSCRIPTION_DEFAULT_DESCRIPTION,
+  SUBSCRIPTION_DEFAULT_TITLE
+} from "@pitayan/gatsby-theme-pitayan/src/constants"
+import { dispatchCustomEvent, subscribeMailChimp } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 type SubscriptionPanelProps = {
   className: string
@@ -8,6 +15,7 @@ type SubscriptionPanelProps = {
 const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
   className = "",
 }) => {
+  const { siteSubscription: { title, description } } = useSiteMetadata()
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [subscribed, setSubscribed] = useState(false)
@@ -23,6 +31,8 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
 
         setSubscribed(true)
         setMessage("Subscribed!")
+
+        dispatchCustomEvent(CUSTOM_EVENT_SUBSCRIPTION, { email })
 
         setTimeout(() => {
           setSubscribed(false)
@@ -45,12 +55,10 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
     <div className={`subscription mark-w-xl ${className}`}>
       <div className="subscription-container">
         <h3 className="subscription-title">
-          Subscribe to our email newsletters
+          { title || SUBSCRIPTION_DEFAULT_TITLE }
         </h3>
         <div className="subscription-content">
-          Stay tuned to our latest content with the ability to opt-out at
-          anytime. We will not spam your inbox or share your email with any
-          third parties.
+          { description || SUBSCRIPTION_DEFAULT_DESCRIPTION }
         </div>
         <form className="subscription-action" onSubmit={handleOnSubmit}>
           <div className="w-full relative">

@@ -1,7 +1,9 @@
 import React, { memo, useLayoutEffect, useRef, useState } from "react"
 import { useTextSelection } from "@pitayan/gatsby-theme-pitayan/src/hooks"
+import { CUSTOM_EVENT_SOCIAL_SHARING } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import {
   copyToClipboard,
+  dispatchCustomEvent,
   Portal,
 } from "@pitayan/gatsby-theme-pitayan/src/utils"
 import { FiCopy } from "react-icons/fi"
@@ -55,14 +57,17 @@ const PopupContent: React.FC<PopupContentProps> = ({ target }) => {
       <a
         target="_blank"
         rel="noreferrer"
+        onClick={() => dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: "Twitter" })}
         href={`https://twitter.com/intent/tweet?text="${textContent}" -- ${window.location.href}`}
       >
         <SiTwitter />
       </a>
       <button
         className="text-gray-500"
-        onClick={() => copyToClipboard(textContent)}
-      >
+        onClick={() => {
+          copyToClipboard(textContent)
+          dispatchCustomEvent(CUSTOM_EVENT_SOCIAL_SHARING, { share: "copy" })
+        }}>
         <FiCopy size={20} />
       </button>
     </div>
