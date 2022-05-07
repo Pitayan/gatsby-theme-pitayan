@@ -114,8 +114,8 @@ const Post: React.FC<PostProps> = ({
       </div>
 
       <div className="max-w-lg md:max-w-2xl mx-auto mb-20">
-        <PostMeta className="block mb-4" date={date} timeToRead={timeToRead} />
         <h1>{title}</h1>
+        <PostMeta className="block mb-4" date={date} timeToRead={timeToRead} />
 
         <div className="flex flex-wrap items-center justify-between">
           <PostAuthors data={coAuthors} />
