@@ -1,9 +1,6 @@
-const { setZoomableImages } = require("@pitayan/gatsby-theme-pitayan/src/utils")
-const {
-  smoothAnchorScroll,
-} = require("@pitayan/gatsby-theme-pitayan/src/utils")
+import { setZoomableImages, smoothAnchorScroll, } from "@pitayan/gatsby-theme-pitayan/src/utils"
 
-module.exports = function onRouteUpdate() {
+export function onRouteUpdate() {
   // Set gatsby responsive images to zoomable images
   setZoomableImages()
 

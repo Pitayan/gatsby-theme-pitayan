@@ -6,6 +6,7 @@ export { checkIfDarkMode, toggleDark } from "./toggleTheme"
 export { setZoomableImages } from "./zoom"
 export { subscribeMailChimp } from "./subscribe"
 export { smoothAnchorScroll } from "./scroll"
+export { dispatchCustomEvent } from "./customEvent"
 
 export const copyToClipboard = (toCopy: string): void => {
   const el = document.createElement(`textarea`)

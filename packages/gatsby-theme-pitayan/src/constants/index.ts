@@ -109,3 +109,5 @@ export const SOCIAL_RESOURCES: {
     url: "",
   },
 }
+
+export const CUSTOM_EVENT_PITAYAN_TOGGLE_THEME = 'CUSTOM_EVENT_PITAYAN_TOGGLE_THEME'
