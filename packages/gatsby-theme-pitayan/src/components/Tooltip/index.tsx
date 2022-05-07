@@ -1,14 +1,14 @@
 import React, { memo } from "react"
 
 type TooltipProps = React.PropsWithChildren<{
-  active: boolean
-  text: string
-  className: string
+  active?: boolean
+  text?: string
+  className?: string
 }>
 
 const Tooltip: React.FC<TooltipProps> = ({
   children,
-  text,
+  text = "",
   active,
   className = "",
 }) => {
@@ -19,7 +19,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       } ${className}`}
     >
       {children}
-      <span className="tooltip-container transition-color delay-200 duration-700 ease rounded text-sm bg-gray-200 dark:bg-gray-800">
+      <span className="tooltip-container transition-color delay-100 duration-200 ease rounded text-sm bg-gray-200 dark:bg-gray-800">
         <span className="whitespace-pre">{text}</span>
       </span>
     </span>

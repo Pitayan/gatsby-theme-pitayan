@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react"
-import { RiSunLine, RiMoonFill } from "react-icons/ri"
+import { RiSunLine, RiMoonClearFill } from "react-icons/ri"
 import {
   checkIfDarkMode,
   toggleDark,
@@ -18,7 +18,7 @@ const DarkModeToggle: React.FC = () => {
       {isDark ? (
         <RiSunLine className="animate-fade-in-scale" />
       ) : (
-        <RiMoonFill className="animate-fade-in-scale" />
+        <RiMoonClearFill className="animate-fade-in-scale" />
       )}
     </button>
   )

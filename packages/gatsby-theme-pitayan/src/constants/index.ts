@@ -1,55 +1,55 @@
 import {
   SiNotion,
-  SiUnsplash,
   SiBuymeacoffee,
-  SiMaildotru,
-  SiBehance,
-  SiFacebook,
-  SiTwitter,
-  SiGithub,
-  SiDribbble,
-  SiLinkedin,
-  SiInstagram,
   SiDevdotto,
-  SiStackoverflow,
-  SiYoutube,
-  SiMedium,
-  SiPaypal,
-  SiPatreon,
-  SiDigitalocean,
-  SiTripadvisor,
 } from "react-icons/si"
-import { FiExternalLink } from "react-icons/fi"
+import {
+  RiUnsplashFill,
+  RiMailFill,
+  RiBehanceFill,
+  RiFacebookCircleFill,
+  RiTwitterFill,
+  RiGithubFill,
+  RiDribbbleFill,
+  RiLinkedinFill,
+  RiInstagramFill,
+  RiStackOverflowFill,
+  RiYoutubeFill,
+  RiMediumFill,
+  RiPaypalFill,
+  RiPatreonFill,
+  RiExternalLinkFill,
+} from "react-icons/ri"
+import {
+  FaTripadvisor,
+  FaGetPocket,
+  FaDigitalOcean,
+} from "react-icons/fa"
 import { IconType } from "react-icons/lib"
 
-export const SOCIAL_RESOURCES: {
-  [key: string]: {
-    icon: IconType
-    url: string
-  }
-} = {
+export const SOCIAL_RESOURCES: Record<string, { icon: IconType, url: string }> = {
   behance: {
-    icon: SiBehance,
+    icon: RiBehanceFill,
     url: "https://www.behance.net",
   },
   dribbble: {
-    icon: SiDribbble,
+    icon: RiDribbbleFill,
     url: "https://dribbble.com",
   },
   linkedin: {
-    icon: SiLinkedin,
+    icon: RiLinkedinFill,
     url: "https://www.linkedin.com/in",
   },
   twitter: {
-    icon: SiTwitter,
+    icon: RiTwitterFill,
     url: "https://twitter.com",
   },
   facebook: {
-    icon: SiFacebook,
+    icon: RiFacebookCircleFill,
     url: "https://www.facebook.com",
   },
   instagram: {
-    icon: SiInstagram,
+    icon: RiInstagramFill,
     url: "https://www.instagram.com",
   },
   devto: {
@@ -57,19 +57,19 @@ export const SOCIAL_RESOURCES: {
     url: "https://dev.to",
   },
   github: {
-    icon: SiGithub,
+    icon: RiGithubFill,
     url: "https://github.com",
   },
   stackoverflow: {
-    icon: SiStackoverflow,
+    icon: RiStackOverflowFill,
     url: "https://stackoverflow.com/users",
   },
   youtube: {
-    icon: SiYoutube,
+    icon: RiYoutubeFill,
     url: "https://www.youtube.com/channel",
   },
   medium: {
-    icon: SiMedium,
+    icon: RiMediumFill,
     url: "https://medium.com",
   },
   notion: {
@@ -77,23 +77,27 @@ export const SOCIAL_RESOURCES: {
     url: "",
   },
   unsplash: {
-    icon: SiUnsplash,
+    icon: RiUnsplashFill,
     url: "https://unsplash.com",
   },
   patreon: {
-    icon: SiPatreon,
+    icon: RiPatreonFill,
     url: "https://www.patreon.com",
   },
   paypal: {
-    icon: SiPaypal,
+    icon: RiPaypalFill,
+    url: "",
+  },
+  pocket: {
+    icon: FaGetPocket,
     url: "",
   },
   digitalocean: {
-    icon: SiDigitalocean,
+    icon: FaDigitalOcean,
     url: "https://www.digitalocean.com/blog/author",
   },
   tripadvisor: {
-    icon: SiTripadvisor,
+    icon: FaTripadvisor,
     url: "https://www.tripadvisor.com",
   },
   buymeacoffee: {
@@ -101,13 +105,13 @@ export const SOCIAL_RESOURCES: {
     url: "https://www.buymeacoffee.com",
   },
   mailto: {
-    icon: SiMaildotru,
+    icon: RiMailFill,
     url: "",
   },
   url: {
-    icon: FiExternalLink,
+    icon: RiExternalLinkFill,
     url: "",
   },
 }
 
-export const CUSTOM_EVENT_PITAYAN_TOGGLE_THEME = 'CUSTOM_EVENT_PITAYAN_TOGGLE_THEME'
+export const CUSTOM_EVENT_TOGGLE_THEME = 'CUSTOM_EVENT_TOGGLE_THEME'

@@ -114,10 +114,8 @@ const Post: React.FC<PostProps> = ({
       </div>
 
       <div className="max-w-lg md:max-w-2xl mx-auto mb-20">
+        <PostMeta className="block mb-4" date={date} timeToRead={timeToRead} />
         <h1>{title}</h1>
-        <PostMeta date={date} timeToRead={timeToRead} />
-        <br />
-        <br />
 
         <div className="flex flex-wrap items-center justify-between">
           <PostAuthors data={coAuthors} />
@@ -126,11 +124,12 @@ const Post: React.FC<PostProps> = ({
             title={title}
             hashtags={categories.join(",")}
             description={description}
-            className="space-x-10 text-2xl py-4"
+            className="space-x-6 text-2xl py-4"
             twitter
             facebook
             linkedin
             pocket
+            copy
           />
         </div>
       </div>
@@ -156,11 +155,12 @@ const Post: React.FC<PostProps> = ({
           title={title}
           hashtags={categories.join(",")}
           description={description}
-          className="space-x-10"
+          className="space-x-10 text-2xl"
           twitter
           facebook
           linkedin
           pocket
+          copy
         />
       </div>
 

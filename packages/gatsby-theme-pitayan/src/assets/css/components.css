@@ -16,6 +16,7 @@
 }
 
 .site-link {
+  @apply cursor-pointer;
   @apply font-semibold;
   @apply opacity-60;
   @apply hover:opacity-100;
@@ -321,6 +322,7 @@
     @apply pointer-events-none;
   }
 
+  &:hover,
   &.active {
     .tooltip-container {
       @apply opacity-100;
@@ -329,11 +331,12 @@
 
   &&-top-center {
     .tooltip-container {
-      bottom: 110%;
+      bottom: 120%;
       left: 50%;
       transform: translate(-50%, 4px);
     }
 
+    &:hover,
     &.active {
       .tooltip-container {
         transform: translate(-50%, -4px);

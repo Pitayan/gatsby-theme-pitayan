@@ -1,7 +1,6 @@
 import React, { memo } from "react"
 import { Link } from "gatsby"
 import DarkModeToggle from "@pitayan/gatsby-theme-pitayan/src/components/DarkModeToggle"
-import URLCopyIconButton from "@pitayan/gatsby-theme-pitayan/src/components/URLCopyIconButton"
 import SiteLogo from "@pitayan/gatsby-theme-pitayan/src/components/SiteLogo"
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
@@ -17,7 +16,6 @@ const TopNav: React.FC = () => {
         </b>
       </Link>
       <div className="flex space-x-8 text-3xl items-center">
-        <URLCopyIconButton />
         <DarkModeToggle />
       </div>
     </nav>
