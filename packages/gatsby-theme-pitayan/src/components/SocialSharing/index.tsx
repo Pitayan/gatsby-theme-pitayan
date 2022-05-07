@@ -1,8 +1,8 @@
 import React, { memo } from "react"
-import { objectToGetParams } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import { objectToGetParams, copyToClipboard } from "@pitayan/gatsby-theme-pitayan/src/utils"
 import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
-import URLCopyIconButton from "@pitayan/gatsby-theme-pitayan/src/components/URLCopyIconButton"
 import Tooltip from "@pitayan/gatsby-theme-pitayan/src/components/Tooltip"
+import { RiLinkM } from "react-icons/ri"
 
 type SocialSharingProps = {
   title: string
@@ -38,71 +38,79 @@ const SocialSharing: React.FC<SocialSharingProps> = ({
     <span className={`flex items-center ${className}`}>
       {twitter && (
         <Tooltip text="Share to Twitter">
-          <a
-            className="site-link"
-            target="_blank"
-            rel="noreferrer"
-            href={`https://twitter.com/share${objectToGetParams({
-              title,
-              url,
-              hashtags,
-            })}`}
-          >
-            <TwitterIcon />
-          </a>
+          <div className="site-link">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://twitter.com/share${objectToGetParams({
+                title,
+                url,
+                hashtags,
+              })}`}
+            >
+              <TwitterIcon />
+            </a>
+          </div>
         </Tooltip>
       )}
       {facebook && (
         <Tooltip text="Share to Facebook">
-          <a
-            className="site-link"
-            target="_blank"
-            rel="noreferrer"
-            href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
-              title,
-              u: url,
-              description: description,
-              hashtag: hashtags,
-            })}`}
-          >
-            <FacebookIcon />
-          </a>
+          <div className="site-link">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://www.facebook.com/sharer/sharer.php${objectToGetParams({
+                title,
+                u: url,
+                description: description,
+                hashtag: hashtags,
+              })}`}
+            >
+              <FacebookIcon />
+            </a>
+          </div>
         </Tooltip>
       )}
       {linkedin && (
         <Tooltip text="Share to Linkedin">
-          <a
-            className="site-link"
-            target="_blank"
-            rel="noreferrer"
-            href={`https://linkedin.com/shareArticle${objectToGetParams({
-              title,
-              url,
-              summary: description,
-            })}`}
-          >
-            <LinkedinIcon />
-          </a>
+          <div className="site-link">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://linkedin.com/shareArticle${objectToGetParams({
+                title,
+                url,
+                summary: description,
+              })}`}
+            >
+              <LinkedinIcon />
+            </a>
+          </div>
         </Tooltip>
       )}
       {pocket && (
         <Tooltip text="Share to Pocket">
-          <a
-            className="site-link"
-            target="_blank"
-            rel="noreferrer"
-            href={`https://getpocket.com/save${objectToGetParams({
-              title,
-              url,
-            })}`}
-          >
-            <PocketIcon />
-          </a>
+          <div className="site-link">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://getpocket.com/save${objectToGetParams({
+                title,
+                url,
+              })}`}
+            >
+              <PocketIcon />
+            </a>
+          </div>
         </Tooltip>
       )}
       {copy && (
         <Tooltip text="Copy URL address">
-          <URLCopyIconButton />
+          <div className="site-link">
+            <a onClick={() => copyToClipboard(window.location.href)}>
+              <RiLinkM className="text-[110%]" />
+            </a>
+          </div>
         </Tooltip>
       )}
     </span>
