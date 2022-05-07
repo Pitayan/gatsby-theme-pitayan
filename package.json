@@ -37,8 +37,5 @@
   "version": "0.1.0",
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "gatsby-remark-copy-linked-files": "^5.13.0"
-  }
+  ]
 }

@@ -3,6 +3,12 @@ const fs = require("fs")
 
 const defaultGatsbyRemarkPlugins = [
   {
+    resolve: `gatsby-remark-smartypants`,
+  },
+  {
+    resolve: `gatsby-remark-numbered-footnotes`,
+  },
+  {
     resolve: `gatsby-remark-copy-linked-files`,
   },
   {
