@@ -13,7 +13,7 @@
   <a href="https://npmcharts.com/compare/@pitayan/gatsby-theme-pitayan?minimal=true">
     <img src="https://img.shields.io/npm/dt/@pitayan/gatsby-theme-pitayan.svg" alt="Total downloads on npm." />
   </a>
-  <a href="https://twitter.com/intent/follow?screen_name=gatsbyjs">
+  <a href="https://twitter.com/intent/follow?screen_name=pitayanblog">
     <img src="https://img.shields.io/twitter/follow/pitayanblog.svg?label=Follow%20@pitayanblog" alt="Follow @PitayanBlog" />
   </a>
 </p>
@@ -37,47 +37,30 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 
 ## Table of Contents
 
-- [Get Started](#get-started)
-  - [Install Dependencies](#install-dependencies)
-  - [Setup Project Folder](#setup-project-folder)
-  - [Required Config files](#required-config-files)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Project Setup](#project-setup)
+    - [Folder Structure](#folder-structure)
+    - [Postcss and Tailwindcss config files](#postcss-and-tailwindcss-config-files)
   - [Configurations](#configurations)
     - [Gatsby Configs](#gatsby-configs)
     - [Plugin Options](#plugin-options)
-  - [Site Resources](#site-resources)
-- [Adding Contents](#adding-contents)
-  - [Adding Site Metadata](#adding-site-metadata)
-  - [Adding Authors](#adding-authors)
-  - [Adding Posts](#adding-posts)
-  - [Adding Site Pages](#adding-site-pages)
-  - [Adding Styles](#adding-styles)
-  - [Adding Site Logo & Cover Image](#adding-site-logo--cover-image)
+  - [Adding Contents](#adding-contents)
+    - [Adding Site Metadata](#adding-site-metadata)
+    - [Adding Authors](#adding-authors)
+    - [Adding Posts](#adding-posts)
+    - [Adding Site Pages](#adding-site-pages)
+    - [Adding Styles](#adding-styles)
+    - [Adding Site Logo & Cover Image](#adding-site-logo--cover-image)
 - [Full Fledged Example](#full-fledged-example)
 - [Others](#others)
+  - [Custom Events](#custom-events)
   - [Browser Support](#browser-support)
 - [Contribute](#contribute)
 - [Q&A](#qa)
 - [Road Map](#road-map)
 
-Follow the guide to get familiar with setting up your Gatsby blog with this theme.
-
-# Get Started
-
-## Setup Project Folder
-
-The recommended project folder structure looks like this.
-
-```
-your-site
-  ├── content/
-  │ ├── authors/
-  │ ├── posts/
-  │ └── site/
-  ├── src/
-  │ └── assets/
-```
-
-## Install Dependencies
+# Installation
 
 Install the dependencies via Yarn or NPM.
 
@@ -89,7 +72,24 @@ $ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom
 $ yarn add gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
 ```
 
-## Required Config Files
+# Usage
+
+## Project Setup
+
+### Folder Structure
+The necessary project folder structure looks like this. Make sure you've created all of them. For now, the folder paths are not configurable.
+
+```
+your-site
+  ├── content/
+  │ ├── authors/
+  │ ├── posts/
+  │ └── site/
+  ├── src/
+  │ └── assets/
+```
+
+### Postcss and Tailwindcss config files
 
 The theme is built upon [Tailwindcss](https://tailwindcss.com) and [PostCSS](https://postcss.org). This means you'll need to put the following files under project root folder in order to compile the CSS source.
 
@@ -165,43 +165,22 @@ Example
 }
 ```
 
-## Site Resources
-
-### Contents
-
-The site content folders are where to keep your content like posts and authors and custom site pages. And what's more, the folder paths are not customizable.
-
-```
-├── content/
-│ ├── authors/
-│ ├── posts/
-│ └── site/
-```
-
-### Static assets
-
-As for the assets like site pictures / logos / style sheets, they can be kept under `src/assets` folder. You could change the folder path by adding a plugin option
-of `siteAssets`. See details here [Plugin Options](#plugin-options).
-
-```
-├── src/
-│ └── assets/
-```
-
 # Adding Contents
 
 ## Adding Site Metadata
 
 This step is very essential before you get started with official blogging. All of the items in the table below are _required_.
 
-| Item        | Description                                                                      |
-| ----------- | :------------------------------------------------------------------------------- |
-| title       | Your site title. This will be used as image alt                                  |
-| name        | Your site name. This will be displayed in the top navigation bar beside the logo |
-| description | Your site's description for SEO purposes                                         |
-| siteUrl     | Your site's official URL                                                         |
-| siteSlogan  | The slogan to be displayed on the home page                                      |
-| siteLinks   | A list of links to be displayed on the home links section or bottom footer       |
+| Item                | Description                                                                                                                   |
+| ------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| title               | Your site title. This will be used as image alt                                                                               |
+| name                | Your site name. This will be displayed in the top navigation bar beside the logo                                              |
+| description         | Your site's description for SEO purposes                                                                                      |
+| siteUrl             | Your site's official URL                                                                                                      |
+| siteSlogan          | The slogan to be displayed on the home page                                                                                   |
+| siteLinks           | A list of links to be displayed on the home links section or bottom footer                                                    |
+| siteCookieConsent   | Containing properties of `title` & `description` & `readMore` for customizing the content of cookie consent prompt component  |
+| siteSubscription    | Containing properties of `title` & `description` for customizing the content of the subscription component                    |
 
 Example
 
@@ -228,7 +207,19 @@ module.exports = {
         group: "site,home",
         internal: true,
       },
-    ]
+    ],
+    // "siteCookieConsent" and "siteSubscription"'s properties have default values, leave them as empty strings to allow using the defaults
+    // Override the defaults by adding your own inputs
+    siteCookieConsent: {
+      title: '',
+      description: '',
+      // For siteCookieConsent, the theme will automatically add "privacy" and "terms" like to cookie prompt if the `siteLinks` contains any matched items
+      readMore: '',
+    },
+    siteSubscription: {
+      title: '',
+      description: '',
+    },
   }
 }
 ```
@@ -369,7 +360,7 @@ displayTitle: true
 Sometime you may need to write HTML directly in the post page. Since not all of the HTML tags (e.g. `<div>`) are styled by this theme, there might be some unexpected layout arrangements.
 This theme provides some CSS utilities to let you directly adjust those raw HTML tags. It's also viable to approach this via [Tailwindcss](https://tailwindcss.com) style.
 
-Here are the CSS utilities class names. See their definitions in this file: [./packages/gatsby-theme-pitayan/src/assets/css/utilities.css](./packages/gatsby-theme-pitayan/src/assets/css/utilities.css)
+Here are the built-in CSS utilities class names. See their definitions in this file: [./packages/gatsby-theme-pitayan/src/assets/css/utilities.css](./packages/gatsby-theme-pitayan/src/assets/css/utilities.css)
 
 - Post Width
   - .mark-w-sm
@@ -411,6 +402,17 @@ This example site has integrated the following plugins:
 - [gatsby-remark-responsive-iframe](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-responsive-iframe): Makes iframe elements in the markdown content responsive, helpful when embedding social media contents
 
 # Others
+
+## Custom Events
+
+This theme introduces some custom events to allow 3rd party scripts (or your own scripts) to follow up the on-page behaviors.
+
+| Item                        | Custom Event Detail Property                        | Description                                               |
+| --------------------------- | :-------------------------------------------------- | :-------------------------------------------------------- |
+| CUSTOM_EVENT_SUBSCRIPTION   | { email: string }                                   | Occurs when a user successfully subscribed to newsletters |
+| CUSTOM_EVENT_TOGGLE_THEME   | { theme: 'dark' | 'light' }                         | Occurs when a user changes the theme dark <-> light       |
+| CUSTOM_EVENT_SOCIAL_SHARING | { sns: 'Twitter' | 'Facebook' | 'Pocket' | 'copy' } | Occurs when a user shares to SNS / copes the post URL     |
+
 
 ## Browser Support
 

@@ -67,7 +67,7 @@ export const useSiteMetadata = (): SiteMetaData => {
             gatsbyImageData(
               width: 36
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO]
             )
           }
           extension

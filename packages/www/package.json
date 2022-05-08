@@ -12,7 +12,6 @@
   "dependencies": {
     "@pitayan/gatsby-theme-pitayan": "^0.2.15",
     "@raae/gatsby-remark-oembed": "^0.3.1",
-    "dotenv": "^16.0.0",
     "gatsby": "^4.12.1",
     "gatsby-plugin-feed": "^4.11.1",
     "gatsby-plugin-sitemap": "^5.11.1",
