@@ -70,6 +70,15 @@ module.exports = {
         internal: false,
       },
     ],
+    siteCookieConsent: {
+      title: '',
+      description: '',
+      readMore: '',
+    },
+    siteSubscription: {
+      title: '',
+      description: '',
+    },
   },
   plugins: [
     `gatsby-plugin-sitemap`,
