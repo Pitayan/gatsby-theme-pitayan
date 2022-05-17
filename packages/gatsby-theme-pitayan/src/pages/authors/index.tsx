@@ -3,6 +3,7 @@ import React, { memo } from "react"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import Avatar from "@pitayan/gatsby-theme-pitayan/src/components/Avatar"
+import AuthorCard from "@pitayan/gatsby-theme-pitayan/src/components/AuthorCard"
 
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import { ImageDataLike } from "gatsby-plugin-image"
@@ -37,23 +38,25 @@ const Authors: React.FC<AuthorsProps> = ({
 
   return (
     <DefaultLayout pageUrl={`${siteUrl}/authors`} pageTitle="Authors">
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
+      <h1 className="leading-tight md:leading-tight md:text-4xl text-3xl text-center mb-32">
         Authors ({authors.length})
       </h1>
-      <hr className="my-8 border-gray-300" />
-      <ul className="list-none">
+      <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-32">
         {authors.map(
-          ({ id, name, initial, yamlId, avatar: { normal: image } }) => (
-            <li key={id} className="my-8 flex items-center space-x-3">
-              <Avatar className="h-12 w-12" initial={initial} image={image} />
-              <Link className="site-link" to={`/authors/@${yamlId}/`}>
-                <b>{name}</b>&nbsp;&nbsp;
-                <span>@{yamlId}</span>
-              </Link>
-            </li>
+          ({ name, initial, yamlId, avatar, sns, bio }) => (
+            <AuthorCard
+              className="p-8 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded"
+              key={yamlId}
+              bio={bio}
+              name={name}
+              initial={initial}
+              avatar={avatar}
+              sns={sns}
+              yamlId={yamlId}
+            />
           )
         )}
-      </ul>
+      </div>
     </DefaultLayout>
   )
 }
@@ -68,6 +71,7 @@ export const pageQuery = graphql`
         yamlId
         name
         bio
+        sns
         initial
         avatar {
           normal: childImageSharp {
