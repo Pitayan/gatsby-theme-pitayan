@@ -3,12 +3,18 @@ import { Link } from "gatsby"
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import NavigationLinksGroup from "@pitayan/gatsby-theme-pitayan/src/components/NavigationLinksGroup"
 
-const BottomFooter: React.FC = () => {
+type BottomFooterProps = {
+  className?: string
+}
+
+const BottomFooter: React.FC<BottomFooterProps> = ({
+  className = "",
+}) => {
   const year = new Date().getFullYear()
   const { siteLinks } = useSiteMetadata()
 
   return (
-    <footer>
+    <footer className={className}>
       <div className="flex flex-wrap justify-between">
         <div className="flex flex-col justify-between w-96">
           <h1 className="font-black">
