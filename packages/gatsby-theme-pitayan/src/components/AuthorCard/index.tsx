@@ -1,5 +1,7 @@
+import { Link } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
 import React, { memo } from "react"
+
 import Avatar from "../Avatar"
 import SocialGroup from "../SocialGroup"
 
@@ -13,27 +15,32 @@ type AuthorCardProps = {
   name: string
   initial: string
   sns: any
+  yamlId?: string
 }
 
 const AuthorCard: React.FC<AuthorCardProps> = ({
   bio,
   name,
   initial,
-  avatar: { normal: image, className: avatarClassName = "h-40 w-40" },
+  avatar: { normal: image, className: avatarClassName = "h-32 w-32" },
   sns,
   className = "",
+  yamlId,
 }) => {
   return (
-    <div className={`text-center ${className}`}>
-      <Avatar className={avatarClassName} initial={initial} image={image} />
-      <br />
-      <br />
-      <div className="flex flex-col">
-        <h2 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl text-center">
+    <div className={`${className} flex flex-wrap`}>
+      <Avatar className={`mb-4 mr-8 ${avatarClassName}`} initial={initial} image={image} />
+      <div className="flex flex-col items-stretch justify-between flex-1">
+        <h2 className="font-extrabold leading-tight md:leading-tight md:text-2xl text-xl">
           {name}
+          {yamlId &&
+            <Link to={`/authors/@${yamlId}`} className="site-link mx-2">
+              <small>@{yamlId}</small>
+            </Link>
+          }
         </h2>
-        <p className="mx-auto w-64 text-center text-xl opacity-60">{bio}</p>
-        <SocialGroup className="mx-auto" data={sns} />
+        <p className="text-base">{bio}</p>
+        <SocialGroup className="max-w-lg text-xl my-0" data={sns} />
       </div>
     </div>
   )
