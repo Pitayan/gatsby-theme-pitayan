@@ -2,7 +2,6 @@ import { graphql, Link } from "gatsby"
 import React, { memo } from "react"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
-import Avatar from "@pitayan/gatsby-theme-pitayan/src/components/Avatar"
 import AuthorCard from "@pitayan/gatsby-theme-pitayan/src/components/AuthorCard"
 
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"

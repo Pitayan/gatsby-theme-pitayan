@@ -41,13 +41,13 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
       pageTitle={`Posts of ${name}`}
     >
       <AuthorCard
+        className="mb-24 p-8 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded mx-auto max-w-2xl"
         bio={bio}
         name={name}
         initial={initial}
         avatar={avatar}
         sns={sns}
       />
-      <hr className="my-8 border-gray-300" />
       <PostsGroup
         posts={posts}
         className="grid relative grid-cols-1 md:grid-cols-2 gap-8"
