@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 import { useLocation } from "@reach/router"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import PostMeta from "@pitayan/gatsby-theme-pitayan/src/components/PostMeta"
-import SubscriptionPanel from "@pitayan/gatsby-theme-pitayan/src/components/SubscriptionPanel"
-import RelatedPosts from "@pitayan/gatsby-theme-pitayan/src/components/RelatedPosts"
+import AuthorCard from "@pitayan/gatsby-theme-pitayan/src/components/AuthorCard"
 import SocialSharing from "@pitayan/gatsby-theme-pitayan/src/components/SocialSharing"
 import CategoryTags from "@pitayan/gatsby-theme-pitayan/src/components/CategoryTags"
 import BackToTop from "@pitayan/gatsby-theme-pitayan/src/components/BackToTop"
@@ -19,7 +19,7 @@ import ScrollVisibility from "@pitayan/gatsby-theme-pitayan/src/components/Scrol
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import { Author } from "@pitayan/gatsby-theme-pitayan/src/pages/authors"
-import { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type PostProps = {
   data: {
@@ -41,6 +41,16 @@ type PostProps = {
       }
       timeToRead: number
       relatedPosts: PostNode[]
+    }
+  },
+  pageContext: {
+    previous: {
+      title: string
+      slug: string
+    }
+    next: {
+      title: string
+      slug: string
     }
   }
 }
@@ -69,6 +79,10 @@ const Post: React.FC<PostProps> = ({
       relatedPosts,
     },
   },
+  pageContext: {
+    previous,
+    next
+  }
 }) => {
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
@@ -113,9 +127,9 @@ const Post: React.FC<PostProps> = ({
         </ScrollVisibility>
       </div>
 
-      <div className="max-w-lg md:max-w-2xl mx-auto mb-20">
-        <h1>{title}</h1>
-        <PostMeta className="block mb-4" date={date} timeToRead={timeToRead} />
+      <div className="max-w-lg md:max-w-2xl mx-auto mb-24">
+        <h1 className="text-center">{title}</h1>
+        <PostMeta className="block mb-4 text-center" date={date} timeToRead={timeToRead} />
 
         <div className="flex flex-wrap items-center justify-between">
           <PostAuthors data={coAuthors} />
@@ -124,7 +138,7 @@ const Post: React.FC<PostProps> = ({
             title={title}
             hashtags={categories.join(",")}
             description={description}
-            className="space-x-6 text-2xl py-4"
+            className="space-x-6 text-xl py-4"
             twitter
             facebook
             linkedin
@@ -144,33 +158,66 @@ const Post: React.FC<PostProps> = ({
         </MDXProvider>
       </article>
 
-      <SubscriptionPanel className="my-12" />
+      <div className="my-8 mark-w-sm md:mark-w-md">
+        <div className="flex flex-wrap justify-between">
+          <CategoryTags className="my-4" categories={categories} />
+          <SocialSharing
+            url={url}
+            title={title}
+            hashtags={categories.join(",")}
+            description={description}
+            className="space-x-6 text-xl my-4"
+            twitter
+            facebook
+            linkedin
+            pocket
+            copy
+          />
+        </div>
 
-      <hr className="border-gray-300 my-12" />
+        <div className="flex justify-between flex-wrap text-base mt-12 mb-24">
+          <div className="p-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded my-4">
+            <Link to={previous.slug} className="site-link w-64 my-2 block">
+              <div className="flex justify-center items-center space-x-2">
+                <RiArrowLeftLine className="block text-2xl" />
+                <span>{previous.title}</span>
+              </div>
+            </Link>
+          </div>
+          <div className="text-right ml-auto p-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded my-4">
+            <Link to={next.slug} className="site-link w-64 my-2 block">
+              <div className="flex justify-center items-center space-x-2">
+                <span>{next.title}</span>
+                <RiArrowRightLine className="block text-2xl" />
+              </div>
+            </Link>
+          </div>
+        </div>
 
-      <h3 className="text-base font-black font-serif mb-8">Social Sharing</h3>
-      <div className="text-2xl my-8">
-        <SocialSharing
-          url={url}
-          title={title}
-          hashtags={categories.join(",")}
-          description={description}
-          className="space-x-10 text-2xl"
-          twitter
-          facebook
-          linkedin
-          pocket
-          copy
+        <h5 className="text-center mb-12">Written by</h5>
+        {coAuthors.map(({ bio, name, initial, avatar, sns, yamlId }) => {
+          return (
+            <AuthorCard
+              className="p-8 mb-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded"
+              key={yamlId}
+              bio={bio}
+              name={name}
+              initial={initial}
+              avatar={avatar}
+              sns={sns}
+              yamlId={yamlId}
+            />
+          )
+        })}
+      </div>
+
+      <div className="my-24 mark-w-sm md:max-w-full">
+        <h5 className="mb-12 text-center">Related Posts</h5>
+        <PostsGroup
+          posts={relatedPosts}
+          className="grid sm:grid-cols-3 row-auto auto-cols-auto gap-8"
         />
       </div>
-
-      <h3 className="text-base font-black font-serif mb-8">Categories</h3>
-      <div className="my-8">
-        <CategoryTags categories={categories} />
-      </div>
-
-      <h3 className="text-base font-black font-serif mb-8">Related Posts</h3>
-      <RelatedPosts posts={relatedPosts} />
     </DefaultLayout>
   )
 }
@@ -191,7 +238,7 @@ export const pageQuery = graphql`
           avatar {
             normal: childImageSharp {
               gatsbyImageData(
-                width: 32
+                width: 128
                 placeholder: BLURRED
                 formats: [AUTO]
               )
