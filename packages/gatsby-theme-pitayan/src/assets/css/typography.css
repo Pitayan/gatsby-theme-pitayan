@@ -46,7 +46,8 @@ p {
 }
 
 a {
-  @apply break-words;
+  @apply break-all;
+  @apply sm:break-normal;
 }
 
 a,
