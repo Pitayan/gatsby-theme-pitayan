@@ -1,6 +1,7 @@
 import React from "react"
 import TopNav from "@pitayan/gatsby-theme-pitayan/src/components/TopNav"
 import BottomFooter from "@pitayan/gatsby-theme-pitayan/src/components/BottomFooter"
+import SubscriptionPanel from "@pitayan/gatsby-theme-pitayan/src/components/SubscriptionPanel"
 import SEO, { SEOProps } from "@pitayan/gatsby-theme-pitayan/src/components/SEO"
 import { useCookiePrompt } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
@@ -21,7 +22,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   useCookiePrompt()
 
   return (
-    <div className="mt-16 mx-auto px-6 md:px-8 max-w-screen-xl">
+    <div className="my-16">
       <SEO
         postDescription={postDescription}
         pageImage={pageImage}
@@ -33,14 +34,14 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         authors={authors}
         noIndex={noIndex}
       />
-      <div className="pb-20">
-        <TopNav />
-      </div>
-      <div>{children}</div>
-      <hr className="border-gray-300 mt-12" />
-      <div className="pt-12">
-        <BottomFooter />
-      </div>
+
+      <TopNav className="pb-20 px-6 md:px-8 max-w-screen-xl mx-auto" />
+
+      <div className="px-6 md:px-8 max-w-screen-xl mx-auto">{children}</div>
+
+      <SubscriptionPanel className="p-8 text-center mx-auto bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800" />
+
+      <BottomFooter className="pt-16 px-6 md:px-8 max-w-screen-xl mx-auto" />
     </div>
   )
 }
