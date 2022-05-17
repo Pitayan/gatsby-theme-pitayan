@@ -1,4 +1,5 @@
 import React, { memo } from "react"
+
 import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 
 type SocialIconsProps = {
@@ -19,7 +20,7 @@ const SocialIcon: React.FC<SocialIconsProps> = ({ icon, className = "" }) => {
 
 const SocialGroup: React.FC<SocialGroupProps> = ({ data, className = "" }) => {
   return (
-    <ul className={`list-none flex flex-wrap space-x-8 ${className}`}>
+    <ul className={`list-none grid grid-flow-col-dense auto-cols-auto ${className}`}>
       {data.map(([sns, profile]) => {
         let href = `${SOCIAL_RESOURCES[sns]?.url}/${profile}`
 
@@ -31,7 +32,7 @@ const SocialGroup: React.FC<SocialGroupProps> = ({ data, className = "" }) => {
         return (
           <li key={sns}>
             <a href={href} target="_blank" rel="noreferrer">
-              <SocialIcon className="h-6 w-6 site-link" icon={sns} />
+              <SocialIcon className="site-link" icon={sns} />
             </a>
           </li>
         )
