@@ -46,15 +46,9 @@ module.exports = {
         internal: true,
       },
       {
-        name: "subscribe",
-        url: "/subscribe",
-        group: "connect,home",
-        internal: true,
-      },
-      {
         name: "github",
         url: "https://github.com/Pitayan",
-        group: "connect",
+        group: "connect,home",
         internal: false,
       },
       {
