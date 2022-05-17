@@ -1,8 +1,9 @@
 import React, { memo } from "react"
+import { RiLinkM } from "react-icons/ri"
+
 import { objectToGetParams, copyToClipboard, dispatchCustomEvent } from "@pitayan/gatsby-theme-pitayan/src/utils"
 import { CUSTOM_EVENT_SOCIAL_SHARING, SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import Tooltip from "@pitayan/gatsby-theme-pitayan/src/components/Tooltip"
-import { RiLinkM } from "react-icons/ri"
 
 type SocialSharingProps = {
   title: string
