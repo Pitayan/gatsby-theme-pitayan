@@ -29,7 +29,7 @@ const AuthorAvatars: React.FC<AuthorProps> = ({ data }) => {
   return (
     <div className="flex overflow-hidden -space-x-3 p-1">
       {_data.map(({ id, initial, avatar: { normal: image } }) => {
-        return <Avatar key={id} initial={initial} image={image} />
+        return <Avatar className="h-8 w-8" key={id} initial={initial} image={image} />
       })}
     </div>
   )
@@ -55,7 +55,7 @@ const CoAuthorsList: React.FC<AuthorProps> = ({ data }) => {
         return (
           <li key={id} className="m-0 p-3">
             <Link className="flex space-x-4" to={`/authors/@${yamlId}`}>
-              <Avatar initial={initial} image={image} />
+              <Avatar className="h-8 w-8" initial={initial} image={image} />
               <span className="self-center site-link">{name}</span>
             </Link>
           </li>
