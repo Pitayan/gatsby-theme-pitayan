@@ -76,7 +76,7 @@ const PostAuthors: React.FC<AuthorProps> = ({ data }) => {
   }
 
   return (
-    <div className="relative rounded hover:bg-gray-200 dark:hover:bg-gray-800 -mx-3">
+    <div className="relative rounded hover:bg-gray-100 dark:hover:bg-gray-800 -mx-3">
       <div
         aria-hidden
         className="flex space-x-2 justify-center p-3 cursor-pointer"
@@ -97,7 +97,7 @@ const PostAuthors: React.FC<AuthorProps> = ({ data }) => {
             onClick={handleClick}
             onKeyDown={handleClick}
           >
-            <div className="flex bg-gray-200 dark:bg-gray-800 p-3 rounded justify-between">
+            <div className="flex bg-gray-100 dark:bg-gray-800 p-3 rounded justify-between">
               <CoAuthorsList data={data} />
               <HiOutlineChevronUp size={20} className="self-start mt-3" />
             </div>
