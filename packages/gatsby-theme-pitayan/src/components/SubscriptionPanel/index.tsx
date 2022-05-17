@@ -9,7 +9,7 @@ import { dispatchCustomEvent, subscribeMailChimp } from "@pitayan/gatsby-theme-p
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 type SubscriptionPanelProps = {
-  className: string
+  className?: string
 }
 
 const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
@@ -52,7 +52,7 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
   }
 
   return (
-    <div className={`subscription mark-w-xl ${className}`}>
+    <div className={`subscription ${className}`}>
       <div className="subscription-container">
         <h3 className="subscription-title">
           { title || SUBSCRIPTION_DEFAULT_TITLE }
@@ -61,7 +61,7 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
           { description || SUBSCRIPTION_DEFAULT_DESCRIPTION }
         </div>
         <form className="subscription-action" onSubmit={handleOnSubmit}>
-          <div className="w-full relative">
+          <div className="w-full relative max-w-lg mx-auto">
             <span className="absolute top-[23%] left-3 text-gray-400 dark:text-gray-500">
               @
             </span>
