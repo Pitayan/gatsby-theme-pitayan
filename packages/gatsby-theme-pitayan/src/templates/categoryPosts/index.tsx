@@ -37,10 +37,9 @@ const CategoryPosts: React.FC<CategoryPostsProps> = ({
       pageUrl={`${siteUrl}/categories/${category}`}
       pageTitle={`Category: ${category}`}
     >
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
-        Category: {category} ({totalCount})
+      <h1 className="leading-tight md:leading-tight md:text-4xl text-3xl text-center mb-32">
+        {category} ({totalCount})
       </h1>
-      <hr className="my-8 border-gray-300" />
       <PostsGroup
         posts={posts}
         className="grid relative grid-cols-1 md:grid-cols-2 gap-8"
