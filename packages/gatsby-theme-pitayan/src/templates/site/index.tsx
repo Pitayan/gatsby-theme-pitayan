@@ -61,8 +61,8 @@ const Site: React.FC<SiteProps> = ({ data }: any) => {
       </div>
 
       {displayTitle && (
-        <div className="max-w-lg md:max-w-2xl mx-auto mb-10">
-          <h1>{title}</h1>
+        <div className="max-w-lg md:max-w-2xl mx-auto mb-24">
+          <h1 className="text-center">{title}</h1>
         </div>
       )}
 
