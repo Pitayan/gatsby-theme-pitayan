@@ -1,7 +1,8 @@
 import React, { memo } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
+import CategoryTags from "@pitayan/gatsby-theme-pitayan/src/components/CategoryTags"
 
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
@@ -24,25 +25,16 @@ const CategoriesPage: React.FC<CategoriesProps> = ({
   },
 }) => {
   const { siteUrl } = useSiteMetadata()
+  const categories = group.map((category: any) => {
+    return category.fieldValue
+  })
 
   return (
     <DefaultLayout pageUrl={`${siteUrl}/categories`} pageTitle="Categories">
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
+      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl text-center mb-32">
         Categories ({group.length})
       </h1>
-      <hr className="my-8 border-gray-300" />
-      <ul>
-        {group.map((category: any) => (
-          <li key={category.fieldValue}>
-            <Link
-              className="site-link"
-              to={`/categories/${category.fieldValue}/`}
-            >
-              {category.fieldValue} ({category.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <CategoryTags className="mx-auto mb-32 max-w-lg justify-center" categories={categories} />
     </DefaultLayout>
   )
 }
