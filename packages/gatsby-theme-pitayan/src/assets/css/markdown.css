@@ -8,9 +8,10 @@
   blockquote,
   p,
   ul,
+  pre,
   ol {
     @apply mark-w-sm;
-    @apply lg:mark-w-md;
+    @apply md:mark-w-md;
   }
 
   h1,
@@ -80,8 +81,6 @@
   pre {
     @apply mb-8;
     @apply py-4 px-6;
-    @apply mark-w-md;
-    @apply lg:mark-w-lg;
   }
 
   blockquote {
