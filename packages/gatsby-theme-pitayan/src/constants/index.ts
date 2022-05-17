@@ -7,7 +7,7 @@ import {
   RiUnsplashFill,
   RiMailFill,
   RiBehanceFill,
-  RiFacebookCircleFill,
+  RiFacebookFill,
   RiTwitterFill,
   RiGithubFill,
   RiDribbbleFill,
@@ -45,7 +45,7 @@ export const SOCIAL_RESOURCES: Record<string, { icon: IconType, url: string }> =
     url: "https://twitter.com",
   },
   facebook: {
-    icon: RiFacebookCircleFill,
+    icon: RiFacebookFill,
     url: "https://www.facebook.com",
   },
   instagram: {
