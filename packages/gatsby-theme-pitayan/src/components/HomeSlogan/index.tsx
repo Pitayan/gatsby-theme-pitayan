@@ -6,7 +6,7 @@ const HomeSlogan: React.FC = () => {
 
   return (
     <div className="max-w-2xl">
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-5xl text-4xl">
+      <h1 className="leading-tight md:leading-tight md:text-5xl text-4xl">
         {siteSlogan}
       </h1>
     </div>
