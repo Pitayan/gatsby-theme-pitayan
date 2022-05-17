@@ -68,18 +68,7 @@
 }
 
 .subscription {
-  @apply bg-gray-50;
-  @apply border border-solid border-gray-100;
-  @apply px-6 py-8;
-  @apply -mx-6;
-  @apply md:mx-auto;
-
-  @apply sm:!rounded;
-  @apply rounded-none;
-
-  /* Dark Mode */
-  @apply dark:bg-gray-800;
-  @apply dark:border-none;
+  @apply rounded;
 
   &-container {
     @apply max-w-2xl;
@@ -168,10 +157,10 @@
   @apply flex;
   @apply bg-black;
   @apply text-white;
-  @apply text-xl;
+  @apply text-lg;
   @apply font-bold;
   @apply rounded;
-  @apply px-4 py-3;
+  @apply px-3 py-2;
 
   /* Dark Mode */
   @apply dark:bg-white;
