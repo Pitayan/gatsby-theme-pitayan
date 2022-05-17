@@ -33,7 +33,7 @@ const defaultGatsbyRemarkPlugins = [
     options: {
       maxWidth: 10000,
       linkImagesToOriginal: false,
-      quality: 80,
+      quality: 100,
       withWebp: false,
       showCaptions: true,
       markdownCaptions: false,
