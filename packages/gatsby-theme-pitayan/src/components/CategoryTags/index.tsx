@@ -13,7 +13,7 @@ const CategoryTags: React.FC<CategoryTagsProps> = ({
   if (!categories || !categories.length) return <></>
 
   return (
-    <div className={`flex flex-wrap space-x-4 ${className}`}>
+    <div className={`flex flex-wrap gap-3 ${className}`}>
       {categories.map((category: string, key: number) => {
         return (
           <Link className="site-tag block" key={key} to={`/categories/${category}`}>
