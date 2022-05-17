@@ -27,6 +27,9 @@ module.exports = async function createPages(
         limit: 2000
       ) {
         nodes {
+          frontmatter {
+            title
+          }
           fields {
             slug
           }
@@ -65,14 +68,30 @@ module.exports = async function createPages(
 
     // Create post page
     // FIXME: path prefix -> as an argument?
-    result.data.posts.nodes.forEach(node => {
+    let previousPost = result.data.posts.nodes[result.data.posts.nodes.length - 1]
+    let nextPost = result.data.posts.nodes[1]
+    result.data.posts.nodes.forEach((node, key) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(projectRoot, `./src/templates/post/index.tsx`),
         context: {
           slug: node.fields.slug,
+          previous: {
+            title: previousPost.frontmatter.title,
+            slug: previousPost.fields.slug,
+          },
+          next: {
+            title: nextPost.frontmatter.title,
+            slug: nextPost.fields.slug,
+          }
         },
       })
+
+      previousPost = node
+
+      nextPost = key + 2 >  result.data.posts.nodes.length - 1
+        ? result.data.posts.nodes[0]
+        : result.data.posts.nodes[key + 2]
     })
 
     // Create paginated post list page
