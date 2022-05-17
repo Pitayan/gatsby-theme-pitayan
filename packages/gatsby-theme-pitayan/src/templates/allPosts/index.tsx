@@ -32,10 +32,9 @@ const PostsPage: React.FC<PostsPageProps> = ({
       pageUrl={`${siteUrl}/posts/${pageInfo.currentPage}`}
       pageTitle="All Posts"
     >
-      <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl">
+      <h1 className="leading-tight md:leading-tight md:text-4xl text-3xl text-center mb-32">
         All Posts ({totalCount})
       </h1>
-      <hr className="my-8 border-gray-300" />
       <PostsGroup
         posts={posts}
         className="grid relative grid-cols-1 md:grid-cols-2 gap-8"
