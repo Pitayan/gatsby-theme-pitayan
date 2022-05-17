@@ -19,12 +19,15 @@ export type PostNode = {
   }
 }
 
-type PostsGridProps = {
+type PostsProps = {
   posts: PostNode[]
   className?: string
 }
 
-const PostsGroup: React.FC<PostsGridProps> = ({ posts, className = "" }) => {
+const PostsGroup: React.FC<PostsProps> = ({
+  posts,
+  className = "",
+}) => {
   return (
     <div className={className}>
       {posts.map(
