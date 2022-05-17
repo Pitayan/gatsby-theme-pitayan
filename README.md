@@ -22,6 +22,8 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 
 ![preview_1](./previews/preview_1.png)
 
+![preview_2](./previews/preview_2.png)
+
 ## Builtin Features
 
 - Gatsby V4 ready
