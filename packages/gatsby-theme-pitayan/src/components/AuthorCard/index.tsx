@@ -28,9 +28,11 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
   yamlId,
 }) => {
   return (
-    <div className={`${className} flex flex-wrap`}>
-      <Avatar className={`mb-4 mr-8 ${avatarClassName}`} initial={initial} image={image} />
-      <div className="flex flex-col items-stretch justify-between flex-1">
+    <div className={`${className} flex flex-wrap space-x-0 sm:space-x-8`}>
+      <div className="w-full sm:w-auto text-center">
+        <Avatar className={`mb-4 ${avatarClassName}`} initial={initial} image={image} />
+      </div>
+      <div className="flex flex-col items-stretch justify-between flex-1 text-center sm:text-left">
         <h3 className="leading-tight md:leading-tight">
           {name}
           {yamlId &&

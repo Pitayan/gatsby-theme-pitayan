@@ -1,18 +1,6 @@
 .markdown {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  blockquote,
-  p,
-  ul,
-  pre,
-  ol {
-    @apply mark-w-sm;
-    @apply md:mark-w-md;
-  }
+  @apply mark-w-sm;
+  @apply md:mark-w-md;
 
   h1,
   h2,
@@ -31,11 +19,6 @@
         @apply md:opacity-100;
       }
     }
-  }
-
-  table {
-    @apply mark-w-md;
-    @apply lg:mark-w-lg;
   }
 
   a {

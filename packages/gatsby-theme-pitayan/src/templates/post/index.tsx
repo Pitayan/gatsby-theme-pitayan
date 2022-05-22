@@ -131,14 +131,14 @@ const Post: React.FC<PostProps> = ({
         <h1 className="text-center">{title}</h1>
         <PostMeta className="block mb-4 text-center" date={date} timeToRead={timeToRead} />
 
-        <div className="flex flex-wrap items-center justify-between">
+        <div className="block sm:flex flex-wrap items-center justify-center sm:justify-between">
           <PostAuthors data={coAuthors} />
           <SocialSharing
             url={url}
             title={title}
             hashtags={categories.join(",")}
             description={description}
-            className="space-x-6 text-xl py-4"
+            className="space-x-6 text-xl py-4 justify-center"
             twitter
             facebook
             linkedin
@@ -158,15 +158,15 @@ const Post: React.FC<PostProps> = ({
         </MDXProvider>
       </article>
 
-      <div className="my-8 mark-w-sm md:mark-w-md">
-        <div className="flex flex-wrap justify-between">
-          <CategoryTags className="my-4" categories={categories} />
+      <div className="my-8 max-w-lg md:max-w-2xl mx-auto">
+        <div className="block sm:flex flex-wrap items-center justify-center sm:justify-between">
+          <CategoryTags className="my-8 justify-center" categories={categories} />
           <SocialSharing
             url={url}
             title={title}
             hashtags={categories.join(",")}
             description={description}
-            className="space-x-6 text-xl my-4"
+            className="space-x-6 text-xl my-8 justify-center"
             twitter
             facebook
             linkedin
@@ -175,20 +175,20 @@ const Post: React.FC<PostProps> = ({
           />
         </div>
 
-        <div className="flex justify-between flex-wrap text-base mt-12 mb-24">
-          <div className="p-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded my-4">
-            <Link to={previous.slug} className="site-link w-64 my-2 block">
-              <div className="flex justify-center items-center space-x-2">
-                <RiArrowLeftLine className="block text-2xl" />
+        <div className="flex justify-around flex-wrap text-base mt-12 mb-24">
+          <div className="p-4 my-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded mr-auto w-full md:w-[49%]">
+            <Link to={previous.slug} className="site-link my-2 block">
+              <div className="flex items-start space-x-2">
+                <RiArrowLeftLine className="block h-6 w-6" />
                 <span>{previous.title}</span>
               </div>
             </Link>
           </div>
-          <div className="text-right ml-auto p-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded my-4">
-            <Link to={next.slug} className="site-link w-64 my-2 block">
-              <div className="flex justify-center items-center space-x-2">
+          <div className="p-4 my-4 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded ml-auto w-full md:w-[49%]">
+            <Link to={next.slug} className="site-link my-2 block text-right">
+              <div className="flex items-start space-x-2 justify-end">
                 <span>{next.title}</span>
-                <RiArrowRightLine className="block text-2xl" />
+                <RiArrowRightLine className="block h-6 w-6" />
               </div>
             </Link>
           </div>
@@ -211,7 +211,7 @@ const Post: React.FC<PostProps> = ({
         })}
       </div>
 
-      <div className="my-24 mark-w-sm md:max-w-full">
+      <div className="my-24 max-w-lg sm:max-w-full mx-auto">
         <h5 className="mb-12 text-center">Related Posts</h5>
         <PostsGroup
           posts={relatedPosts}
