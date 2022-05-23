@@ -68,8 +68,6 @@
 }
 
 .subscription {
-  @apply rounded;
-
   &-container {
     @apply max-w-2xl;
     @apply mx-auto;
