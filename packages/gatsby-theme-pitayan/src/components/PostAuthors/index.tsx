@@ -54,7 +54,7 @@ const CoAuthorsList: React.FC<AuthorProps> = ({ data }) => {
       {data.map(({ id, yamlId, initial, avatar: { normal: image }, name }) => {
         return (
           <li key={id} className="m-0 p-3">
-            <Link className="flex space-x-4" to={`/authors/@${yamlId}`}>
+            <Link className="flex space-x-4 justify-center" to={`/authors/@${yamlId}`}>
               <Avatar className="h-8 w-8" initial={initial} image={image} />
               <span className="self-center site-link">{name}</span>
             </Link>
