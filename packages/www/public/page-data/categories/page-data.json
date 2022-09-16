@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---gatsby-theme-pitayan-src-pages-categories-index-tsx",
+    "path": "/categories/",
+    "result": {"data":{"allMdx":{"group":[{"fieldValue":"component","totalCount":1},{"fieldValue":"design","totalCount":1},{"fieldValue":"example","totalCount":1},{"fieldValue":"post","totalCount":8},{"fieldValue":"sample","totalCount":6},{"fieldValue":"styleguide","totalCount":1}],"totalCount":13}},"pageContext":{}},
+    "staticQueryHashes": ["176088207"]}
