@@ -7,7 +7,7 @@ module.exports = {
     name: `Pitayan`,
     description:
       "Pitayan blog is a place publishing contents about web development! All articles are free to read and share.",
-    siteUrl: `https://pitayan.com`,
+    siteUrl: `https://pitayan.github.io`,
     siteSlogan: `Welcome to Pitayan, come find inspiring software development stories.`,
     siteLinks: [
       {
