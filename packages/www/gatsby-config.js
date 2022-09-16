@@ -1,6 +1,7 @@
 const path = require("path")
 
 module.exports = {
+  pathPrefix: `/gatsby-theme-pitayan`,
   siteMetadata: {
     title: `Pitayan Blog`,
     name: `Pitayan`,

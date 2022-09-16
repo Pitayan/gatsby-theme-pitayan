@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---gatsby-theme-pitayan-src-templates-category-posts-index-tsx",
-    "path": "/categories/post/7",
-    "result": {"data":{"allMdx":{"totalCount":8,"pageInfo":{"currentPage":7,"hasNextPage":false,"hasPreviousPage":true,"pageCount":2},"nodes":[]}},"pageContext":{"category":"post","limit":6,"skip":36,"currentPage":7}},
-    "staticQueryHashes": ["176088207"]}
