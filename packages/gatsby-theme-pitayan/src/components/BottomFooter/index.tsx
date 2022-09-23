@@ -11,17 +11,17 @@ const BottomFooter: React.FC<BottomFooterProps> = ({
   className = "",
 }) => {
   const year = new Date().getFullYear()
-  const { siteLinks } = useSiteMetadata()
+  const { siteLinks, name, siteDescription } = useSiteMetadata()
 
   return (
     <footer className={className}>
       <div className="flex flex-wrap justify-between">
         <div className="flex flex-col justify-between w-96">
           <h1 className="font-black">
-            Pitayan
+            {name}
             <br />
             <small className="text-sm text-gray-500 dark:text-gray-400">
-              Inspiring software development stories
+              {siteDescription}
             </small>
           </h1>
         </div>
@@ -53,7 +53,7 @@ const BottomFooter: React.FC<BottomFooterProps> = ({
         </div>
       </div>
       <div className="text-sm text-gray-500 font-bold dark:text-gray-400 mt-8 mb-16">
-        &copy; {year} Pitayan. All rights reserved.
+        &copy; {year} {name}. All rights reserved.
       </div>
     </footer>
   )
