@@ -12,7 +12,11 @@ module.exports = async function createPages(
   return graphql(`
     query {
       site: allMdx(
-        filter: { fileAbsolutePath: { regex: "/content/site/" } }
+        filter: {
+          internal: {
+            contentFilePath: { regex: "/content/site/" }
+          }
+        }
         limit: 2000
       ) {
         nodes {
@@ -22,7 +26,11 @@ module.exports = async function createPages(
         }
       }
       posts: allMdx(
-        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+        filter: {
+          internal: {
+            contentFilePath: { regex: "/content/posts/" }
+          }
+        }
         sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
         limit: 2000
       ) {

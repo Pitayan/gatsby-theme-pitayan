@@ -14,8 +14,10 @@ module.exports = function createResolvers({ createResolvers }) {
                 order: ["DESC"],
               },
               filter: {
-                fileAbsolutePath: {
-                  regex: "/content/posts/",
+                internal: {
+                  contentFilePath: {
+                    regex: "/content/posts/",
+                  },
                 },
                 id: {
                   ne: source.id,
@@ -42,8 +44,10 @@ module.exports = function createResolvers({ createResolvers }) {
                 order: ["DESC"],
               },
               filter: {
-                fileAbsolutePath: {
-                  regex: "/content/posts/",
+                internal: {
+                  contentFilePath: {
+                    regex: "/content/posts/",
+                  },
                 },
                 id: {
                   ne: source.id,

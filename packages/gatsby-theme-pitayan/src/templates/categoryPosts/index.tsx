@@ -59,7 +59,9 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         frontmatter: { categories: { in: [$category] } }
-        fileAbsolutePath: { regex: "/content/posts/" }
+        internal: {
+          contentFilePath: { regex: "/content/posts/" }
+        }
       }
       limit: $limit
       skip: $skip
