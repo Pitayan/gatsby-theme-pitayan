@@ -123,7 +123,11 @@ module.exports = {
             query: `
               {
                 allMdx(
-                  filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+                  filter: {
+                    internal: {
+                      contentFilePath: { regex: "/content/posts/" }
+                    }
+                  }
                   sort: { order: DESC, fields: [frontmatter___date] }
                 ) {
                   nodes {
