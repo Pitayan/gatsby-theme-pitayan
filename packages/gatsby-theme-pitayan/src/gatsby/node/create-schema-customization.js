@@ -8,5 +8,16 @@ module.exports = function createSchemaCustomization({ actions }) {
     }
   `
 
-  createTypes([AuthorTypeDefs])
+  // Create timeToRead
+  // To keep timeToRead field
+  const TimeToRead = `
+    type Mdx implements Node {
+      timeToRead: Float @proxy(from: "fields.timeToRead.minutes")
+    }
+  `
+
+  createTypes([
+    AuthorTypeDefs,
+    TimeToRead,
+  ])
 }

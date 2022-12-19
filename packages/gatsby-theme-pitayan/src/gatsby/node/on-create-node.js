@@ -1,4 +1,5 @@
 const path = require("path")
+const readingTime = require("reading-time")
 
 module.exports = function onCreateNode({ node, actions, getNode }) {
   const { createNodeField } = actions
@@ -7,23 +8,29 @@ module.exports = function onCreateNode({ node, actions, getNode }) {
   if (node.internal.type == "Mdx" && fileNode.internal.type == "File") {
     const parsedFilePath = path.parse(fileNode.relativePath)
 
-    let value
+    let slug
     if (node.frontmatter && node.frontmatter.slug) {
-      value = `/${node.frontmatter.slug}`
+      slug = `/${node.frontmatter.slug}`
     } else {
       if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
-        value = `/${parsedFilePath.dir}/${parsedFilePath.name}`
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}`
       } else if (parsedFilePath.dir === "") {
-        value = `/${parsedFilePath.name}`
+        slug = `/${parsedFilePath.name}`
       } else {
-        value = `/${parsedFilePath.dir}`
+        slug = `/${parsedFilePath.dir}`
       }
     }
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
+    })
+
+    createNodeField({
+      name: `timeToRead`,
+      node,
+      value: readingTime(node.body),
     })
   }
 }
