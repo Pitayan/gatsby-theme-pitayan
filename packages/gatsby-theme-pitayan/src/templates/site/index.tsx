@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
 import BackToTop from "@pitayan/gatsby-theme-pitayan/src/components/BackToTop"
@@ -28,8 +27,8 @@ type SiteProps = {
   }
 }
 
-const Site: React.FC<SiteProps> = ({ data }: any) => {
-  const {
+const Site: React.FC<SiteProps> = ({
+  data: {
     mdx: {
       body,
       frontmatter: {
@@ -42,7 +41,9 @@ const Site: React.FC<SiteProps> = ({ data }: any) => {
       },
       fields: { slug },
     },
-  } = data
+  },
+  children,
+}: any) => {
   const { siteUrl } = useSiteMetadata()
 
   return (
@@ -68,7 +69,7 @@ const Site: React.FC<SiteProps> = ({ data }: any) => {
 
       <article className="markdown">
         <MDXProvider components={{}}>
-          <MDXRenderer>{body}</MDXRenderer>
+          {children}
         </MDXProvider>
       </article>
     </DefaultLayout>

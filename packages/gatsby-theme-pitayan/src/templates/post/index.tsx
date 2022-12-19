@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 import { useLocation } from "@reach/router"
@@ -82,7 +81,8 @@ const Post: React.FC<PostProps> = ({
   pageContext: {
     previous,
     next
-  }
+  },
+  children,
 }) => {
   const [postTarget, setPostTarget] = useState<HTMLElement | null>()
   const postImage = getImage(hero?.medium)
@@ -154,7 +154,7 @@ const Post: React.FC<PostProps> = ({
 
       <article className="markdown" ref={ref => setPostTarget(ref)}>
         <MDXProvider components={{}}>
-          <MDXRenderer>{body}</MDXRenderer>
+          {children}
         </MDXProvider>
       </article>
 

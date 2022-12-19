@@ -56,7 +56,11 @@ export default CategoryPosts
 export const pageQuery = graphql`
   query ($limit: Int!, $skip: Int!, $category: String!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {
+        frontmatter: {
+          date: DESC
+        }
+      }
       filter: {
         frontmatter: { categories: { in: [$category] } }
         internal: {

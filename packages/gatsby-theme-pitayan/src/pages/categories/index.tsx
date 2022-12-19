@@ -44,7 +44,11 @@ export default memo(CategoriesPage)
 export const pageQuery = graphql`
   query {
     allMdx(limit: 2000) {
-      group(field: frontmatter___categories) {
+      group(field: {
+        frontmatter: {
+          categories: SELECT
+        }
+      }) {
         fieldValue
         totalCount
       }

@@ -54,7 +54,18 @@ export const pageQuery = graphql`
           contentFilePath: { regex: "/content/posts/" }
         }
       }
-      sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
+      sort: [
+        {
+          frontmatter: {
+            date: DESC
+          }
+        },
+        {
+          frontmatter: {
+            title: DESC
+          }
+        }
+      ]
       limit: 12
     ) {
       nodes {

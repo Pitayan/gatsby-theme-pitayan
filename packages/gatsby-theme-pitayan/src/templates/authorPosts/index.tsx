@@ -64,7 +64,11 @@ export default AuthorPosts
 export const pageQuery = graphql`
   query ($limit: Int!, $skip: Int!, $authorId: String!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {
+        frontmatter: {
+          date: DESC
+        }
+      }
       filter: {
         frontmatter: { author: { elemMatch: { yamlId: { in: [$authorId] } } } }
         internal: {
