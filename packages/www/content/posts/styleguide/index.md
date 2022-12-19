@@ -275,7 +275,8 @@ This is an inline code `js•Array.prototype.concat.apply([], array)`
   <div class="sm:w-1/3 w-1/2">
     <ul>
       <li>List Item 1</li>
-      <li>List Item 2
+      <li>
+      List Item 2
         <ul>
           <li>List Sub-Item 1</li>
           <li>List Sub-Item 2</li>
@@ -289,7 +290,8 @@ This is an inline code `js•Array.prototype.concat.apply([], array)`
   <div class="sm:w-1/3 w-1/2">
     <ol>
       <li>List Item 1</li>
-      <li>List Item 2
+      <li>
+      List Item 2
         <ol>
           <li>List Sub-Item 1</li>
           <ol>
