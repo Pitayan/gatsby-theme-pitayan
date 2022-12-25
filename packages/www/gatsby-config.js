@@ -108,7 +108,7 @@ module.exports = {
                   guid: siteUrl + node.fields.slug,
                   custom_elements: [
                     {
-                      "content:encoded": node.html,
+                      "content:encoded": `<![CDATA[<p>${node.excerpt}<p>]]>`,
                     },
                     {
                       tags: node.frontmatter.categories.join(","),
@@ -128,11 +128,14 @@ module.exports = {
                       contentFilePath: { regex: "/content/posts/" }
                     }
                   }
-                  sort: { order: DESC, fields: [frontmatter___date] }
+                  sort: {
+                    frontmatter: {
+                      date: DESC
+                    }
+                  }
                 ) {
                   nodes {
-                    html
-                    mdxAST
+                    excerpt
                     fields {
                       slug
                     }
