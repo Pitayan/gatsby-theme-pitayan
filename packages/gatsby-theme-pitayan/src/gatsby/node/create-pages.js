@@ -12,18 +12,40 @@ module.exports = async function createPages(
   return graphql(`
     query {
       site: allMdx(
-        filter: { fileAbsolutePath: { regex: "/content/site/" } }
+        filter: {
+          internal: {
+            contentFilePath: { regex: "/content/site/" }
+          }
+        }
         limit: 2000
       ) {
         nodes {
           fields {
             slug
           }
+          internal {
+            contentFilePath
+          }
         }
       }
       posts: allMdx(
-        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
-        sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
+        filter: {
+          internal: {
+            contentFilePath: { regex: "/content/posts/" }
+          }
+        }
+        sort: [
+          {
+            frontmatter: {
+              date: DESC
+            }
+          },
+          {
+            frontmatter: {
+              title: DESC
+            }
+          }
+        ]
         limit: 2000
       ) {
         nodes {
@@ -33,16 +55,29 @@ module.exports = async function createPages(
           fields {
             slug
           }
+          internal {
+            contentFilePath
+          }
         }
       }
       authors: allMdx(limit: 2000) {
-        group(field: frontmatter___author___yamlId) {
+        group(field: {
+          frontmatter: {
+            author: {
+              yamlId: SELECT
+            }
+          }
+        }) {
           fieldValue
           totalCount
         }
       }
       categories: allMdx(limit: 2000) {
-        group(field: frontmatter___categories) {
+        group(field: {
+          frontmatter: {
+            categories: SELECT
+          }
+        }) {
           fieldValue
           totalCount
         }
@@ -56,9 +91,10 @@ module.exports = async function createPages(
 
     // Create site page
     result.data.site.nodes.forEach(node => {
+      const component = path.resolve(projectRoot, `./src/templates/site/index.tsx`)
       createPage({
         path: node.fields.slug,
-        component: path.resolve(projectRoot, `./src/templates/site/index.tsx`),
+        component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {
           // We can use the values in this context in our page layout component.
           slug: node.fields.slug,
@@ -71,9 +107,11 @@ module.exports = async function createPages(
     let previousPost = result.data.posts.nodes[result.data.posts.nodes.length - 1]
     let nextPost = result.data.posts.nodes[1]
     result.data.posts.nodes.forEach((node, key) => {
+      const component = path.resolve(projectRoot, `./src/templates/post/index.tsx`)
+
       createPage({
         path: node.fields.slug,
-        component: path.resolve(projectRoot, `./src/templates/post/index.tsx`),
+        component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {
           slug: node.fields.slug,
           previous: {

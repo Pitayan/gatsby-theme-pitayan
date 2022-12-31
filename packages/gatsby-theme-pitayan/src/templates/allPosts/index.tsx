@@ -51,8 +51,16 @@ export default PostsPage
 export const PageQuery = graphql`
   query PostsPageQuery($skip: Int!, $limit: Int!) {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        internal: {
+          contentFilePath: { regex: "/content/posts/" }
+        }
+      }
+      sort: {
+        frontmatter: {
+          date: DESC
+        }
+      }
       limit: $limit
       skip: $skip
     ) {
