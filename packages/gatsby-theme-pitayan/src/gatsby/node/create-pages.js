@@ -95,10 +95,6 @@ module.exports = async function createPages(
       createPage({
         path: node.fields.slug,
         component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
-        context: {
-          // We can use the values in this context in our page layout component.
-          slug: node.fields.slug,
-        },
       })
     })
 
@@ -113,7 +109,6 @@ module.exports = async function createPages(
         path: node.fields.slug,
         component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {
-          slug: node.fields.slug,
           previous: {
             title: previousPost.frontmatter.title,
             slug: previousPost.fields.slug,
