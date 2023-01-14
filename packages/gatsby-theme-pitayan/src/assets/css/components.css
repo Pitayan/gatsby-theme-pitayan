@@ -20,13 +20,21 @@
   @apply font-semibold;
   @apply opacity-60;
   @apply hover:opacity-100;
+  @apply active:opacity-100;
   @apply transition-all;
   @apply duration-150;
   @apply ease-in-out;
 
+  &.active {
+    @apply opacity-100;
+    @apply dark:text-white;
+  }
+
   /* Dark Mode */
   @apply dark:hover:opacity-100;
+  @apply dark:active:opacity-100;
   @apply dark:hover:text-white;
+  @apply dark:active:text-white;
 }
 
 .avatar {
