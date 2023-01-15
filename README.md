@@ -137,6 +137,7 @@ Use the plugin options to tune up your blog.
 | ------------------------ | :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
 | siteAssets               | src/assets                       | The static assets for the site. e.g. Logo / Cover image                                                                     |
 | postsPerPage             | 10                               | How many posts to be displayed in each list page                                                                            |
+| tableOfContentsLevels    | 2                                | The maximum levels of table-of-contents to display                                                                          |
 | mailChimpEndpoint        | "null"                           | The embeded form endpoint for your MailChimp account                                                                        |
 | mailChimpTimeout         | 3500                             | The AP request timeout for the MailChimp subscription                                                                       |
 | applyGatsbyRemarkPlugins | () => defaultGatsbyRemarkPlugins | Return your gatsby-plugin-remark plugins via this function. The argument of this function is the built-in plugins settings. |
@@ -152,6 +153,7 @@ Example
       options: {
         siteAssets: "src/assets",
         postsPerPage: 10,
+        tableOfContentsLevels: 3,
         mailChimpEndpoint: "***",
         mailChimpTimeout: 3500,
         applyGatsbyRemarkPlugins(defaultGatsbyRemarkPlugins) => {
@@ -409,11 +411,11 @@ This example site has integrated the following plugins:
 
 This theme introduces some custom events to allow 3rd party scripts (or your own scripts) to follow up the on-page behaviors.
 
-| Item                        | Custom Event Detail Property                        | Description                                               |
-| --------------------------- | :-------------------------------------------------- | :-------------------------------------------------------- |
-| CUSTOM_EVENT_SUBSCRIPTION   | { email: string }                                   | Occurs when a user successfully subscribed to newsletters |
-| CUSTOM_EVENT_TOGGLE_THEME   | { theme: 'dark' | 'light' }                         | Occurs when a user changes the theme dark <-> light       |
-| CUSTOM_EVENT_SOCIAL_SHARING | { sns: 'Twitter' | 'Facebook' | 'Pocket' | 'copy' } | Occurs when a user shares to SNS / copes the post URL     |
+| Item                        | Custom Event Detail Property                           | Description                                               |
+| --------------------------- | :----------------------------------------------------- | :-------------------------------------------------------- |
+| CUSTOM_EVENT_SUBSCRIPTION   | { email: string }                                      | Occurs when a user successfully subscribed to newsletters |
+| CUSTOM_EVENT_TOGGLE_THEME   | { theme: 'dark' \| light' }                            | Occurs when a user changes the theme dark <-> light       |
+| CUSTOM_EVENT_SOCIAL_SHARING | { sns: 'Twitter' \| 'Facebook' \| 'Pocket' \| 'copy' } | Occurs when a user shares to SNS / copes the post URL     |
 
 
 ## Browser Support

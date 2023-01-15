@@ -164,10 +164,10 @@ module.exports = {
       options: {
         siteAssets: "src/assets",
         postsPerPage: 6,
+        tableOfContentsLevels: 3,
         mailChimpEndpoint:
           "https://pitayanblog.us14.list-manage.com/subscribe/post?u=234bf6777b76872feb7d92a68&amp;id=27fad95f3b",
         mailChimpTimeout: 3500,
-        tableOfContentsLevels: 3,
         applyGatsbyRemarkPlugins: defaultPlugins => [
           {
             resolve: `@raae/gatsby-remark-oembed`,
