@@ -10,7 +10,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@pitayan/gatsby-theme-pitayan": "^0.4.3",
+    "@pitayan/gatsby-theme-pitayan": "^0.5.0",
     "@raae/gatsby-remark-oembed": "^0.3.2",
     "gatsby": "^5.3.2",
     "gatsby-plugin-feed": "^5.3.1",
