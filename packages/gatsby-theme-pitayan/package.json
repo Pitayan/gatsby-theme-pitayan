@@ -80,5 +80,5 @@
     "serve": "gatsby serve",
     "start": "npm run develop"
   },
-  "version": "0.4.3"
+  "version": "0.5.0"
 }
