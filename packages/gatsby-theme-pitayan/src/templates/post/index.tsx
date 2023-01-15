@@ -95,8 +95,6 @@ const Post: React.FC<PostProps> = ({
   const { siteUrl } = useSiteMetadata()
   const { href: url } = useLocation()
 
-  console.log('levels', tableOfContentsLevels)
-
   const authors = coAuthors.map(({ id, yamlId, name, bio, sns }) => {
     const socialUrls = sns
       .filter((s: string[]) => s[0] != "mailto" && s[0] != "url")
