@@ -7,6 +7,11 @@ module.exports = function pluginOptionsSchema({ Joi }) {
       .integer()
       .greater(0)
       .description("How many posts to be displayed in each list page"),
+    tableOfContentsLevels: Joi.number()
+      .integer()
+      .min(1)
+      .max(6)
+      .description("The maximum levels of table-of-contents to display"),
     mailChimpEndpoint: Joi.string()
       .uri()
       .description("The embeded form endpoint of your MailChimp account"),

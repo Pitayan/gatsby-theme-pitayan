@@ -13,7 +13,7 @@ const PostMeta: React.FC<PostMetaProps> = ({
 }) => {
   return (
     <span className={`text-gray-500 ${className}`}>
-      {date} • {timeToRead} min read
+      {date} • {Math.round(timeToRead)} min read
     </span>
   )
 }

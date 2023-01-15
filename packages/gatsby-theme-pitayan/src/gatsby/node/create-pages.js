@@ -4,7 +4,7 @@ const projectRoot = path.resolve(__dirname, "../../../")
 
 module.exports = async function createPages(
   { graphql, actions },
-  { postsPerPage = 10 }
+  { postsPerPage = 10, tableOfContentsLevels = 2 }
 ) {
   const { createPage } = actions
 
@@ -98,6 +98,7 @@ module.exports = async function createPages(
         context: {
           // We can use the values in this context in our page layout component.
           slug: node.fields.slug,
+          tableOfContentsLevels,
         },
       })
     })
@@ -114,6 +115,7 @@ module.exports = async function createPages(
         component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {
           slug: node.fields.slug,
+          tableOfContentsLevels,
           previous: {
             title: previousPost.frontmatter.title,
             slug: previousPost.fields.slug,

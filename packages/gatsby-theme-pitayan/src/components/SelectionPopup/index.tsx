@@ -1,4 +1,4 @@
-import React, { memo, useLayoutEffect, useRef, useState } from "react"
+import React, { memo, useLayoutEffect, useRef, useState, forwardRef } from "react"
 import { useTextSelection } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import { CUSTOM_EVENT_SOCIAL_SHARING } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import {
@@ -10,14 +10,12 @@ import { FiCopy } from "react-icons/fi"
 import { SiTwitter } from "react-icons/si"
 
 type PopupContentProps = {
-  target: HTMLElement
 }
 
 type SelectionPopupProps = {
-  target: HTMLElement
 }
 
-const PopupContent: React.FC<PopupContentProps> = ({ target }) => {
+const PopupContent: React.FC<PopupContentProps> = forwardRef((_, containerRef) => {
   const ref = useRef(null)
   const [offsetWidth, setOffsetWidth] = useState<number>(0)
   const [offsetHeight, setOffsetHeight] = useState<number>(0)
@@ -35,7 +33,7 @@ const PopupContent: React.FC<PopupContentProps> = ({ target }) => {
   }, [ref])
 
   const { left, top, textContent } = useTextSelection(
-    target,
+    containerRef.current || document.body,
     // half size of the full popup
     offsetWidth / 2,
     // default height + :after (the triangle bottom) + :after_padding
@@ -72,14 +70,14 @@ const PopupContent: React.FC<PopupContentProps> = ({ target }) => {
       </button>
     </div>
   )
-}
+})
 
-const SelectionPopup: React.FC<SelectionPopupProps> = ({ target }) => {
+const SelectionPopup: React.FC<SelectionPopupProps> = (_, containerRef) => {
   return (
     <Portal>
-      <PopupContent target={target} />
+      <PopupContent ref={containerRef} />
     </Portal>
   )
 }
 
-export default memo(SelectionPopup)
+export default memo(forwardRef(SelectionPopup))
