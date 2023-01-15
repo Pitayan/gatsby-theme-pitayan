@@ -67,11 +67,11 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 Install the dependencies via Yarn or NPM.
 
 ```sh
-$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
+$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@18 react-dom@18
 
 # or
 
-$ yarn add gatsby @pitayan/gatsby-theme-pitayan react@17 react-dom@17
+$ yarn add gatsby @pitayan/gatsby-theme-pitayan react@18 react-dom@18
 ```
 
 # Usage
