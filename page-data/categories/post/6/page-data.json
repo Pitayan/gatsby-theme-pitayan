@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---gatsby-theme-pitayan-src-templates-category-posts-index-tsx",
-    "path": "/categories/post/6",
-    "result": {"data":{"allMdx":{"totalCount":8,"pageInfo":{"currentPage":6,"hasNextPage":false,"hasPreviousPage":true,"pageCount":2},"nodes":[]}},"pageContext":{"category":"post","limit":6,"skip":30,"currentPage":6}},
-    "staticQueryHashes": ["176088207"]}
+{"componentChunkName":"component---gatsby-theme-pitayan-src-templates-category-posts-index-tsx","path":"/categories/post/6/","result":{"data":{"allMdx":{"totalCount":8,"pageInfo":{"currentPage":6,"hasNextPage":false,"hasPreviousPage":true,"pageCount":2},"nodes":[]}},"pageContext":{"category":"post","limit":6,"skip":30,"currentPage":6}},"staticQueryHashes":["176088207"],"slicesMap":{}}
