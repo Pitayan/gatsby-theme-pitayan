@@ -26,7 +26,7 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 
 ## Builtin Features
 
-- Gatsby V4 ready
+- Gatsby V5 ready
 - SEO ready (site structured data & meta tags)
 - Dark / light mode switch enabled via [Tailwindcss](https://tailwindcss.com)
 - Source code highlight
