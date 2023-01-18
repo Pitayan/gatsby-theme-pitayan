@@ -64,15 +64,26 @@ A theme plugin of Gatsby for those who enjoys building their blog site with mini
 
 # Installation
 
-Install the dependencies via Yarn or NPM.
+The preferred method to setup Gatsby and theme-pitayan is like this:
 
-```sh
-$ npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@18 react-dom@18
-
-# or
-
-$ yarn add gatsby @pitayan/gatsby-theme-pitayan react@18 react-dom@18
+1. Copy `./packages/www` folder to `./packages/yoursitename`.
+``` 
+cp -R packages/www packages/yousitename 
 ```
+2. Navigate to `./packages/yoursitename`
+``` 
+cd packages/yousitename 
+```
+3. Install the dependencies via Yarn or NPM.
+```
+npm install --save-dev gatsby @pitayan/gatsby-theme-pitayan react@18 react-dom@18
+```
+4. Run you site locally - http://localhost:8000
+```
+npm -w packages/yoursitename run develop
+```
+
+To customize plugins, css etc. keep all the configuration inside your area `./packages/yoursitename`, this will make it easier to update this theme later.
 
 # Usage
 
