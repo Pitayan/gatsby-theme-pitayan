@@ -179,7 +179,7 @@ const Post: React.FC<PostProps> = ({
           </MDXProvider>
         </article>
         <TableOfContents
-          className="hidden lg:block lg:col-span-2 mt-12 top-[2rem] sticky self-start text-xs font-semibold mx-auto mb-6 overflow-y-auto max-h-full"
+          className="hidden lg:block lg:col-span-2 mt-12 top-[2rem] sticky self-start text-xs font-semibold ml-12 mr-auto mb-6 overflow-y-auto max-h-full"
           items={tableOfContents.items}
           ref={articleRef}
           levels={tableOfContentsLevels}
