@@ -30,8 +30,10 @@ const TableOfContents: React.FC<any> = ({
   className = "",
   title = "Table of Contents",
   levels = 2,
-  items,
+  items = [],
 }, articleRef) => {
+  if (!items.length) return <></>
+
   const lvlRef = useRef(0)
   const listRef = useRef(null)
   const nodesMap = new Map<HTMLElement, {
