@@ -3,11 +3,9 @@ import React, { memo, useRef, useLayoutEffect, forwardRef } from "react"
 const Content: React.FC<any> = forwardRef(({
   items,
   levels,
-  lvlRef,
+  currentLevel = 1,
 }, ref) => {
-  if (lvlRef.current < levels) {
-    lvlRef.current++
-  } else {
+  if (currentLevel >= levels) {
     return <></>
   }
 
@@ -17,7 +15,7 @@ const Content: React.FC<any> = forwardRef(({
         return (
           <li className="mt-2" key={index}>
             <a className="site-link" href={data.url}>{data.title}</a>
-            {data.items && <Content items={data.items} levels={levels} lvlRef={lvlRef} />}
+            {data.items && <Content items={data.items} levels={levels} currentLevel={currentLevel + 1} />}
           </li>
         )
       })}
@@ -34,7 +32,6 @@ const TableOfContents: React.FC<any> = ({
 }, articleRef) => {
   if (!items.length) return <></>
 
-  const lvlRef = useRef(0)
   const listRef = useRef(null)
   const nodesMap = new Map<HTMLElement, {
     prev: HTMLElement,
@@ -95,7 +92,7 @@ const TableOfContents: React.FC<any> = ({
   return (
     <div className={`table-of-contents ${className}`}>
       <h5>{title}</h5>
-      <Content ref={listRef} items={items} levels={levels} lvlRef={lvlRef} />
+      <Content ref={listRef} items={items} levels={levels} />
     </div>
   )
 }
