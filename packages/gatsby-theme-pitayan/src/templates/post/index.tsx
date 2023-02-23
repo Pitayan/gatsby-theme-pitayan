@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+import { Disqus } from "gatsby-plugin-disqus"
 import { useLocation } from "@reach/router"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
@@ -236,6 +237,17 @@ const Post: React.FC<PostProps> = ({
           )
         })}
       </div>
+
+      <Disqus
+        config={{
+          /* Replace PAGE_URL with your post's canonical URL variable */
+          url: `${siteUrl}${slug}`,
+          /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+          identifier: slug,
+          /* Replace PAGE_TITLE with the title of the page */
+          title: title,
+        }}
+      />
 
       <div className="my-24 max-w-lg sm:max-w-full mx-auto">
         <h5 className="mb-12 text-center">Related Posts</h5>
