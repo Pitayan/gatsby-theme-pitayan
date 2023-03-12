@@ -186,6 +186,16 @@ const Post: React.FC<PostProps> = ({
       </div>
 
       <div className="my-8 max-w-lg md:max-w-2xl mx-auto">
+        <Disqus
+          config={{
+            url: `${siteUrl}${slug}`,
+            identifier: slug,
+            title: title,
+          }}
+        />
+      </div>
+
+      <div className="my-8 max-w-lg md:max-w-2xl mx-auto">
         <div className="block sm:flex flex-wrap items-center justify-center sm:justify-between">
           <CategoryTags className="my-8 justify-center" categories={categories} />
           <SocialSharing
@@ -237,17 +247,6 @@ const Post: React.FC<PostProps> = ({
           )
         })}
       </div>
-
-      <Disqus
-        config={{
-          /* Replace PAGE_URL with your post's canonical URL variable */
-          url: `${siteUrl}${slug}`,
-          /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-          identifier: slug,
-          /* Replace PAGE_TITLE with the title of the page */
-          title: title,
-        }}
-      />
 
       <div className="my-24 max-w-lg sm:max-w-full mx-auto">
         <h5 className="mb-12 text-center">Related Posts</h5>
