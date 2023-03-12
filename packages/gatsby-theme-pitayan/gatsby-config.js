@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const path = require("path")
 const fs = require("fs")
 
@@ -107,6 +111,15 @@ module.exports = ({
         options: {
           name: `siteAssets`,
           path: siteAssets,
+        },
+      })
+    }
+
+    if (process.env.DISQUS_SHORTNAME) {
+      defaultPlugins.push({
+        resolve: `gatsby-plugin-disqus`,
+        options: {
+          shortname: process.env.DISQUS_SHORTNAME,
         },
       })
     }

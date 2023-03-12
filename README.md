@@ -422,6 +422,14 @@ This theme introduces some custom events to allow 3rd party scripts (or your own
 
 Making sure all functions across different browsers is a hard-work. For now, it only supports the latest version of the major browsers. Do consider open an issue or provide a PR relating to browser compatibility.
 
+## DISQUS
+
+adding disqus to your website is easy through this plugin. here are the steps:
+
+- if you haven't already, create an `.env.<your-environment>` file for the environments you need. for example, on local development environment, create a file called `.env.development`
+- add a variable `DISQUS_SHORTNAME=<your disqus shortname>` to the .env file
+- start your gatsby website.
+
 # Contribute
 
 This project is a [Monorepo](https://en.wikipedia.org/wiki/Monorepo). Which uses `npm` as package manager. As long as the Node supports npm workspaces then it should fit the contributing prerequisites.

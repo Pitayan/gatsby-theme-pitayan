@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+import { Disqus } from "gatsby-plugin-disqus"
 import { useLocation } from "@reach/router"
 
 import DefaultLayout from "@pitayan/gatsby-theme-pitayan/src/layouts/Default"
@@ -181,6 +182,16 @@ const Post: React.FC<PostProps> = ({
           items={tableOfContents.items}
           ref={articleRef}
           levels={tableOfContentsLevels}
+        />
+      </div>
+
+      <div className="my-8 max-w-lg md:max-w-2xl mx-auto">
+        <Disqus
+          config={{
+            url: `${siteUrl}${slug}`,
+            identifier: slug,
+            title: title,
+          }}
         />
       </div>
 
